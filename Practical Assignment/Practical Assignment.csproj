@@ -69,7 +69,6 @@
   <ItemGroup>
     <Content Include="AboutUs.aspx" />
     <Content Include="App_Data\ArtGallery.mdf" />
-    <Content Include="App_Data\ArtGallery_log.ldf" />
     <Content Include="Gallery.aspx" />
     <Content Include="HomePage.aspx" />
     <Content Include="MasterPage.css" />
