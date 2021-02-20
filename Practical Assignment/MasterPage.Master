@@ -5,7 +5,7 @@
 <html>
 <head runat="server">
     <title></title>
-    <link href="homepage.css" rel="stylesheet" type="text/css" />
+    <link href="MasterPage.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -16,13 +16,12 @@
             Artzada
         </div>
         <br />
-        <div style="border: 100px; border-color: red">
-            <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" StartingNodeOffset="0" ShowStartingNode="false" />
-            <asp:Menu ID="TopMenuBar" runat="server" Orientation="Horizontal" DataSourceID="SiteMapDataSource1" StaticSubMenuIndent="16px">
+        <div> 
+            <asp:Menu ID="TopMenuBar" runat="server" Orientation="Horizontal" StaticSubMenuIndent="16px">
                 <Items>
-                    <asp:MenuItem Text="About Us" Value="About Us"></asp:MenuItem>
-                    <asp:MenuItem Text="Gallery" Value="Gallery"></asp:MenuItem>
-                    <asp:MenuItem Text="Profile" Value="Profile"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/HomePage.aspx" Text="Home Page" Value="Home Page" />
+                    <asp:MenuItem NavigateUrl="~/AboutUs.aspx" Text="About Us" Value="About Us"/>
+                    <asp:MenuItem NavigateUrl="~/Gallary.aspx" Text="Gallary" Value="Gallary"/>
                 </Items>
             </asp:Menu>
         </div>
