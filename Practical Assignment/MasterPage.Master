@@ -1,0 +1,35 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="Practical_Assignment.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="homepage.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body>
+    <form id="form1" runat="server">
+        <div>
+            Artzada
+        </div>
+        <br />
+        <div style="border: 100px; border-color: red">
+            <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" StartingNodeOffset="0" ShowStartingNode="false" />
+            <asp:Menu ID="TopMenuBar" runat="server" Orientation="Horizontal" DataSourceID="SiteMapDataSource1" StaticSubMenuIndent="16px">
+                <Items>
+                    <asp:MenuItem Text="About Us" Value="About Us"></asp:MenuItem>
+                    <asp:MenuItem Text="Gallery" Value="Gallery"></asp:MenuItem>
+                    <asp:MenuItem Text="Profile" Value="Profile"></asp:MenuItem>
+                </Items>
+            </asp:Menu>
+        </div>
+        <br />
+        <div>
+            <asp:ContentPlaceHolder ID="Display" runat="server"></asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
