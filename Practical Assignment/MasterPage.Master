@@ -25,7 +25,7 @@
                 <Items>
                     <asp:MenuItem NavigateUrl="~/HomePage.aspx" Text="Home Page" Value="Home Page"/>
                     <asp:MenuItem NavigateUrl="~/AboutUs.aspx" Text="About Us" Value="About Us"/>
-                    <asp:MenuItem NavigateUrl="~/Gallary.aspx" Text="Gallary" Value="Gallary"/>
+                    <asp:MenuItem NavigateUrl="~/Gallery.aspx" Text="Gallery" Value="Gallery"/>
                     <asp:MenuItem NavigateUrl="~/Profile.aspx" Text="Profile" Value="Profile"/>
                 </Items>
             </asp:Menu>
@@ -38,7 +38,7 @@
                 <Items>
                     <asp:MenuItem NavigateUrl="~/HomePage.aspx" Text="noob Page" Value="Home Page"/>
                     <asp:MenuItem NavigateUrl="~/AboutUs.aspx" Text="dam" Value="About Us"/>
-                    <asp:MenuItem NavigateUrl="~/Gallary.aspx" Text="shit" Value="Gallary"/>
+                    <asp:MenuItem NavigateUrl="~/Gallery.aspx" Text="shit" Value="Gallery"/>
                     <asp:MenuItem NavigateUrl="~/Profile.aspx" Text="suck" Value="Profile"/>
                 </Items>
             </asp:Menu>
