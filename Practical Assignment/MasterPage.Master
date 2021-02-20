@@ -11,22 +11,39 @@
 </head>
 
 <body>
+
     <form id="form1" runat="server">
         <div>
             Artzada
         </div>
         <br />
-        <div> 
-            <asp:Menu ID="TopMenuBar" runat="server" Orientation="Horizontal" StaticSubMenuIndent="16px">
+       <% int i = 1;
+           if (i == 0)
+           { %>
+        <div style="margin-left:auto; margin-right:auto; width:40%"> 
+            <asp:Menu ID="TopMenuBar" runat="server" Orientation="Horizontal" StaticSubMenuIndent="20px" >
                 <Items>
-                    <asp:MenuItem NavigateUrl="~/HomePage.aspx" Text="Home Page" Value="Home Page"/>
-                    <asp:MenuItem NavigateUrl="~/AboutUs.aspx" Text="About Us" Value="About Us"/>
-                    <asp:MenuItem NavigateUrl="~/Gallary.aspx" Text="Gallary" Value="Gallary"/>
-                    <asp:MenuItem NavigateUrl="~/Profile.aspx" Text="Profile" Value="Profile"/>
+                    <asp:MenuItem NavigateUrl="~/HomePage.aspx" Text="&nbsp &nbsp &nbsp Home Page &nbsp &nbsp &nbsp" Value="Home Page"/>
+                    <asp:MenuItem NavigateUrl="~/AboutUs.aspx" Text="&nbsp &nbsp &nbsp About Us &nbsp &nbsp &nbsp" Value="About Us"/>
+                    <asp:MenuItem NavigateUrl="~/Gallary.aspx" Text="&nbsp &nbsp &nbsp Gallary &nbsp &nbsp &nbsp" Value="Gallary"/>
+                    <asp:MenuItem NavigateUrl="~/Profile.aspx" Text="&nbsp &nbsp &nbsp Profile &nbsp &nbsp &nbsp" Value="Profile"/>
                 </Items>
             </asp:Menu>
-        </div>
-        <br />
+        </div> 
+        <%}
+            else
+            { %>
+        <div style="margin-left:auto; margin-right:auto; width:40%"> 
+            <asp:Menu ID="Menu2" runat="server" Orientation="Horizontal" StaticSubMenuIndent="20px" >
+                <Items>
+                    <asp:MenuItem NavigateUrl="~/HomePage.aspx" Text="&nbsp &nbsp &nbsp noob Page &nbsp &nbsp &nbsp" Value="Home Page"/>
+                    <asp:MenuItem NavigateUrl="~/AboutUs.aspx" Text="&nbsp &nbsp &nbsp dam &nbsp &nbsp &nbsp" Value="About Us"/>
+                    <asp:MenuItem NavigateUrl="~/Gallary.aspx" Text="&nbsp &nbsp &nbsp shit &nbsp &nbsp &nbsp" Value="Gallary"/>
+                    <asp:MenuItem NavigateUrl="~/Profile.aspx" Text="&nbsp &nbsp &nbsp suck &nbsp &nbsp &nbsp" Value="Profile"/>
+                </Items>
+            </asp:Menu>
+        </div> 
+        <%}%>
         <div>
             <asp:ContentPlaceHolder ID="Display" runat="server"></asp:ContentPlaceHolder>
         </div>
