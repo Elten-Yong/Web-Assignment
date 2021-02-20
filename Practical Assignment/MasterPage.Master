@@ -17,10 +17,10 @@
             Artzada
         </div>
         <br />
-       <% int i = 1;
+       <% int i = 0;
            if (i == 0)
            { %>
-        <div style="margin-left:auto; margin-right:auto; width:40%"> 
+        <div style="margin-left:auto; margin-right:auto; width:100%"> 
             <asp:Menu ID="TopMenuBar" runat="server" Orientation="Horizontal" StaticSubMenuIndent="20px" >
                 <Items>
                     <asp:MenuItem NavigateUrl="~/HomePage.aspx" Text="&nbsp &nbsp &nbsp Home Page &nbsp &nbsp &nbsp" Value="Home Page"/>
