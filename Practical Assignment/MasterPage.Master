@@ -21,25 +21,25 @@
            if (i == 0)
            { %>
         <div style="margin-left:auto; margin-right:auto; width:100%"> 
-            <asp:Menu ID="TopMenuBar" runat="server" Orientation="Horizontal" StaticSubMenuIndent="20px" >
+            <asp:Menu CssClass="TopMenuBar" ID="TopMenuBar" runat="server" RenderingMode="Table" Orientation="Horizontal" >
                 <Items>
-                    <asp:MenuItem NavigateUrl="~/HomePage.aspx" Text="&nbsp &nbsp &nbsp Home Page &nbsp &nbsp &nbsp" Value="Home Page"/>
-                    <asp:MenuItem NavigateUrl="~/AboutUs.aspx" Text="&nbsp &nbsp &nbsp About Us &nbsp &nbsp &nbsp" Value="About Us"/>
-                    <asp:MenuItem NavigateUrl="~/Gallary.aspx" Text="&nbsp &nbsp &nbsp Gallary &nbsp &nbsp &nbsp" Value="Gallary"/>
-                    <asp:MenuItem NavigateUrl="~/Profile.aspx" Text="&nbsp &nbsp &nbsp Profile &nbsp &nbsp &nbsp" Value="Profile"/>
+                    <asp:MenuItem NavigateUrl="~/HomePage.aspx" Text="Home Page" Value="Home Page"/>
+                    <asp:MenuItem NavigateUrl="~/AboutUs.aspx" Text="About Us" Value="About Us"/>
+                    <asp:MenuItem NavigateUrl="~/Gallary.aspx" Text="Gallary" Value="Gallary"/>
+                    <asp:MenuItem NavigateUrl="~/Profile.aspx" Text="Profile" Value="Profile"/>
                 </Items>
             </asp:Menu>
         </div> 
         <%}
             else
             { %>
-        <div style="margin-left:auto; margin-right:auto; width:40%"> 
-            <asp:Menu ID="Menu2" runat="server" Orientation="Horizontal" StaticSubMenuIndent="20px" >
+        <div style="margin-left:auto; margin-right:auto; width:100%"> 
+            <asp:Menu CssClass="TopMenuBar" ID="Menu2" runat="server" RenderingMode="Table" Orientation="Horizontal" >
                 <Items>
-                    <asp:MenuItem NavigateUrl="~/HomePage.aspx" Text="&nbsp &nbsp &nbsp noob Page &nbsp &nbsp &nbsp" Value="Home Page"/>
-                    <asp:MenuItem NavigateUrl="~/AboutUs.aspx" Text="&nbsp &nbsp &nbsp dam &nbsp &nbsp &nbsp" Value="About Us"/>
-                    <asp:MenuItem NavigateUrl="~/Gallary.aspx" Text="&nbsp &nbsp &nbsp shit &nbsp &nbsp &nbsp" Value="Gallary"/>
-                    <asp:MenuItem NavigateUrl="~/Profile.aspx" Text="&nbsp &nbsp &nbsp suck &nbsp &nbsp &nbsp" Value="Profile"/>
+                    <asp:MenuItem NavigateUrl="~/HomePage.aspx" Text="noob Page" Value="Home Page"/>
+                    <asp:MenuItem NavigateUrl="~/AboutUs.aspx" Text="dam" Value="About Us"/>
+                    <asp:MenuItem NavigateUrl="~/Gallary.aspx" Text="shit" Value="Gallary"/>
+                    <asp:MenuItem NavigateUrl="~/Profile.aspx" Text="suck" Value="Profile"/>
                 </Items>
             </asp:Menu>
         </div> 

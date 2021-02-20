@@ -1,45 +1,23 @@
-﻿#TopMenuBar {
-    width: 573px;
-    float: right;
-    margin-top: 10px;
+﻿.TopMenuBar {
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
-    #TopMenuBar tr {
-        float: right;
-        list-style: none;
-        margin: 0px;
-    }
-
-    #TopMenuBar td {
+    .TopMenuBar tr {
         float: left;
-        height: 50px;
-        width: auto;
+        list-style: none;
     }
 
-    #TopMenuBar a {
+    .TopMenuBar a {
         display: inline-block;
-        color: rgb(90,90,90);
+        color: rgb(100,149,237);
         text-align: center;
-        padding: 30px 32px;
-        padding-right: 50px;
+        padding: 20px 32px;
         text-decoration: none;
         font-size: 18px
     }
 
-        #TopMenuBar a:link, #TopMenuBar a:visited {
-            display: block;
-            padding: 28px 10px 0px;
-            height: 50px;
-            font-family: Arial;
-            font-style: normal;
-            font-weight: normal;
-            font-size: 18px;
-            text-decoration: none;
-            font-weight: normal;
-            background: none;
-            color: #20C8F4;
-        }
-
-        #TopMenuBar a:hover, #TopMenuBar a:active {
-            background-color: rgb(150,150,150);
-        }
+    .TopMenuBar a:hover {
+        background-color: rgb(150,150,150);
+        color: rgb(255,255,255);
+    }
