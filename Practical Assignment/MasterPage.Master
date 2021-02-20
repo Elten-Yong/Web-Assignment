@@ -19,9 +19,10 @@
         <div> 
             <asp:Menu ID="TopMenuBar" runat="server" Orientation="Horizontal" StaticSubMenuIndent="16px">
                 <Items>
-                    <asp:MenuItem NavigateUrl="~/HomePage.aspx" Text="Home Page" Value="Home Page" />
+                    <asp:MenuItem NavigateUrl="~/HomePage.aspx" Text="Home Page" Value="Home Page"/>
                     <asp:MenuItem NavigateUrl="~/AboutUs.aspx" Text="About Us" Value="About Us"/>
                     <asp:MenuItem NavigateUrl="~/Gallary.aspx" Text="Gallary" Value="Gallary"/>
+                    <asp:MenuItem NavigateUrl="~/Profile.aspx" Text="Profile" Value="Profile"/>
                 </Items>
             </asp:Menu>
         </div>
