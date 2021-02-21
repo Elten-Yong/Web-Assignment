@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Practical_Assignment
 {
@@ -30,7 +32,14 @@ namespace Practical_Assignment
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
+            SqlConnection con;
+            string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            con = new SqlConnection(strcon);
+            con.Open();
 
+
+
+            con.Close();
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
