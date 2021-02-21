@@ -5,6 +5,9 @@
             width: 271px;
             height: 121px;
         }
+        .auto-style2 {
+            height: 29px;
+        }
     </style>
 
 </asp:Content>
@@ -26,7 +29,7 @@
                 Art Description&nbsp;&nbsp; :
             </td>
             <td>
-                <textarea id="ArtDesciption" class="auto-style1"></textarea>
+                <asp:TextBox runat="server" ID="ArtDescription" TextMode="Multiline" Columns="20" Name="S1" Rows="2"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -38,11 +41,22 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td class="auto-style2">
                 Total Art:
             </td>
-            <td>
-                <asp:DropDownList ID="TotalArt" runat="server"></asp:DropDownList>
+            <td class="auto-style2">
+                <asp:DropDownList ID="TotalArt" runat="server">
+                    <asp:ListItem>1</asp:ListItem>
+                    <asp:ListItem>2</asp:ListItem>
+                    <asp:ListItem>3</asp:ListItem>
+                    <asp:ListItem>4</asp:ListItem>
+                    <asp:ListItem>5</asp:ListItem>
+                    <asp:ListItem>6</asp:ListItem>
+                    <asp:ListItem>7</asp:ListItem>
+                    <asp:ListItem>8</asp:ListItem>
+                    <asp:ListItem>9</asp:ListItem>
+                    <asp:ListItem>10</asp:ListItem>
+                </asp:DropDownList>
             </td>
         </tr>
 
