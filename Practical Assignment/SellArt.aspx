@@ -12,7 +12,6 @@
     
             <p><b><u>Welcome to XXX, Please upload your Art to be sold.</u></b></p>
             <br />
-
     <table>
         
 
@@ -58,7 +57,7 @@
                 <asp:Button ID="Cancel" runat="server" Text="Cancel" />
             </td>
             <td>
-                <asp:Button ID="Submit" runat="server" Text="Submit" />
+                <asp:Button ID="Submit" runat="server" Text="Submit" OnClick="Submit_Click" />
             </td>
         </tr>
     </table>
