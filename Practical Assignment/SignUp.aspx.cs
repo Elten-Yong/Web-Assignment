@@ -11,7 +11,10 @@ namespace Practical_Assignment
 {
     public partial class SignUp : System.Web.UI.Page
     {
-        Char accountType;
+        class Global // Global variable
+        {
+            public static string accountType;
+        }
         Boolean duplicate = false;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -21,13 +24,13 @@ namespace Practical_Assignment
 
         protected void btnArtist_Click(object sender, EventArgs e)
         {
-            accountType = 'a';
+            Global.accountType = "a";
             changeView();
         }
 
         protected void btnCustomer_Click(object sender, EventArgs e)
         {
-            accountType = 'c';
+            Global.accountType = "c";
             changeView();
         }
         protected void changeView()
@@ -43,7 +46,7 @@ namespace Practical_Assignment
             con = new SqlConnection(strcon);
             con.Open();
 
-            if(accountType == 'a')
+            if(Global.accountType == "a")
             {
                 //retrieve data
                 string strSelect = "SELECT ArtistID, Username FROM [Artist]";
@@ -91,25 +94,94 @@ namespace Practical_Assignment
 
             con.Close();
 
-            con.Open();
+
+
             if (!duplicate) //no repeated username
             {
-                if(accountType == 'a')
+                SqlConnection newCon;
+                string newStrCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+
+                newCon = new SqlConnection(newStrCon);
+
+                if (Global.accountType == "a")
                 {
+
+                    newCon.Open();
+
+                    string strSelect = "Select count(ArtistID) from Artist";
+                    SqlCommand cmdSelect = new SqlCommand(strSelect, newCon);
+
+                    int total = (int)cmdSelect.ExecuteScalar() + 1;
+                    newCon.Close();
+
+                    string artistID = "AR" + total.ToString();
+                    newCon.Open();
 
                     string strInsert = "INSERT INTO [Artist] (ArtistID, Username, Password, Email, SecurityQuestion, SecurityAnswer) VALUES (@ArtistID, @Username, @Password, @Email,@SecurityQuestion,@SecurityAnswer)";
 
-                    SqlCommand cmdInsert = new SqlCommand(strInsert, con);
+                    SqlCommand cmdInsert = new SqlCommand(strInsert, newCon);
+                    cmdInsert.Parameters.AddWithValue("@ArtistID", artistID );
+                    cmdInsert.Parameters.AddWithValue("@Username", txtUsername.Text.ToString());
+                    cmdInsert.Parameters.AddWithValue("@Password", txtPassword.Text.ToString());
+                    cmdInsert.Parameters.AddWithValue("@Email", txtEmail.Text.ToString());
+                    cmdInsert.Parameters.AddWithValue("@SecurityQuestion", ddlQuestion.Text.ToString());
+                    cmdInsert.Parameters.AddWithValue("@SecurityAnswer", txtQuestion.Text.ToString());
+                    int n = cmdInsert.ExecuteNonQuery();
 
+                    if (n > 0) // Use to check whether the value have been insert into the database
+                    {
+                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Art Account Successfully Created!" + "');", true);
+                        
+                    }
+                    else
+                    {
+                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Failed! " + "');", true);
+                    }
+
+                    newCon.Close();
+                }
+                else
+                {
+                    newCon.Open();
+
+                    string strSelect = "Select count(CustomerID) from Customer";
+                    SqlCommand cmdSelect = new SqlCommand(strSelect, newCon);
+
+                    int total = (int)cmdSelect.ExecuteScalar() + 1;
+                    newCon.Close();
+
+                    string customerID = "CS" + total.ToString();
+                    newCon.Open();
+
+                    string strInsert = "INSERT INTO [Customer] (CustomerID, Username, Password, Email, SecurityQuestion, SecurityAnswer) VALUES (@CustomerID, @Username, @Password, @Email,@SecurityQuestion,@SecurityAnswer)";
                     
+                    SqlCommand cmdInsert = new SqlCommand(strInsert, newCon);
+                    cmdInsert.Parameters.AddWithValue("@CustomerID", customerID);
+                    cmdInsert.Parameters.AddWithValue("@Username", txtUsername.Text.ToString());
+                    cmdInsert.Parameters.AddWithValue("@Password", txtPassword.Text.ToString());
+                    cmdInsert.Parameters.AddWithValue("@Email", txtEmail.Text.ToString());
+                    cmdInsert.Parameters.AddWithValue("@SecurityQuestion", ddlQuestion.Text.ToString());
+                    cmdInsert.Parameters.AddWithValue("@SecurityAnswer", txtQuestion.Text.ToString());
+                    int n = cmdInsert.ExecuteNonQuery();
 
+                    if (n > 0) // Use to check whether the value have been insert into the database
+                    {
+                        
+                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Customer Account Successfully Created!" + "');", true);
+                    }
+                    else
+                    {
+                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Failed!" + "');", true);
+                    }
+
+                    newCon.Close();
                 }
 
 
 
-           
+
             }
-            con.Close();
+            
 
           
         }

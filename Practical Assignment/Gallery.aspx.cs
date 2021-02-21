@@ -25,7 +25,7 @@ namespace Practical_Assignment
 
             SqlCommand cmdSelect = new SqlCommand(strSelect, con);
 
-            cmdSelect.Parameters.AddWithValue("@DrawID", "DR0001");
+            cmdSelect.Parameters.AddWithValue("@DrawID", "DR1");
 
             SqlDataReader dtrGallery = cmdSelect.ExecuteReader();
 

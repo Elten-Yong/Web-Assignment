@@ -17,7 +17,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
     
             <p><b><u>Welcome to XXX, Please upload your Art to be sold.</u></b></p>
-            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
             <br />
     <table>
 
