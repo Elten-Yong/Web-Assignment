@@ -156,7 +156,7 @@
             </tr>
             <tr>
                 <td class="auto-style2">
-                    <asp:DropDownList ID="ddlQuestion" runat="server" Width="230px">
+                    <asp:DropDownList ID="ddlQuestion" runat="server" Width="230px" >
                         <asp:ListItem Selected="True" Value="None">--Choose a question--</asp:ListItem>
                         <asp:ListItem>Primary school&#39;s name.</asp:ListItem>
                         <asp:ListItem>First vehicle&#39;s brand.</asp:ListItem>
