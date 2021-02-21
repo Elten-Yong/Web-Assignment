@@ -24,22 +24,22 @@ namespace Practical_Assignment
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 
         /// <summary>
-        /// Image1 control.
+        /// DrawImg1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.Image DrawImg1;
 
         /// <summary>
-        /// Image2 control.
+        /// DrawImg2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image2;
+        protected global::System.Web.UI.WebControls.Image DrawImg2;
 
         /// <summary>
         /// Label1 control.
@@ -96,22 +96,22 @@ namespace Practical_Assignment
         protected global::System.Web.UI.WebControls.Button Button10;
 
         /// <summary>
-        /// Image3 control.
+        /// DrawImg3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image3;
+        protected global::System.Web.UI.WebControls.Image DrawImg3;
 
         /// <summary>
-        /// Image4 control.
+        /// DrawImg4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image4;
+        protected global::System.Web.UI.WebControls.Image DrawImg4;
 
         /// <summary>
         /// Label3 control.
@@ -168,22 +168,22 @@ namespace Practical_Assignment
         protected global::System.Web.UI.WebControls.Button Button12;
 
         /// <summary>
-        /// Image5 control.
+        /// DrawImg5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image5;
+        protected global::System.Web.UI.WebControls.Image DrawImg5;
 
         /// <summary>
-        /// Image6 control.
+        /// DrawImg6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image6;
+        protected global::System.Web.UI.WebControls.Image DrawImg6;
 
         /// <summary>
         /// Label5 control.
@@ -240,22 +240,22 @@ namespace Practical_Assignment
         protected global::System.Web.UI.WebControls.Button Button14;
 
         /// <summary>
-        /// Image7 control.
+        /// DrawImg7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image7;
+        protected global::System.Web.UI.WebControls.Image DrawImg7;
 
         /// <summary>
-        /// Image8 control.
+        /// DrawImg8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image8;
+        protected global::System.Web.UI.WebControls.Image DrawImg8;
 
         /// <summary>
         /// Label7 control.

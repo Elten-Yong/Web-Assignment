@@ -29,41 +29,38 @@ namespace Practical_Assignment
 
             SqlDataReader dtrGallery = cmdSelect.ExecuteReader();
 
-            //String test = dtrGallery["Image"].ToString();
-            //byte[] testByte = Encoding.ASCII.GetBytes(test);
+            String msg = "";
 
-            //byte[] imgBytes = (byte[])dtrGallery["Image"];
-            //string strBase64 = Convert.ToBase64String(imgBytes);
+            int count = 1;
 
-            if (dtrGallery.HasRows)
+            if (count == 1)
             {
-                while (dtrGallery.Read())
-                {
-                    //msg = "Draw Name = " + dtrGallery["Name"].ToString();
-                    //Image1.Image = "data:image/png;base64," + strBase64;
-                }
+
             }
 
+
+            
+                if (dtrGallery.HasRows)
+                {
+                    while (dtrGallery.Read())
+                    {
+                        msg = "Draw Name = " + dtrGallery["Name"].ToString();
+                        byte[] imgBytes = (byte[])dtrGallery["Image"];
+                        string strBase64 = Convert.ToBase64String(imgBytes);
+                        DrawImg1.ImageUrl = "data:image/png;base64," + strBase64;
+
+                    }
+                }
+                else
+                {
+                    msg = "No Record(s) Found!";
+                }
+                Label1.Text = msg;
+            
+            
             con.Close();
 
-            /*
-            con.Open();
-
-            SqlCommand cmd = new SqlCommand("spGetImageById", con);
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            SqlParameter paramId = new SqlParameter()
-            {
-                ParameterName = "@Id",
-                Value = Request.QueryString["Id"]
-            };
-            cmd.Parameters.Add(paramId);
-
-            byte[] bytes = (byte[])cmd.ExecuteScalar();
-            string strBase64 = Convert.ToBase64String(bytes);
-
-            Image1.ImageUrl = "data:Image/png;base64," + strBase64;
-            */
+           
         }
         
     }
