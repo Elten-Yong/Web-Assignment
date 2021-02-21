@@ -18,8 +18,8 @@
         </div>
         <br />
        <% int i = 0;
-           if (i == 0)
-           { %>
+          if (i == 0)
+          { %>
         <div style="margin-left:auto; margin-right:auto; width:100%"> 
             <asp:Menu CssClass="TopMenuBar" ID="TopMenuBar" runat="server" RenderingMode="Table" Orientation="Horizontal" >
                 <Items>
@@ -31,8 +31,7 @@
             </asp:Menu>
         </div> 
         <%}
-            else
-            { %>
+          else{ %>
         <div style="margin-left:auto; margin-right:auto; width:100%"> 
             <asp:Menu CssClass="TopMenuBar" ID="Menu2" runat="server" RenderingMode="Table" Orientation="Horizontal" >
                 <Items>
@@ -43,7 +42,8 @@
                 </Items>
             </asp:Menu>
         </div> 
-        <%}%>
+        <%} %>
+
         <div>
             <asp:ContentPlaceHolder ID="Display" runat="server"></asp:ContentPlaceHolder>
         </div>
