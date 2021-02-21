@@ -50,11 +50,11 @@ namespace Practical_Assignment
 
             if(numRowAffected > 0)
             {
-                
+                // return insert success
             }
             else
             {
-
+                // return insert failed
             }
             con.Close();
         }
