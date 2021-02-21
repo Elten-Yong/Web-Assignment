@@ -8,19 +8,26 @@
         }
         .auto-style2 {
             height: 26px;
+            padding-left: 5px;
         }
+
         .auto-style3 {
             height: 39px;
         }
         table {
             border-collapse: collapse;
-            border: 1px solid #e6e6e6;
+            border: 1px solid grey;
             height: auto;
             width :700px;
             margin:0% 25% 0% 25%;
         }
         .btnType{
             text-align:center;
+        }
+
+        .auto-style4 {
+            text-align: center;
+            height: 52px;
         }
 
         </style>
@@ -40,18 +47,28 @@
           
                 </tr>
                 <tr>
-                    <td class="btnType">
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style4">
                         <asp:Button ID="btnArtist" runat="server" Text="Artist" Width="400px" Height="50px" style="border-color: #4D94FF; background-color: white; color: #284E98;" OnClick="btnArtist_Click" />
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style3">
-                       <h2>&nbsp;</h2></td>
+                       </td>
                 </tr>
                 <tr>
                     <td class="btnType">
                         <asp:Button ID="btnCustomer" runat="server" style="border-color: #4D94FF; background-color: white; color: #284E98;" OnClick="btnCustomer_Click" Text="Customer" BorderColor="blue" Width="400" Height="50"/>
                     </td>
+                </tr>
+                <tr>
+                    <td class="btnType">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="btnType">Already have an account?  <a href="#">Sign In</a></td>
+                   
                 </tr>
                 <tr>
                     <td class="btnType">&nbsp;</td>
@@ -77,7 +94,7 @@
             </tr>
             <tr>
                 <td class="auto-style2">
-                    <asp:TextBox ID="txtEmail" runat="server" placeholder="abc@gmail.com" ></asp:TextBox>
+                    <asp:TextBox ID="txtEmail" runat="server" placeholder="abc@gmail.com" Width="230px" ></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -86,7 +103,7 @@
             </tr>
             <tr>
                 <td class="auto-style2">
-                    <asp:TextBox ID="txtUsername" runat="server" placeholder="Goofy"></asp:TextBox>
+                    <asp:TextBox ID="txtUsername" runat="server" placeholder="Goofy"  Width="230px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -95,7 +112,7 @@
             </tr>
             <tr>
                 <td class="auto-style2">
-                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" placeholder="Password"></asp:TextBox>
+                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" placeholder="Password"  Width="230px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -104,7 +121,7 @@
             </tr>
              <tr>
                 <td class="auto-style2">
-                    <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" placeholder="Confirm Password"></asp:TextBox>
+                    <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" placeholder="Confirm Password"  Width="230px"></asp:TextBox>
                  </td>
             </tr>
              <tr>
@@ -114,7 +131,7 @@
             <tr>
                 <td class="auto-style2">
 
-                    <asp:Button ID="btnCancel" runat="server" Text="Cancel" style="border-color: #4D94FF; margin-right:50px; background-color: white; color: #284E98;" OnClick="btnCancel_Click" />
+                    <asp:Button ID="btnCancel" runat="server" Text="Cancel" style="border-color: #4D94FF; margin-right:110px; background-color: white; color: #284E98;" OnClick="btnCancel_Click" />
                     <asp:Button ID="btnRegister" runat="server" Text="Register" style="border-color: #4D94FF;  white; color: #284E98;" OnClick="btnRegister_Click" />
                     
                 </td>
