@@ -11,7 +11,7 @@ namespace Practical_Assignment
 {
 
 
-    public partial class HomePage1
+    public partial class HomePage
     {
     }
 }

@@ -37,8 +37,6 @@ namespace Practical_Assignment
             {
 
             }
-
-
             
                 if (dtrGallery.HasRows)
                 {
