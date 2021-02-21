@@ -73,7 +73,6 @@
       <DependentUpon>ArtGallery.mdf</DependentUpon>
     </Content>
     <Content Include="Gallery.aspx" />
-    <Content Include="GalleryInsert.aspx" />
     <Content Include="HomePage.aspx" />
     <Content Include="MasterPage.css" />
   </ItemGroup>
@@ -91,13 +90,6 @@
     </Compile>
     <Compile Include="Gallery.aspx.designer.cs">
       <DependentUpon>Gallery.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="GalleryInsert.aspx.cs">
-      <DependentUpon>GalleryInsert.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="GalleryInsert.aspx.designer.cs">
-      <DependentUpon>GalleryInsert.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
@@ -140,6 +132,14 @@
     <Content Include="MasterPage.Master" />
     <None Include="packages.config" />
     <Content Include="Gallery.css" />
+    <Content Include="Sample Images\20181126_125649.jpg" />
+    <Content Include="Sample Images\20190101_190842.jpg" />
+    <Content Include="Sample Images\20190114_071118.jpg" />
+    <Content Include="Sample Images\20190123_222050.jpg" />
+    <Content Include="Sample Images\20190204_134017.jpg" />
+    <Content Include="Sample Images\20190401_010521.jpg" />
+    <Content Include="Sample Images\20190506_173737.jpg" />
+    <Content Include="Sample Images\20190617_192945.jpg" />
     <Content Include="SellArt.aspx" />
     <Content Include="SignIn.aspx" />
     <Content Include="SignUp.aspx" />
@@ -152,6 +152,7 @@
     </None>
     <Content Include="Web.sitemap" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
