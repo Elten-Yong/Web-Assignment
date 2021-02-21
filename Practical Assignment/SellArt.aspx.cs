@@ -23,7 +23,7 @@ namespace Practical_Assignment
             con = new SqlConnection(strcon);
             con.Open();
 
-            string strSelect = "Select count(DrawID) as total from Gallery";
+            string strSelect = "Select count(DrawID) from Gallery";
             SqlCommand cmdSelect = new SqlCommand(strSelect, con);
 
             int total = (int)cmdSelect.ExecuteScalar() + 1;
@@ -31,10 +31,8 @@ namespace Practical_Assignment
 
             string drawID = "DR" + total.ToString();
 
-            Label1.Text = drawID.ToString();
 
             con.Open();
-
             int length = Drawing.PostedFile.ContentLength;
             byte[] pic = new byte[length];
             Drawing.PostedFile.InputStream.Read(pic, 0, length);
@@ -53,7 +51,8 @@ namespace Practical_Assignment
             if(numRowAffected > 0)
             {
                 
-            }else
+            }
+            else
             {
 
             }
