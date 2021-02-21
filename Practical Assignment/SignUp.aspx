@@ -179,7 +179,7 @@
             <tr>
                 <td class="auto-style2">
 
-                    <asp:Button ID="btnCancel" runat="server" Text="Cancel" style="border-color: #4D94FF; margin-right:110px; background-color: white; color: #284E98;" Height="30px" OnClick="btnCancel_Click" />
+                    <asp:Button ID="btnCancel" runat="server" Text="Cancel" style="border-color: #4D94FF; margin-right:110px; background-color: white; color: #284E98;" Height="30px" OnClick="btnCancel_Click" ValidationGroup="none" UseSubmitBehavior="False" />
                     <asp:Button ID="btnRegister" runat="server" Text="Register" style="border-color: #4D94FF; background-color: white; color: #284E98;" OnClick="btnRegister_Click" Height="30px" />
                     
                 </td>
