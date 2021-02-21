@@ -1,12 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="SellArt.aspx.cs" Inherits="Practical_Assignment.SellArt" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-        .auto-style1 {
-            width: 271px;
-            height: 121px;
-        }
         .auto-style2 {
             height: 29px;
+        }
+        .auto-style3 {
+            width: 279px;
+        }
+        .auto-style4 {
+            height: 29px;
+            width: 279px;
         }
     </style>
 
@@ -14,37 +17,38 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
     
             <p><b><u>Welcome to XXX, Please upload your Art to be sold.</u></b></p>
+            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
             <br />
     <table>
-        
 
         <tr>
-            <td>Art name&nbsp;&nbsp; : </td>
-            <td>
-                <asp:TextBox ID="ArtName" runat="server"></asp:TextBox></td>
-        </tr>
+            <td>Art name : </td>
+            <td class="auto-style3">
+                <asp:TextBox ID="ArtName" runat="server" Width="267px"></asp:TextBox></td>
+        </tr>   
 
         <tr>
             <td>
-                Art Description&nbsp;&nbsp; :
+                Art Description :
             </td>
-            <td>
-                <asp:TextBox runat="server" ID="ArtDescription" TextMode="Multiline" Columns="20" Name="S1" Rows="2"></asp:TextBox>
+            <td class="auto-style3">
+                <asp:TextBox runat="server" ID="ArtDescription" TextMode="Multiline" Columns="20" Name="S1" Rows="2" Height="98px" Width="271px" style="resize:none;"></asp:TextBox>
             </td>
         </tr>
+
         <tr>
             <td>
                 Price :
             </td>
-            <td>
-                <asp:TextBox ID="Price" runat="server"></asp:TextBox>
+            <td class="auto-style3">
+                <asp:TextBox ID="Price" runat="server" Width="265px"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td class="auto-style2">
-                Total Art:
+                Total Art :
             </td>
-            <td class="auto-style2">
+            <td class="auto-style4">
                 <asp:DropDownList ID="TotalArt" runat="server">
                     <asp:ListItem>1</asp:ListItem>
                     <asp:ListItem>2</asp:ListItem>
@@ -62,18 +66,16 @@
 
         <tr>
             <td>Art Drawing :</td>
-            <td>
+            <td class="auto-style3">
                 <asp:FileUpload ID="Drawing" runat="server" /></td>
         </tr>
-
-        <tr>
-            <td>
-                <asp:Button ID="Cancel" runat="server" Text="Cancel" />
-            </td>
-            <td>
-                <asp:Button ID="Submit" runat="server" Text="Submit" OnClick="Submit_Click" />
-            </td>
-        </tr>
-    </table>
+        </table>
+    <br />
+            &nbsp;
+         <asp:Button ID="Cancel" runat="server" Text="Cancel" Width="140px" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="Submit" runat="server" Text="Submit" OnClick="Submit_Click" Width="139px" />
+           
+    
 
 </asp:Content>
