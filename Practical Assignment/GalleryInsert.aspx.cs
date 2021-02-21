@@ -13,7 +13,6 @@ namespace Practical_Assignment
     {
         public void BindGrid()
         {
-            SqlConnection con = new SqlConnection("Data Source=localhost;Initial Catalog=ArtGallery;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("Select DrawID, DrawName, Draw from Images", con);
             con.Open();
             SqlDataReader dr = cmd.ExecuteReader();
