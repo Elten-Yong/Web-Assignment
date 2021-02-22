@@ -10,7 +10,8 @@
             border: 1px solid grey;
             height: auto;
             width :700px;
-            margin:8% 25% 0% 25%;
+            margin:0% 25% 0% 25%;
+            background-color: white;
         }
         .txtType{
             text-align:center;
@@ -47,7 +48,7 @@
                     <td><h1 style="text-align:center">Sign In as</h1><hr/></td>
                 </tr>
                 <tr>
-                    <td >
+                    <td>
                           
                     </td>
                 </tr>

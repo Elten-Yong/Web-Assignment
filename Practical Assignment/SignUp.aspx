@@ -19,7 +19,8 @@
             border: 1px solid grey;
             height: auto;
             width :700px;
-            margin:8% 25% 0% 25%;
+            margin:0% 25% 0% 25%;
+            background-color: white;
         }
         .btnType{
             text-align:center;
@@ -61,7 +62,7 @@
                 </tr>
                 <tr>
                     <td class="btnType">
-                        <asp:Button ID="btnCustomer" runat="server" style="  border-color: #4D94FF; background-color: white; color: #284E98;" OnClick="btnCustomer_Click" Text="Customer" Width="400" Height="50"/>
+                        <asp:Button ID="btnCustomer" runat="server" style="border-color: #4D94FF; background-color: white; color: #284E98;" OnClick="btnCustomer_Click" Text="Customer" Width="400" Height="50"/>
                     </td>
                 </tr>
                 <tr>

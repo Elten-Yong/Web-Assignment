@@ -7,7 +7,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
     <link href="HomePage.css" rel="stylesheet" type="text/css" />
-    <div style="margin:0 10%;  background-color: white; padding:0px 10px"> <!-- page body style -->
+    <div style="margin:0 15% 0% 15%;  background-color: white; padding:0% 5% 0% 5%";> <!-- page body style -->
     <br/>
 	<!-- Slide -->  
 	<div class="slideshow-container">
@@ -85,6 +85,7 @@
 	<br/>
 	<br/>
 	<br/>
+	    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
 	<br/>
 	<br/>
 	<br/>
