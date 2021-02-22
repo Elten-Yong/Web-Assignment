@@ -20,8 +20,8 @@
             height: 27px;
         }
         .auto-style3 {
-            height: 24px;
-            width: 234px;
+            height: 39px;
+           
         }
         .auto-style4 {
             text-align: center;
@@ -31,20 +31,68 @@
             text-align: center;
             height: 32px;
         }
-        .auto-style6 {
-            text-align: center;
-            height: 23px;
-        }
         .auto-style7 {
             height: 24px;
             width: 233px;
         }
+        .auto-style8 {
+            text-align: center;
+            height: 32px;
+            width: 370px;
+        }
+        .auto-style9 {
+            width: 370px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
+
+    <asp:MultiView ID="SignInMultiView" runat="server">
+            <asp:View ID="View1" runat="server">
+
+            <table class="tableFormat">
+                <tr>
+                    <td><h1 style="text-align:center">Sign In as</h1><hr/></td>
+                </tr>
+                <tr>
+                    <td>
+                          
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style4">
+                        <asp:Button ID="btnArtist" runat="server" Text="Artist" Width="400px" Height="50px" style="border-color: #4D94FF; background-color: white; color: #284E98;" OnClick="btnArtist_Click" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style3">
+                       </td>
+                </tr>
+                <tr>
+                    <td class="auto-style4">
+                        <asp:Button ID="btnCustomer" runat="server" style="border-color: #4D94FF; background-color: white; color: #284E98;" OnClick="btnCustomer_Click" Text="Customer" Width="400" Height="50"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="btnType">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="btnType" style="text-align:center">Do not have an account?  <a href="SignUp.aspx">Register</a></td>
+                   
+                </tr>
+                <tr>
+                    <td class="btnType">&nbsp;</td>
+                </tr>
+            </table>
+        </asp:View>
+    <asp:View ID="View2" runat="server">
     <table class="tableFormat">
         <tr>
-            <td class="auto-style1" colspan="4"><h1>Sign In</h1><hr /></td>
+            <td class="auto-style1" colspan="4"><h1>
+                Sign In</h1><hr /></td>
         </tr>
         <tr>
             <td class="txtType" colspan="4">
@@ -73,17 +121,20 @@
         </tr>
         <tr>
             <td class="auto-style5" colspan="4">
-                <asp:Button ID="btnLogIn" runat="server" Text="Log In"  style="border-color: #4D94FF; background-color: white; color: #284E98;" Width="240px" Height="30px"/>
+                <asp:Button ID="btnCancelLogIn" runat="server" Height="30px" OnClick="btnCancelLogIn_Click" style="margin-right:50px; border-color: #4D94FF; background-color: white; color: #284E98;" Text="Cancel" Width="240px" ValidationGroup="none" />
+                <asp:Button ID="btnLogIn" runat="server" Height="30px" OnClick="btnLogIn_Click" style="border-color: #4D94FF; background-color: white; color: #284E98;" Text="Log In" Width="240px" />
+                <br />
+                <br />
+                <asp:Label ID="lblError" runat="server" Font-Size="Small" ForeColor="red" Text=""></asp:Label>
             </td>
         </tr>
         <tr>
-            <td class="txtType" colspan="4">
-                &nbsp;</td>
+            <td class="txtType" colspan="4">&nbsp;</td>
         </tr>
         <tr>
-            <td  colspan="2" >
+            <td  colspan="2" class="auto-style9" >
                 <div style="text-align:left ; padding-left:5px">
-                    <asp:CheckBox ID="CheckBox1" runat="server" text="Remember me next time."/>
+                    <asp:CheckBox ID="chkBoxRememberMe" runat="server" text="Remember me next time."/>
                 </div>
  
             </td>
@@ -102,7 +153,9 @@
 
         <tr>
             <td class="txtType" colspan="4" style="text-align:right">
-                Don't have an account? <a href="SignUp.aspx">Sign Up</a> now!</td>
+                Don't have an account? <a href="SignUp.aspx">Register</a> now!</td>
         </tr>
     </table>
+       </asp:View>
+    </asp:MultiView>
 </asp:Content>
