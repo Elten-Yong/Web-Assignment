@@ -27,10 +27,12 @@ namespace Practical_Assignment
             byte[] pic = new byte[length];
             Drawing.PostedFile.InputStream.Read(pic, 0, length);
 
+
+
             string strInsert = "Insert into Gallery (DrawID, ArtistID, Name, Description, Price, Total, Image) Values (@DrawID, @ArtistID, @Name, @Description, @Price, @Total, @Image)";
 
             SqlCommand cmdInsert = new SqlCommand(strInsert, con);
-            cmdInsert.Parameters.AddWithValue("@DrawID", "DR001");
+            cmdInsert.Parameters.AddWithValue("@DrawID", "DR0002");
             cmdInsert.Parameters.AddWithValue("@ArtistID", "AR0001");
             cmdInsert.Parameters.AddWithValue("@Name", ArtName.Text);
             cmdInsert.Parameters.AddWithValue("@Description", ArtDescription.Text);
