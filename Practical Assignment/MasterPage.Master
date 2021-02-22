@@ -49,14 +49,9 @@
             <asp:ContentPlaceHolder ID="Display" runat="server"></asp:ContentPlaceHolder>
         </div>
         <div class="footer">
-            <table style="width: 100%;">
-                <tr>
-                    <td>Encounter problem ?</td>                    
-                </tr>
-                <tr>
-                    <td>Contact us: +60 18-319-9792 </td>                    
-                </tr>               
-            </table>
+            <p>Encounter problem ?</p>
+            <p>Contact Us at +6018-319-3732</p>
+            <br/>
             <p>&#169 Copyright Alzenda Art Gallery 2021. All right reserved</p>
         </div>
     </form>
