@@ -93,6 +93,6 @@
         <footertemplate>
         </table>
         </footertemplate>
-        </asp:repeater>
+        </asp:repeater> 
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Gallery]"></asp:SqlDataSource>
 </asp:Content>

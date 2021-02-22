@@ -15,9 +15,7 @@
             padding-left: 5px;
         }
 
-        .auto-style3 {
-            height: 39px;
-        }
+        
         .tableFormat {
             border-collapse: collapse;
             border: 1px solid grey;
@@ -29,10 +27,6 @@
             text-align:center;
         }
 
-        .auto-style4 {
-            text-align: center;
-            height: 52px;
-        }
 
         </style>
 
@@ -42,18 +36,20 @@
                     Profile</h1><hr /></td>
             </tr>
             <tr>
+                <td class="auto-style2"></td>
+            </tr>
+            <tr>
+                <td class="auto-style2">
+                    Username:<asp:Label ID="lblUsername" runat="server" Text="[username]"></asp:Label>
+                </td>
+            </tr>
+            <tr>
                 <td class="auto-style2">&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style2">
-                    Username:</td>
-            </tr>
-            <tr>
-                <td class="auto-style2">&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style2">
-                    Email:</td>
+                    Email:<asp:Label ID="lblEmail" runat="server" Text="[email]"></asp:Label>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style2">
@@ -63,20 +59,19 @@
             
             <tr>
                 <td class="auto-style2">
-                    Password:</td>
+                    Password:<asp:Label ID="lblPassword" runat="server" Text="[password]"></asp:Label>
+                </td>
             </tr>
             
             <tr>
                 <td class="auto-style2"></td>
             </tr>
             <tr>
-                <td class="auto-style2">
-                    Confirm Password:</td>
+                <td class="auto-style2" style="text-align: center">
+                    <asp:Button ID="btnSignOut" runat="server" Text="Sign Out" style="border-color: #4D94FF; 
+                    background-color: white; color: #284E98;" OnClick="btnSignOut_Click" width="240px" Height="30px" /></td>
             </tr>
-             <tr>
-               
-            </tr>
-            
+                         
         </table>
 
 </asp:Content>

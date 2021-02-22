@@ -73,7 +73,7 @@
         </tr>
         <tr>
             <td class="auto-style5" colspan="4">
-                <asp:Button ID="btnLogIn" runat="server" Text="Log In"  style="border-color: #4D94FF; background-color: white; color: #284E98;" Width="240px" Height="30px"/>
+                <asp:Button ID="btnLogIn" runat="server" Text="Log In"  style="border-color: #4D94FF; background-color: white; color: #284E98;" Width="240px" Height="30px" PostBackUrl="~/Homepage.aspx"/>
             </td>
         </tr>
         <tr>
