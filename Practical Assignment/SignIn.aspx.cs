@@ -64,7 +64,7 @@ namespace Practical_Assignment
                         {
                             if (dtr["Password"].ToString().Equals(txtPassword.Text))
                             {
-
+                                Session["Name"] = dtr["Username"].ToString();
                                 Response.Redirect("HomePage.aspx");
                                 
                             }
