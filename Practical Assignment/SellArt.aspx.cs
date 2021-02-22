@@ -40,7 +40,7 @@ namespace Practical_Assignment
 
             SqlCommand cmdInsert = new SqlCommand(strInsert, con);
             cmdInsert.Parameters.AddWithValue("@DrawID", drawID);
-            cmdInsert.Parameters.AddWithValue("@ArtistID", "AR0001");
+            cmdInsert.Parameters.AddWithValue("@ArtistID", Session["Value"]);
             cmdInsert.Parameters.AddWithValue("@Name", ArtName.Text);
             cmdInsert.Parameters.AddWithValue("@Description", ArtDescription.Text);
             cmdInsert.Parameters.AddWithValue("@Price", Price.Text);

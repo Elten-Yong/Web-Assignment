@@ -35,11 +35,6 @@
             height: 24px;
             width: 233px;
         }
-        .auto-style8 {
-            text-align: center;
-            height: 32px;
-            width: 370px;
-        }
         .auto-style9 {
             width: 370px;
         }
