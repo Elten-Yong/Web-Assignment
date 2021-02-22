@@ -26,7 +26,7 @@ namespace Practical_Assignment
 
             SqlCommand cmdSelect = new SqlCommand(strSelect, con);
 
-            cmdSelect.Parameters.AddWithValue("@DrawID", "DR0001");
+            cmdSelect.Parameters.AddWithValue("@DrawID", "DR1");
 
             SqlDataReader dtrGallery = cmdSelect.ExecuteReader();
 
@@ -42,8 +42,7 @@ namespace Practical_Assignment
                         msg = "Draw Name = " + dtrGallery["Name"].ToString();
                         byte[] imgBytes = (byte[])dtrGallery["Image"];
                         string strBase64 = Convert.ToBase64String(imgBytes);
-                        DrawImg1.ImageUrl = "data:image/png;base64," + strBase64;
-                        Label1.Text = msg;
+                       
                     }
                 }
             }
@@ -61,5 +60,7 @@ namespace Practical_Assignment
             string imageUrl = "data:image/jpg;base64," + Convert.ToBase64String((byte[])datarow["Image"]);
             (e.Item.FindControl("Image1") as Image).ImageUrl = imageUrl;
         }
+
+        
     }
 }

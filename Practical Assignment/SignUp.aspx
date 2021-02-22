@@ -20,9 +20,11 @@
             height: auto;
             width :700px;
             margin:0% 25% 0% 25%;
+            background-color: white;
         }
         .btnType{
             text-align:center;
+
         }
 
         .auto-style4 {
@@ -44,13 +46,13 @@
                 </tr>
                 <tr>
                     <td>
-          
+                    </td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style4">
+                    <td class="btnType">
                         <asp:Button ID="btnArtist" runat="server" Text="Artist" Width="400px" Height="50px" style="border-color: #4D94FF; background-color: white; color: #284E98;" OnClick="btnArtist_Click" />
                     </td>
                 </tr>
@@ -77,7 +79,7 @@
         </asp:View>
 
         <asp:View ID="View2" runat="server">
-        <table class="tableFormat">
+        <table class="tableFormat" style="margin-top:1%">
             <tr style ="border:50px">
                 <td class="auto-style1"><h1>
                     Registration</h1></td>
@@ -97,7 +99,7 @@
             </tr>
             <tr>
                 <td class="auto-style2">
-                    <asp:TextBox ID="txtUsername" runat="server" placeholder="Goofy"  Width="230px"></asp:TextBox>
+                    <asp:TextBox ID="txtUsername" runat="server" placeholder="Goofy"  Width="230px" BorderColor="#E6E6E6"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="usernameRequired" runat="server" ErrorMessage="Username can not be empty." ControlToValidate="txtUsername" ForeColor="Red" Font-Size="Small"></asp:RequiredFieldValidator>
                 </td>
             </tr>
@@ -110,7 +112,7 @@
             </tr>
             <tr>
                 <td class="auto-style2">
-                    <asp:TextBox ID="txtEmail" runat="server" placeholder="abc@gmail.com" Width="230px" ></asp:TextBox>
+                    <asp:TextBox ID="txtEmail" runat="server" placeholder="abc@gmail.com" Width="230px" BorderColor="#E6E6E6"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="emailRequired" runat="server"  ErrorMessage="Email address can not be empty." ControlToValidate="txtEmail" ForeColor="Red" Font-Size="Small"></asp:RequiredFieldValidator>
                        <br />
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmail" ErrorMessage="Please enter a valid email address" ForeColor="Red" Font-Size="Small"  
@@ -128,7 +130,7 @@
             </tr>
             <tr>
                 <td class="auto-style2">
-                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" placeholder="Password"  Width="230px"></asp:TextBox>
+                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" placeholder="Password"  Width="230px" BorderColor="#E6E6E6"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="passwordRequired" runat="server" ControlToValidate="txtPassword" ErrorMessage="Password is required" ForeColor="Red" Font-Size="Small" ></asp:RequiredFieldValidator><br />
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtPassword" ErrorMessage="Please enter a strong password include characters and number with a min length 8" 
                         ValidationExpression="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" ForeColor="Red" Font-Size="Small"></asp:RegularExpressionValidator>
@@ -143,7 +145,7 @@
             </tr>
              <tr>
                 <td class="auto-style2">
-                    <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" placeholder="Confirm Password"  Width="230px"></asp:TextBox>
+                    <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" placeholder="Confirm Password"  Width="230px" BorderColor="#E6E6E6"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="confirmPasswordRequired" runat="server" ErrorMessage="Confirm password cannot be empty" ControlToValidate="txtConfirmPassword" ForeColor="Red" 
                         Font-Size="Small"></asp:RequiredFieldValidator><br />
                     <asp:CompareValidator ID="comparePass" runat="server" ErrorMessage="Password miss-match, please re-enter the password" Operator="Equal" ControlToCompare="txtPassword" ControlToValidate="txtConfirmPassword" ForeColor="Red" 
@@ -156,7 +158,7 @@
             </tr>
             <tr>
                 <td class="auto-style2">
-                    <asp:DropDownList ID="ddlQuestion" runat="server" Width="230px" >
+                    <asp:DropDownList ID="ddlQuestion" runat="server" Width="230px" BorderColor="#E6E6E6">
                         <asp:ListItem Selected="True" Value="None">--Choose a question--</asp:ListItem>
                         <asp:ListItem>Primary school&#39;s name.</asp:ListItem>
                         <asp:ListItem>First vehicle&#39;s brand.</asp:ListItem>
@@ -168,7 +170,7 @@
             </tr>
             <tr>
                 <td class="auto-style2">
-                    <asp:TextBox ID="txtQuestion" runat="server" Width="230px"></asp:TextBox>
+                    <asp:TextBox ID="txtQuestion" runat="server" Width="230px" BorderColor="#E6E6E6"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="txtQuestionRequired" runat="server" ErrorMessage="Answer cannot be empty"  ForeColor="Red" 
                         Font-Size="Small" ControlToValidate="txtQuestion"></asp:RequiredFieldValidator>
                 </td>
