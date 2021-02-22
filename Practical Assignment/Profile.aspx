@@ -7,7 +7,7 @@
      <style type="text/css">
         .auto-style1 {
             height: 26px;
-            text-decoration:underline;
+            text-align: center;
 
         }
         .auto-style2 {
@@ -38,8 +38,8 @@
 
  <table class="tableFormat">
             <tr style ="border:50px">
-                <td ><h1 style="text-align: center">
-                    Profile</h1></td>
+                <td class="auto-style1" ><h1 >
+                    Profile</h1><hr /></td>
             </tr>
             <tr>
                 <td class="auto-style2">&nbsp;</td>
