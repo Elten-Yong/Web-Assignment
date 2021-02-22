@@ -13,5 +13,10 @@ namespace Practical_Assignment
         {
 
         }
+
+        protected void LoginStatus1_LoggingOut(object sender, LoginCancelEventArgs e)
+        {
+
+        }
     }
 }
