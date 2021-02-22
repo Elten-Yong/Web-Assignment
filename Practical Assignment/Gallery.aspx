@@ -4,16 +4,16 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
     <link href="Gallery.css" rel="stylesheet" type="text/css" />
-    <asp:repeater id="Repeater1" datasourceid="SqlDataSource1" runat="server">
-    <headertemplate>
+    
+    <!--
     <table style="width: 100%; text-align: center">
-    </headertemplate>
-    <itemtemplate>
+    
+   
         <tr>
             <td>
-                <asp:Image CssClass="Img" width="500px" height="250px" ID="DrawImg1" runat="server" ImageUrl="<%#"data:Image/png;base64," + Convert.ToBase64String((byte[])Eval("Image")) %>" /></td>
+                <asp:Image ID="DrawImg1" CssClass="Img" runat="server" width="500px" height="250px" ImageUrl="~/Sample Images/20190114_071118.jpg"/></td>
             <td>
-                <asp:Image CssClass="Img" width="500px" height="250px" ID="DrawImg2" runat="server" ImageUrl="<%#"data:Image/png;base64," + Convert.ToBase64String((byte[])Eval("Image")) %>"/></td>
+                <asp:Image ID="DrawImg2" CssClass="Img" runat="server" width="500px" height="250px" ImageUrl="~/Sample Images/20190114_071118.jpg"/></td>
         </tr>
         <tr>
             <td>
@@ -89,10 +89,25 @@
             <td>
                 <asp:Button CssClass="Button" ID="Button8" runat="server" Text="Buy" />&nbsp<asp:Button CssClass="Button" ID="Button16" runat="server" Text="Add to Wishlist" /></td>
         </tr>
-        </itemtemplate>
-        <footertemplate>
+        
         </table>
-        </footertemplate>
-        </asp:repeater> 
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Gallery]"></asp:SqlDataSource>
+        -->
+    <div style="width:1200px; margin:0 auto;">
+        <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" CellPadding="50" RepeatColumns="2" RepeatDirection="Horizontal" OnItemDataBound="DataList1_ItemDataBound">
+            <ItemTemplate>
+                  
+                <asp:Image ID="Image1" CssClass="Img" runat="server" ImageUrl='<%# Eval("Image") %>' />
+                <br />
+                Draw Name:<asp:Label ID="Label9" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
+                <br />
+                Description:<asp:Label ID="Label1" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
+                <br />
+                <asp:Button CssClass="Button" ID="Button7" runat="server" Text="Buy" />&nbsp<asp:Button CssClass="Button" ID="Button15" runat="server" Text="Add to Wishlist" />
+                <br />
+            </ItemTemplate>
+        </asp:DataList>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Gallery]"></asp:SqlDataSource>
+    </div>
+    
+    
 </asp:Content>
