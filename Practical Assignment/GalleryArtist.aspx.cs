@@ -13,10 +13,36 @@ namespace Practical_Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //LoadImages();
+            LoadImages();
         }
-        /*
+        
         string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+        string DrawID = "";
+        protected void GridView1_RowCommand(Object sender, GridViewCommandEventArgs e)
+        {
+            /*
+            if (e.CommandName == "DeleteRow")
+            {
+                DrawID = (string)e.CommandArgument;
+                SqlConnection con = new SqlConnection(cs);
+                string cmdText = "DELETE FROM Gallery WHERE DrawID=@DrawID";
+                SqlCommand cmd = new SqlCommand(cmdText, con);
+                cmd.Parameters.AddWithValue("@DrawID", DrawID);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+            }
+            */
+            if (e.CommandName == "EditRow")
+            {
+                DrawID = (string)e.CommandArgument;
+                Session["EditDrawID"] = DrawID;
+                Response.Redirect("EditDrawingArtist.aspx");
+            }
+            
+        }
+
         private void LoadImages()
         {
             using (SqlConnection con = new SqlConnection(cs))
@@ -31,23 +57,10 @@ namespace Practical_Assignment
             }
         }
 
-        protected void GridView1_RowCommand(Object sender, GridViewCommandEventArgs e)
+        protected void btnEdit_Click(object sender, EventArgs e)
         {
-
-            if (e.CommandName == "DeleteRow")
-            {
-                string DrawID = (string)e.CommandArgument;
-                SqlConnection con = new SqlConnection(cs);
-                string cmdText = "DELETE FROM Gallery WHERE DrawID=@DrawID";
-                SqlCommand cmd = new SqlCommand(cmdText, con);
-                cmd.Parameters.AddWithValue("@DrawID", DrawID);
-                con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
-
-            }
-
+            
         }
-        */
+
     }
 }

@@ -8,9 +8,9 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
     <link href="HomePage.css" rel="stylesheet" type="text/css" />
-    <div style="background-color: white; padding:0px 10px"> <!-- page body style -->
-    <br/>
-	<div style="text-align:center">
+    <div style=" padding:0px 10px"> <!-- page body style -->
+    
+	<div style="text-align:center; background-color:darkgrey; margin: -8px -8px -8px -8px; padding:10px">
 		A L	Z E N D A &nbsp  A R T W O R K &nbsp S A L E S &nbsp  G A L L E R Y
 	</div>
 
@@ -100,8 +100,10 @@
 			<asp:Image ID="JoinUs" runat="server" ImageUrl="~/Sample Images/Join us.jpg" Width="1100px"/>
 
 			<div class="centered">
-				<a>interested in selling your work ?</a><br/>
-				<a href="" >Contribute the artwork</a>
+				<p style="font-family: 'Bauhaus 93'; font-size: 42px; color: #FFFFFF; font-weight: bold;">Interested in selling your work?</p>
+				<br/>
+				<br />
+				<a href="" >Click here to contribute your artwork</a>
 
 			</div>
 		</div>
