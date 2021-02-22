@@ -3,6 +3,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
 
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
     <link href="HomePage.css" rel="stylesheet" type="text/css" />

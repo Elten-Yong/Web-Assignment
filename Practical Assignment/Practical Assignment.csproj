@@ -72,6 +72,7 @@
     <Content Include="App_Data\ArtGallery_log.ldf">
       <DependentUpon>ArtGallery.mdf</DependentUpon>
     </Content>
+    <Content Include="Cart.aspx" />
     <Content Include="Gallery.aspx" />
     <Content Include="HomePage.aspx" />
     <Content Include="MasterPage.css" />
@@ -83,6 +84,13 @@
     </Compile>
     <Compile Include="AboutUs.aspx.designer.cs">
       <DependentUpon>AboutUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
     </Compile>
     <Compile Include="Gallery.aspx.cs">
       <DependentUpon>Gallery.aspx</DependentUpon>
@@ -104,6 +112,13 @@
     </Compile>
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SellArt.aspx.cs">
@@ -132,6 +147,7 @@
     <Content Include="MasterPage.Master" />
     <None Include="packages.config" />
     <Content Include="Gallery.css" />
+    <Content Include="Profile.aspx" />
     <Content Include="Sample Images\20181126_125649.jpg" />
     <Content Include="Sample Images\20190101_190842.jpg" />
     <Content Include="Sample Images\20190114_071118.jpg" />

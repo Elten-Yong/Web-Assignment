@@ -4,6 +4,13 @@
         .auto-style2 {
             height: 29px;
         }
+        .auto-style3 {
+            width: 279px;
+        }
+        .auto-style4 {
+            height: 29px;
+            width: 279px;
+        }
     </style>
 
 </asp:Content>
@@ -15,7 +22,7 @@
 
         <tr>
             <td>Art name : </td>
-            <td>
+            <td class="auto-style3">
                 <asp:TextBox ID="ArtName" runat="server" Width="267px"></asp:TextBox></td>
         </tr>   
 
@@ -23,7 +30,7 @@
             <td>
                 Art Description :
             </td>
-            <td>
+            <td class="auto-style3">
                 <asp:TextBox runat="server" ID="ArtDescription" TextMode="Multiline" Columns="20" Name="S1" Rows="2" Height="98px" Width="271px" style="resize:none;"></asp:TextBox>
             </td>
         </tr>
@@ -32,7 +39,7 @@
             <td>
                 Price :
             </td>
-            <td>
+            <td class="auto-style3">
                 <asp:TextBox ID="Price" runat="server" Width="265px"></asp:TextBox>
             </td>
         </tr>
@@ -40,7 +47,7 @@
             <td class="auto-style2">
                 Total Art :
             </td>
-            <td class="auto-style2">
+            <td class="auto-style4">
                 <asp:DropDownList ID="TotalArt" runat="server">
                     <asp:ListItem>1</asp:ListItem>
                     <asp:ListItem>2</asp:ListItem>
@@ -58,7 +65,7 @@
 
         <tr>
             <td>Art Drawing :</td>
-            <td>
+            <td class="auto-style3">
                 <asp:FileUpload ID="Drawing" runat="server" /></td>
         </tr>
         </table>
