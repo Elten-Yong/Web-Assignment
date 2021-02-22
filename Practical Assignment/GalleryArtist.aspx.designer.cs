@@ -11,8 +11,9 @@ namespace Practical_Assignment
 {
 
 
-    public partial class Wishlist
+    public partial class GalleryArtist
     {
+
         /// <summary>
         /// GridView1 control.
         /// </summary>
