@@ -19,10 +19,10 @@ namespace Practical_Assignment
         }
 
         string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-        
+
         protected void GridView1_RowCommand(Object sender, GridViewCommandEventArgs e)
         {
-            
+
             if (e.CommandName == "DeleteRow")
             {
                 string DrawID = (string)e.CommandArgument;
@@ -34,6 +34,7 @@ namespace Practical_Assignment
                 cmd.ExecuteNonQuery();
                 con.Close();
                 
+
             }
 
         }
@@ -52,6 +53,6 @@ namespace Practical_Assignment
             }
         }
 
-        
+
     }
 }

@@ -39,12 +39,94 @@ namespace Practical_Assignment
         {
             changeView2();
         }
+        
+        protected void btnProceed_Click(object sender, EventArgs e)
+        {
+            SqlConnection con;
+            string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+
+            con = new SqlConnection(strCon);
+
+            if (Global.accountType == "a")
+            {
+                con.Open();
+
+                string strSelect = "SELECT * FROM [Artist] WHERE Username = @Username";
+
+                SqlCommand cmdSelect = new SqlCommand(strSelect, con);
+                cmdSelect.Parameters.AddWithValue("@Username", txtUsername.Text);
+
+                SqlDataReader dtr = cmdSelect.ExecuteReader();
+
+                if (dtr.HasRows)
+                {
+                    while (dtr.Read())
+                    {
+                        if (txtUsername.Text.Equals(dtr["Username"]))
+                        {
+
+                            Global.artistID = dtr["ArtistID"].ToString();
+                            lblQuestion.Text = dtr["SecurityQuestion"].ToString();
+                            Global.answer = dtr["SecurityAnswer"].ToString();
+                            txtUsername.Text = "";
+                            lblUsernameError.Text = "";
+                            changeView2();
+                        }
+                    }
+                }
+                else
+                {
+                    txtUsername.Text = "";
+                    lblUsernameError.Text = "Username not exist, please try again!";
+                    changeView1(); //stay in vieww 1
+                }
+                con.Close();
+
+
+            }
+            else
+            {
+                con.Open();
+
+                string strSelect = "SELECT * FROM [Customer] WHERE Username = @Username";
+
+                SqlCommand cmdSelect = new SqlCommand(strSelect, con);
+                cmdSelect.Parameters.AddWithValue("@Username", txtUsername.Text);
+
+                SqlDataReader dtr = cmdSelect.ExecuteReader();
+
+                if (dtr.HasRows)
+                {
+                    while (dtr.Read())
+                    {
+                        if (txtUsername.Text.Equals(dtr["Username"]))
+                        {
+
+                            Global.customerID = dtr["CustomerID"].ToString();
+                            lblQuestion.Text = dtr["SecurityQuestion"].ToString();
+                            Global.answer = dtr["SecurityAnswer"].ToString();
+                            txtUsername.Text = "";
+                            lblUsernameError.Text = "";
+                            changeView2();
+                        }
+                    }
+                }
+                else
+                {
+                    txtUsername.Text = "";
+                    lblUsernameError.Text = "Username not exist, please try again!";
+                    changeView1(); //stay in vieww 1
+                }
+                con.Close();
+            }
+        }
+
         protected void btnProceed2_Click(object sender, EventArgs e)
         {
-            
-            if(Global.attempt <= 4)
+
+            if (Global.attempt <= 4)
             {
-                
+
                 if (txtAnswerQuestion.Text.Equals(Global.answer))
                 {
                     lblQuestion.Text = "";
@@ -156,86 +238,7 @@ namespace Practical_Assignment
             changeView1();
         }
 
-        protected void btnProceed_Click(object sender, EventArgs e)
-        {
-            SqlConnection con;
-            string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
-            con = new SqlConnection(strCon);
-
-            if(Global.accountType == "a")
-            {
-                con.Open();
-
-                string strSelect = "SELECT * FROM [Artist] WHERE Username = @Username";
-
-                SqlCommand cmdSelect = new SqlCommand(strSelect, con);
-                cmdSelect.Parameters.AddWithValue("@Username", txtUsername.Text);
-
-                SqlDataReader dtr = cmdSelect.ExecuteReader();
-
-                if (dtr.HasRows)
-                {
-                    while (dtr.Read())
-                    {
-                        if (txtUsername.Text.Equals(dtr["Username"]))
-                        {
-                            
-                            Global.artistID = dtr["ArtistID"].ToString();
-                            lblQuestion.Text = dtr["SecurityQuestion"].ToString();
-                            Global.answer = dtr["SecurityAnswer"].ToString();
-                            txtUsername.Text = "";
-                            lblUsernameError.Text = "";
-                            changeView2();
-                        }
-                    }
-                }
-                else
-                {
-                    txtUsername.Text = "";
-                    lblUsernameError.Text = "Username not exist, please try again!";
-                    changeView1(); //stay in vieww 1
-                }
-                con.Close();
-
-
-            }
-            else
-            {
-                con.Open();
-
-                string strSelect = "SELECT * FROM [Customer] WHERE Username = @Username";
-
-                SqlCommand cmdSelect = new SqlCommand(strSelect, con);
-                cmdSelect.Parameters.AddWithValue("@Username", txtUsername.Text);
-
-                SqlDataReader dtr = cmdSelect.ExecuteReader();
-
-                if (dtr.HasRows)
-                {
-                    while (dtr.Read())
-                    {
-                        if (txtUsername.Text.Equals(dtr["Username"]))
-                        {
-
-                            Global.customerID = dtr["CustomerID"].ToString();
-                            lblQuestion.Text = dtr["SecurityQuestion"].ToString();
-                            Global.answer = dtr["SecurityAnswer"].ToString();
-                            txtUsername.Text = "";
-                            lblUsernameError.Text = "";
-                            changeView2();
-                        }
-                    }
-                }
-                else
-                {
-                    txtUsername.Text = "";
-                    lblUsernameError.Text = "Username not exist, please try again!";
-                    changeView1(); //stay in vieww 1
-                }
-                con.Close();
-            }
-        }
 
  
     }

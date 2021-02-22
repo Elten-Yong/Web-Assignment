@@ -6,11 +6,14 @@
             border: 1px solid grey;
             height: auto;
             width: 700px;
-            margin: 0% 25% 0% 25%;
             background-color: white;
+            margin-bottom :1%;
+            height:300px;
+            width:1000px;
         }
         .auto-style2 {
             height: 29px;
+            width: 118px;
         }
         .auto-style3 {
             width: 279px;
@@ -19,23 +22,43 @@
             height: 29px;
             width: 279px;
         }
+        .auto-style5 {
+            height: 24px;
+            width: 118px;
+        }
+        .auto-style6 {
+            width: 279px;
+            height: 24px;
+        }
+        .auto-style7 {
+            width: 118px;
+        }
     </style>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
     
-            <p><b><u>Welcome to XXX, Please upload your Art to be sold.</u></b></p>
+            <h1>Welcome to XXX, Please upload your Art to be sold.</h1>
+            <p>
+                Wanted to sell your masterpiece online? Post your art now online at xxxx !
+            <p>
             <br />
     <table class ="tableFormat">
 
         <tr>
-            <td>Art name : </td>
+            <td class="auto-style5">Art Details</td>
+            <td class="auto-style6">
+                </td>
+        </tr>   
+
+        <tr>
+            <td class="auto-style7">Art name : </td>
             <td class="auto-style3">
                 <asp:TextBox ID="ArtName" runat="server" Width="267px"></asp:TextBox></td>
         </tr>   
 
         <tr>
-            <td>
+            <td class="auto-style7">
                 Art Description :
             </td>
             <td class="auto-style3">
@@ -44,7 +67,7 @@
         </tr>
 
         <tr>
-            <td>
+            <td class="auto-style7">
                 Price :
             </td>
             <td class="auto-style3">
@@ -72,18 +95,31 @@
         </tr>
 
         <tr>
-            <td>Art Drawing :</td>
+            <td class="auto-style7">Art Drawing :</td>
             <td class="auto-style3">
                 <asp:FileUpload ID="Drawing" runat="server" /></td>
+        </tr>
+
+        <tr>
+            <td class="auto-style7">&nbsp;</td>
+            <td class="auto-style3">
+                &nbsp;</td>
+        </tr>
+
+        <tr>
+            <td class="auto-style7">
+         <asp:Button ID="Cancel" runat="server" Text="Cancel" Width="140px"  />
+            </td>
+            <td class="auto-style3">
+        <asp:Button ID="Submit" runat="server" Text="Submit" OnClick="Submit_Click" Width="139px" />
+            </td>
         </tr>
         </table>
     <br />
             &nbsp;
-    <div style="text-align: center">
-         <asp:Button ID="Cancel" runat="server" Text="Cancel" Width="140px" />
+    <div >
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Submit" runat="server" Text="Submit" OnClick="Submit_Click" Width="139px" />
-    </div>
+        </div>
     
 
 </asp:Content>
