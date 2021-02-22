@@ -29,13 +29,20 @@
         }
 
 
+         .auto-style3 {
+             margin-left: 240px;
+         }
+
+
         </style>
 
     <% if (Session["Value"] == "0" || Session["Value"] == null)
           { %>
                 <div>
-                    <p>Please sign up / sign in first.</p>
-                  </div>
+                    <p style="text-align:center; font-size:x-large">Please register / sign in first.</p>
+                   <asp:Button ID="btnRegister" runat="server" Text="Register" style="border-color: #4D94FF; background-color: white; color: #284E98; Font-Size:x-large; text-align:center;" OnClick="btnRegister_Click" Width="527px" CssClass="auto-style3"/>
+                    
+                 </div>
             
         <%}
           else{ %>
