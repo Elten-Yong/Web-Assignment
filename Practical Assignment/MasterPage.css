@@ -1,5 +1,4 @@
 ﻿
-
 .TopMenuBar {
     margin-top:-80px;
     margin-left: auto;
@@ -25,3 +24,6 @@
         color: rgb(255,255,255);
     }
 
+body {
+    background-color:burlywood;
+}

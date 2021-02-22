@@ -76,6 +76,7 @@
     <Content Include="Gallery.aspx" />
     <Content Include="HomePage.aspx" />
     <Content Include="MasterPage.css" />
+    <Content Include="Wishlist.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AboutUs.aspx.cs">
@@ -141,6 +142,13 @@
     </Compile>
     <Compile Include="SignUp.aspx.designer.cs">
       <DependentUpon>SignUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Wishlist.aspx.cs">
+      <DependentUpon>Wishlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Wishlist.aspx.designer.cs">
+      <DependentUpon>Wishlist.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
