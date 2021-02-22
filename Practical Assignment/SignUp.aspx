@@ -20,9 +20,11 @@
             height: auto;
             width :700px;
             margin:0% 25% 0% 25%;
+            background-color: white;
         }
         .btnType{
             text-align:center;
+
         }
 
         .auto-style4 {
@@ -44,13 +46,13 @@
                 </tr>
                 <tr>
                     <td>
-          
+                    </td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style4">
+                    <td class="btnType">
                         <asp:Button ID="btnArtist" runat="server" Text="Artist" Width="400px" Height="50px" style="border-color: #4D94FF; background-color: white; color: #284E98;" OnClick="btnArtist_Click" />
                     </td>
                 </tr>
@@ -77,7 +79,7 @@
         </asp:View>
 
         <asp:View ID="View2" runat="server">
-        <table class="tableFormat">
+        <table class="tableFormat" style="margin-top:1%">
             <tr style ="border:50px">
                 <td class="auto-style1"><h1>
                     Registration</h1></td>

@@ -11,6 +11,7 @@
             height: auto;
             width :700px;
             margin:0% 25% 0% 25%;
+            background-color: white;
         }
         .txtType{
             text-align:center;
@@ -38,6 +39,7 @@
         .auto-style9 {
             width: 370px;
         }
+ 
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
@@ -90,8 +92,10 @@
                 Sign In</h1><hr /></td>
         </tr>
         <tr>
-            <td class="txtType" colspan="4">
-                &nbsp;</td>
+            <td colspan="4">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="4">&nbsp;</td>
         </tr>
         <tr>
             <td class="txtType" colspan="4">
@@ -136,7 +140,7 @@
 
 
             <td style="text-align:right; padding-right:5px"colspan="2" >
-                <a href="#">Forget Password?</a></td>
+                <a href="ForgetPassword.aspx">Forget Password?</a></td>
 
 
         </tr>

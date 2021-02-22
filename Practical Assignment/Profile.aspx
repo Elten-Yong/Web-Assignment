@@ -22,6 +22,7 @@
             height: auto;
             width :700px;
             margin:0% 25% 0% 25%;
+            background-color: white;
         }
         .btnType{
             text-align:center;
