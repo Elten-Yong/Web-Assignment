@@ -66,7 +66,7 @@ namespace Practical_Assignment
                             {
 
                                 Response.Redirect("HomePage.aspx");
-                                
+                                Session["ID"] = dtr["Username"].ToString();
                             }
                             else
                             {
@@ -108,7 +108,7 @@ namespace Practical_Assignment
                             {
  
                                 Response.Redirect("HomePage.aspx");
-
+                                Session["ID"] = dtr["Username"].ToString();
 
                             }
                             else
