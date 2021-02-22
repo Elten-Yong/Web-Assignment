@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
 
-    <div style="width:1000px; margin:0 auto;">
+    <div style="width:600px; margin:0 auto;">
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand">
         <Columns>
         
@@ -19,7 +19,7 @@
             <asp:BoundField DataField ="Price" HeaderText="Total Price"/>
             <asp:TemplateField>
                  <ItemTemplate>
-                    <asp:LinkButton ID="lnkUpdate" Text="Delete" runat="server" OnClientClick="return confirm('Are you sure you want to delete this rows?');" CommandName="DeleteRow" CommandArgument='<%# Bind("DrawID") %>'/>
+                    <asp:Button ID="btnUpdate" Text="Delete" runat="server" OnClientClick="return confirm('Are you sure you want to delete this rows?');" CommandName="DeleteRow" CommandArgument='<%# Bind("DrawID") %>'/>
                  </ItemTemplate>
              </asp:TemplateField>
             

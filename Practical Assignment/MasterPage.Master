@@ -15,7 +15,7 @@
     <form id="form1" runat="server">
         
        <% int i = 1;
-          if (Session["Bar"] == "C" )
+          if (Session["Bar"] == "C")
           { %>
         <div class="header"> 
             <asp:HyperLink NavigateUrl="~/HomePage.aspx" ID="Logo" runat="server" ImageUrl="~/Sample Images/Alzenda_Logo.png" Style="margin-left: 20%;" ImageHeight="10%" ImageWidth="5%" />

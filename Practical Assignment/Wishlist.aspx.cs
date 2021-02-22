@@ -46,10 +46,8 @@ namespace Practical_Assignment
                 SqlCommand cmd = new SqlCommand(strCmd, con);
                 con.Open();
                 SqlDataReader rdr = cmd.ExecuteReader();
-                //GridView1.DataSource = rdr;
-
-                //GridView1.DataBind();
-
+                GridView1.DataSource = rdr;
+                GridView1.DataBind();
                 con.Close();
             }
         }
