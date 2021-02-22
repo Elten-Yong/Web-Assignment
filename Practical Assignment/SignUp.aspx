@@ -40,7 +40,7 @@
 
             <table class="tableFormat">
                 <tr>
-                    <td><h1 style="text-align:center">Account Type</h1><hr/></td>
+                    <td><h1 style="text-align:center">Register as</h1><hr/></td>
                 </tr>
                 <tr>
                     <td>
