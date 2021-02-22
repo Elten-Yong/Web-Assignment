@@ -1,6 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="SellArt.aspx.cs" Inherits="Practical_Assignment.SellArt" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
+        .tableFormat {
+            border-collapse: collapse;
+            border: 1px solid grey;
+            height: auto;
+            width: 700px;
+            margin: 0% 25% 0% 25%;
+            background-color: white;
+        }
         .auto-style2 {
             height: 29px;
         }
@@ -18,7 +26,7 @@
     
             <p><b><u>Welcome to XXX, Please upload your Art to be sold.</u></b></p>
             <br />
-    <table>
+    <table class ="tableFormat">
 
         <tr>
             <td>Art name : </td>
@@ -71,10 +79,11 @@
         </table>
     <br />
             &nbsp;
+    <div style="text-align: center">
          <asp:Button ID="Cancel" runat="server" Text="Cancel" Width="140px" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="Submit" runat="server" Text="Submit" OnClick="Submit_Click" Width="139px" />
-           
+    </div>
     
 
 </asp:Content>

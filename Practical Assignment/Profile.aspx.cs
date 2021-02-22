@@ -13,7 +13,7 @@ namespace Practical_Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Label1.Text = Session["Value"].ToString();
+            //Label1.Text = Session["Value"].ToString();
 
             if (Session["Value"] != "0")
             {
@@ -34,7 +34,7 @@ namespace Practical_Assignment
                     {
                         while (dtr.Read())
                         {
-                            lblUsername.Text = dtr["ArtistID"].ToString();
+                            lblUsername.Text = dtr["Username"].ToString();
                             lblEmail.Text = dtr["Email"].ToString();
                             lblPassword.Text = dtr["Password"].ToString();
                         }
