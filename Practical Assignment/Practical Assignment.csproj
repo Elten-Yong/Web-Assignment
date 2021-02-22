@@ -77,6 +77,7 @@
     <Content Include="Gallery.aspx" />
     <Content Include="HomePage.aspx" />
     <Content Include="MasterPage.css" />
+    <Content Include="Wishlist.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AboutUs.aspx.cs">
@@ -121,6 +122,13 @@
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SellArt.aspx.cs">
       <DependentUpon>SellArt.aspx</DependentUpon>
@@ -143,11 +151,19 @@
     <Compile Include="SignUp.aspx.designer.cs">
       <DependentUpon>SignUp.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Wishlist.aspx.cs">
+      <DependentUpon>Wishlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Wishlist.aspx.designer.cs">
+      <DependentUpon>Wishlist.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="MasterPage.Master" />
     <None Include="packages.config" />
     <Content Include="Gallery.css" />
+    <Content Include="Profile.aspx" />
     <Content Include="Sample Images\20181126_125649.jpg" />
     <Content Include="Sample Images\20190101_190842.jpg" />
     <Content Include="Sample Images\20190114_071118.jpg" />
@@ -159,6 +175,7 @@
     <Content Include="SellArt.aspx" />
     <Content Include="SignIn.aspx" />
     <Content Include="SignUp.aspx" />
+    <Content Include="HomePage.css" />
     <Content Include="Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

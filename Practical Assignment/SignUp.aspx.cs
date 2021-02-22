@@ -188,7 +188,8 @@ namespace Practical_Assignment
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("SignIn.aspx");
+            //Response.Redirect("SignIn.aspx");
+            SignUpMultiView.ActiveViewIndex = 0;
         }
     }
 }

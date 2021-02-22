@@ -32,23 +32,33 @@ namespace Practical_Assignment
 
             String msg = "";
 
-            if (dtrGallery.HasRows)
+            for (int count = 0; count < 2; count++)
             {
-                while (dtrGallery.Read())
+
+                if (dtrGallery.HasRows)
                 {
-                    msg = "Draw Name = " + dtrGallery["Name"].ToString();
-                    byte[] imgBytes = (byte[])dtrGallery["Image"];
-                    string strBase64 = Convert.ToBase64String(imgBytes);
-
+                    while (dtrGallery.Read())
+                    {
+                        msg = "Draw Name = " + dtrGallery["Name"].ToString();
+                        byte[] imgBytes = (byte[])dtrGallery["Image"];
+                        string strBase64 = Convert.ToBase64String(imgBytes);
+                       
+                    }
                 }
-            }       
-
+            }
             con.Close();
             
 
             
 
         }
-        
+
+        protected void DataList1_ItemDataBound(object sender, DataListItemEventArgs e)
+        {
+
+            DataRowView datarow = (DataRowView)e.Item.DataItem;
+            string imageUrl = "data:image/jpg;base64," + Convert.ToBase64String((byte[])datarow["Image"]);
+            (e.Item.FindControl("Image1") as Image).ImageUrl = imageUrl;
+        }
     }
 }
