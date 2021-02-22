@@ -105,6 +105,7 @@ namespace Practical_Assignment
                         {
                             if (dtr["Password"].Equals(txtPassword.Text))
                             {
+                                Session["Bar"] = "C";
                                 Session["Value"] = dtr["CustomerID"].ToString();
                                 Response.Redirect("HomePage.aspx");
 
