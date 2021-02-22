@@ -27,10 +27,6 @@
             text-align: center;
             height: 24px;
         }
-        .auto-style5 {
-            text-align: center;
-            height: 32px;
-        }
         .auto-style7 {
             height: 24px;
             width: 233px;
@@ -98,7 +94,7 @@
         </tr>
         <tr>
             <td class="txtType" colspan="4">
-                <asp:TextBox ID="txtUsername" runat="server" placeholder="Username" Width="230px"></asp:TextBox><br />
+                <asp:TextBox ID="txtUsername" runat="server" placeholder="Username" Width="230px" BorderColor="#E6E6E6"></asp:TextBox><br />
                 <asp:RequiredFieldValidator ID="usernameRequired" runat="server" ErrorMessage="Username cannot be empty." ControlToValidate="txtUsername" ForeColor="red" Font-Size="Small"></asp:RequiredFieldValidator>
             </td>
         </tr>
@@ -109,22 +105,13 @@
         </tr>
         <tr>
             <td class="auto-style2" colspan="4">
-                <asp:TextBox ID="txtPassword" runat="server" placeholder="password" Width="230px" TextMode="Password"></asp:TextBox><br />
+                <asp:TextBox ID="txtPassword" runat="server" placeholder="password" Width="230px" TextMode="Password" BorderColor="#E6E6E6"></asp:TextBox><br />
                 <asp:RequiredFieldValidator ID="passwordRequired" runat="server" ErrorMessage="Password can not be empty." ControlToValidate="txtPassword" Font-Size="Small" ForeColor="red"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
             <td class="auto-style4" colspan="4">
                 </td>
-        </tr>
-        <tr>
-            <td class="auto-style5" colspan="4">
-                <asp:Button ID="btnCancelLogIn" runat="server" Height="30px" OnClick="btnCancelLogIn_Click" style="margin-right:50px; border-color: #4D94FF; background-color: white; color: #284E98;" Text="Cancel" Width="240px" ValidationGroup="none" />
-                <asp:Button ID="btnLogIn" runat="server" Height="30px" OnClick="btnLogIn_Click" style="border-color: #4D94FF; background-color: white; color: #284E98;" Text="Log In" Width="240px" />
-                <br />
-                <br />
-                <asp:Label ID="lblError" runat="server" Font-Size="Small" ForeColor="red" Text=""></asp:Label>
-            </td>
         </tr>
         <tr>
             <td class="txtType" colspan="4">&nbsp;</td>
@@ -145,8 +132,20 @@
         </tr>
 
         <tr>
+            <td class="auto-style9" colspan="2">&nbsp;</td>
+            <td colspan="2" style="text-align:right; padding-right:5px">&nbsp;</td>
+        </tr>
+
+        <tr>
             <td class="txtType" colspan="4">
-                &nbsp;</td>
+                <asp:Button ID="btnCancelLogIn" runat="server" Height="30px" OnClick="btnCancelLogIn_Click" style="margin-right:50px; border-color: #4D94FF; background-color: white; color: #284E98;" Text="Cancel" ValidationGroup="none" Width="240px" />
+                <asp:Button ID="btnLogIn" runat="server" Height="30px" OnClick="btnLogIn_Click" style="border-color: #4D94FF; background-color: white; color: #284E98;" Text="Log In" Width="240px" /><br />
+                <asp:Label ID="lblError" runat="server" Font-Size="Small" ForeColor="red" Text="" ></asp:Label>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="txtType" colspan="4">&nbsp;</td>
         </tr>
 
         <tr>
