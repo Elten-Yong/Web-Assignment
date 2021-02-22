@@ -1,6 +1,11 @@
-﻿.TopMenuBar {
+﻿.Logo {
     margin-left: 20%;
-    margin-right: 20%;
+}
+
+.TopMenuBar {
+    margin-top:-80px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
     .TopMenuBar tr {
@@ -12,7 +17,7 @@
         display: inline-block;
         color: rgb(100,149,237);
         text-align: center;
-        padding: 20px 32px;
+        padding: 20px 32px; /*change hover box size*/
         text-decoration: none;
         font-size: 18px
     }
@@ -21,3 +26,4 @@
         background-color: rgb(150,150,150);
         color: rgb(255,255,255);
     }
+

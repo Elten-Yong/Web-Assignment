@@ -26,29 +26,40 @@ namespace Practical_Assignment
 
             SqlCommand cmdSelect = new SqlCommand(strSelect, con);
 
-            cmdSelect.Parameters.AddWithValue("@DrawID", "DR1");
+            cmdSelect.Parameters.AddWithValue("@DrawID", "DR0001");
 
             SqlDataReader dtrGallery = cmdSelect.ExecuteReader();
 
             String msg = "";
 
-            if (dtrGallery.HasRows)
+            for (int count = 0; count < 2; count++)
             {
-                while (dtrGallery.Read())
+
+                if (dtrGallery.HasRows)
                 {
-                    msg = "Draw Name = " + dtrGallery["Name"].ToString();
-                    byte[] imgBytes = (byte[])dtrGallery["Image"];
-                    string strBase64 = Convert.ToBase64String(imgBytes);
-
+                    while (dtrGallery.Read())
+                    {
+                        msg = "Draw Name = " + dtrGallery["Name"].ToString();
+                        byte[] imgBytes = (byte[])dtrGallery["Image"];
+                        string strBase64 = Convert.ToBase64String(imgBytes);
+                        DrawImg1.ImageUrl = "data:image/png;base64," + strBase64;
+                        Label1.Text = msg;
+                    }
                 }
-            }       
-
+            }
             con.Close();
             
 
             
 
         }
-        
+
+        protected void DataList1_ItemDataBound(object sender, DataListItemEventArgs e)
+        {
+
+            DataRowView datarow = (DataRowView)e.Item.DataItem;
+            string imageUrl = "data:image/jpg;base64," + Convert.ToBase64String((byte[])datarow["Image"]);
+            (e.Item.FindControl("Image1") as Image).ImageUrl = imageUrl;
+        }
     }
 }
