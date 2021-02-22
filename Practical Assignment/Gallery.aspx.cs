@@ -42,8 +42,7 @@ namespace Practical_Assignment
                         msg = "Draw Name = " + dtrGallery["Name"].ToString();
                         byte[] imgBytes = (byte[])dtrGallery["Image"];
                         string strBase64 = Convert.ToBase64String(imgBytes);
-                        DrawImg1.ImageUrl = "data:image/png;base64," + strBase64;
-                        Label1.Text = msg;
+                       
                     }
                 }
             }
