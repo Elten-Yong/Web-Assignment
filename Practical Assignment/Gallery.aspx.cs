@@ -19,6 +19,7 @@ namespace Practical_Assignment
             SqlConnection con;
             string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             con = new SqlConnection(strcon);
+
             con.Open();
 
             string strSelect = "Select * from Gallery where DrawID=@DrawID";
@@ -31,34 +32,22 @@ namespace Practical_Assignment
 
             String msg = "";
 
-            int count = 1;
-
-            if (count == 1)
+            if (dtrGallery.HasRows)
             {
-
-            }
-            
-                if (dtrGallery.HasRows)
+                while (dtrGallery.Read())
                 {
-                    while (dtrGallery.Read())
-                    {
-                        msg = "Draw Name = " + dtrGallery["Name"].ToString();
-                        byte[] imgBytes = (byte[])dtrGallery["Image"];
-                        string strBase64 = Convert.ToBase64String(imgBytes);
-                        DrawImg1.ImageUrl = "data:image/png;base64," + strBase64;
+                    msg = "Draw Name = " + dtrGallery["Name"].ToString();
+                    byte[] imgBytes = (byte[])dtrGallery["Image"];
+                    string strBase64 = Convert.ToBase64String(imgBytes);
 
-                    }
                 }
-                else
-                {
-                    msg = "No Record(s) Found!";
-                }
-                Label1.Text = msg;
-            
-            
+            }       
+
             con.Close();
+            
 
-           
+            
+
         }
         
     }
