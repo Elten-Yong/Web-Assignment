@@ -4,15 +4,16 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
     <link href="Gallery.css" rel="stylesheet" type="text/css" />
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Gallery]"></asp:SqlDataSource>
-
+    <asp:repeater id="Repeater1" datasourceid="SqlDataSource1" runat="server">
+    <headertemplate>
     <table style="width: 100%; text-align: center">
-
+    </headertemplate>
+    <itemtemplate>
         <tr>
             <td>
-                <asp:Image CssClass="Img" width="500px" height="250px" ID="DrawImg1" runat="server" ImageUrl="~/Sample Images/20181126_125649.jpg" /></td>
+                <asp:Image CssClass="Img" width="500px" height="250px" ID="DrawImg1" runat="server" ImageUrl="<%#"data:Image/png;base64," + Convert.ToBase64String((byte[])Eval("Image")) %>" /></td>
             <td>
-                <asp:Image CssClass="Img" width="500px" height="250px" ID="DrawImg2" runat="server" ImageUrl="~/Sample Images/20190101_190842.jpg"/></td>
+                <asp:Image CssClass="Img" width="500px" height="250px" ID="DrawImg2" runat="server" ImageUrl="<%#"data:Image/png;base64," + Convert.ToBase64String((byte[])Eval("Image")) %>"/></td>
         </tr>
         <tr>
             <td>
@@ -88,7 +89,10 @@
             <td>
                 <asp:Button CssClass="Button" ID="Button8" runat="server" Text="Buy" />&nbsp<asp:Button CssClass="Button" ID="Button16" runat="server" Text="Add to Wishlist" /></td>
         </tr>
-
+        </itemtemplate>
+        <footertemplate>
         </table>
-
+        </footertemplate>
+        </asp:repeater>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Gallery]"></asp:SqlDataSource>
 </asp:Content>
