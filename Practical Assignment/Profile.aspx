@@ -31,48 +31,60 @@
 
         </style>
 
- <table class="tableFormat">
-            <tr style ="border:50px">
-                <td class="auto-style1" ><h1 >
-                    Profile</h1><hr /></td>
-            </tr>
-            <tr>
-                <td class="auto-style2"></td>
-            </tr>
-            <tr>
-                <td class="auto-style2">
-                    Username:<asp:Label ID="lblUsername" runat="server" Text="[username]"></asp:Label>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style2">&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style2">
-                    Email:<asp:Label ID="lblEmail" runat="server" Text="[email]"></asp:Label>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style2">
+    <% if (Session["Value"] == "0")
+          { %>
+            <div>
+                <p>Please sign up / sign in first.</p>
+
+            </div>
+        <%}
+          else{ %>
+
+            <div>
+              <table class="tableFormat">
+                   <tr style ="border:50px">
+                        <td class="auto-style1" ><h1 >
+                          Profile</h1><hr /></td>
+                   </tr>
+                    <tr>
+                            <td class="auto-style2"></td>
+                    </tr>
+                    <tr>
+                            <td class="auto-style2">
+                                Username:<asp:Label ID="lblUsername" runat="server" Text="[username]"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style2">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style2">
+                                Email:<asp:Label ID="lblEmail" runat="server" Text="[email]"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style2">
                     
-                </td>
-            </tr>
+                            </td>
+                        </tr>
             
-            <tr>
-                <td class="auto-style2">
-                    Password:<asp:Label ID="lblPassword" runat="server" Text="[password]"></asp:Label>
-                </td>
-            </tr>
+                        <tr>
+                            <td class="auto-style2">
+                                Password:<asp:Label ID="lblPassword" runat="server" Text="[password]"></asp:Label>
+                            </td>
+                        </tr>
             
-            <tr>
-                <td class="auto-style2"></td>
-            </tr>
-            <tr>
-                <td class="auto-style2" style="text-align: center">
-                    <asp:Button ID="btnSignOut" runat="server" Text="Sign Out" style="border-color: #4D94FF; 
-                    background-color: white; color: #284E98;" OnClick="btnSignOut_Click" width="240px" Height="30px" /></td>
-            </tr>
+                        <tr>
+                            <td class="auto-style2"></td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style2" style="text-align: center">
+                                <asp:Button ID="btnSignOut" runat="server" Text="Sign Out" style="border-color: #4D94FF; 
+                                background-color: white; color: #284E98;" OnClick="btnSignOut_Click" width="240px" Height="30px" /></td>
+                        </tr>
                          
-        </table>
+                    </table>
+                </div>
+          <%} %>
 
 </asp:Content>

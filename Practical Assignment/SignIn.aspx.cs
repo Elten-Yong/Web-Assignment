@@ -11,12 +11,6 @@ namespace Practical_Assignment
 {
     public partial class SignIn : System.Web.UI.Page
     {
-
-        class Global // Global variable
-        {
-            public static string accountType;
-        }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             SignInMultiView.ActiveViewIndex = 0;
@@ -25,6 +19,7 @@ namespace Practical_Assignment
         {
             Global.accountType = "a";
             changeView();
+           
         }
 
         protected void btnCustomer_Click(object sender, EventArgs e)
@@ -64,7 +59,8 @@ namespace Practical_Assignment
                         {
                             if (dtr["Password"].ToString().Equals(txtPassword.Text))
                             {
-                                Session["Name"] = dtr["Username"].ToString();
+                                Session["Bar"] = "A";
+                                Session["Value"] = dtr["ArtistID"].ToString();
                                 Response.Redirect("HomePage.aspx");
                                 
                             }
@@ -87,6 +83,9 @@ namespace Practical_Assignment
 
                 }
                 con.Close();
+
+
+
             }
             else
             {
@@ -106,7 +105,7 @@ namespace Practical_Assignment
                         {
                             if (dtr["Password"].Equals(txtPassword.Text))
                             {
- 
+                                Session["Value"] = dtr["CustomerID"].ToString();
                                 Response.Redirect("HomePage.aspx");
 
 
@@ -135,7 +134,7 @@ namespace Practical_Assignment
             
 
         }
-
+        
         protected void btnCancelLogIn_Click(object sender, EventArgs e)
         {
             SignInMultiView.ActiveViewIndex = 0;
