@@ -15,7 +15,7 @@ namespace Practical_Assignment
         {
             //Label1.Text = Session["Value"].ToString();
 
-            if (Session["Value"] != "0")
+            /*if (Session["Value"] != "0")
             {
 
                 SqlConnection con;
@@ -61,7 +61,7 @@ namespace Practical_Assignment
                     }
                     con.Close();
                 }
-            }
+            }*/
         
         }
 

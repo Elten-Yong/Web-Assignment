@@ -7,6 +7,7 @@
             height: auto;
             width: 700px;
             background-color: white;
+            margin-bottom :1%;
             height:300px;
             width:1000px;
         }
@@ -98,14 +99,27 @@
             <td class="auto-style3">
                 <asp:FileUpload ID="Drawing" runat="server" /></td>
         </tr>
+
+        <tr>
+            <td class="auto-style7">&nbsp;</td>
+            <td class="auto-style3">
+                &nbsp;</td>
+        </tr>
+
+        <tr>
+            <td class="auto-style7">
+         <asp:Button ID="Cancel" runat="server" Text="Cancel" Width="140px"  />
+            </td>
+            <td class="auto-style3">
+        <asp:Button ID="Submit" runat="server" Text="Submit" OnClick="Submit_Click" Width="139px" />
+            </td>
+        </tr>
         </table>
     <br />
             &nbsp;
     <div >
-         <asp:Button ID="Cancel" runat="server" Text="Cancel" Width="140px" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Submit" runat="server" Text="Submit" OnClick="Submit_Click" Width="139px" />
-    </div>
+        </div>
     
 
 </asp:Content>
