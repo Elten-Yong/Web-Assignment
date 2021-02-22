@@ -62,7 +62,7 @@ namespace Practical_Assignment
                                 Session["Bar"] = "A";
                                 Session["Value"] = dtr["ArtistID"].ToString();
                                 Response.Redirect("HomePage.aspx");
-                                Session["ID"] = dtr["Username"].ToString();
+                                
                             }
                             else
                             {
@@ -83,9 +83,6 @@ namespace Practical_Assignment
 
                 }
                 con.Close();
-
-
-
             }
             else
             {
@@ -108,8 +105,6 @@ namespace Practical_Assignment
                                 Session["Bar"] = "C";
                                 Session["Value"] = dtr["CustomerID"].ToString();
                                 Response.Redirect("HomePage.aspx");
-                                Session["ID"] = dtr["Username"].ToString();
-
                             }
                             else
                             {
