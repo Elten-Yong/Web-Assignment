@@ -4,6 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 
+
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
     <link href="HomePage.css" rel="stylesheet" type="text/css" />
     <div style="margin:0 10%;  background-color: white; padding:0px 10px"> <!-- page body style -->
