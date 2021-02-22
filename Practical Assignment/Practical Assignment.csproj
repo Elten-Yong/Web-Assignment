@@ -76,6 +76,7 @@
     <Content Include="EditProfile.aspx" />
     <Content Include="ForgetPassword.aspx" />
     <Content Include="Gallery.aspx" />
+    <Content Include="GalleryArtist.aspx" />
     <Content Include="HomePage.aspx" />
     <Content Include="MasterPage.css" />
     <Content Include="Wishlist.aspx" />
@@ -115,6 +116,13 @@
     </Compile>
     <Compile Include="Gallery.aspx.designer.cs">
       <DependentUpon>Gallery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GalleryArtist.aspx.cs">
+      <DependentUpon>GalleryArtist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GalleryArtist.aspx.designer.cs">
+      <DependentUpon>GalleryArtist.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>

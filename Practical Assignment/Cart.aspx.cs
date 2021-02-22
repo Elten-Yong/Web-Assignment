@@ -14,9 +14,24 @@ namespace Practical_Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            SqlConnection con;
+            string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            con = new SqlConnection(strcon);
+
+            con.Open();
+
+            string strSelect = "Select * from Gallery where DrawID=@DrawID";
+
+            SqlCommand cmdSelect = new SqlCommand(strSelect, con);
+
+            cmdSelect.Parameters.AddWithValue("@DrawID", "DR0001");
+
+            SqlDataReader dtrGallery = cmdSelect.ExecuteReader();
+
 
         }
 
+        /*
         private void LoadImages()
         {
             SqlConnection con;
@@ -24,7 +39,7 @@ namespace Practical_Assignment
             con = new SqlConnection(strcon);
             con.Open();
 
-            string strSelect = "Select ";
+            string strSelect = "Select * from Gallery";
             SqlCommand cmd = new SqlCommand(strSelect, con);
             
 
@@ -33,5 +48,6 @@ namespace Practical_Assignment
             GridView1.DataBind();
             
         }
+        */
     }
 }

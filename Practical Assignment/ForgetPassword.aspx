@@ -89,7 +89,7 @@
                 <tr>
                     <td class="auto-style4">
                         
-                        <asp:TextBox ID="txtUsername" runat="server" placeholder="Username" Width="230px"></asp:TextBox><br />
+                        <asp:TextBox ID="txtUsername" runat="server" placeholder="Username" Width="230px" BorderColor="#E6E6E6"></asp:TextBox><br />
                         <asp:RequiredFieldValidator ID="txtUserRequired" runat="server" ErrorMessage="Username can not be empty." ControlToValidate="txtUsername" ForeColor="red" Font-Size ="Small"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
@@ -142,7 +142,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style4">
-                        <asp:TextBox ID="txtAnswerQuestion" runat="server" placeholder="Security Answer" Width="230px"></asp:TextBox><br />
+                        <asp:TextBox ID="txtAnswerQuestion" runat="server" placeholder="Security Answer" Width="230px" BorderColor="#E6E6E6"></asp:TextBox><br />
                         <asp:RequiredFieldValidator ID="txtAnswerRequired" runat="server" ErrorMessage="Answer can not be empty." ControlToValidate ="txtAnswerQuestion" ForeColor="red" Font-Size ="Small" ></asp:RequiredFieldValidator>
                     </td>
                 </tr>
@@ -184,7 +184,7 @@
                 </tr>
                               <tr>
                 <td class="auto-style5">
-                    <asp:TextBox ID="txtNewPassword" runat="server" TextMode="Password" placeholder="Password"  Width="230px"></asp:TextBox><br />
+                    <asp:TextBox ID="txtNewPassword" runat="server" TextMode="Password" placeholder="Password"  Width="230px" BorderColor="#E6E6E6"></asp:TextBox><br />
                     <asp:RequiredFieldValidator ID="passwordRequired" runat="server" ControlToValidate="txtNewPassword" ErrorMessage="Password is required" ForeColor="Red" Font-Size="Small" ></asp:RequiredFieldValidator><br />
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtNewPassword" ErrorMessage="Please enter a strong password include characters and number with a min length 8" 
                         ValidationExpression="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" ForeColor="Red" Font-Size="Small"></asp:RegularExpressionValidator>
@@ -195,7 +195,7 @@
             </tr>
              <tr>
                 <td class="auto-style5">
-                    <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" placeholder="Confirm Password"  Width="230px"></asp:TextBox><br />
+                    <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" placeholder="Confirm Password"  Width="230px" BorderColor="#E6E6E6"></asp:TextBox><br />
                     <asp:RequiredFieldValidator ID="confirmPasswordRequired" runat="server" ErrorMessage="Confirm password cannot be empty" ControlToValidate="txtConfirmPassword" ForeColor="Red" 
                         Font-Size="Small"></asp:RequiredFieldValidator><br />
                     <asp:CompareValidator ID="comparePass" runat="server" ErrorMessage="Password miss-match, please re-enter the password" Operator="Equal" ControlToCompare="txtNewPassword" ControlToValidate="txtConfirmPassword" ForeColor="Red" 
