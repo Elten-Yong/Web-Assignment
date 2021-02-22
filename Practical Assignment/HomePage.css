@@ -1,12 +1,10 @@
-﻿
-
-* {
-    box-sizing: border-box
+﻿* {
+    box-sizing: border-box;
 }
 
 /* Slideshow container */
 .slideshow-container {
-    max-width: 1000px;
+    width: 50%;
     position: relative;
     margin: auto;
 }
@@ -106,3 +104,18 @@
         opacity: 1
     }
 }
+
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+

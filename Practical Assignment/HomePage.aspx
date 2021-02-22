@@ -2,19 +2,28 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    
 </asp:Content>
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
     <link href="HomePage.css" rel="stylesheet" type="text/css" />
-    <div style="margin:0 10%;  background-color: white; padding:0px 10px"> <!-- page body style -->
+    <div style="background-color: white; padding:0px 10px"> <!-- page body style -->
     <br/>
+	<div style="text-align:center">
+		A L	Z E N D A &nbsp  A R T W O R K &nbsp S A L E S &nbsp  G A L L E R Y
+	</div>
+
+	<br/>
+
+
+			
 	<!-- Slide -->  
 	<div class="slideshow-container">
       <!-- Full-width images with number and caption text -->
       <div class="mySlides fade">
         <div class="numbertext">1 / 3</div>
-        <img src="Sample Images/20181126_125649.jpg" style="width:50%">
+        <img src="Sample Images/20181126_125649.jpg" style="width:100%">
         <div class="text">Caption Text</div>
       </div>
 
@@ -79,15 +88,23 @@
 				dots[slideIndex-1].className += " active";
 			}
     </script>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-		</div>
 	
+
+		<div>
+			<h2>Recent upload painting</h2>
+			<div>
+				<br/>
+			</div>
+		</div>
+		<div class="container" >
+			<asp:Image ID="JoinUs" runat="server" ImageUrl="~/Sample Images/Join us.jpg" Width="1100px"/>
+
+			<div class="centered">
+				<a>interested in selling your work ?</a><br/>
+				<a href="" >Contribute the artwork</a>
+
+			</div>
+		</div>
+	</div>
+    
 </asp:Content>
