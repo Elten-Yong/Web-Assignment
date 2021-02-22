@@ -6,7 +6,7 @@
     <link href="Gallery.css" rel="stylesheet" type="text/css" />
     
     
-    <div style="width:1200px; margin:0 auto;">
+    <div style="width:1200px; margin:0 auto; border: 2px black;">
         <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" CellPadding="50" RepeatColumns="2" RepeatDirection="Horizontal" OnItemDataBound="DataList1_ItemDataBound">
             <ItemTemplate>
                   

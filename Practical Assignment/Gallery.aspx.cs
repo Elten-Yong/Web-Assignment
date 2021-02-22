@@ -60,5 +60,7 @@ namespace Practical_Assignment
             string imageUrl = "data:image/jpg;base64," + Convert.ToBase64String((byte[])datarow["Image"]);
             (e.Item.FindControl("Image1") as Image).ImageUrl = imageUrl;
         }
+
+        
     }
 }

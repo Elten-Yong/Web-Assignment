@@ -17,8 +17,8 @@
        <% int i = 1;
           if (Session["Bar"] == "C" )
           { %>
-        <div > 
-            <asp:HyperLink NavigateUrl="~/HomePage.aspx" ID="Logo" runat="server" ImageUrl="~/Sample Images/Alzenda_Logo.png" Style="margin-left: 20%" ImageHeight="10%" ImageWidth="5%" />
+        <div class="header"> 
+            <asp:HyperLink NavigateUrl="~/HomePage.aspx" ID="Logo" runat="server" ImageUrl="~/Sample Images/Alzenda_Logo.png" Style="margin-left: 20%;" ImageHeight="10%" ImageWidth="5%" />
             <asp:Menu CssClass="TopMenuBar" ID="TopMenuBar" runat="server" RenderingMode="Table" Orientation="Horizontal" >
                 <Items>
                     <asp:MenuItem NavigateUrl="~/HomePage.aspx" Text="Home Page" Value="Home Page"/>
@@ -32,7 +32,7 @@
         </div> 
         <%}
           else{ %>
-        <div> 
+        <div class="header"> 
             <asp:HyperLink NavigateUrl="~/HomePage.aspx" ID="HyperLink1" runat="server" ImageUrl="~/Sample Images/Alzenda_Logo.png" Style="margin-left: 20%" ImageHeight="10%" ImageWidth="5%" />
             <asp:Menu CssClass="TopMenuBar" ID="Menu2" runat="server" RenderingMode="Table" Orientation="Horizontal" >
                 <Items>
@@ -48,9 +48,16 @@
         <div>
             <asp:ContentPlaceHolder ID="Display" runat="server"></asp:ContentPlaceHolder>
         </div>
-        <div>
-            hi
-            
+        <div class="footer">
+            <table style="width: 100%;">
+                <tr>
+                    <td>Encounter problem ?</td>                    
+                </tr>
+                <tr>
+                    <td>Contact us: +60 18-319-9792 </td>                    
+                </tr>               
+            </table>
+            <p>&#169 Copyright Alzenda Art Gallery 2021. All right reserved</p>
         </div>
     </form>
 </body>
