@@ -13,9 +13,8 @@ namespace Practical_Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Label1.Text = Session["Value"].ToString();
-
-            if (Session["Value"] != "0")
+            
+            if (Session["Value"] != "0" && Session["Value"] != null)
             {
 
                 SqlConnection con;
@@ -34,14 +33,17 @@ namespace Practical_Assignment
                     {
                         while (dtr.Read())
                         {
-                            lblUsername.Text = dtr["ArtistID"].ToString();
+                            lblUsername.Text = dtr["Username"].ToString();
                             lblEmail.Text = dtr["Email"].ToString();
                             lblPassword.Text = dtr["Password"].ToString();
+                            lblPhoneNo.Text = dtr["PhoneNumber"].ToString();
+                            lblAddress.Text = "";
+
                         }
                     }
                     con.Close();
                 }
-                else
+                else 
                 {
                     con.Open();
                     string strSelect = "SELECT * FROM [Customer] WHERE CustomerID = @CustomerID";
@@ -54,9 +56,11 @@ namespace Practical_Assignment
                     {
                         while (dtr.Read())
                         {
-                            lblUsername.Text = dtr["CustomerID"].ToString();
+                            lblUsername.Text = dtr["Username"].ToString();
                             lblEmail.Text = dtr["Email"].ToString();
                             lblPassword.Text = dtr["Password"].ToString();
+                            lblPhoneNo.Text = dtr["PhoneNumber"].ToString();
+                            lblAddress.Text = "Delivery Address : " + dtr["Address"].ToString();
                         }
                     }
                     con.Close();
@@ -68,9 +72,15 @@ namespace Practical_Assignment
         protected void btnSignOut_Click(object sender, EventArgs e)
         {
             Session["Value"] = "0";
-            Response.Redirect("SignIn.aspx");
-            Global.i = 0;  // homepage checking
             Response.Redirect("HomePage.aspx");
+            Global.i = 0;  // homepage checking
+            
+        }
+
+        protected void EditProfile_Click(object sender, EventArgs e)
+        {
+            
+            Response.Redirect("EditProfile.aspx");
         }
     }
 }
