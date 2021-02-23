@@ -116,7 +116,7 @@ namespace Practical_Assignment
                         SqlCommand cmdInsert = new SqlCommand(strInsert, con);
                         cmdInsert.Parameters.AddWithValue("@CustomerID", Session["Value"]);
                         cmdInsert.Parameters.AddWithValue("@DrawID", addedDraw);
-                        cmdInsert.Parameters.AddWithValue("@Date", DateTime.Now.ToString());
+                        cmdInsert.Parameters.AddWithValue("@Date", DateTime.Now);
 
                         int numRowAffected = cmdInsert.ExecuteNonQuery();
                         if (numRowAffected > 0)
