@@ -32,7 +32,7 @@ namespace Practical_Assignment
                     SqlConnection con;
                     string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                     con = new SqlConnection(strcon);
-                    //string addedDraw = e.CommandArgument.ToString();
+                    
                     Boolean duplicate = false;
                     //checking value
                     con.Open();
@@ -40,7 +40,7 @@ namespace Practical_Assignment
                     SqlCommand cmdSelect = new SqlCommand(strSelectChecking, con);
 
                     cmdSelect.Parameters.AddWithValue("@CustomerID", Session["Value"]);
-                    //cmdSelect.Parameters.AddWithValue("@DrawID", DrawID);
+                    cmdSelect.Parameters.AddWithValue("@DrawID", "DrawID");
 
                 SqlDataReader dtr = cmdSelect.ExecuteReader();
 
@@ -48,7 +48,7 @@ namespace Practical_Assignment
                     {
                         while (dtr.Read())
                         {
-                            if (Session["Value"].Equals(dtr["CustomerID"]))
+                        if (Session["Value"].Equals(dtr["CustomerID"]) && "DrawID".Equals(dtr["DrawID"]))
                             {
                                 duplicate = true;
                                 ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Already in cart! " + "');", true);
@@ -67,18 +67,21 @@ namespace Practical_Assignment
 
                         SqlCommand cmdInsert = new SqlCommand(strInsert, con);
                         cmdInsert.Parameters.AddWithValue("@CustomerID", Session["Value"]);
-                        //cmdInsert.Parameters.AddWithValue("@DrawID", addedDraw);
-                        
-                        int numRowAffected = cmdInsert.ExecuteNonQuery();
+                        cmdInsert.Parameters.AddWithValue("@DrawID", "DrawID");
+                        cmdInsert.Parameters.AddWithValue("@Name", "Name");
+                        cmdInsert.Parameters.AddWithValue("@Price", "Price");
+                        cmdInsert.Parameters.AddWithValue("@Image", "Image");
+
+                    int numRowAffected = cmdInsert.ExecuteNonQuery();
                         if (numRowAffected > 0)
                         {
                             // return insert success
-                            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Added successfully! " + "');", true);
+                            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Cart display successfully! " + "');", true);
                         }
                         else
                         {
                             // return insert failed
-                            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "update failed! " + "');", true);
+                            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Cart display failed! " + "');", true);
                         }
                         con.Close();
                     }
