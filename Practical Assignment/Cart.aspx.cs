@@ -36,13 +36,14 @@ namespace Practical_Assignment
                     Boolean duplicate = false;
                     //checking value
                     con.Open();
-                    string strSelectChecking = "Select * from CartGallery Where CustomerID = @CustomerID and DrawID =@DrawID";
+                    string strSelectChecking = "SELECT * FROM CartGallery INNER JOIN Customer ON CartGallery.CustomerID = Customer.CustomerID " +
+                    "INNER JOIN Gallery ON CartGallery.DrawID = Gallery.DrawID WHERE CustomerID = @CustomerID and DrawID = @DrawID";
                     SqlCommand cmdSelect = new SqlCommand(strSelectChecking, con);
 
                     cmdSelect.Parameters.AddWithValue("@CustomerID", Session["Value"]);
                     cmdSelect.Parameters.AddWithValue("@DrawID", "DrawID");
 
-                SqlDataReader dtr = cmdSelect.ExecuteReader();
+                    SqlDataReader dtr = cmdSelect.ExecuteReader();
 
                     if (dtr.HasRows)
                     {
@@ -68,11 +69,11 @@ namespace Practical_Assignment
                         SqlCommand cmdInsert = new SqlCommand(strInsert, con);
                         cmdInsert.Parameters.AddWithValue("@CustomerID", Session["Value"]);
                         cmdInsert.Parameters.AddWithValue("@DrawID", "DrawID");
-                        cmdInsert.Parameters.AddWithValue("@Name", "Name");
-                        cmdInsert.Parameters.AddWithValue("@Price", "Price");
-                        cmdInsert.Parameters.AddWithValue("@Image", "Image");
+                        //cmdInsert.Parameters.AddWithValue("@Name", "Name");
+                        //cmdInsert.Parameters.AddWithValue("@Price", "Price");
+                        //cmdInsert.Parameters.AddWithValue("@Image", "Image");
 
-                    int numRowAffected = cmdInsert.ExecuteNonQuery();
+                        int numRowAffected = cmdInsert.ExecuteNonQuery();
                         if (numRowAffected > 0)
                         {
                             // return insert success
@@ -81,7 +82,8 @@ namespace Practical_Assignment
                         else
                         {
                             // return insert failed
-                            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Cart display failed! " + "');", true);
+                            //ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Cart display failed! " + "');", true);
+                            lblError.Text = "No record found";
                         }
                         con.Close();
                     }
