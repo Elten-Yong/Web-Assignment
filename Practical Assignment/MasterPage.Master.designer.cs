@@ -33,15 +33,6 @@ namespace Practical_Assignment
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// CustomerUsername control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CustomerUsername;
-
-        /// <summary>
         /// ltnButton1 control.
         /// </summary>
         /// <remarks>
@@ -49,6 +40,15 @@ namespace Practical_Assignment
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton ltnButton1;
+
+        /// <summary>
+        /// CustomerUsername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label CustomerUsername;
 
         /// <summary>
         /// Logo control.
@@ -67,6 +67,15 @@ namespace Practical_Assignment
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Menu TopMenuBar;
+
+        /// <summary>
+        /// LinkButton2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton2;
 
         /// <summary>
         /// ArtistUsername control.
