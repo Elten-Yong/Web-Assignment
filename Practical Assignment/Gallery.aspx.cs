@@ -111,12 +111,12 @@ namespace Practical_Assignment
                     {
                         con.Open();
 
-                        string strInsert = "Insert into WishlistGallery (CustomerID, DrawID) Values (@CustomerID, @DrawID)";
+                        string strInsert = "Insert into WishlistGallery (CustomerID, DrawID,Date) Values (@CustomerID, @DrawID,@Date)";
 
                         SqlCommand cmdInsert = new SqlCommand(strInsert, con);
                         cmdInsert.Parameters.AddWithValue("@CustomerID", Session["Value"]);
                         cmdInsert.Parameters.AddWithValue("@DrawID", addedDraw);
-                        //cmdInsert.Parameters.AddWithValue("@Date", );
+                        cmdInsert.Parameters.AddWithValue("@Date", DateTime.Now.ToString());
                         int numRowAffected = cmdInsert.ExecuteNonQuery();
                         if (numRowAffected > 0)
                         {
