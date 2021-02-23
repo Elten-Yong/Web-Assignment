@@ -9,15 +9,69 @@ using System.Configuration;
 
 namespace Practical_Assignment
 {
+
     public partial class EditProfile : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-
-            Session["Value"] = "AR0001";
+            EditPageMultiview.ActiveViewIndex = 0;
             Global.accountType = "a";
+            Session["Value"] = "AR0001";
 
+            SqlConnection con;
+            string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            con = new SqlConnection(strcon);
+
+            if (Global.accountType == "a")
+            {
+                con.Open();
+                string strSelect = "SELECT * FROM [Artist] WHERE ArtistID = @ArtistID";
+
+                SqlCommand cmdSelect = new SqlCommand(strSelect, con);
+                cmdSelect.Parameters.AddWithValue("@ArtistID", Session["Value"]);
+                SqlDataReader dtr = cmdSelect.ExecuteReader();
+
+                if (dtr.HasRows)
+                {
+                    while (dtr.Read())
+                    {
+                        lblUsername.Text = dtr["Username"].ToString();
+                        lblEmail.Text = dtr["Email"].ToString();
+                        lblPassword.Text = dtr["Password"].ToString();
+                        lblPhone.Text = dtr["PhoneNumber"].ToString();
+                        lblAddress.Text = "";
+
+                    }
+                }
+                con.Close();
+            }
+            else
+            {
+                con.Open();
+                string strSelect = "SELECT * FROM [Customer] WHERE CustomerID = @CustomerID";
+
+                SqlCommand cmdSelect = new SqlCommand(strSelect, con);
+                cmdSelect.Parameters.AddWithValue("@CustomerID", Session["Value"]);
+                SqlDataReader dtr = cmdSelect.ExecuteReader();
+
+                if (dtr.HasRows)
+                {
+                    while (dtr.Read())
+                    {
+                        lblUsername.Text = dtr["Username"].ToString();
+                        lblEmail.Text = dtr["Email"].ToString();
+                        lblPassword.Text = dtr["Password"].ToString();
+                        lblPhone.Text = dtr["PhoneNumber"].ToString();
+                        lblAddress.Text = dtr["Address"].ToString();
+                    }
+                }
+                con.Close();
+            }
+        }
+
+        protected void btnEdit_Click(object sender, EventArgs e)
+        {
             SqlConnection con;
             string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             con = new SqlConnection(strcon);
@@ -67,7 +121,9 @@ namespace Practical_Assignment
                 }
                 con.Close();
             }
+            EditPageMultiview.ActiveViewIndex = 1;
         }
+
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
@@ -88,6 +144,7 @@ namespace Practical_Assignment
                 SqlCommand cmdSelect = new SqlCommand(strSelect, con);
 
                 SqlDataReader dtr = cmdSelect.ExecuteReader();
+
 
 
                 if (dtr.HasRows)
@@ -190,6 +247,12 @@ namespace Practical_Assignment
                 }
 
             }
+            EditPageMultiview.ActiveViewIndex = 1;
+        }
+
+        protected void btnCancelLogIn_Click(object sender, EventArgs e)
+        {
+            EditPageMultiview.ActiveViewIndex = 0;
         }
     }
 }

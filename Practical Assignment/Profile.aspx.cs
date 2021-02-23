@@ -82,5 +82,10 @@ namespace Practical_Assignment
             
             Response.Redirect("EditProfile.aspx");
         }
+
+        protected void btnRegister_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("SignUp.aspx");
+        }
     }
 }

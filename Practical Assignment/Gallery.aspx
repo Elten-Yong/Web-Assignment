@@ -7,7 +7,7 @@
     
     
     <div style="width:1200px; margin:0 auto; border: 2px black;">
-        <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" CellPadding="50" RepeatColumns="2" RepeatDirection="Horizontal" OnItemDataBound="DataList1_ItemDataBound">
+        <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" CellPadding="50" RepeatColumns="2" RepeatDirection="Horizontal" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand">
             <ItemTemplate>
                   
                 <asp:Image ID="Image1" CssClass="Img" runat="server" ImageUrl='<%# Eval("Image") %>' />
@@ -18,7 +18,8 @@
                 <br />
                 Price:<asp:Label ID="Label2" runat="server" Text='<%#Eval("Price") %>'></asp:Label>
                 <br />
-                <asp:Button CssClass="Button" ID="Button7" runat="server" Text="Buy" />&nbsp<asp:Button CssClass="Button" ID="Button15" runat="server" Text="Add to Wishlist" />
+                <asp:Button CssClass="Button" ID="Button7" runat="server" Text="Buy" CommandName="BuyDrawing" CommandArgument='<%# Eval("DrawID") %>'/>&nbsp
+                <asp:Button CssClass="Button" ID="Button15" runat="server" Text="Add to Wishlist" />
                 <br />
             </ItemTemplate>
         </asp:DataList>

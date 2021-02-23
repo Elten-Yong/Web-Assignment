@@ -19,7 +19,7 @@
             border: 1px solid grey;
             height: auto;
             width :700px;
-            margin:0% 25% 0% 25%;
+            margin:2% 25% 4% 25%;
             background-color: white;
         }
         .btnType{
