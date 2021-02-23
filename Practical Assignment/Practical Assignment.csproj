@@ -73,6 +73,7 @@
       <DependentUpon>ArtGallery.mdf</DependentUpon>
     </Content>
     <Content Include="Cart.aspx" />
+    <Content Include="confirmOrder.aspx" />
     <Content Include="EditProfile.aspx" />
     <Content Include="ForgetPassword.aspx" />
     <Content Include="Gallery.aspx" />
@@ -95,6 +96,13 @@
     </Compile>
     <Compile Include="Cart.aspx.designer.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="confirmOrder.aspx.cs">
+      <DependentUpon>confirmOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="confirmOrder.aspx.designer.cs">
+      <DependentUpon>confirmOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditProfile.aspx.cs">
       <DependentUpon>EditProfile.aspx</DependentUpon>

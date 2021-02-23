@@ -31,7 +31,6 @@ namespace Practical_Assignment
 
             string drawID = "DR" + total.ToString();
 
-
             con.Open();
             int length = Drawing.PostedFile.ContentLength;
             byte[] pic = new byte[length];
@@ -51,10 +50,12 @@ namespace Practical_Assignment
             if(numRowAffected > 0)
             {
                 // return insert success
+                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Added! " + "');", true);
             }
             else
             {
                 // return insert failed
+                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Added failed! " + "');", true);
             }
             con.Close();
         }
