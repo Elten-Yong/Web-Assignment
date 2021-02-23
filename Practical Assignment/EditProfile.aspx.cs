@@ -38,7 +38,6 @@ namespace Practical_Assignment
                     {
                         lblUsername.Text = dtr["Username"].ToString();
                         lblEmail.Text = dtr["Email"].ToString();
-                        lblPassword.Text = dtr["Password"].ToString();
                         lblPhone.Text = dtr["PhoneNumber"].ToString();
                         lblAddress.Text = "";
 
@@ -61,7 +60,6 @@ namespace Practical_Assignment
                     {
                         lblUsername.Text = dtr["Username"].ToString();
                         lblEmail.Text = dtr["Email"].ToString();
-                        lblPassword.Text = dtr["Password"].ToString();
                         lblPhone.Text = dtr["PhoneNumber"].ToString();
                         lblAddress.Text = dtr["Address"].ToString();
                     }

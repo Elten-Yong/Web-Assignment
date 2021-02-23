@@ -68,16 +68,6 @@
                         </tr>
                         <tr>
                             <td class="auto-style3">
-                                
-                                Password:</td>
-                            <td class="auto-style2">
-                                
-                                <asp:Label ID="lblPassword" runat="server" Text=""></asp:Label>
-                                
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="auto-style3">
                     
                                 Phone No: 
                                                     
