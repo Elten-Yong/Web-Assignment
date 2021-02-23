@@ -15,6 +15,7 @@
     }
 
     .TopMenuBar a {
+        border-radius: 15px; /*not checked*/
         display: inline-block;
         color: rgb(100,149,237);
         text-align: center;

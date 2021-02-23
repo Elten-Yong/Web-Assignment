@@ -3,43 +3,97 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
   
+    <style type="text/css">
+        
+        
+        .tableFormat {
+            border-collapse: collapse;
+            border: 1px solid grey;
+            height: auto;
+            width :700px;
+            margin:4% 25% 7% 25%;
+            background-color: white;
+        }
+
+         .auto-style {
+             height: 25px;
+         }
+
+
+        </style>
   
         <% if (Session["Value"] == "0" || Session["Value"] == null)
           { %>
 
-            <div>
-                 <p style="text-align:center; font-size:x-large">Please log in to view your cart.</p>
-                <div style=" text-align: center">
-                <asp:Button ID="btnSignIn" runat="server" Text="Sign In" style="border-color: #4D94FF;
-                background-color: white; color: #284E98; Font-Size:x-large; text-align:center;" 
-                    OnClick="btnSignIn_Click" Width="527px"/>
-                </div>
-            </div>
+            <table class="tableFormat">
+                <tr>
+                    <td class="auto-style">
+                        <p style="text-align:center; font-size:x-large">Please log in to view your cart.</p>
+                           </td>
+                </tr>
+                <tr>
+                    <td class="auto-style">
+                            &nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                          
+                            <asp:Button ID="btnSignIn" runat="server" Text="Sign In" style="border-color: #4D94FF;
+                            background-color: white; color: #284E98; font-size:x-large; text-align:center;" 
+                            OnClick="btnSignIn_Click" Width="527px"/>
+                
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                           &nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                           &nbsp;</td>
+                </tr>
+                
+            </table>
+          
         <%}
           else{ %>
-        
-    <div style="margin: 0px 500px 0px 500px; width: 2000px">
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand">
-        <Columns>
-        
-           <asp:BoundField HeaderText="No." DataField="DrawID" ItemStyle-Width="50px"/>
+    <div style="text-align: center">
+        <asp:Label ID="lblError" runat="server" Text="[Error]"></asp:Label>
+    </div>
 
-            <asp:TemplateField HeaderText="Drawing">
-                 <ItemTemplate >
-                    <asp:Image ID="Image1" runat="server" Height="100px" Width="150px"
-                    ImageUrl='<%# "data:Image/png;base64,"
-                    + Convert.ToBase64String((byte[])Eval("Image")) %>' /> 
-                </ItemTemplate>
-            </asp:TemplateField>
-            <asp:BoundField DataField ="Price" HeaderText=" Price" ItemStyle-Width="100px"/>
-            
-        </Columns>
-    </asp:GridView>
+    <div style="margin: 0px 500px 0px 500px; " >
+    
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+            <Columns>
+                <asp:BoundField DataField="DrawID" HeaderText="DrawID" SortExpression="DrawID" />
+                <asp:BoundField DataField="Image" HeaderText="Image" SortExpression="Image" />
+                <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />     
+                <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" SortExpression="CustomerID" />
+            </Columns>
+        </asp:GridView>
         <br />
     </div>
-    
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [CartGallery] WHERE [DrawID] = @DrawID" InsertCommand="INSERT INTO [CartGallery] ([DrawID], [Name], [Price], [Image], [CustomerID]) VALUES (@DrawID, @Name, @Price, @Image, @CustomerID)" SelectCommand="SELECT Customer.CustomerID, Gallery.DrawID, Gallery.Image, Gallery.Price, Gallery.Name FROM CartGallery INNER JOIN Customer ON CartGallery.CustomerID = Customer.CustomerID INNER JOIN Gallery ON CartGallery.DrawID = Gallery.DrawID" UpdateCommand="UPDATE [CartGallery] SET [Name] = @Name, [Price] = @Price, [Image] = @Image, [CustomerID] = @CustomerID WHERE [DrawID] = @DrawID">
+        <DeleteParameters>
+            <asp:Parameter Name="DrawID" Type="String" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="DrawID" Type="String" />
+            <asp:Parameter Name="Name" Type="String" />
+            <asp:Parameter Name="Price" Type="Decimal" />
+            <asp:Parameter Name="Image" Type="Object" />
+            <asp:Parameter Name="CustomerID" Type="String" />
+        </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="Name" Type="String" />
+            <asp:Parameter Name="Price" Type="Decimal" />
+            <asp:Parameter Name="Image" Type="Object" />
+            <asp:Parameter Name="CustomerID" Type="String" />
+            <asp:Parameter Name="DrawID" Type="String" />
+        </UpdateParameters>
+        </asp:SqlDataSource>
 
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [CartGallery]"></asp:SqlDataSource>
 
     <%} %>
 </asp:Content>

@@ -7,10 +7,12 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
+    
+    <!-- css -->
     <link href="HomePage.css" rel="stylesheet" type="text/css" />
     <div style=" padding:0px 10px"> <!-- page body style -->
     
-	<div style="text-align:center; background-color:darkgrey; margin: -8px -8px -8px -8px; padding:10px">
+	<div style="border: 1px solid #808080; text-align:center; background-color:#FF9900; margin: -8px 70px -8px 70px; padding:10px; font-family: Papyrus; font-size: 24px; font-weight: normal; color: #FFFF99;">
 		A L	Z E N D A &nbsp  A R T W O R K &nbsp S A L E S &nbsp  G A L L E R Y
 	</div>
 
@@ -19,8 +21,7 @@
 
 			
 	<!-- Slide -->
-	<div style="margin:0px 20%;"> <!-- control slide position -->
-    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+	    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="margin:0px 15%;"><!-- control slide position -->
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -28,21 +29,21 @@
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="Sample Images/20190204_134017.jpg" class="d-block w-100" alt="...">
+          <img src="Sample Images/image2.jpg" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
             <h5>First slide label</h5>
             <p>Some representative placeholder content for the first slide.</p>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="..." class="d-block w-100" alt="...">
+          <img src="Sample Images/image3.jpg" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
             <h5>Second slide label</h5>
             <p>Some representative placeholder content for the second slide.</p>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="..." class="d-block w-100" alt="...">
+          <img src="Sample Images/image5.jpg" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
             <h5>Third slide label</h5>
             <p>Some representative placeholder content for the third slide.</p>
@@ -58,26 +59,26 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-	</div>
+
 	<br/>
 
-		<div>
+		<div style="margin-left:70px">
 			<h2>Recent upload painting</h2>
 			<div>
 				<br/>
-			</div>
+		</div>
 		</div>
 		<div class="container" >
 			<asp:Image ID="JoinUs" runat="server" ImageUrl="~/Sample Images/Join us.jpg" Width="1100px"/>
 
 			<div class="centered">
-				<p style="font-family: 'Bauhaus 93'; font-size: 42px; color: #FFFFFF; font-weight: bold;">Interested in selling your work?</p>
+				<p style="font-family: 'Bauhaus 93'; font-size: 42px; color: #EEEEEE; font-weight: bold;text-shadow: 2px 2px 5px grey;">Interested in selling your work?</p>
 				<br/>
-				<br />
-				<a href="" >Click here to contribute your artwork</a>
-
-			</div>
+				<br />                
+				<a href="SellArt.aspx"" >Click here to contribute your artwork</a>                
+			</div>            
 		</div>
+        <br/>
 	</div>
     
 </asp:Content>

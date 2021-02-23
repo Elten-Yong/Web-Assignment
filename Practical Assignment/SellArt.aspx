@@ -36,9 +36,14 @@
     </style>
 
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
 
-             <h1 style="text-align:center;margin-right:5%">Post Art</h1><hr />   
+<asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
+     <% if (Session["Value"] == "0" || Session["Value"] == null)
+          { %>
+             <p>Please log in before updating your.</p>
+      <%}
+          else{ %>
+                 <h1 style="text-align:center;margin-right:5%">Post Art</h1><hr />   
     
             <h1>Welcome to Alzenda Artwork Sales Gallery , select upload to post the art online !!!</h1>
             <p>
@@ -117,6 +122,8 @@
             </td>
         </tr>
         </table>
+
+          <%} %>
     <br />
             &nbsp;
     <div >

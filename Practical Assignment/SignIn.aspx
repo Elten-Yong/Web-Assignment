@@ -41,7 +41,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
 
-    <h1 style="text-align:center;margin-right:5%">LogIn</h1><hr />
+    <h1 style="text-align:center">Log In</h1><hr />
 
     <asp:MultiView ID="SignInMultiView" runat="server">
             <asp:View ID="View1" runat="server">
