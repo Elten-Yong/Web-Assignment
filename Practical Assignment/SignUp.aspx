@@ -14,12 +14,24 @@
         .auto-style3 {
             height: 39px;
         }
-        .tableFormat {
+        .tableFormat1 {
             border-collapse: collapse;
             border: 1px solid grey;
             height: auto;
             width :700px;
-            margin:4% 25% 4% 25%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 270px;
+            background-color: rgb(224, 226, 224);
+        }
+        .tableFormat2 {
+            border-collapse: collapse;
+            border: 1px solid grey;
+            height: auto;
+            width :250px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 100px;
             background-color: rgb(224, 226, 224);
         }
         .btnType{
@@ -37,7 +49,7 @@
   
         <asp:View ID="View1" runat="server">
 
-            <table class="tableFormat">
+            <table class="tableFormat1">
                 <tr>
                     <td>&nbsp;</td>
                 </tr>
@@ -76,11 +88,9 @@
         </asp:View>
 
         <asp:View ID="View2" runat="server">
-        <table class="tableFormat" style="margin-top:1%">
+        <table class="tableFormat2" style="margin-top:1%">
             <tr style ="border:50px">
-                <td class="auto-style1"><h1>
-                    Registration</h1></td>
-            </tr>
+                
             <tr>
                 <td class="auto-style2">Please fill in the registration form. 
                     <br /><hr />
@@ -178,7 +188,7 @@
             <tr>
                 <td class="auto-style2">
 
-                    <asp:Button ID="btnCancel" runat="server" Text="Cancel" style="border-color: #4D94FF; margin-right:110px; background-color: white; color: #284E98;" Height="30px" OnClick="btnCancel_Click" ValidationGroup="none" UseSubmitBehavior="False" />
+                    <asp:Button ID="btnCancel" runat="server" Text="Cancel" style="border-color: #4D94FF; margin-right:75px; background-color: white; color: #284E98;" Height="30px" OnClick="btnCancel_Click" ValidationGroup="none" UseSubmitBehavior="False" />
                     <asp:Button ID="btnRegister" runat="server" Text="Register" style="border-color: #4D94FF; background-color: white; color: #284E98;" OnClick="btnRegister_Click" Height="30px" />
                     
                     <asp:Label ID="lblDuplicate" runat="server" Text="" ForeColor="Red" Font-Size="Small"></asp:Label>

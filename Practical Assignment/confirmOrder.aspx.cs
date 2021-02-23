@@ -31,7 +31,7 @@ namespace Practical_Assignment
             if (e.CommandName == "BuyDrawing")
             {
                 //Session["Value"] = "CS2";
-                
+
                 SqlConnection con;
                 string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 con = new SqlConnection(strcon);
@@ -46,7 +46,7 @@ namespace Practical_Assignment
 
                 string orderID = "OR" + total.ToString();
                 //Response.Redirect("confirmOrder.aspx?id=" + e.CommandArgument.ToString());
-                
+
                 con.Open();
                 string strInsert = "Insert into [Order] (OrderID,CustomerID,DrawID,Date) Values (@OrderID,@CustomerID,@DrawID,@Date)";
                 SqlCommand cmdInsert = new SqlCommand(strInsert, con);
@@ -66,7 +66,7 @@ namespace Practical_Assignment
                     conn = new SqlConnection(strconn);
                     conn.Open();
                     string strSelectTotal = "SELECT Total FROM [Gallery] Where DrawID = @DrawID1";
-                    SqlCommand cmdSelectTotal= new SqlCommand(strSelectTotal, conn);
+                    SqlCommand cmdSelectTotal = new SqlCommand(strSelectTotal, conn);
                     cmdSelectTotal.Parameters.AddWithValue("@DrawID1", e.CommandArgument.ToString());
                     int totalQuantity = (int)cmdSelectTotal.ExecuteScalar() - 1;
                     conn.Close();
@@ -91,10 +91,6 @@ namespace Practical_Assignment
                 }
                 con.Close();
 
-            }
-            else
-            {
-                Response.Redirect("Gallery.aspx");
             }
 
         }

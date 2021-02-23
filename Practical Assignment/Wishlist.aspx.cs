@@ -44,7 +44,6 @@ namespace Practical_Assignment
 
         protected void DataList1_ItemDataBound(object sender, DataListItemEventArgs e)
         {
-
             DataRowView datarow = (DataRowView)e.Item.DataItem;
             string imageUrl = "data:image/jpg;base64," + Convert.ToBase64String((byte[])datarow["Image"]);
             (e.Item.FindControl("Image1") as Image).ImageUrl = imageUrl;
