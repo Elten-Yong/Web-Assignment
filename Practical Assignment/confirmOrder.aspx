@@ -50,7 +50,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:Button ID="Button1" runat="server" Text="Add to cart" CommandName="BuyDrawing" CommandArgument='<%# Eval("DrawID") %>'/>
+                        <asp:Button ID="Button1" runat="server" Text="Buy Now" CommandName="BuyDrawing" CommandArgument='<%# Eval("DrawID") %>'/>
                         <asp:Button ID="Button2" runat="server" Text="Cancel" CommandName="CancelBuy"/>
                     </td>
                     <td>&nbsp;</td>
