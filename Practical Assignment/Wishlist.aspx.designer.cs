@@ -13,6 +13,7 @@ namespace Practical_Assignment
 
     public partial class Wishlist
     {
+
         /// <summary>
         /// GridView1 control.
         /// </summary>
