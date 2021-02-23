@@ -60,8 +60,28 @@ namespace Practical_Assignment
 
                 if (numRowAffected > 0)
                 {
+                    //extract item quantity 
+                    SqlConnection conn;
+                    string strconn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+                    conn = new SqlConnection(strconn);
+                    conn.Open();
+                    string strSelectTotal = "SELECT Total FROM [Gallery] Where DrawID = @DrawID1";
+                    SqlCommand cmdSelectTotal= new SqlCommand(strSelectTotal, conn);
+                    cmdSelectTotal.Parameters.AddWithValue("@DrawID1", e.CommandArgument.ToString());
+                    int totalQuantity = (int)cmdSelectTotal.ExecuteScalar() - 1;
+                    conn.Close();
+
+                    //delete and update the item quantity
+                    conn.Open();
+                    string strSelectUpdate = "UPDATE [Gallery] SET Total = @Total WHERE DrawID = @DrawID2";
+                    SqlCommand cmdSelectUpdate = new SqlCommand(strSelectUpdate, conn);
+                    cmdSelectUpdate.Parameters.AddWithValue("@DrawID2", e.CommandArgument.ToString());
+                    cmdSelectUpdate.Parameters.AddWithValue("@Total", totalQuantity);
+                    int n = cmdSelectUpdate.ExecuteNonQuery();
+                    conn.Close();
+
                     // return insert success
-                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Successfully bought! " + "');", true);
+                    //ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Successfully bought! " + "');", true);
                     Response.Redirect("OrderHistory.aspx");
                 }
                 else
