@@ -68,5 +68,19 @@ namespace Practical_Assignment
         {
 
         }
+
+        protected void ltnButton1_Click(object sender, EventArgs e)
+        {
+            Session["Value"] = "0";
+            Response.Redirect("HomePage.aspx");
+            Global.i = 0;  // homepage checking
+        }
+
+        protected void LinkButton2_Click(object sender, EventArgs e)
+        {
+            Session["Value"] = "0";
+            Response.Redirect("HomePage.aspx");
+            Global.i = 0;  // homepage checking
+        }
     }
 }
