@@ -41,16 +41,16 @@ namespace Practical_Assignment
 
         }
 
-        protected void btnSignIn_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("SignIn.aspx");
-        }
-
         protected void DataList1_ItemDataBound(object sender, EventArgs e)
         {
             //DataRowView datarow = (DataRowView)e.Item.DataItem;
             //string imageUrl = "data:image/jpg;base64," + Convert.ToBase64String((byte[])datarow["Image"]);
-            //(e.Item.FindControl("Image1")as Image).ImageUrl = imageUrl;
+            //(e.Item.FindControl("Image1") as Image).ImageUrl = imageUrl;
+        }
+
+        protected void btnSignIn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("SignIn.aspx");
         }
 
         protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
