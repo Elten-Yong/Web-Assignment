@@ -5,8 +5,10 @@
             width: 264px;
         }
         .auto-style4 {
-            width: 100%;
+            width: 70%;
             height: 308px;
+            margin:1% auto 1% auto;
+            
         }
         .auto-style5 {
             width: 350px;
@@ -32,7 +34,7 @@
         <tr>
             <td class="auto-style3">  
 
-    <asp:HyperLink NavigateUrl="~/HomePage.aspx" ID="Logo" runat="server" ImageUrl="~/Sample Images/Alzenda_Logo.png" Style="margin-left: 3%;"  />
+            <asp:HyperLink NavigateUrl="~/HomePage.aspx" ID="Logo" runat="server" ImageUrl="~/Sample Images/Alzenda_Logo.png" Style="margin-left: 3%;"  />
 
             </td>
             <td style="font-size:large">Alzenda Artwork Sales Gallery&#39;s objective is to provide artist a platform to
