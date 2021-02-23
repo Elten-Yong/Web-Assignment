@@ -117,6 +117,7 @@ namespace Practical_Assignment
                         cmdInsert.Parameters.AddWithValue("@CustomerID", Session["Value"]);
                         cmdInsert.Parameters.AddWithValue("@DrawID", addedDraw);
                         cmdInsert.Parameters.AddWithValue("@Date", DateTime.Now.ToString());
+
                         int numRowAffected = cmdInsert.ExecuteNonQuery();
                         if (numRowAffected > 0)
                         {
