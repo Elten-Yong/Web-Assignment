@@ -14,45 +14,52 @@ namespace Practical_Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoadImages();
+            
             
         }
 
-        string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-
-        protected void GridView1_RowCommand(Object sender, GridViewCommandEventArgs e)
+        protected void DataList1_ItemDataBound(object sender, DataListItemEventArgs e)
         {
 
-            if (e.CommandName == "DeleteRow")
-            {
-                string DrawID = (string)e.CommandArgument;
-                SqlConnection con = new SqlConnection(cs);
-                string cmdText = "DELETE FROM WishlistGallery WHERE DrawID=@DrawID";
-                SqlCommand cmd = new SqlCommand(cmdText, con);
-                cmd.Parameters.AddWithValue("@DrawID", DrawID);
-                con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
-                
-
-            }
-
+            DataRowView datarow = (DataRowView)e.Item.DataItem;
+            string imageUrl = "data:image/jpg;base64," + Convert.ToBase64String((byte[])datarow["Image"]);
+            (e.Item.FindControl("Image1") as Image).ImageUrl = imageUrl;
         }
 
-        private void LoadImages()
+
+        protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
         {
-            using (SqlConnection con = new SqlConnection(cs))
+            if (e.CommandName == "Delete")
             {
-                string strCmd = "Select G.Price, G.Image, G.DrawID, W.CustomerID FROM Gallery G, WishlistGallery W WHERE W.CustomerID = '" + "CS1" + "' AND G.DrawID = W.DrawID";
-                SqlCommand cmd = new SqlCommand(strCmd, con);
+                SqlConnection con;
+                string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+                con = new SqlConnection(strcon);
+                string selectedDraw = e.CommandArgument.ToString();
                 con.Open();
-                SqlDataReader rdr = cmd.ExecuteReader();
-                GridView1.DataSource = rdr;
-                GridView1.DataBind();
+                string strSelect = "DELETE from WishlistGallery Where DrawID=@DrawID and CustomerID = @CustomerID";
+                SqlCommand cmdSelect = new SqlCommand(strSelect, con);
+
+                cmdSelect.Parameters.AddWithValue("@CustomerID", Session["Value"]);
+                cmdSelect.Parameters.AddWithValue("@DrawID", selectedDraw);
+
+                int numRowAffected = cmdSelect.ExecuteNonQuery();
+
+
+                if (numRowAffected > 0)
+                {
+                    // return insert success
+                   // ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Delete successfully! " + "');", true);
+                    Response.Redirect("Wishlist.aspx");
+                }
+                else
+                {
+                    // return insert failed
+                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Delete failed! " + "');", true);
+                }
                 con.Close();
             }
+            
         }
-
 
     }
 }
