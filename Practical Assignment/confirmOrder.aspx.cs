@@ -14,7 +14,7 @@ namespace Practical_Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            //ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + DateTime.Now.ToString() + "');", true);
         }
 
         protected void DataList1_ItemDataBound(object sender, DataListItemEventArgs e)
