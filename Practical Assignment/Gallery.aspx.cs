@@ -111,7 +111,7 @@ namespace Practical_Assignment
                     {
                         con.Open();
 
-                        string strInsert = "Insert into WishlistGallery (CustomerID, DrawID,Date) Values (@CustomerID, @DrawID,@Date)";
+                        string strInsert = "Insert into WishlistGallery (CustomerID, DrawID, Date) Values (@CustomerID, @DrawID,@Date)";
 
                         SqlCommand cmdInsert = new SqlCommand(strInsert, con);
                         cmdInsert.Parameters.AddWithValue("@CustomerID", Session["Value"]);
