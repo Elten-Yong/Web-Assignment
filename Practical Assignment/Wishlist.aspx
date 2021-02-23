@@ -4,56 +4,66 @@
         .auto-style1 {
             width: 100%;
         }
-        .auto-style2 {
-            width: 88px;
+        .width1 {
+            width: 16%;
         }
-        .auto-style3 {
-            width: 76px;
-        }
-        .auto-style4 {
-            width: 84px;
-        }
-        .auto-style5 {
-            width: 876px;
-            height: 346px;
-        }
-        .auto-style6 {
-            width: 114px;
-        }
-        .auto-style7 {
-            width: 166px;
-        }
+        
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
+    <table class="auto-style1">
+                <tr>
+                    <td class="width1">
+                        Draw ID
+                    </td>
 
-    <div style="margin:0 auto;" class="auto-style5">
+                    <td class="width1">
+                        Name
+                    </td>
+
+                    <td class="width1">
+                        Image
+                    </td>
+                    <td class="width1">
+                        Description
+                    </td>
+                    <td class="width1">
+                        Price
+                    </td>
+                    <td class="width1">
+                        Delete
+                    </td>
+                </tr>
+            </table>
+    <div style=" text-align:center">
+        <asp:Label ID="Label3" runat="server" Text="" style="font-size:x-large;"></asp:Label></div>
+    <div >
     
-        <asp:DataList ID="DataList1" runat="server" DataKeyField="CustomerID" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand" Height="16px" Width="672px">
+        <asp:DataList ID="DataList1" runat="server" DataKeyField="CustomerID" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand" Height="16px" Width="100%">
             <ItemTemplate>
                 <table class="auto-style1">
                     <tr>
-                        <td class="auto-style2">
+                        <td class="width1">
                             
                             <asp:Label ID="Label1" runat="server" Text='<%# Eval("DrawID") %>'></asp:Label>
                         </td>
-                        <td class="auto-style3">
+                        <td class="width1">
                             
                             <asp:Label ID="Label2" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
                         </td>
-                        <td class="auto-style4">
+                        <td class="width1">
                             
                             <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("Image") %>' Height="100px" Width="100px" />
                         </td>
-                        <td class="auto-style6">
+                        <td class="width1">
                             
                             <asp:Label ID="Label3" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
                         </td>
-                        <td class="auto-style7">
+                        <td class="width1">
                             
                             <asp:Label ID="Label4" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
                         </td>
-                        <td>
+                        <td class="width1">
                             <asp:Button ID="Button1" runat="server" Text="Delete" CommandName="Delete" CommandArgument='<%# Eval("DrawID") %>'/>
                         </td>
                     </tr>
