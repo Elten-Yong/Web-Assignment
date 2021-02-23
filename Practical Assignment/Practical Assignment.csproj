@@ -68,10 +68,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AboutUs.aspx" />
-    <Content Include="App_Data\ArtGallery.mdf" />
-    <Content Include="App_Data\ArtGallery_log.ldf">
-      <DependentUpon>ArtGallery.mdf</DependentUpon>
-    </Content>
     <Content Include="Cart.aspx" />
     <Content Include="confirmOrder.aspx" />
     <Content Include="EditProfile.aspx" />
@@ -217,7 +213,9 @@
     </None>
     <Content Include="Web.sitemap" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

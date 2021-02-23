@@ -7,9 +7,9 @@
             height: auto;
             width: 700px;
             background-color: white;
-            margin-bottom :1%;
-            height:300px;
-            width:1000px;
+            margin:0% 25% 0% 25%;
+
+            
         }
         .auto-style2 {
             height: 29px;
@@ -32,6 +32,9 @@
         }
         .auto-style7 {
             width: 118px;
+        }
+        .auto-style8 {
+            margin-right: 0;
         }
     </style>
 
@@ -69,7 +72,7 @@
                 Art Description :
             </td>
             <td class="auto-style3">
-                <asp:TextBox runat="server" ID="ArtDescription" TextMode="Multiline" Columns="20" Name="S1" Rows="2" Height="98px" Width="271px" style="resize:none;"></asp:TextBox>
+                <asp:TextBox runat="server" ID="ArtDescription" TextMode="Multiline" Columns="20" Name="S1" Rows="2" Height="98px" Width="271px" style="resize:none;" CssClass="auto-style8"></asp:TextBox>
             </td>
         </tr>
 
