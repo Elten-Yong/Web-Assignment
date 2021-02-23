@@ -3,12 +3,13 @@
     <style type="text/css">
         .tableFormat {
             border-collapse: collapse;
-            border: 1px solid grey;
+            border: 2px solid grey;
             height: auto;
             width: 700px;
             background-color: white;
-            margin:0% 25% 0% 25%;
-
+            margin-bottom :1%;
+            height:300px;
+           
             
         }
         .auto-style2 {
@@ -25,6 +26,7 @@
         .auto-style5 {
             height: 24px;
             width: 118px;
+            font-weight:bold;
         }
         .auto-style6 {
             width: 279px;
@@ -32,9 +34,8 @@
         }
         .auto-style7 {
             width: 118px;
-        }
-        .auto-style8 {
-            margin-right: 0;
+            margin-left:10px;
+
         }
     </style>
 
@@ -46,12 +47,12 @@
              <p>Please log in before updating your.</p>
       <%}
           else{ %>
-                 <h1 style="text-align:center;margin-right:5%">Post Art</h1><hr />   
-    
+            <h1 style="text-align:center;">Post Art</h1><hr />   
+            <div style="width:75%; margin:0 auto">
             <h1>Welcome to Alzenda Artwork Sales Gallery , select upload to post the art online !!!</h1>
             <p>
-                Wanted to sell your masterpiece online? Want to let youur art to be recognized by others? Post your art now online at Alzenda Artwork Sales Gallery !
-            <p>
+                Wanted to sell your masterpiece online? Want to let your art to be recognized by others? Post your art now online at Alzenda Artwork Sales Gallery !
+            </p>
             <br />
     <table class ="tableFormat">
 
@@ -72,7 +73,7 @@
                 Art Description :
             </td>
             <td class="auto-style3">
-                <asp:TextBox runat="server" ID="ArtDescription" TextMode="Multiline" Columns="20" Name="S1" Rows="2" Height="98px" Width="271px" style="resize:none;" CssClass="auto-style8"></asp:TextBox>
+                <asp:TextBox runat="server" ID="ArtDescription" TextMode="Multiline" Columns="20" Name="S1" Rows="2" Height="98px" Width="271px" style="resize:none;"></asp:TextBox>
             </td>
         </tr>
 
@@ -117,15 +118,26 @@
         </tr>
 
         <tr>
-            <td class="auto-style7">
+            <td class="auto-style7" style="text-align:center">
          <asp:Button ID="Cancel" runat="server" Text="Cancel" Width="140px"  />
             </td>
             <td class="auto-style3">
         <asp:Button ID="Submit" runat="server" Text="Submit" OnClick="Submit_Click" Width="139px" />
+                
+            </td>        
+        </tr>       
+        <tr>
+            <td>
+            <br/>
+            </td>
+            <td>
+            <br/>
             </td>
         </tr>
-        </table>
 
+        </table>
+     
+        </div>
           <%} %>
     <br />
             &nbsp;

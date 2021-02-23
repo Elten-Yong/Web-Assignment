@@ -66,7 +66,7 @@ namespace Practical_Assignment
             {
                 if (Session["Value"] != null && Session["Value"] != "0")
                 {
-                    Response.Redirect("confirmOrder.aspx?id=" + e.CommandArgument.ToString());
+                    Response.Redirect("confirmOrder.aspx?id=" + e.CommandArgument);
                 }
                 else
                 {
@@ -111,12 +111,12 @@ namespace Practical_Assignment
                     {
                         con.Open();
 
-                        string strInsert = "Insert into WishlistGallery (CustomerID, DrawID,Date) Values (@CustomerID, @DrawID,@Date)";
+                        string strInsert = "Insert into WishlistGallery (CustomerID, DrawID, Date) Values (@CustomerID, @DrawID,@Date)";
 
                         SqlCommand cmdInsert = new SqlCommand(strInsert, con);
                         cmdInsert.Parameters.AddWithValue("@CustomerID", Session["Value"]);
                         cmdInsert.Parameters.AddWithValue("@DrawID", addedDraw);
-                        cmdInsert.Parameters.AddWithValue("@Date", DateTime.Now.ToString());
+                        cmdInsert.Parameters.AddWithValue("@Date", DateTime.Now);
 
                         int numRowAffected = cmdInsert.ExecuteNonQuery();
                         if (numRowAffected > 0)

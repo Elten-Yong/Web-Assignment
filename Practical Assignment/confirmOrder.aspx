@@ -11,7 +11,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
     <div>
-        <asp:Label ID="Label7" runat="server" Text=""></asp:Label></div>
+        </div>
     <asp:DataList ID="DataList1" runat="server" DataKeyField="DrawID" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand">
         <ItemTemplate>
             <table class="auto-style1">
@@ -50,7 +50,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:Button ID="Button1" runat="server" Text="Add to cart" CommandName="BuyDrawing" CommandArgument='<%# Eval("DrawID") %>'/>
+                        <asp:Button ID="Button1" runat="server" Text="Buy Now" CommandName="BuyDrawing" CommandArgument='<%# Eval("DrawID") %>'/>
                         <asp:Button ID="Button2" runat="server" Text="Cancel" CommandName="CancelBuy"/>
                     </td>
                     <td>&nbsp;</td>

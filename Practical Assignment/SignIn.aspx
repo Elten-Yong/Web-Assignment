@@ -10,7 +10,9 @@
             border: 1px solid grey;
             height: auto;
             width :700px;
-            margin:4% 25% 4% 25%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 270px;
             background-color: rgb(224, 226, 224);
 
         }
@@ -40,7 +42,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
-
+    
     <h1 style="text-align:center">Log In</h1><hr />
 
     <asp:MultiView ID="SignInMultiView" runat="server">
@@ -158,4 +160,5 @@
     </table>
        </asp:View>
     </asp:MultiView>
+    
 </asp:Content>

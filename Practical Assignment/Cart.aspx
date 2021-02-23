@@ -15,10 +15,16 @@
             background-color: white;
         }
 
-         .auto-style {
-             height: 25px;
-         }
+        .auto-style {
+            height: 25px;
+        }
 
+        .auto-style1 {
+            width: 100%;
+        }
+        .width1 {
+            width: 200px;
+        }
 
         </style>
   
@@ -57,42 +63,66 @@
           
         <%}
           else{ %>
-    <div style="text-align: center">
-        <asp:Label ID="lblError" runat="server" Text="[Error]"></asp:Label>
-    </div>
+            <table class="auto-style1">
+                <tr>
+                    <td class="width1">
+                        Draw ID
+                    </td>
 
-    <div style="margin: 0px 500px 0px 500px; " >
+                    <td class="width1">
+                        Image
+                    </td>
+
+                    <td class="width1">
+                        Name
+                    </td>
+                    <td class="width1">
+                        Price
+                    </td>
+                    <td class="width1">
+                        Customer ID
+                    </td>
+                    <td class="width1">
+                        Delete
+                    </td>
+                </tr>
+            </table>
+    <div style=" text-align:center">
+        <asp:Label ID="Label3" runat="server" Text="" style="font-size:x-large;"></asp:Label></div>
+    <div >
     
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
-            <Columns>
-                <asp:BoundField DataField="DrawID" HeaderText="DrawID" SortExpression="DrawID" />
-                <asp:BoundField DataField="Image" HeaderText="Image" SortExpression="Image" />
-                <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-                <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />     
-                <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" SortExpression="CustomerID" />
-            </Columns>
-        </asp:GridView>
-        <br />
-    </div>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [CartGallery] WHERE [DrawID] = @DrawID" InsertCommand="INSERT INTO [CartGallery] ([DrawID], [Name], [Price], [Image], [CustomerID]) VALUES (@DrawID, @Name, @Price, @Image, @CustomerID)" SelectCommand="SELECT Customer.CustomerID, Gallery.DrawID, Gallery.Image, Gallery.Price, Gallery.Name FROM CartGallery INNER JOIN Customer ON CartGallery.CustomerID = Customer.CustomerID INNER JOIN Gallery ON CartGallery.DrawID = Gallery.DrawID" UpdateCommand="UPDATE [CartGallery] SET [Name] = @Name, [Price] = @Price, [Image] = @Image, [CustomerID] = @CustomerID WHERE [DrawID] = @DrawID">
-        <DeleteParameters>
-            <asp:Parameter Name="DrawID" Type="String" />
-        </DeleteParameters>
-        <InsertParameters>
-            <asp:Parameter Name="DrawID" Type="String" />
-            <asp:Parameter Name="Name" Type="String" />
-            <asp:Parameter Name="Price" Type="Decimal" />
-            <asp:Parameter Name="Image" Type="Object" />
-            <asp:Parameter Name="CustomerID" Type="String" />
-        </InsertParameters>
-        <UpdateParameters>
-            <asp:Parameter Name="Name" Type="String" />
-            <asp:Parameter Name="Price" Type="Decimal" />
-            <asp:Parameter Name="Image" Type="Object" />
-            <asp:Parameter Name="CustomerID" Type="String" />
-            <asp:Parameter Name="DrawID" Type="String" />
-        </UpdateParameters>
+        <asp:DataList ID="DataList1" runat="server" DataKeyField="CustomerID" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand" Height="16px" Width="100%" OnSelectedIndexChanged="DataList1_SelectedIndexChanged">
+            <ItemTemplate>
+                <table class="auto-style1">
+                    <tr>
+                        <td class="width1">
+                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("Name") %>' />
+                        </td>
+                        <td class="width1">
+                            <asp:Label ID="Label2" runat="server" Text='<%# Eval("Price") %>' />
+                        </td>
+                        <td class="width1">
+                            <asp:Label ID="Label3" runat="server" Text='<%# Eval("CustomerID") %>' />
+                        </td>
+                        <td class="width1">
+                            <asp:Label ID="Label4" runat="server" Text='<%# Eval("DrawID") %>' />
+                        </td>
+                        <td class="width1">
+                            <asp:Label ID="Image1" runat="server" ImageUrl='<%# Eval("Image") %>' Height="100px" Width="100px"/>
+                        </td>
+                        <td class="width1">
+                            <asp:Button ID="Button1" runat="server" Text="Delete" CommandName="Delete" CommandArgument='<%# Eval("DrawID") %>'/>
+                        </td>
+                    </tr>
+            </ItemTemplate>
+        </asp:DataList>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Gallery.Name, Gallery.Price, CartGallery.CustomerID, CartGallery.DrawID, Gallery.Image FROM CartGallery INNER JOIN Gallery ON CartGallery.DrawID = Gallery.DrawID INNER JOIN Customer ON CartGallery.CustomerID = Customer.CustomerID WHERE (CartGallery.CustomerID = @CustomerID)">
+            <SelectParameters>
+                <asp:SessionParameter Name="CustomerID" SessionField="Value" />
+            </SelectParameters>
         </asp:SqlDataSource>
+    
+    </div>
 
 
     <%} %>

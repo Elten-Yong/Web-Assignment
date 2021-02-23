@@ -4,9 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
-using System.Data;
+
 
 namespace Practical_Assignment
 {
@@ -43,7 +44,6 @@ namespace Practical_Assignment
 
         protected void DataList1_ItemDataBound(object sender, DataListItemEventArgs e)
         {
-
             DataRowView datarow = (DataRowView)e.Item.DataItem;
             string imageUrl = "data:image/jpg;base64," + Convert.ToBase64String((byte[])datarow["Image"]);
             (e.Item.FindControl("Image1") as Image).ImageUrl = imageUrl;
