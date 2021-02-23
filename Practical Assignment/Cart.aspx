@@ -91,36 +91,43 @@
         <asp:Label ID="Label3" runat="server" Text="" style="font-size:x-large;"></asp:Label></div>
     <div >
     
-        <asp:DataList ID="DataList1" runat="server" DataKeyField="CustomerID" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand" Height="16px" Width="100%" OnSelectedIndexChanged="DataList1_SelectedIndexChanged">
+        
+        <asp:DataList ID="DataList1" runat="server" DataKeyField="CustomerID" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand" Height="16px" Width="100%">
             <ItemTemplate>
                 <table class="auto-style1">
                     <tr>
                         <td class="width1">
-                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("Name") %>' />
+                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("DrawID") %>'></asp:Label>
                         </td>
                         <td class="width1">
-                            <asp:Label ID="Label2" runat="server" Text='<%# Eval("Price") %>' />
+                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("Image") %>' Height="100px" Width="100px" /> 
                         </td>
                         <td class="width1">
-                            <asp:Label ID="Label3" runat="server" Text='<%# Eval("CustomerID") %>' />
+                            <asp:Label ID="Label2" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
                         </td>
                         <td class="width1">
-                            <asp:Label ID="Label4" runat="server" Text='<%# Eval("DrawID") %>' />
+                            <asp:Label ID="Label3" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
                         </td>
                         <td class="width1">
-                            <asp:Label ID="Image1" runat="server" ImageUrl='<%# Eval("Image") %>' Height="100px" Width="100px"/>
+                            <asp:Label ID="Label4" runat="server" Text='<%# Eval("CustomerID") %>'></asp:Label>
                         </td>
                         <td class="width1">
                             <asp:Button ID="Button1" runat="server" Text="Delete" CommandName="Delete" CommandArgument='<%# Eval("DrawID") %>'/>
                         </td>
                     </tr>
+                </table>
+                <br />
+                <br />
             </ItemTemplate>
         </asp:DataList>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Gallery.Name, Gallery.Price, CartGallery.CustomerID, CartGallery.DrawID, Gallery.Image FROM CartGallery INNER JOIN Gallery ON CartGallery.DrawID = Gallery.DrawID INNER JOIN Customer ON CartGallery.CustomerID = Customer.CustomerID WHERE (CartGallery.CustomerID = @CustomerID)">
+
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Gallery.Name, Gallery.Price, CartGallery.CustomerID, CartGallery.DrawID, Gallery.Image FROM CartGallery INNER JOIN Gallery ON CartGallery.DrawID = Gallery.DrawID WHERE (CartGallery.CustomerID = @CustomerID)">
             <SelectParameters>
                 <asp:SessionParameter Name="CustomerID" SessionField="Value" />
             </SelectParameters>
         </asp:SqlDataSource>
+    
+        <br />
     
     </div>
 

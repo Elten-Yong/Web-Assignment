@@ -15,8 +15,8 @@ namespace Practical_Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-            
+
+
             //SqlConnection con;
             //string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             //con = new SqlConnection(strcon);
@@ -43,7 +43,7 @@ namespace Practical_Assignment
             //            msg = "Draw Name = " + dtrGallery["Name"].ToString();
             //            byte[] imgBytes = (byte[])dtrGallery["Image"];
             //            string strBase64 = Convert.ToBase64String(imgBytes);
-                       
+
             //        }
             //    }
             //}
@@ -58,7 +58,7 @@ namespace Practical_Assignment
             (e.Item.FindControl("Image1") as Image).ImageUrl = imageUrl;
         }
 
-        
+
 
         protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
         {
@@ -70,6 +70,73 @@ namespace Practical_Assignment
                 }
                 else
                 {
+                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "log in first! " + "');", true);
+                }
+            }
+            else if (e.CommandName == "AddToCart")
+            {
+                if (Session["Value"] != null && Session["Value"] != "0")
+                {
+                    SqlConnection con;
+                    string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+                    con = new SqlConnection(strcon);
+                    string addedDraw = e.CommandArgument.ToString();
+                    Boolean duplicate = false;
+                    //checking value
+                    con.Open();
+                    string strSelectChecking = "Select * from CartGallery Where DrawID=@DrawID and CustomerID = @CustomerID";
+                    SqlCommand cmdSelect = new SqlCommand(strSelectChecking, con);
+
+                    cmdSelect.Parameters.AddWithValue("@CustomerID", Session["Value"]);
+                    cmdSelect.Parameters.AddWithValue("@DrawID", addedDraw);
+
+                    SqlDataReader dtr = cmdSelect.ExecuteReader();
+
+                    if (dtr.HasRows)
+                    {
+                        while (dtr.Read())
+                        {
+                            if (addedDraw.Equals(dtr["DrawID"]) && Session["Value"].Equals(dtr["CustomerID"]))
+                            {
+                                duplicate = true;
+                                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Already added! " + "');", true);
+                            }
+                        }
+                    }
+
+                    con.Close();
+
+                    //insert value
+                    if (!duplicate)
+                    {
+                        con.Open();
+
+                        string strInsert = "Insert into CartGallery (CustomerID, DrawID) Values (@CustomerID, @DrawID)";
+
+                        SqlCommand cmdInsert = new SqlCommand(strInsert, con);
+                        cmdInsert.Parameters.AddWithValue("@CustomerID", Session["Value"]);
+                        cmdInsert.Parameters.AddWithValue("@DrawID", addedDraw);
+                        //cmdInsert.Parameters.AddWithValue("@Name", "Name");
+                        //cmdInsert.Parameters.AddWithValue("@Price", "Price");
+                        //cmdInsert.Parameters.AddWithValue("@Image", "Image");
+
+                        int numRowAffected1 = cmdInsert.ExecuteNonQuery();
+                        if (numRowAffected1 > 0)
+                        {
+                            // return insert success
+                            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Added successfully! " + "');", true);
+                        }
+                        else
+                        {
+                            // return insert failed
+                            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "update failed! " + "');", true);
+                        }
+                        con.Close();
+                    }
+                }
+                else
+                {
+                    // not allow to add, please sign in first
                     ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "log in first! " + "');", true);
                 }
             }
@@ -138,6 +205,7 @@ namespace Practical_Assignment
                     ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "log in first! " + "');", true);
                 }
             }
+
         }
     }
 }
