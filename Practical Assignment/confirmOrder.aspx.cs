@@ -27,9 +27,49 @@ namespace Practical_Assignment
 
         protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
         {
+
             if (e.CommandName == "BuyDrawing")
             {
+                //Session["Value"] = "CS2";
+                
+                SqlConnection con;
+                string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+                con = new SqlConnection(strcon);
+                con.Open();
+
+                string strSelect = "SELECT count(*) FROM [Order]";
+                SqlCommand cmdSelect = new SqlCommand(strSelect, con);
+
+                int total = (int)cmdSelect.ExecuteScalar() + 1;
+                con.Close();
+                //Label7.Text = e.CommandArgument.ToString();
+
+                string orderID = "OR" + total.ToString();
                 //Response.Redirect("confirmOrder.aspx?id=" + e.CommandArgument.ToString());
+                
+                con.Open();
+                string strInsert = "Insert into [Order] (OrderID,CustomerID,DrawID,Date) Values (@OrderID,@CustomerID,@DrawID,@Date)";
+                SqlCommand cmdInsert = new SqlCommand(strInsert, con);
+
+                cmdInsert.Parameters.AddWithValue("@OrderID", orderID);
+                cmdInsert.Parameters.AddWithValue("@CustomerID", Session["Value"]);
+                cmdInsert.Parameters.AddWithValue("@DrawID", e.CommandArgument.ToString());
+                cmdInsert.Parameters.AddWithValue("@Date", DateTime.Now.ToString());
+
+                int numRowAffected = cmdInsert.ExecuteNonQuery();
+
+                if (numRowAffected > 0)
+                {
+                    // return insert success
+                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Successfully bought! " + "');", true);
+                    Response.Redirect("OrderHistory.aspx");
+                }
+                else
+                {
+                    // return insert failed
+                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Bought Failed! " + "');", true);
+                }
+                con.Close();
             }
             else
             {

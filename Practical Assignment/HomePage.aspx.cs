@@ -22,7 +22,7 @@ namespace Practical_Assignment
             
             if(Global.i == 0)
             {
-                Session["Value"] = "0";
+                Session["Value"] = "0"; // reset user
                 Session["Bar"] = "C"; // for taskbar choosing
                 Global.i = 1;
             }
