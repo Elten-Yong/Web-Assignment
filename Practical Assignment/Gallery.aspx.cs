@@ -91,7 +91,7 @@ namespace Practical_Assignment
                             if (addedDraw.Equals(dtr["DrawID"]) && Session["Value"].Equals(dtr["CustomerID"]))
                             {
                                 duplicate = true;
-                                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Added! " + "');", true);
+                                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Already added! " + "');", true);
                             }
                         }
                     }

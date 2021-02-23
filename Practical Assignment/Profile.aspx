@@ -21,7 +21,7 @@
             border: 1px solid grey;
             height: auto;
             width :700px;
-            margin:0% 25% 0% 25%;
+            margin:4% 25% 7% 25%;
             background-color: white;
         }
         .btnType{
@@ -29,8 +29,15 @@
         }
 
 
-         .auto-style3 {
-             margin: 0 450px ;
+         .auto-style4 {
+             height: 25px;
+         }
+
+
+         .auto-style6 {
+             height: 50px;
+             padding-left: 5px;
+             width: 236px;
          }
 
 
@@ -38,42 +45,79 @@
 
     <% if (Session["Value"] == "0" || Session["Value"] == null)
           { %>
-                <div>
+    <table class="tableFormat">
+        <tr>
+            <td class="auto-style4">
                     <p style="text-align:center; font-size:x-large">Please register / sign in first.</p>
-                   <asp:Button ID="btnRegister" runat="server" Text="Register" style="border-color: #4D94FF; background-color: white; color: #284E98; Font-Size:x-large; text-align:center;" OnClick="btnRegister_Click" Width="527px" CssClass="auto-style3"/>
+                   </td>
+        </tr>
+        <tr>
+            <td class="auto-style4">
+                    &nbsp;</td>
+        </tr>
+        <tr>
+            <td style="text-align:center">
+                   <asp:Button ID="btnSignIn" runat="server" Text="Sign In" style="border-color: #4D94FF; background-color: white; color: #284E98; Font-Size:x-large; text-align:center;"  Width="527px" OnClick="btnSignIn_Click"/>
                     
-                 </div>
+                
+            
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:center">
+                   &nbsp;</td>
+        </tr>
+        <tr>
+            <td style="text-align:center">
+                   <asp:Button ID="btnRegister" runat="server" Text="Register" style="border-color: #4D94FF; background-color: white; color: #284E98; Font-Size:x-large; text-align:center;" OnClick="btnRegister_Click" Width="527px"/>
+                    
+                
+            
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:center">
+                   &nbsp;</td>
+        </tr>
+        <tr>
+            <td style="text-align:center">
+                   &nbsp;</td>
+        </tr>
+    </table>
+                    
+                
             
         <%}
           else{ %>
             <div>
               <table class="tableFormat">
                    <tr style ="border:50px">
-                        <td class="auto-style1" ><h1 >
+                        <td class="auto-style1" colspan="2" ><h1 >
                           Profile</h1><hr /></td>
                    </tr>
                     <tr>
-                            <td class="auto-style2"></td>
+                            <td class="auto-style2" colspan="2"></td>
                     </tr>
                     <tr>
+                            <td class="auto-style6">
+                                Username:</td>
                             <td class="auto-style2">
-                                Username:<asp:Label ID="lblUsername" runat="server" Text="[username]"></asp:Label>
+                                <asp:Label ID="lblUsername" runat="server" Text="[username]"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <td class="auto-style2">Email:<asp:Label ID="lblEmail" runat="server" Text="[email]"></asp:Label></td>
+                            <td class="auto-style6">Email:</td>
+                            <td class="auto-style2"><asp:Label ID="lblEmail" runat="server" Text="[email]"></asp:Label></td>
                         </tr>
+       
                         <tr>
-                            <td class="auto-style2">
-                                
-                                Password:<asp:Label ID="lblPassword" runat="server" Text="[password]"></asp:Label>
-                                
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="auto-style2">
+                            <td class="auto-style6">
                     
                                 Phone No:
+                                                    
+                            </td>
+                            <td class="auto-style2">
+                    
                                 <asp:Label ID="lblPhoneNo" runat="server" Text="Label"></asp:Label>
                     
                             </td>
@@ -82,19 +126,31 @@
                         <tr>
                             <td class="auto-style2">
               
+                        <% if (Session["Bar"] == "C")
+                             { %>
+                                Delivery Address: 
+            
+                              <%} 
+                         %></td>
+                            <td class="auto-style2">
+              
                                 <asp:Label ID="lblAddress" runat="server" Text="Label"></asp:Label>
                             </td>
                         </tr>
             
                         <tr>
-                            <td class="auto-style2"></td>
+                            <td class="auto-style2" colspan="2"></td>
                         </tr>
                         <tr>
-                            <td class="auto-style2" style="text-align: center">
-                                <asp:Button ID="EditProfile" runat="server" Text="Edit Profile" Width="166px" OnClick="EditProfile_Click" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <asp:Button ID="btnSignOut" runat="server" Text="Sign Out" style="border-color: #4D94FF; 
-                                background-color: white; color: #284E98;" OnClick="btnSignOut_Click" width="240px" Height="30px" /></td>
+                            <td class="auto-style2" style="text-align: center" colspan="2">
+                                
+
+                                <asp:Button ID="btnSignOut" runat="server" Text="Sign Out" style="margin-right:50px; border-color: #4D94FF; 
+                                background-color: white; color: #284E98;" OnClick="btnSignOut_Click" width="240px" Height="30px" />  
+
+                                <asp:Button ID="EditProfile" runat="server" Text="Edit Profile" Width="240px"  Height="30px" style="border-color: #4D94FF; 
+                                background-color: white; color: #284E98;" OnClick="EditProfile_Click" /></td>
+                          
                         </tr>
                          
                     </table>

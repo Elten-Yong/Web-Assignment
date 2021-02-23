@@ -34,8 +34,7 @@ namespace Practical_Assignment
                         while (dtr.Read())
                         {
                             lblUsername.Text = dtr["Username"].ToString();
-                            lblEmail.Text = dtr["Email"].ToString();
-                            lblPassword.Text = dtr["Password"].ToString();
+                            lblEmail.Text = dtr["Email"].ToString();                            
                             lblPhoneNo.Text = dtr["PhoneNumber"].ToString();
                             lblAddress.Text = "";
 
@@ -57,10 +56,9 @@ namespace Practical_Assignment
                         while (dtr.Read())
                         {
                             lblUsername.Text = dtr["Username"].ToString();
-                            lblEmail.Text = dtr["Email"].ToString();
-                            lblPassword.Text = dtr["Password"].ToString();
+                            lblEmail.Text = dtr["Email"].ToString();                            
                             lblPhoneNo.Text = dtr["PhoneNumber"].ToString();
-                            lblAddress.Text = "Delivery Address : " + dtr["Address"].ToString();
+                            lblAddress.Text = dtr["Address"].ToString();
                         }
                     }
                     con.Close();
@@ -86,6 +84,11 @@ namespace Practical_Assignment
         protected void btnRegister_Click(object sender, EventArgs e)
         {
             Response.Redirect("SignUp.aspx");
+        }
+
+        protected void btnSignIn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("SignIn.aspx");
         }
     }
 }
