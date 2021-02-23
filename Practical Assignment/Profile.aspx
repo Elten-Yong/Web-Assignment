@@ -93,10 +93,6 @@
           else{ %>
             <div>
               <table class="tableFormat">
-                   <tr style ="border:50px">
-                        <td class="auto-style1" colspan="2" ><h1 >
-                          Profile</h1><hr /></td>
-                   </tr>
                     <tr>
                             <td class="auto-style2" colspan="2"></td>
                     </tr>
