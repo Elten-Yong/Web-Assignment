@@ -194,8 +194,7 @@ namespace Practical_Assignment
                 int n = cmdUpdate.ExecuteNonQuery();
                 if (n > 0) // Use to check whether the value have been insert into the database
                 {
-
-                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Customer Account Successfully Created!" + "');", true);
+                     ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Edit Account Successfully Created!" + "');", true);
                 }
                 else
                 {

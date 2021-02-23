@@ -20,7 +20,7 @@
             height: auto;
             width :700px;
             margin:4% 25% 4% 25%;
-            background-color: white;
+            background-color: rgb(224, 226, 224);
         }
         .btnType{
             text-align:center;
@@ -36,16 +36,16 @@
 
         </style>
     <div>
+        <h1 style="text-align:center;margin-right:5%">Edit Profile</h1><hr />
         <asp:MultiView ID="EditPageMultiview" runat="server">
             <asp:View ID="View1" runat="server">
               <table class="tableFormat">
-                   <tr style ="border:50px">
-                        <td class="auto-style1" colspan="2" ><h1 >
-                            Edit Profile</h1><hr /></td>
-                   </tr>
                     <tr>
-                            <td class="auto-style2" colspan="2"></td>
+                            <td class="auto-style2" colspan="2">&nbsp;</td>
                     </tr>
+                    <tr>
+                        <td class="auto-style2" colspan="2"></td>
+                   </tr>
                     <tr>
                             <td class="auto-style2">
                                 Username:</td>
@@ -82,13 +82,12 @@
                 </asp:View>
             <asp:View ID="View2" runat="server">
                               <table class="tableFormat">
-                   <tr style ="border:50px">
-                        <td class="auto-style1" colspan="2" ><h1 >
-                            Edit Profile</h1><hr /></td>
-                   </tr>
                     <tr>
-                            <td class="auto-style2" colspan="2"></td>
+                            <td class="auto-style2" colspan="2">&nbsp;</td>
                     </tr>
+                                  <tr>
+                                      <td class="auto-style2" colspan="2"></td>
+                                  </tr>
                     <tr>
                             <td class="auto-style3">
                                 Username:</td>

@@ -20,21 +20,18 @@
             height: auto;
             width :700px;
             margin:4% 25% 4% 25%;
-            background-color: white;
+            background-color: rgb(224, 226, 224);
         }
         .btnType{
             text-align:center;
 
         }
 
-        .auto-style4 {
-            text-align: center;
-            height: 52px;
-        }
-
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
+
+    <h1 style="text-align:center;margin-right:5%">Registration</h1><hr />
 
     <asp:MultiView ID="SignUpMultiView" runat="server">
   
@@ -42,7 +39,7 @@
 
             <table class="tableFormat">
                 <tr>
-                    <td><h1 style="text-align:center">Register as</h1><hr/></td>
+                    <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td>
