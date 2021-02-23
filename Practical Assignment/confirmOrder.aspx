@@ -49,7 +49,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:Button ID="Button1" runat="server" Text="Buy" CommandName="BuyDrawing"/>
+                        <asp:Button ID="Button1" runat="server" Text="Add to cart" CommandName="BuyDrawing"/>
                         <asp:Button ID="Button2" runat="server" Text="Cancel" CommandName="CancelBuy"/>
                     </td>
                     <td>&nbsp;</td>

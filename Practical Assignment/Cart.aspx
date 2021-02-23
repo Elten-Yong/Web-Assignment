@@ -62,17 +62,15 @@
     
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="DrawID" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
             <Columns>
-                <asp:CommandField ShowDeleteButton="True" />
                 <asp:BoundField DataField="DrawID" HeaderText="DrawID" ReadOnly="True" SortExpression="DrawID" />
+                <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" SortExpression="CustomerID" />
                 <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
                 <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
-                <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" SortExpression="CustomerID" />
-                <asp:DynamicField DataField="Image" HeaderText="Image" SortExpression="Image"/>
             </Columns>
         </asp:GridView>
         <br />
     </div>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [CartGallery] WHERE [DrawID] = @DrawID" InsertCommand="INSERT INTO [CartGallery] ([DrawID], [Name], [Price], [Image], [CustomerID]) VALUES (@DrawID, @Name, @Price, @Image, @CustomerID)" SelectCommand="SELECT * FROM [CartGallery]" UpdateCommand="UPDATE [CartGallery] SET [Name] = @Name, [Price] = @Price, [Image] = @Image, [CustomerID] = @CustomerID WHERE [DrawID] = @DrawID">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [CartGallery] WHERE [DrawID] = @DrawID" InsertCommand="INSERT INTO [CartGallery] ([DrawID], [Name], [Price], [Image], [CustomerID]) VALUES (@DrawID, @Name, @Price, @Image, @CustomerID)" SelectCommand="SELECT CartGallery.DrawID, CartGallery.CustomerID, CartGallery.Name, CartGallery.Price, CartGallery.Image FROM CartGallery INNER JOIN Customer ON CartGallery.CustomerID = Customer.CustomerID INNER JOIN Gallery ON CartGallery.DrawID = Gallery.DrawID" UpdateCommand="UPDATE [CartGallery] SET [Name] = @Name, [Price] = @Price, [Image] = @Image, [CustomerID] = @CustomerID WHERE [DrawID] = @DrawID">
         <DeleteParameters>
             <asp:Parameter Name="DrawID" Type="String" />
         </DeleteParameters>
