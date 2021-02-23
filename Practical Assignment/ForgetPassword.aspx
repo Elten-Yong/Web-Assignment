@@ -6,7 +6,8 @@
             border: 1px solid grey;
             height: auto;
             width :700px;
-            margin:8% 25% 4% 25%;
+            margin:4% 25% 4% 25%;
+            background-color: rgb(224, 226, 224);
         }
         .txtType{
             text-align:center;
@@ -29,18 +30,19 @@
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
+    <h1 style="text-align:center;margin-right:5%">Reset Password</h1><hr />
     <asp:MultiView ID="ForgetPasswordMultiView" runat="server">
                     <asp:View ID="View1" runat="server">
 
             <table class="tableFormat">
                 <tr>
-                    <td><h1 style="text-align:center">Forgot Password</h1><hr/></td>
-                </tr>
-                <tr>
                     <td >
                           
-                        <asp:Label ID="lblAttempt" runat="server" Text="" ForeColor="Red" Font-Size="Small"></asp:Label>
-                          
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblAttempt" runat="server" Font-Size="Small" ForeColor="Red" Text=""></asp:Label>
                     </td>
                 </tr>
                 <tr>
@@ -76,13 +78,13 @@
         <asp:View ID="View2" runat="server">
                 <table class="tableFormat">
                 <tr>
-                    <td><h1 style="text-align:center">Forgot Password</h1><hr/></td>
-                </tr>
-                <tr>
                     <td class="auto-style5" >
                           
-                        Enter Your Username.</td>
+                        &nbsp;</td>
                 </tr>
+                    <tr>
+                        <td class="auto-style5">Enter Your Username.</td>
+                    </tr>
                 <tr>
                     <td class="auto-style6"></td>
                 </tr>
@@ -119,13 +121,13 @@
             <asp:View ID="View3" runat="server">
                 <table class="tableFormat">
                 <tr>
-                    <td><h1 style="text-align:center">Forgot Password</h1><hr/></td>
-                </tr>
-                <tr>
                     <td class="auto-style5" >
                           
-                        Please answer the security question.</td>
+                        &nbsp;</td>
                 </tr>
+                    <tr>
+                        <td class="auto-style5">Please answer the security question.</td>
+                    </tr>
                 <tr>
                     <td class="auto-style6"></td>
                 </tr>
