@@ -54,6 +54,7 @@
                 Wanted to sell your masterpiece online? Want to let your art to be recognized by others? Post your art now online at Alzenda Artwork Sales Gallery !
             </p>
             <br />
+                
     <table class ="tableFormat">
 
         <tr>

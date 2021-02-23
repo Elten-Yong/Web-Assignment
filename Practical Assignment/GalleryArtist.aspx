@@ -5,7 +5,7 @@
             width: 100%;
         }
         .width1 {
-            width: 60px;
+            width: 100px;
         }
         .tablestyle1{
             margin-left: auto; 
@@ -23,27 +23,27 @@
     <div style="margin-left: 25%; margin-right: 25%;">
     <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand">
         <ItemTemplate>
-            <table class="table table-bordered" style="width: 900px;">
+            <table class="table table-bordered" style="width: 100%;">
                 <tr>
-                    <td>
+                    <td Class="width1">
                         Draw ID
                     </td>
-                    <td>
+                    <td Class="width1"> 
                         Name
                     </td>
-                    <td>
+                    <td Class="width1">
                         Image
                     </td>
-                    <td>
+                    <td Class="width1">
                         Description
                     </td>
-                    <td>
+                    <td Class="width1">
                         Price
                     </td>
-                    <td>
+                    <td Class="width1">
                         Edit
                     </td>
-                    <td>
+                    <td Class="width1">
                         Delete
                     </td>
                 </tr>
