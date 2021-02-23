@@ -43,7 +43,6 @@
                         <asp:MenuItem NavigateUrl="~/Cart.aspx" Text="Cart" Value="Cart"/>
                         <asp:MenuItem NavigateUrl="~/Profile.aspx" Text="Profile" Value="Profile"/>
                     </Items>
-
                 </asp:Menu>
 
         </div> 
