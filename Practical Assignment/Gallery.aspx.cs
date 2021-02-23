@@ -63,7 +63,14 @@ namespace Practical_Assignment
         {
             if (e.CommandName == "BuyDrawing")
             {
-                Response.Redirect("confirmOrder.aspx?id=" + e.CommandArgument.ToString());
+                if (Session["Value"] != null && Session["Value"] != "0")
+                {
+                    Response.Redirect("confirmOrder.aspx?id=" + e.CommandArgument.ToString());
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "log in first! " + "');", true);
+                }
             }
             else
             {

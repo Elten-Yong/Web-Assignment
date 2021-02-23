@@ -37,10 +37,12 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
+
+             <h1 style="text-align:center;margin-right:5%">Post Art</h1><hr />   
     
-            <h1>Welcome to XXX, Please upload your Art to be sold.</h1>
+            <h1>Welcome to Alzenda Artwork Sales Gallery , select upload to post the art online !!!</h1>
             <p>
-                Wanted to sell your masterpiece online? Post your art now online at xxxx !
+                Wanted to sell your masterpiece online? Want to let youur art to be recognized by others? Post your art now online at Alzenda Artwork Sales Gallery !
             <p>
             <br />
     <table class ="tableFormat">

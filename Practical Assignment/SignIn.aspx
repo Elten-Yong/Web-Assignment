@@ -11,7 +11,7 @@
             height: auto;
             width :700px;
             margin:4% 25% 4% 25%;
-            background-color: white;
+            background-color: rgb(224, 226, 224);
 
         }
         .txtType{
@@ -41,17 +41,19 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
 
+    <h1 style="text-align:center;margin-right:5%">LogIn</h1><hr />
+
     <asp:MultiView ID="SignInMultiView" runat="server">
             <asp:View ID="View1" runat="server">
 
             <table class="tableFormat">
                 <tr>
-                    <td><h1 style="text-align:center">Sign In as</h1><hr/></td>
-                </tr>
-                <tr>
                     <td>
                           
-                    </td>
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
@@ -85,8 +87,7 @@
     <asp:View ID="View2" runat="server">
     <table class="tableFormat">
         <tr>
-            <td class="auto-style1" colspan="4"><h1>
-                Sign In</h1><hr /></td>
+            <td colspan="4">&nbsp;</td>
         </tr>
         <tr>
             <td colspan="4">&nbsp;</td>
