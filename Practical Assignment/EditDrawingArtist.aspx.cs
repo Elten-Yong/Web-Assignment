@@ -6,68 +6,62 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Data;
 
 namespace Practical_Assignment
 {
-    public partial class EditDrawingArtist : System.Web.UI.Page
-    {
-        protected void Page_Load(object sender, EventArgs e)
+	public partial class EditDrawingArtist : System.Web.UI.Page
+	{
+		protected void Page_Load(object sender, EventArgs e)
+		{
+
+		}
+
+        protected void DataList1_ItemDataBound(object sender, DataListItemEventArgs e)
         {
-            SqlConnection con;
-            string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-            con = new SqlConnection(strcon);
-            con.Open();
-
-            string drawID = Session["EditDrawID"].ToString();
-
-            string strSelect = "Select * FROM Gallery WHERE DrawID = " + drawID;
-
-            SqlCommand cmdSelect = new SqlCommand(strSelect, con);
-
-            SqlDataReader dtrGallery = cmdSelect.ExecuteReader();
-
-            while (dtrGallery.Read())
-            {
-                byte[] imgBytes = (byte[])dtrGallery["Image"];
-                string strBase64 = Convert.ToBase64String(imgBytes);
-                DrawImg.ImageUrl = "data:image/png;base64," + strBase64;
-
-                ArtName.Text = dtrGallery["Name"].ToString();
-                ArtDescription.Text = dtrGallery["Description"].ToString();
-                Price.Text = dtrGallery["Price"].ToString();
-            }
-
+            DataRowView datarow = (DataRowView)e.Item.DataItem;
+            string imageUrl = "data:image/jpg;base64," + Convert.ToBase64String((byte[])datarow["Image"]);
+            (e.Item.FindControl("Image1") as Image).ImageUrl = imageUrl;
         }
 
-        protected void Submit_Click(object sender, EventArgs e)
+        protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
         {
-            SqlConnection con;
-            string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-            con = new SqlConnection(strcon);
-            con.Open();
-
-            string drawID = Session["EditDrawID"].ToString();
-
-            string strUpdate = "Update into Gallery SET Name = @Name, Description = @Description, Price = @Price, Total = @Total WHERE DrawID = " + drawID;
-
-            SqlCommand cmdUpdate = new SqlCommand(strUpdate, con);
-            cmdUpdate.Parameters.AddWithValue("@DrawID", drawID);
-            cmdUpdate.Parameters.AddWithValue("@Name", ArtName.Text);
-            cmdUpdate.Parameters.AddWithValue("@Description", ArtDescription.Text);
-            cmdUpdate.Parameters.AddWithValue("@Price", Price.Text);
-            cmdUpdate.Parameters.AddWithValue("@Total", TotalArt.SelectedValue);
-            int numRowAffected = cmdUpdate.ExecuteNonQuery();
-
-            if (numRowAffected > 0)
+            if (e.CommandName == "ConfirmEdit")
             {
-                // return insert success
+                SqlConnection con;
+                string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+                con = new SqlConnection(strcon);
+
+                string selectedDraw = e.CommandArgument.ToString();
+                con.Open();
+
+                string strUpdate = "Update Gallery SET Name=@Name, Description=@Description, Price=@Price WHERE DrawID=@DrawID";
+                SqlCommand cmdUpdate = new SqlCommand(strUpdate, con);
+
+                cmdUpdate.Parameters.AddWithValue("@DrawID", selectedDraw);
+                cmdUpdate.Parameters.AddWithValue("@Name", NameTxt.Text);
+                cmdUpdate.Parameters.AddWithValue("@Description", DescriptionTxt.Text);
+                cmdUpdate.Parameters.AddWithValue("@Price", PriceTxt.Text);
+
+                int numRowAffected = cmdUpdate.ExecuteNonQuery();
+
+                if (numRowAffected > 0)
+                {
+                    // return insert success
+                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Edited! " + "');", true);
+                    Response.Redirect("GalleryArtist.aspx");
+                }
+                else
+                {
+                    // return insert failed
+                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Edit failed! " + "');", true);
+                }
+                con.Close();
+
+
             }
-            else
-            {
-                // return insert failed
-            }
-            con.Close();
-            Response.Redirect("GalleryArtist.aspx");
         }
+
+        
     }
 }

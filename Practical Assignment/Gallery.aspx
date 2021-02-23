@@ -8,7 +8,7 @@
     <h1 style="text-align:center;">Photo Gallery</h1><hr />
 
     <div style="width:1200px; margin:0 auto; margin-bottom:4%; border: 5px dotted grey;">
-        <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" CellPadding="50" RepeatColumns="2" RepeatDirection="Horizontal" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand" >
+        <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" CellPadding="50" RepeatColumns="2" RepeatDirection="Horizontal" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand" AllowPaging="true" PageSize =" 2">
             <ItemTemplate>
                   
                 <asp:Image ID="Image1" CssClass="Img" runat="server" ImageUrl='<%# Eval("Image") %>' />
