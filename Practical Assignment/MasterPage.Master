@@ -29,8 +29,9 @@
                <div class="header">
                <a href="SignUp.aspx" style="float:right; color:aliceblue; font-size: 16px;"> | Register</a> <a href="SignIn.aspx" style="float:right; color:aliceblue; font-size: 16px">Log in </a>
             <%} else{%>
-                     <a href="Profile.aspx">
-                         <asp:Label ID="CustomerUsername" runat="server" Text="Label" style="float:right; color:aliceblue"></asp:Label></a> <asp:LinkButton ID="ltnButton1" runat="server" style="float:right; color:aliceblue" OnClick="ltnButton1_Click">Log out</asp:LinkButton>
+                   <asp:LinkButton ID="ltnButton1" runat="server" style="float:right; color:aliceblue; font-size: 16px" OnClick="ltnButton1_Click">Log out</asp:LinkButton>
+                     <a href="Profile.aspx"><asp:Label ID="CustomerUsername" runat="server" Text="Label" style="float:right; color:aliceblue"></asp:Label></a> 
+                     
                <%} %>
 
              
@@ -43,15 +44,15 @@
                         <asp:MenuItem NavigateUrl="~/Cart.aspx" Text="Cart" Value="Cart"/>
                         <asp:MenuItem NavigateUrl="~/Profile.aspx" Text="Profile" Value="Profile"/>
                     </Items>
-
                 </asp:Menu>
 
         </div> 
         <%}
           else{ %>
            <div class="header">
-           <a href="Profile.aspx">
-            <asp:Label ID="ArtistUsername" runat="server" Text="Label" style="float:right; color:aliceblue; font-size: 16px"></asp:Label></a>
+           
+            <asp:LinkButton ID="LinkButton2" runat="server" style="float:right; color:aliceblue; font-size: 16px" OnClick="ltnButton1_Click">Log out</asp:LinkButton>
+            <a href="Profile.aspx"><asp:Label ID="ArtistUsername" runat="server" Text="Label" style="float:right; color:aliceblue; font-size: 16px"></asp:Label></a>
          
             <asp:HyperLink NavigateUrl="~/HomePage.aspx" ID="HyperLink1" runat="server" ImageUrl="~/Sample Images/Alzenda_Logo.png" Style="margin-left: 20%" ImageHeight="10%" ImageWidth="5%" />
             <asp:Menu CssClass="TopMenuBar" ID="Menu2" runat="server" RenderingMode="Table" Orientation="Horizontal" >
