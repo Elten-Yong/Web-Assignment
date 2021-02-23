@@ -14,8 +14,31 @@ namespace Practical_Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            
+            Session["Value"] = "CS1";
+            SqlConnection con;
+            string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            con = new SqlConnection(strcon);
+
+            con.Open();
+            string strSelect = "SELECT count(*) from WishlistGallery Where CustomerID = @CustomerID";
+            SqlCommand cmdSelect = new SqlCommand(strSelect, con);
+
+            cmdSelect.Parameters.AddWithValue("@CustomerID", Session["Value"]);
+
+            int numRowAffected = (int)cmdSelect.ExecuteScalar();
+
+            if (numRowAffected > 0)
+            {
+                // return insert success
+                // ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Delete successfully! " + "');", true);
+
+
+            }
+            else
+            {
+                Label3.Text = "No record found";
+            }
+
         }
 
         protected void DataList1_ItemDataBound(object sender, DataListItemEventArgs e)
