@@ -31,7 +31,7 @@ namespace Practical_Assignment
             if (e.CommandName == "BuyDrawing")
             {
                 //Session["Value"] = "CS2";
-                
+
                 SqlConnection con;
                 string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 con = new SqlConnection(strcon);
@@ -46,7 +46,7 @@ namespace Practical_Assignment
 
                 string orderID = "OR" + total.ToString();
                 //Response.Redirect("confirmOrder.aspx?id=" + e.CommandArgument.ToString());
-                
+
                 con.Open();
                 string strInsert = "Insert into [Order] (OrderID,CustomerID,DrawID,Date) Values (@OrderID,@CustomerID,@DrawID,@Date)";
                 SqlCommand cmdInsert = new SqlCommand(strInsert, con);
@@ -60,8 +60,28 @@ namespace Practical_Assignment
 
                 if (numRowAffected > 0)
                 {
+                    //extract item quantity 
+                    SqlConnection conn;
+                    string strconn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+                    conn = new SqlConnection(strconn);
+                    conn.Open();
+                    string strSelectTotal = "SELECT Total FROM [Gallery] Where DrawID = @DrawID1";
+                    SqlCommand cmdSelectTotal = new SqlCommand(strSelectTotal, conn);
+                    cmdSelectTotal.Parameters.AddWithValue("@DrawID1", e.CommandArgument.ToString());
+                    int totalQuantity = (int)cmdSelectTotal.ExecuteScalar() - 1;
+                    conn.Close();
+
+                    //delete and update the item quantity
+                    conn.Open();
+                    string strSelectUpdate = "UPDATE [Gallery] SET Total = @Total WHERE DrawID = @DrawID2";
+                    SqlCommand cmdSelectUpdate = new SqlCommand(strSelectUpdate, conn);
+                    cmdSelectUpdate.Parameters.AddWithValue("@DrawID2", e.CommandArgument.ToString());
+                    cmdSelectUpdate.Parameters.AddWithValue("@Total", totalQuantity);
+                    int n = cmdSelectUpdate.ExecuteNonQuery();
+                    conn.Close();
+
                     // return insert success
-                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Successfully bought! " + "');", true);
+                    //ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Successfully bought! " + "');", true);
                     Response.Redirect("OrderHistory.aspx");
                 }
                 else
@@ -70,11 +90,9 @@ namespace Practical_Assignment
                     ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Bought Failed! " + "');", true);
                 }
                 con.Close();
+
             }
-            else
-            {
-                Response.Redirect("Gallery.aspx");
-            }
+
         }
     }
 }
