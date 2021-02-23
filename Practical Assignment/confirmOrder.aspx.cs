@@ -54,7 +54,7 @@ namespace Practical_Assignment
                 cmdInsert.Parameters.AddWithValue("@OrderID", orderID);
                 cmdInsert.Parameters.AddWithValue("@CustomerID", Session["Value"]);
                 cmdInsert.Parameters.AddWithValue("@DrawID", e.CommandArgument.ToString());
-                cmdInsert.Parameters.AddWithValue("@Date", DateTime.Now.ToString());
+                cmdInsert.Parameters.AddWithValue("@Date", DateTime.Now);
 
                 int numRowAffected = cmdInsert.ExecuteNonQuery();
 
