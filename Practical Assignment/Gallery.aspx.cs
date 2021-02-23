@@ -16,41 +16,37 @@ namespace Practical_Assignment
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            SqlConnection con;
-            string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-            con = new SqlConnection(strcon);
+            //SqlConnection con;
+            //string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            //con = new SqlConnection(strcon);
 
-            con.Open();
+            //con.Open();
 
-            string strSelect = "Select * from Gallery where DrawID=@DrawID";
+            //string strSelect = "Select * from Gallery where DrawID=@DrawID";
 
-            SqlCommand cmdSelect = new SqlCommand(strSelect, con);
+            //SqlCommand cmdSelect = new SqlCommand(strSelect, con);
 
-            cmdSelect.Parameters.AddWithValue("@DrawID", "DR1");
+            //cmdSelect.Parameters.AddWithValue("@DrawID", "DR1");
 
-            SqlDataReader dtrGallery = cmdSelect.ExecuteReader();
+            //SqlDataReader dtrGallery = cmdSelect.ExecuteReader();
 
-            String msg = "";
+            //String msg = "";
 
-            for (int count = 0; count < 2; count++)
-            {
+            //for (int count = 0; count < 2; count++)
+            //{
 
-                if (dtrGallery.HasRows)
-                {
-                    while (dtrGallery.Read())
-                    {
-                        msg = "Draw Name = " + dtrGallery["Name"].ToString();
-                        byte[] imgBytes = (byte[])dtrGallery["Image"];
-                        string strBase64 = Convert.ToBase64String(imgBytes);
+            //    if (dtrGallery.HasRows)
+            //    {
+            //        while (dtrGallery.Read())
+            //        {
+            //            msg = "Draw Name = " + dtrGallery["Name"].ToString();
+            //            byte[] imgBytes = (byte[])dtrGallery["Image"];
+            //            string strBase64 = Convert.ToBase64String(imgBytes);
                        
-                    }
-                }
-            }
-            con.Close();
-            
-
-            
-
+            //        }
+            //    }
+            //}
+            //con.Close();
         }
 
         protected void DataList1_ItemDataBound(object sender, DataListItemEventArgs e)
@@ -65,9 +61,73 @@ namespace Practical_Assignment
 
         protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
         {
-            if(e.CommandName == "BuyDrawing")
+            if (e.CommandName == "BuyDrawing")
             {
-               // Response.Redirect()
+                Response.Redirect("confirmOrder.aspx?id=" + e.CommandArgument.ToString());
+            }
+            else
+            {
+                if (Session["Value"] != null && Session["Value"] != "0")
+                {
+                    SqlConnection con;
+                    string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+                    con = new SqlConnection(strcon);
+                    string addedDraw = e.CommandArgument.ToString();
+                    Boolean duplicate = false;
+                    //checking value
+                    con.Open();
+                    string strSelectChecking = "Select * from WishlistGallery Where DrawID=@DrawID and CustomerID = @CustomerID";
+                    SqlCommand cmdSelect = new SqlCommand(strSelectChecking, con);
+
+                    cmdSelect.Parameters.AddWithValue("@CustomerID", Session["Value"]);
+                    cmdSelect.Parameters.AddWithValue("@DrawID", addedDraw);
+
+                    SqlDataReader dtr = cmdSelect.ExecuteReader();
+
+                    if (dtr.HasRows)
+                    {
+                        while (dtr.Read())
+                        {
+                            if (addedDraw.Equals(dtr["DrawID"]) && Session["Value"].Equals(dtr["CustomerID"]))
+                            {
+                                duplicate = true;
+                                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Added! " + "');", true);
+                            }
+                        }
+                    }
+
+                    con.Close();
+
+                    //insert value
+                    if (!duplicate)
+                    {
+                        con.Open();
+
+                        string strInsert = "Insert into WishlistGallery (CustomerID, DrawID) Values (@CustomerID, @DrawID)";
+
+                        SqlCommand cmdInsert = new SqlCommand(strInsert, con);
+                        cmdInsert.Parameters.AddWithValue("@CustomerID", Session["Value"]);
+                        cmdInsert.Parameters.AddWithValue("@DrawID", addedDraw);
+                        //cmdInsert.Parameters.AddWithValue("@Date", );
+                        int numRowAffected = cmdInsert.ExecuteNonQuery();
+                        if (numRowAffected > 0)
+                        {
+                            // return insert success
+                            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Added successfully! " + "');", true);
+                        }
+                        else
+                        {
+                            // return insert failed
+                            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "update failed! " + "');", true);
+                        }
+                        con.Close();
+                    }
+                }
+                else
+                {
+                    // not allow to add, please sign in first
+                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "log in first! " + "');", true);
+                }
             }
         }
     }
