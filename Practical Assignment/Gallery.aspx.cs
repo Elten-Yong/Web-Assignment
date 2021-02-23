@@ -62,5 +62,13 @@ namespace Practical_Assignment
         }
 
         
+
+        protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            if(e.CommandName == "BuyDrawing")
+            {
+               // Response.Redirect()
+            }
+        }
     }
 }
