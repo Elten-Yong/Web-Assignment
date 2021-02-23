@@ -70,6 +70,7 @@
     <Content Include="AboutUs.aspx" />
     <Content Include="Cart.aspx" />
     <Content Include="confirmOrder.aspx" />
+    <Content Include="EditDrawingArtist.aspx" />
     <Content Include="EditProfile.aspx" />
     <Content Include="ForgetPassword.aspx" />
     <Content Include="Gallery.aspx" />
@@ -100,6 +101,13 @@
     </Compile>
     <Compile Include="confirmOrder.aspx.designer.cs">
       <DependentUpon>confirmOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditDrawingArtist.aspx.cs">
+      <DependentUpon>EditDrawingArtist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditDrawingArtist.aspx.designer.cs">
+      <DependentUpon>EditDrawingArtist.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditProfile.aspx.cs">
       <DependentUpon>EditProfile.aspx</DependentUpon>

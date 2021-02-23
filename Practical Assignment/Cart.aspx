@@ -57,20 +57,24 @@
           
         <%}
           else{ %>
-        
+    <div style="text-align: center">
+        <asp:Label ID="lblError" runat="server" Text="[Error]"></asp:Label>
+    </div>
+
     <div style="margin: 0px 500px 0px 500px; " >
     
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="DrawID" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
             <Columns>
-                <asp:BoundField DataField="DrawID" HeaderText="DrawID" ReadOnly="True" SortExpression="DrawID" />
-                <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" SortExpression="CustomerID" />
+                <asp:BoundField DataField="DrawID" HeaderText="DrawID" SortExpression="DrawID" />
+                <asp:BoundField DataField="Image" HeaderText="Image" SortExpression="Image" />
                 <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-                <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
+                <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />     
+                <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" SortExpression="CustomerID" />
             </Columns>
         </asp:GridView>
         <br />
     </div>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [CartGallery] WHERE [DrawID] = @DrawID" InsertCommand="INSERT INTO [CartGallery] ([DrawID], [Name], [Price], [Image], [CustomerID]) VALUES (@DrawID, @Name, @Price, @Image, @CustomerID)" SelectCommand="SELECT CartGallery.DrawID, CartGallery.CustomerID, CartGallery.Name, CartGallery.Price, CartGallery.Image FROM CartGallery INNER JOIN Customer ON CartGallery.CustomerID = Customer.CustomerID INNER JOIN Gallery ON CartGallery.DrawID = Gallery.DrawID" UpdateCommand="UPDATE [CartGallery] SET [Name] = @Name, [Price] = @Price, [Image] = @Image, [CustomerID] = @CustomerID WHERE [DrawID] = @DrawID">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [CartGallery] WHERE [DrawID] = @DrawID" InsertCommand="INSERT INTO [CartGallery] ([DrawID], [Name], [Price], [Image], [CustomerID]) VALUES (@DrawID, @Name, @Price, @Image, @CustomerID)" SelectCommand="SELECT Customer.CustomerID, Gallery.DrawID, Gallery.Image, Gallery.Price, Gallery.Name FROM CartGallery INNER JOIN Customer ON CartGallery.CustomerID = Customer.CustomerID INNER JOIN Gallery ON CartGallery.DrawID = Gallery.DrawID" UpdateCommand="UPDATE [CartGallery] SET [Name] = @Name, [Price] = @Price, [Image] = @Image, [CustomerID] = @CustomerID WHERE [DrawID] = @DrawID">
         <DeleteParameters>
             <asp:Parameter Name="DrawID" Type="String" />
         </DeleteParameters>
