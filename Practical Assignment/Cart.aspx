@@ -100,7 +100,7 @@
                             <asp:Label ID="Label1" runat="server" Text='<%# Eval("DrawID") %>'></asp:Label>
                         </td>
                         <td class="width1">
-                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("Image") %>' Height="100px" Width="100px" /> 
+                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("Image") %>' Height="100px" Width="100px"/> 
                         </td>
                         <td class="width1">
                             <asp:Label ID="Label2" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
