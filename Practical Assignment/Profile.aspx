@@ -30,7 +30,7 @@
 
 
          .auto-style3 {
-             margin-left: 240px;
+             margin: 0 450px ;
          }
 
 
