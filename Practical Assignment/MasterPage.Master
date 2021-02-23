@@ -5,7 +5,15 @@
 <html>
 <head runat="server">
     <title></title>
+    <!--bootstarp css -->
+    <link href="bootstrap css/bootstrap.css" rel="stylesheet" />
+    <link href="bootstrap css/bootstrap.min.css" rel="stylesheet" />
+    <!-- css -->
     <link href="MasterPage.css" rel="stylesheet" type="text/css" />
+   
+    <!--bootstrap js-->
+    <script src="bootstrap js/bootstrap.min.js"></script>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -17,7 +25,7 @@
            if (Session["Bar"] == "C" || Session["Bar"] == null || Session["Value"] == "0")
            {
                if (Session["Bar"] == null || Session["Value"] == "0"){%>
-               <a href="SignUp.aspx" style="float:right; color:aliceblue"> | Register</a> <a href="SignIn.aspx" style="float:right; color:aliceblue">Log in </a>
+               <a href="SignUp.aspx" style="float:right; color:aliceblue; font-size: 16px;"> | Register</a> <a href="SignIn.aspx" style="float:right; color:aliceblue; font-size: 16px">Log in </a>
             <%} else{%>
                      <a href="Profile.aspx">
                          <asp:Label ID="CustomerUsername" runat="server" Text="Label" style="float:right; color:aliceblue"></asp:Label></a>
@@ -41,7 +49,7 @@
         <%}
           else{ %>
         <a href="Profile.aspx">
-                         <asp:Label ID="ArtistUsername" runat="server" Text="Label" style="float:right; color:aliceblue"></asp:Label></a>
+                         <asp:Label ID="ArtistUsername" runat="server" Text="Label" style="float:right; color:aliceblue; font-size: 16px"></asp:Label></a>
         <div class="header"> 
             <asp:HyperLink NavigateUrl="~/HomePage.aspx" ID="HyperLink1" runat="server" ImageUrl="~/Sample Images/Alzenda_Logo.png" Style="margin-left: 20%" ImageHeight="10%" ImageWidth="5%" />
             <asp:Menu CssClass="TopMenuBar" ID="Menu2" runat="server" RenderingMode="Table" Orientation="Horizontal" >
