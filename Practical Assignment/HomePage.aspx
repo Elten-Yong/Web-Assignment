@@ -31,22 +31,22 @@
         <div class="carousel-item active">
           <img src="Sample Images/image2.jpg" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
-            <h5>First slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
+            <h5>Street</h5>
+            <p>Old classic painting style</p>
           </div>
         </div>
         <div class="carousel-item">
           <img src="Sample Images/image3.jpg" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
-            <p>Some representative placeholder content for the second slide.</p>
+            <h5>Food</h5>
+            <p>A variety of junk food</p>
           </div>
         </div>
         <div class="carousel-item">
           <img src="Sample Images/image5.jpg" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
-            <h5>Third slide label</h5>
-            <p>Some representative placeholder content for the third slide.</p>
+            <h5>flower</h5>
+            <p>CG</p>
           </div>
         </div>
       </div>
@@ -62,11 +62,11 @@
 
 	<br/>
 
-		<div style="margin-left:70px">
+	<!--	<div style="margin-left:70px">
 			<h2>Recent upload painting</h2>
-			<div>
+	    <div>
 				<br/>
-		</div>
+		</div> -->
 		</div>
 		<div class="container" >
 			<asp:Image ID="JoinUs" runat="server" ImageUrl="~/Sample Images/Join us.jpg" Width="1100px"/>
