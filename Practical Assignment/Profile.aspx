@@ -21,7 +21,10 @@
             border: 1px solid grey;
             height: auto;
             width :700px;
-            margin:4% 25% 7% 25%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom:200px;
+            margin-top:100px;
             background-color: rgb(224, 226, 224);
         }
         .btnType{

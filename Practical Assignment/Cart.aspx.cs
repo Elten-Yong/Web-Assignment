@@ -15,42 +15,44 @@ namespace Practical_Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SqlConnection con;
-            string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-            con = new SqlConnection(strcon);
-
-            con.Open();
-            string strSelect = "SELECT count(*) from CartGallery Where CustomerID = @CustomerID";
-            SqlCommand cmdSelect = new SqlCommand(strSelect, con);
-
-            cmdSelect.Parameters.AddWithValue("@CustomerID", Session["Value"]);
-
-            int numRowAffected = (int)cmdSelect.ExecuteScalar();
-
-            if (numRowAffected > 0)
+            if (Session["Value"] != "0" && Session["Value"] != null)
             {
-                // return insert success
-                // ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Delete successfully! " + "');", true);
+                SqlConnection con;
+                string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+                con = new SqlConnection(strcon);
+
+                con.Open();
+                string strSelect = "SELECT count(*) from CartGallery Where CustomerID = @CustomerID";
+                SqlCommand cmdSelect = new SqlCommand(strSelect, con);
+
+                cmdSelect.Parameters.AddWithValue("@CustomerID", Session["Value"]);
+
+                int numRowAffected = (int)cmdSelect.ExecuteScalar();
+
+                if (numRowAffected > 0)
+                {
+                    // return insert success
+                    // ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Delete successfully! " + "');", true);
 
 
+                }
+                else
+                {
+                    Label3.Text = "No record found";
+                }
             }
-            else
-            {
-                Label3.Text = "No record found";
-            }
+        }
 
+        protected void DataList1_ItemDataBound(object sender, DataListItemEventArgs e)
+        {
+            DataRowView datarow = (DataRowView)e.Item.DataItem;
+            string imageUrl = "data:image/jpg;base64," + Convert.ToBase64String((byte[])datarow["Image"]);
+            (e.Item.FindControl("Image1") as Image).ImageUrl = imageUrl;
         }
 
         protected void btnSignIn_Click(object sender, EventArgs e)
         {
             Response.Redirect("SignIn.aspx");
-        }
-
-        protected void DataList1_ItemDataBound(object sender, EventArgs e)
-        {
-            //DataRowView datarow = (DataRowView)e.Item.DataItem;
-            //string imageUrl = "data:image/jpg;base64," + Convert.ToBase64String((byte[])datarow["Image"]);
-            //(e.Item.FindControl("Image1")as Image).ImageUrl = imageUrl;
         }
 
         protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
