@@ -43,6 +43,11 @@ namespace Practical_Assignment
             }
         }
 
+        protected void btnSignIn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("SignIn.aspx");
+        }
+
         protected void DataList1_ItemDataBound(object sender, DataListItemEventArgs e)
         {
             DataRowView datarow = (DataRowView)e.Item.DataItem;
@@ -50,10 +55,7 @@ namespace Practical_Assignment
             (e.Item.FindControl("Image1") as Image).ImageUrl = imageUrl;
         }
 
-        protected void btnSignIn_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("SignIn.aspx");
-        }
+        
 
         protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
         {
