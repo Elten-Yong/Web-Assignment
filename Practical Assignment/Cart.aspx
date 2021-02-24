@@ -103,7 +103,7 @@
                     </td>
                 </tr>
             </table>
-        <div style=" text-align:center">
+        <div style=" text-align:center; ">
             <asp:Label ID="Label3" runat="server" Text="" style="font-size:x-large;"></asp:Label></div>
          <div >
     
