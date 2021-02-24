@@ -23,7 +23,7 @@ namespace Practical_Assignment
             con = new SqlConnection(strcon);
             con.Open();
 
-            string strSelect = "Select MAX(DrawID) from Gallery";
+            string strSelect = "Select MAX(DrawID) from Gallery Order By DrawID";
             SqlCommand cmdSelect = new SqlCommand(strSelect, con);
 
             string total = (string)cmdSelect.ExecuteScalar();
