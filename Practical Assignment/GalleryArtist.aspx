@@ -20,7 +20,7 @@
     <div style="text-align: center">
         <asp:Label ID="Label1" runat="server" Text="" style="font-size: x-large;"></asp:Label>
     </div>
-    <div style="margin-left: 25%; margin-right: 25%;">
+    <div style="margin-left: 25%; margin-right: 25%; min-height:500px">
     <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand">
         <ItemTemplate>
             <table class="table table-bordered" style="width: 100%;">
