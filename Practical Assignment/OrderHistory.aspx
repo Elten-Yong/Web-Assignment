@@ -14,7 +14,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
     <h2 style="text-align:center">Order History</h2><hr />
-    <div style="width:75%; margin:0 auto; min-height:400px">
+    <div style="width:75%; margin:0 auto auto auto; min-height:400px">
     <table class="auto-style1">
                 <tr>
                     <th class="width1">
