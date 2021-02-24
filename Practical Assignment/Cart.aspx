@@ -11,8 +11,11 @@
             border: 1px solid grey;
             height: auto;
             width :700px;
-            margin:4% 25% 7% 25%;
-            background-color: white;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom:200px;
+            margin-top:100px;
+            background-color: rgb(224, 226, 224);
         }
 
         .auto-style {
@@ -29,7 +32,9 @@
         }
 
         </style>
-        <div style="margin:0px 10%">
+        
+
+            <h1 style="text-align:center">Cart</h1><hr />
         <% if (Session["Value"] == "0" || Session["Value"] == null)
           { %>
             <div style="height:400px">
@@ -85,13 +90,16 @@
                         Customer ID
                     </td>
                     <td class="width1">
+                        Buy
+                    </td>
+                    <td class="width1">
                         Delete
                     </td>
                 </tr>
             </table>
-    <div style=" text-align:center">
-        <asp:Label ID="Label3" runat="server" Text="" style="font-size:x-large;"></asp:Label></div>
-    <div >
+        <div style=" text-align:center">
+            <asp:Label ID="Label3" runat="server" Text="" style="font-size:x-large;"></asp:Label></div>
+         <div >
     
         
         <asp:DataList ID="DataList1" runat="server" DataKeyField="CustomerID" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand" Height="16px" Width="100%">
@@ -112,6 +120,9 @@
                         </td>
                         <td class="width1">
                             <asp:Label ID="Label4" runat="server" Text='<%# Eval("CustomerID") %>'></asp:Label>
+                        </td>
+                        <td class="width1">
+                            <asp:Button ID="Button2" runat="server" Text="Buy Now" CommandName="BuyDrawing" CommandArgument='<%# Eval("DrawID") %>'/>
                         </td>
                         <td class="width1">
                             <asp:Button ID="Button1" runat="server" Text="Delete" CommandName="Delete" CommandArgument='<%# Eval("DrawID") %>'/>
@@ -135,5 +146,5 @@
     
 
     <%} %>
-    </div>
+    
 </asp:Content>
