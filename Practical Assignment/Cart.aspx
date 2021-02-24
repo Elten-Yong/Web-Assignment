@@ -8,7 +8,7 @@
         
         .tableFormat {
             border-collapse: collapse;
-            border: 1px solid grey;
+            border: 2px solid black;
             height: auto;
             width :700px;
             margin-left: auto;
@@ -16,6 +16,8 @@
             margin-bottom:200px;
             margin-top:100px;
             background-color: rgb(224, 226, 224);
+
+            
         }
 
         .auto-style {
@@ -26,6 +28,8 @@
 
         .auto-style1 {
             width: 100%;
+            border: 2px solid black;
+
         }
         .width1 {
             width: 200px;
@@ -35,6 +39,8 @@
         
 
             <h1 style="text-align:center">Cart</h1><hr />
+        
+        <div style="width:75%; margin:0 auto; min-height:400px">
         <% if (Session["Value"] == "0" || Session["Value"] == null)
           { %>
             <div style="height:400px">
@@ -146,5 +152,5 @@
     
 
     <%} %>
-    
+    </div>
 </asp:Content>
