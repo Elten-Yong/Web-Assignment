@@ -3,13 +3,14 @@
     <style type="text/css">
         .tableFormat {
             border-collapse: collapse;
-            border: 1px solid grey;
+            border: 2px solid grey;
             height: auto;
             width: 700px;
             background-color: white;
             margin-bottom :1%;
             height:300px;
-            width:1000px;
+           
+            
         }
         .auto-style2 {
             height: 29px;
@@ -25,6 +26,7 @@
         .auto-style5 {
             height: 24px;
             width: 118px;
+            font-weight:bold;
         }
         .auto-style6 {
             width: 279px;
@@ -32,23 +34,25 @@
         }
         .auto-style7 {
             width: 118px;
+            margin-left:10px;
+
         }
     </style>
 
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
-     <% if (Session["Value"] == "0" || Session["Value"] == null)
+     <% if (Session["Value"] == "0" || Session["Value"] == null || Session["Bar"] =="C")
           { %>
-             <p>Please log in before updating your.</p>
+             <p>Please log in or sign up as an Artist before updating your Arts.</p>
       <%}
           else{ %>
-                 <h1 style="text-align:center;margin-right:5%">Post Art</h1><hr />   
-    
+            <h1 style="text-align:center;">Post Art</h1><hr />   
+            <div style="width:75%; margin:0 auto">
             <h1>Welcome to Alzenda Artwork Sales Gallery , select upload to post the art online !!!</h1>
             <p>
-                Wanted to sell your masterpiece online? Want to let youur art to be recognized by others? Post your art now online at Alzenda Artwork Sales Gallery !
-            <p>
+                Wanted to sell your masterpiece online? Want to let your art to be recognized by others? Post your art now online at Alzenda Artwork Sales Gallery !
+            </p>
             <br />
     <table class ="tableFormat">
 
@@ -114,15 +118,26 @@
         </tr>
 
         <tr>
-            <td class="auto-style7">
+            <td class="auto-style7" style="text-align:center">
          <asp:Button ID="Cancel" runat="server" Text="Cancel" Width="140px"  />
             </td>
             <td class="auto-style3">
         <asp:Button ID="Submit" runat="server" Text="Submit" OnClick="Submit_Click" Width="139px" />
+                
+            </td>        
+        </tr>       
+        <tr>
+            <td>
+            <br/>
+            </td>
+            <td>
+            <br/>
             </td>
         </tr>
-        </table>
 
+        </table>
+     
+        </div>
           <%} %>
     <br />
             &nbsp;

@@ -3,7 +3,8 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
-    <div style="width:600px; margin-left: auto; margin-right: auto; ">
+    <h1 style="text-align:center;">Edit Drawing</h1><br />
+    <div style="width:600px; margin-left: auto; margin-right: auto; height:400px">
         <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand" >
             <ItemTemplate>
                 <table style="width: 100%;">
@@ -51,6 +52,7 @@
             </tr>
         </table>
     </div>
+    <br/>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Gallery.* FROM Gallery WHERE (Gallery.DrawID=@DrawID)" >
         <SelectParameters>
             <asp:QueryStringParameter Name="DrawID" QueryStringField="id" Type="String"/>
