@@ -19,33 +19,35 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
     <div style="text-align: center">
         <asp:Label ID="Label1" runat="server" Text="" style="font-size: x-large;"></asp:Label>
+        
     </div>
+    <hr />
     <div style="margin-left: 25%; margin-right: 25%;">
     <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand">
         <ItemTemplate>
             <table class="table table-bordered" style="width: 100%;">
                 <tr>
-                    <td Class="width1">
+                    <th Class="width1">
                         Draw ID
-                    </td>
-                    <td Class="width1"> 
+                    </th>
+                    <th Class="width1"> 
                         Name
-                    </td>
-                    <td Class="width1">
+                    </th>
+                    <th Class="width1">
                         Image
-                    </td>
-                    <td Class="width1">
+                    </th>
+                    <th Class="width1">
                         Description
-                    </td>
-                    <td Class="width1">
+                    </th>
+                    <th Class="width1">
                         Price
-                    </td>
-                    <td Class="width1">
+                    </th>
+                    <th Class="width1">
                         Edit
-                    </td>
-                    <td Class="width1">
+                    </th>
+                    <th Class="width1">
                         Delete
-                    </td>
+                    </th>
                 </tr>
                 <tr>
                     <td>
