@@ -11,12 +11,17 @@
             border: 1px solid grey;
             height: auto;
             width :700px;
-            margin:4% 25% 7% 25%;
-            background-color: white;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom:200px;
+            margin-top:100px;
+            background-color: rgb(224, 226, 224);
         }
 
         .auto-style {
+            padding-top:20px;
             height: 25px;
+            
         }
 
         .auto-style1 {
@@ -27,10 +32,12 @@
         }
 
         </style>
-  
+        
+
+            <h1 style="text-align:center">Cart</h1><hr />
         <% if (Session["Value"] == "0" || Session["Value"] == null)
           { %>
-
+            <div style="height:400px">
             <table class="tableFormat">
                 <tr>
                     <td class="auto-style">
@@ -46,7 +53,7 @@
                           
                             <asp:Button ID="btnSignIn" runat="server" Text="Sign In" style="border-color: #4D94FF;
                             background-color: white; color: #284E98; font-size:x-large; text-align:center;" 
-                            OnClick="btnSignIn_Click" Width="527px"/>
+                            OnClick="btnSignIn_Click" Width="320px"/>
                 
                     </td>
                 </tr>
@@ -58,9 +65,9 @@
                     <td style="text-align:center">
                            &nbsp;</td>
                 </tr>
-                
+               
             </table>
-          
+            </div>
         <%}
           else{ %>
             <table class="auto-style1">
@@ -83,13 +90,16 @@
                         Customer ID
                     </td>
                     <td class="width1">
+                        Buy
+                    </td>
+                    <td class="width1">
                         Delete
                     </td>
                 </tr>
             </table>
-    <div style=" text-align:center">
-        <asp:Label ID="Label3" runat="server" Text="" style="font-size:x-large;"></asp:Label></div>
-    <div >
+        <div style=" text-align:center">
+            <asp:Label ID="Label3" runat="server" Text="" style="font-size:x-large;"></asp:Label></div>
+         <div >
     
         
         <asp:DataList ID="DataList1" runat="server" DataKeyField="CustomerID" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand" Height="16px" Width="100%">
@@ -112,6 +122,9 @@
                             <asp:Label ID="Label4" runat="server" Text='<%# Eval("CustomerID") %>'></asp:Label>
                         </td>
                         <td class="width1">
+                            <asp:Button ID="Button2" runat="server" Text="Buy Now" CommandName="BuyDrawing" CommandArgument='<%# Eval("DrawID") %>'/>
+                        </td>
+                        <td class="width1">
                             <asp:Button ID="Button1" runat="server" Text="Delete" CommandName="Delete" CommandArgument='<%# Eval("DrawID") %>'/>
                         </td>
                     </tr>
@@ -130,7 +143,8 @@
         <br />
     
     </div>
-
+    
 
     <%} %>
+    
 </asp:Content>

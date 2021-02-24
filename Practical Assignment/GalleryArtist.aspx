@@ -17,35 +17,40 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
-    <div style="width:600px; margin: 0 auto;">
+    <div style="text-align: center">
         <asp:Label ID="Label1" runat="server" Text="" style="font-size: x-large;"></asp:Label>
+        
     </div>
+    <hr />
     <div style="margin-left: 25%; margin-right: 25%;">
     <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand">
         <ItemTemplate>
             <table class="table table-bordered" style="width: 100%;">
                 <tr>
-                    <td Class="width1">
+                    <th Class="width1">
                         Draw ID
-                    </td>
-                    <td Class="width1"> 
+                    </th>
+                    <th Class="width1"> 
                         Name
-                    </td>
-                    <td Class="width1">
+                    </th>
+                    <th Class="width1">
                         Image
-                    </td>
-                    <td Class="width1">
+                    </th>
+                    <th Class="width1">
                         Description
-                    </td>
-                    <td Class="width1">
+                    </th>
+                    <th class="width1">
+                        Quantity
+                    </th>
+                    <th Class="width1">
                         Price
-                    </td>
-                    <td Class="width1">
+                    </th>
+                    <th Class="width1">
                         Edit
-                    </td>
-                    <td Class="width1">
+                    </th>
+                    <th Class="width1">
                         Delete
-                    </td>
+                    </th>
                 </tr>
                 <tr>
                     <td>
@@ -61,6 +66,9 @@
                         <asp:Label CssClass="width1" ID="Label4" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
                     </td>
                     <td>
+                        <asp:Label ID="Label6" runat="server" Text='<%# Eval("Total") %>'></asp:Label>
+                    </td>
+                    <td>
                         <asp:Label CssClass="width1" ID="Label5" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
                     </td>
                     <td>
@@ -74,7 +82,7 @@
         </ItemTemplate>
     </asp:DataList>
     </div>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Gallery.DrawID, Gallery.Name, Gallery.Description, Gallery.Price, Gallery.Image, Gallery.ArtistID FROM Artist INNER JOIN Gallery ON Artist.ArtistID = Gallery.ArtistID WHERE (Gallery.ArtistID = @ArtistID) ">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Gallery.DrawID, Gallery.Name, Gallery.Description, Gallery.Total, Gallery.Price, Gallery.Image, Gallery.ArtistID FROM Artist INNER JOIN Gallery ON Artist.ArtistID = Gallery.ArtistID WHERE (Gallery.ArtistID = @ArtistID) ">
         <SelectParameters>
             <asp:SessionParameter Name="ArtistID" SessionField="Value" />            
         </SelectParameters>

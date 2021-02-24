@@ -2,9 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
  
     <style>
-        a{
-            margin-left:10px
-        }
+        
     </style>
 
 </asp:Content>
@@ -20,11 +18,11 @@
                 <asp:Image ID="Image1" CssClass="Img" runat="server" ImageUrl='<%# Eval("Image") %>' />
                 <br />
                 <br/>
-                <a>Artist:</a><asp:Label ID="Label3" runat="server" Text='<%# Eval("Name") %>' ></asp:Label>
+                <a style="margin-left: 10px">Artist:</a><asp:Label ID="Label3" runat="server" Text='<%# Eval("Name") %>' ></asp:Label>
                 <br />
-                <a>Description:</a><asp:Label ID="Label1" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
+                <a style="margin-left: 10px">Description:</a><asp:Label ID="Label1" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
                 <br/>
-                <a>Price:</a><asp:Label ID="Label2" runat="server" Text='<%#Eval("Price") %>'></asp:Label>
+                <a style="margin-left: 10px">Price:</a><asp:Label ID="Label2" runat="server" Text='<%#Eval("Price") %>'></asp:Label>
                 <br />
                 <br/>
                 <asp:Button CssClass="Button" ID="Button7" runat="server" Text="Buy" CommandName="BuyDrawing" CommandArgument='<%# Eval("DrawID") %>'/>&nbsp

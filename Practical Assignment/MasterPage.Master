@@ -35,13 +35,15 @@
                <%} %>
 
              
-               <asp:HyperLink NavigateUrl="~/HomePage.aspx" ID="Logo" runat="server" ImageUrl="~/Sample Images/Alzenda_Logo.png" Style="margin-left: 20%;" ImageHeight="10%" ImageWidth="5%" />
+                <asp:HyperLink NavigateUrl="~/HomePage.aspx" ID="Logo" runat="server" ImageUrl="~/Sample Images/Alzenda_Logo.png" Style="margin-left: 100px;" ImageHeight="10%" ImageWidth="5%" />
                 <asp:Menu CssClass="TopMenuBar" ID="TopMenuBar" runat="server" RenderingMode="Table" Orientation="Horizontal" >
                     <Items>
                         <asp:MenuItem NavigateUrl="~/HomePage.aspx" Text="Home Page" Value="Home Page"/>
                         <asp:MenuItem NavigateUrl="~/AboutUs.aspx" Text="About Us" Value="About Us"/>
                         <asp:MenuItem NavigateUrl="~/Gallery.aspx" Text="Gallery" Value="Gallery"/>
+                        <asp:MenuItem NavigateUrl="~/Wishlist.aspx" Text="Wishlist" Value="Wishlist" />
                         <asp:MenuItem NavigateUrl="~/Cart.aspx" Text="Cart" Value="Cart"/>
+                        <asp:MenuItem NavigateUrl="~/OrderHistory.aspx" Text="Order History" Value="Order History" />
                         <asp:MenuItem NavigateUrl="~/Profile.aspx" Text="Profile" Value="Profile"/>
                     </Items>
                 </asp:Menu>
@@ -54,7 +56,7 @@
             <asp:LinkButton ID="LinkButton2" runat="server" style="float:right; color:aliceblue; font-size: 16px" OnClick="ltnButton1_Click">Log out</asp:LinkButton>
             <a href="Profile.aspx"><asp:Label ID="ArtistUsername" runat="server" Text="Label" style="float:right; color:aliceblue; font-size: 16px"></asp:Label></a>
          
-            <asp:HyperLink NavigateUrl="~/HomePage.aspx" ID="HyperLink1" runat="server" ImageUrl="~/Sample Images/Alzenda_Logo.png" Style="margin-left: 20%" ImageHeight="10%" ImageWidth="5%" />
+            <asp:HyperLink NavigateUrl="~/HomePage.aspx" ID="HyperLink1" runat="server" ImageUrl="~/Sample Images/Alzenda_Logo.png" Style="margin-left: 15%" ImageHeight="10%" ImageWidth="5%" />
             <asp:Menu CssClass="TopMenuBar" ID="Menu2" runat="server" RenderingMode="Table" Orientation="Horizontal" >
                 <Items>
                     <asp:MenuItem NavigateUrl="~/HomePage.aspx" Text="Home Page" Value="Home Page"/>
