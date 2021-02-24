@@ -63,39 +63,39 @@
     <asp:DataList ID="DataList1" runat="server" DataKeyField="DrawID" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand">
         <ItemTemplate>
             <table class="auto-style1">
-                <tr>
+         <!--       <tr>
                     <td colspan="2">
                         <asp:Label ID="Label1" runat="server" Font-Size="X-Large" Text='<%# Eval("DrawID") %>'></asp:Label>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <asp:Label ID="Label2" runat="server" Font-Size="Large" Text='<%# Eval("Name") %>'></asp:Label>
+                        <a style="margin-left: 10px">Artist:</a><asp:Label ID="Label2" runat="server" Font-Size="Large" Text='<%# Eval("Name") %>'></asp:Label>
                     </td>
                 </tr>
-                <tr>
+                <tr>-->
                     <td class="auto-style2" colspan="2">
                         <asp:Image ID="Image1" runat="server" Height="213px" ImageUrl='<%# Eval("Image") %>' Width="199px" />
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <asp:Label ID="Label3" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
+                        <a style="margin-left: 10px">Name:</a><asp:Label ID="Label3" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <asp:Label ID="Label4" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
+                        <a style="margin-left: 10px">Description:</a><asp:Label ID="Label4" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <asp:Label ID="Label5" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
+                        <a style="margin-left: 10px">Price:</a><asp:Label ID="Label5" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
                     </td>
                 </tr>
-                <tr>
+            <!--    <tr>
                     <td colspan="2"><asp:Label ID="Label6" runat="server" Text='<%# Eval("Total") %>'></asp:Label></td>
-                </tr>
+                </tr> -->
                 <tr>
                     <td>
                         <asp:Button CssClass="myButton" ID="Button1" runat="server" Text="Buy Now" CommandName="BuyDrawing" CommandArgument='<%# Eval("DrawID") %>'/>
