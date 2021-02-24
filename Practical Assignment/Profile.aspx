@@ -46,7 +46,7 @@
 
         </style>
 
-    <h2 style="text-align:center">Profile</h2><hr />
+    <h1 style="text-align:center">Profile</h1><hr />
 
     <% if (Session["Value"] == "0" || Session["Value"] == null)
           { %>

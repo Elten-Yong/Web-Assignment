@@ -14,7 +14,7 @@ namespace Practical_Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Session["Value"] = "AR0001";
+            //Session["Value"] = "AR1";
             SqlConnection con;
             string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             con = new SqlConnection(strcon);
@@ -52,6 +52,7 @@ namespace Practical_Assignment
         {
             if (e.CommandName == "Delete")
             {
+                //validation for delete(needed)
                 SqlConnection con;
                 string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 con = new SqlConnection(strcon);
