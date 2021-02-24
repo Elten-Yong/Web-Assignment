@@ -44,6 +44,11 @@ namespace Practical_Assignment
             }
         }
 
+        protected void btnSignIn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("SignIn.aspx");
+        }
+
         protected void DataList1_ItemDataBound(object sender, DataListItemEventArgs e)
         {
             DataRowView datarow = (DataRowView)e.Item.DataItem;

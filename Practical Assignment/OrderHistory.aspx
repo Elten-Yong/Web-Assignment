@@ -9,12 +9,58 @@
         .width1{
             width: 16%;
         }
-        
+        .tableFormat {
+            border-collapse: collapse;
+            border: 1px solid grey;
+            height: auto;
+            width :700px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom:200px;
+            margin-top:100px;
+            background-color: rgb(224, 226, 224);
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
     <h2 style="text-align:center">Order History</h2><hr />
-    <div style="width:75%; margin:0 auto auto auto; min-height:400px">
+    <% if (Session["Value"] == "0" || Session["Value"] == null)
+          { %>
+        <div style="height:400px">
+            <table class="tableFormat">
+                <tr>
+                    <td class="auto-style">
+                        <p style="text-align:center; font-size:x-large">Please log in to view your order history.</p>
+                           </td>
+                </tr>
+                <tr>
+                    <td class="auto-style">
+                            &nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                          
+                            <asp:Button ID="btnSignIn" runat="server" Text="Sign In" style="border-color: #4D94FF;
+                            background-color: white; color: #284E98; font-size:x-large; text-align:center;" 
+                            OnClick="btnSignIn_Click" Width="320px"/>
+                
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                           &nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                           &nbsp;</td>
+                </tr>
+               
+            </table>
+            </div>
+
+     <%}
+         else{ %>
+    <div style="width:75%; margin:0 auto; min-height:400px">
     <table class="auto-style1">
                 <tr>
                     <th class="width1">
@@ -77,5 +123,5 @@
     </asp:SqlDataSource>
         <br/>
         </div>
-    
+     <%} %>
 </asp:Content>
