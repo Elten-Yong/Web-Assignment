@@ -42,13 +42,14 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
+    <div style="width:75%; margin:0 auto; min-height:410px">
      <% if (Session["Value"] == "0" || Session["Value"] == null)
           { %>
-             <p>Please log in before updating your.</p>
+             <p>Please <a href="SignIn.aspx" > log in</a> before accessing this page.</p>
       <%}
           else{ %>
             <h1 style="text-align:center;">Post Art</h1><hr />   
-            <div style="width:75%; margin:0 auto">
+            
             <h1>Welcome to Alzenda Artwork Sales Gallery , select upload to post the art online !!!</h1>
             <p>
                 Wanted to sell your masterpiece online? Want to let your art to be recognized by others? Post your art now online at Alzenda Artwork Sales Gallery !
@@ -138,13 +139,13 @@
 
         </table>
      
-        </div>
+        
           <%} %>
     <br />
             &nbsp;
     <div >
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </div>
-    
+    </div>
 
 </asp:Content>

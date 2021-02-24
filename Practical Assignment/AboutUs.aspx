@@ -7,8 +7,8 @@
         .auto-style4 {
             width: 70%;
             height: 308px;
-            margin:1% auto 1% auto;
-            
+            margin:0px auto;
+            background-color:rgba(255,255,255,0.5);
         }
         .auto-style5 {
             width: 350px;
