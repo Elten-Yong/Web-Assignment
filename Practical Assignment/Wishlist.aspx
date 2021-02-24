@@ -22,7 +22,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
-    <h2 style="text-align:center">Wishlist</h2><hr />
+    <h1 style="text-align:center">Wishlist</h1><hr />
      <% if (Session["Value"] == "0" || Session["Value"] == null)
           { %>
         <div style="height:400px">

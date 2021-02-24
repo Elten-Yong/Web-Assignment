@@ -78,27 +78,27 @@
           else{ %>
             <table class="auto-style1">
                 <tr>
-                    <td class="width1">
+                    <td class="width1" style="font-weight: bold">
                         Draw ID
                     </td>
 
-                    <td class="width1">
+                    <td class="width1" style="font-weight: bold">
                         Image
                     </td>
 
-                    <td class="width1">
+                    <td class="width1" style="font-weight: bold">
                         Name
                     </td>
-                    <td class="width1">
+                    <td class="width1" style="font-weight: bold">
                         Price
                     </td>
-                    <td class="width1">
+                    <td class="width1" style="font-weight: bold">
                         Customer ID
                     </td>
-                    <td class="width1">
+                    <td class="width1" style="font-weight: bold">
                         Buy
                     </td>
-                    <td class="width1">
+                    <td class="width1" style="font-weight: bold">
                         Delete
                     </td>
                 </tr>
