@@ -17,11 +17,11 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
-    <div style="text-align: center">
-        <asp:Label ID="Label1" runat="server" Text="" style="font-size: x-large;"></asp:Label>
-        
-    </div>
+    <h2 style="text-align:center;">Manage Art</h2>
     <hr />
+    <div style="text-align: center">
+        <asp:Label ID="Label1" runat="server" Text="" style="font-size: x-large;"></asp:Label>   
+    </div>
     <div style="margin-left: 25%; margin-right: 25%;">
     <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand">
         <ItemTemplate>

@@ -92,6 +92,10 @@ namespace Practical_Assignment
                 con.Close();
 
             }
+            else
+            {
+                Response.Redirect("Gallery.aspx");
+            }
 
         }
     }
