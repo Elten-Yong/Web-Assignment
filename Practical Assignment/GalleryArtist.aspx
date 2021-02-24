@@ -39,6 +39,9 @@
                     <th Class="width1">
                         Description
                     </th>
+                    <th class="width1">
+                        Quantity
+                    </th>
                     <th Class="width1">
                         Price
                     </th>
@@ -63,6 +66,9 @@
                         <asp:Label CssClass="width1" ID="Label4" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
                     </td>
                     <td>
+                        <asp:Label ID="Label6" runat="server" Text='<%# Eval("Total") %>'></asp:Label>
+                    </td>
+                    <td>
                         <asp:Label CssClass="width1" ID="Label5" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
                     </td>
                     <td>
@@ -76,7 +82,7 @@
         </ItemTemplate>
     </asp:DataList>
     </div>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Gallery.DrawID, Gallery.Name, Gallery.Description, Gallery.Price, Gallery.Image, Gallery.ArtistID FROM Artist INNER JOIN Gallery ON Artist.ArtistID = Gallery.ArtistID WHERE (Gallery.ArtistID = @ArtistID) ">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Gallery.DrawID, Gallery.Name, Gallery.Description, Gallery.Total, Gallery.Price, Gallery.Image, Gallery.ArtistID FROM Artist INNER JOIN Gallery ON Artist.ArtistID = Gallery.ArtistID WHERE (Gallery.ArtistID = @ArtistID) ">
         <SelectParameters>
             <asp:SessionParameter Name="ArtistID" SessionField="Value" />            
         </SelectParameters>
