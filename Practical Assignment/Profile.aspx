@@ -21,7 +21,10 @@
             border: 1px solid grey;
             height: auto;
             width :700px;
-            margin:4% 25% 7% 25%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom:200px;
+            margin-top:100px;
             background-color: rgb(224, 226, 224);
         }
         .btnType{
@@ -43,7 +46,7 @@
 
         </style>
 
-    <h1 style="text-align:center">Profile</h1><hr />
+    <h2 style="text-align:center">Profile</h2><hr />
 
     <% if (Session["Value"] == "0" || Session["Value"] == null)
           { %>

@@ -41,7 +41,9 @@
                         <asp:MenuItem NavigateUrl="~/HomePage.aspx" Text="Home Page" Value="Home Page"/>
                         <asp:MenuItem NavigateUrl="~/AboutUs.aspx" Text="About Us" Value="About Us"/>
                         <asp:MenuItem NavigateUrl="~/Gallery.aspx" Text="Gallery" Value="Gallery"/>
+                        <asp:MenuItem NavigateUrl="~/Wishlist.aspx" Text="Wishlist" Value="Wishlist" />
                         <asp:MenuItem NavigateUrl="~/Cart.aspx" Text="Cart" Value="Cart"/>
+                        <asp:MenuItem NavigateUrl="~/OrderHistory.aspx" Text="Order History" Value="Order History" />
                         <asp:MenuItem NavigateUrl="~/Profile.aspx" Text="Profile" Value="Profile"/>
                     </Items>
                 </asp:Menu>

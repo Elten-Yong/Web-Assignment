@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
     <h1 style="text-align:center;">Edit Drawing</h1><br />
     <div style="width:600px; margin-left: auto; margin-right: auto; height:400px">
-        <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand" >
+        <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand" Width="280px" >
             <ItemTemplate>
                 <table style="width: 100%;">
                     <tr>
@@ -13,20 +13,21 @@
                             Image:
                         </td>
                         <td>
-                            Confirm
+                            
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <asp:Image ID="Image1" runat="server" Width="100px" Height="75px" ImageUrl='<%# Eval("Image") %>' />
                         </td>
-                        <td>
+                        <td >
                             <asp:Button ID="Button1" runat="server" Text="Confirm" CommandName="ConfirmEdit" CommandArgument='<%# Eval("DrawID") %>'/>
                         </td>
                     </tr>
                 </table>
             </ItemTemplate>
         </asp:DataList>
+        <br />
         <table>
             <tr>
                 <td>

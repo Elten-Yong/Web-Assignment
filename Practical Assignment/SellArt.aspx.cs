@@ -23,13 +23,15 @@ namespace Practical_Assignment
             con = new SqlConnection(strcon);
             con.Open();
 
-            string strSelect = "Select count(DrawID) from Gallery";
+            string strSelect = "Select MAX(DrawID) from Gallery";
             SqlCommand cmdSelect = new SqlCommand(strSelect, con);
 
-            int total = (int)cmdSelect.ExecuteScalar() + 1;
+            string total = (string)cmdSelect.ExecuteScalar();
             con.Close();
 
-            string drawID = "DR" + total.ToString();
+            int newIndex = int.Parse(total.Remove(0, 2)) + 1;
+             
+            string drawID = "DR" + newIndex.ToString();
 
             con.Open();
             int length = Drawing.PostedFile.ContentLength;
