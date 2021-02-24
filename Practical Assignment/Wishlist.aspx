@@ -3,6 +3,7 @@
     <style type="text/css">
         .auto-style1 {
             width: 100%;
+            border:2px solid black;
         }
         .width1 {
             width: 16%;
@@ -11,28 +12,30 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
+    <h2 style="text-align:center">Wishlist</h2><hr />
+    <div style="width:75%; margin:0 auto; min-height:400px">
     <table class="auto-style1">
                 <tr>
-                    <td class="width1">
+                    <th class="width1">
                         Draw ID
-                    </td>
+                    </th>
 
-                    <td class="width1">
+                    <th class="width1">
                         Name
-                    </td>
+                    </th>
 
-                    <td class="width1">
+                    <th class="width1">
                         Image
-                    </td>
-                    <td class="width1">
+                    </th>
+                    <th class="width1">
                         Description
-                    </td>
-                    <td class="width1">
+                    </th>
+                    <th class="width1">
                         Price
-                    </td>
-                    <td class="width1">
+                    </th>
+                    <th class="width1">
                         Delete
-                    </td>
+                    </th>
                 </tr>
             </table>
     <div style=" text-align:center">
@@ -77,6 +80,6 @@
                 <asp:SessionParameter Name="CustomerID" SessionField="Value" />
             </SelectParameters>
         </asp:SqlDataSource>
-    
+    </div>
     </div>
 </asp:Content>

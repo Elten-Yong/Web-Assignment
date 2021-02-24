@@ -37,6 +37,9 @@
                     Description:
                 </td>
                 <td>
+                    Quantity:
+                </td>
+                <td>
                     Price:
                 </td>
             </tr>
@@ -46,6 +49,9 @@
                 </td>
                 <td>
                     <asp:TextBox ID="DescriptionTxt" runat="server"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:TextBox ID="QuantityTxt" runat="server"></asp:TextBox>
                 </td>
                 <td>
                     <asp:TextBox ID="PriceTxt" runat="server"></asp:TextBox>

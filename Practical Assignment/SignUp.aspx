@@ -8,7 +8,8 @@
         }
         .auto-style2 {
             height: 26px;
-            padding-left: 5px;
+            padding-left: 100px;
+            padding-right: 100px;
         }
 
         .auto-style3 {
@@ -42,7 +43,7 @@
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
-
+    
     <h1 style="text-align:center">Registration</h1><hr />
 
     <asp:MultiView ID="SignUpMultiView" runat="server">
@@ -89,14 +90,12 @@
 
         <asp:View ID="View2" runat="server">
         <table class="tableFormat2" style="margin-top:1%">
-            <tr style ="border:50px">
-                
             <tr>
-                <td class="auto-style2">Please fill in the registration form. 
-                    <br /><hr />
+                
+                <td class="auto-style2">Please fill in the registration form.
+                    <br />
+                    <hr />
                 </td>
-
-            </tr>
             <tr>
                 <td class="auto-style2">&nbsp;</td>
             </tr>
@@ -194,7 +193,9 @@
                     <asp:Label ID="lblDuplicate" runat="server" Text="" ForeColor="Red" Font-Size="Small"></asp:Label>
                     
                 </td>
+                
             </tr>
+            
         </table>
         </asp:View>
         </asp:MultiView>
