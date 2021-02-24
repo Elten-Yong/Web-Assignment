@@ -5,7 +5,7 @@
             width: 100%;
         }
         .width1 {
-            width: 60px;
+            width: 100px;
         }
         .tablestyle1{
             margin-left: auto; 
@@ -18,34 +18,37 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
     <div style="width:600px; margin: 0 auto;">
+        <h2 style="text-align:center; ">Manage Art</h2>
         <asp:Label ID="Label1" runat="server" Text="" style="font-size: x-large;"></asp:Label>
+        
     </div>
+    <hr />
     <div style="margin-left: 25%; margin-right: 25%;">
     <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand">
         <ItemTemplate>
-            <table class="table table-bordered" style="width: 900px;">
+            <table class="table table-bordered" style="width: 100%;">
                 <tr>
-                    <td>
+                    <th Class="width1">
                         Draw ID
-                    </td>
-                    <td>
+                    </th>
+                    <th Class="width1"> 
                         Name
-                    </td>
-                    <td>
+                    </th>
+                    <th Class="width1">
                         Image
-                    </td>
-                    <td>
+                    </th>
+                    <th Class="width1">
                         Description
-                    </td>
-                    <td>
+                    </th>
+                    <th Class="width1">
                         Price
-                    </td>
-                    <td>
+                    </th>
+                    <th Class="width1">
                         Edit
-                    </td>
-                    <td>
+                    </th>
+                    <th Class="width1">
                         Delete
-                    </td>
+                    </th>
                 </tr>
                 <tr>
                     <td>

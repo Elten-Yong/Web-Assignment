@@ -16,7 +16,9 @@
         }
 
         .auto-style {
+            padding-top:20px;
             height: 25px;
+            
         }
 
         .auto-style1 {
@@ -27,10 +29,10 @@
         }
 
         </style>
-  
+        <div style="margin:0px 10%">
         <% if (Session["Value"] == "0" || Session["Value"] == null)
           { %>
-
+            <div style="height:400px">
             <table class="tableFormat">
                 <tr>
                     <td class="auto-style">
@@ -46,7 +48,7 @@
                           
                             <asp:Button ID="btnSignIn" runat="server" Text="Sign In" style="border-color: #4D94FF;
                             background-color: white; color: #284E98; font-size:x-large; text-align:center;" 
-                            OnClick="btnSignIn_Click" Width="527px"/>
+                            OnClick="btnSignIn_Click" Width="320px"/>
                 
                     </td>
                 </tr>
@@ -58,9 +60,9 @@
                     <td style="text-align:center">
                            &nbsp;</td>
                 </tr>
-                
+               
             </table>
-          
+            </div>
         <%}
           else{ %>
             <table class="auto-style1">
@@ -130,7 +132,8 @@
         <br />
     
     </div>
-
+    
 
     <%} %>
+    </div>
 </asp:Content>
