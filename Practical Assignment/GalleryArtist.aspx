@@ -17,7 +17,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
-    <div style="width:600px; margin: 0 auto;">
+    <div style="text-align: center">
         <asp:Label ID="Label1" runat="server" Text="" style="font-size: x-large;"></asp:Label>
     </div>
     <div style="margin-left: 25%; margin-right: 25%;">
