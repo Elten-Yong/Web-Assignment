@@ -35,12 +35,13 @@ namespace Practical_Assignment
                 string selectedDraw = e.CommandArgument.ToString();
                 con.Open();
 
-                string strUpdate = "Update Gallery SET Name=@Name, Description=@Description, Price=@Price WHERE DrawID=@DrawID";
+                string strUpdate = "Update Gallery SET Name=@Name, Description=@Description, Total=@Total, Price=@Price WHERE DrawID=@DrawID";
                 SqlCommand cmdUpdate = new SqlCommand(strUpdate, con);
 
                 cmdUpdate.Parameters.AddWithValue("@DrawID", selectedDraw);
                 cmdUpdate.Parameters.AddWithValue("@Name", NameTxt.Text);
                 cmdUpdate.Parameters.AddWithValue("@Description", DescriptionTxt.Text);
+                cmdUpdate.Parameters.AddWithValue("@Total", QuantityTxt.Text);
                 cmdUpdate.Parameters.AddWithValue("@Price", PriceTxt.Text);
 
                 int numRowAffected = cmdUpdate.ExecuteNonQuery();
