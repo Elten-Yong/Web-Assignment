@@ -27,6 +27,7 @@ namespace Practical_Assignment
             SqlCommand cmdSelect = new SqlCommand(strSelect, con);
 
             string total = (string)cmdSelect.ExecuteScalar();
+           
             con.Close();
 
             int newIndex = int.Parse(total.Remove(0, 2)) + 1;

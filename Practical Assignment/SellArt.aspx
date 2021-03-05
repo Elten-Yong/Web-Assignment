@@ -42,10 +42,12 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
+    <h2 style="text-align:center">Order History</h2><hr />
     <div style="width:75%; margin:0 auto; min-height:410px">
      <% if (Session["Value"] == "0" || Session["Value"] == null || Session["Bar"] == "C")
           { %>
-             <p>Please <a href="SignIn.aspx" > log in</a> before accessing this page.</p>
+             <p>Please <a href="SignIn.aspx" > log in</a> as artist before accessing this page.</p>
+             <p>OR<a href="SignUp.aspx" > register</a> as artist before accessing this page.</p>
       <%}
           else{ %>
             <h1 style="text-align:center;">Post Art</h1><hr />   
