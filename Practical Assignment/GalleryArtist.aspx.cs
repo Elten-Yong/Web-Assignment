@@ -14,7 +14,7 @@ namespace Practical_Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Session["Value"] = "AR1";
+            Session["Value"] = "AR1";
             SqlConnection con;
             string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             con = new SqlConnection(strcon);
@@ -80,10 +80,15 @@ namespace Practical_Assignment
                 }
                 con.Close();
             }
-
-            if (e.CommandName == "Edit")
+            else if (e.CommandName == "Edit")
             {
+                
                 Response.Redirect("EditDrawingArtist.aspx?id=" + e.CommandArgument.ToString());
+
+            }
+            else
+            {
+                Response.Redirect("CustomerArtManagement.aspx?id=" + e.CommandArgument.ToString());
             }
         }
     }
