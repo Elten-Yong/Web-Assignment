@@ -19,10 +19,14 @@
             margin-top:100px;
             background-color: rgb(224, 226, 224);
         }
+        .auto-style2 {
+            width: 16%;
+            height: 38px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
-    <h2 style="text-align:center">Wishlist</h2><hr />
+    <h1 style="text-align:center">Wishlist</h1><hr />
      <% if (Session["Value"] == "0" || Session["Value"] == null)
           { %>
         <div style="height:400px">
@@ -62,34 +66,35 @@
     <div style="width:75%; margin:0 auto; min-height:400px">
     <table class="auto-style1">
                 <tr>
-                    <th class="width1">
+                    <th class="auto-style2">
                         Draw ID
                     </th>
 
-                    <th class="width1">
+                    <th class="auto-style2">
                         Name
                     </th>
 
-                    <th class="width1">
+                    <th class="auto-style2">
                         Image
                     </th>
-                    <th class="width1">
+                    <th class="auto-style2">
                         Description
                     </th>
-                    <th class="width1">
+                    <th class="auto-style2">
                         Price
                     </th>
-                    <th class="width1">
+                    <th class="auto-style2">
                         Delete
                     </th>
                 </tr>
             </table>
     <div style=" text-align:center">
-        <asp:Label ID="Label3" runat="server" Text="" style="font-size:x-large;"></asp:Label></div>
-    <div >
+        <asp:Label ID="Label3" runat="server" Text="" style="font-size:x-large;"></asp:Label>
+    </div>
     
         <asp:DataList ID="DataList1" runat="server" DataKeyField="CustomerID" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand" Height="16px" Width="100%">
             <ItemTemplate>
+                <br />
                 <table class="auto-style1">
                     <tr>
                         <td class="width1">
@@ -117,8 +122,7 @@
                         </td>
                     </tr>
                 </table>
-                <br />
-                <br />
+
             </ItemTemplate>
         </asp:DataList>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Gallery.Name, Gallery.Price, Gallery.Description, WishlistGallery.CustomerID, WishlistGallery.DrawID, Gallery.Image FROM WishlistGallery INNER JOIN Gallery ON WishlistGallery.DrawID = Gallery.DrawID WHERE (WishlistGallery.CustomerID = @CustomerID)">
@@ -126,7 +130,7 @@
                 <asp:SessionParameter Name="CustomerID" SessionField="Value" />
             </SelectParameters>
         </asp:SqlDataSource>
-    </div>
+    <br />
     </div>
     <%} %>
 </asp:Content>

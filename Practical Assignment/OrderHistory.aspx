@@ -23,7 +23,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
-    <h2 style="text-align:center">Order History</h2><hr />
+    <h1 style="text-align:center">Order History</h1><hr />
     <% if (Session["Value"] == "0" || Session["Value"] == null)
           { %>
         <div style="height:400px">
@@ -86,7 +86,9 @@
                 </tr>
             </table>
     <div style=" text-align:center">
-        <asp:Label ID="Label3" runat="server" Text="" style="font-size:x-large;"></asp:Label></div>
+        <asp:Label ID="Label3" runat="server" Text="" style="font-size:x-large;"></asp:Label>
+
+    </div>
     <asp:DataList runat="server" DataKeyField="OrderID" DataSourceID="SqlDataSource1"  OnItemDataBound="DataList1_ItemDataBound"  Height="16px" Width="100%">
         <ItemTemplate>     
             <br/>
@@ -122,6 +124,6 @@
         </SelectParameters>
     </asp:SqlDataSource>
         <br/>
-        </div>
+     </div>
      <%} %>
 </asp:Content>

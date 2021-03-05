@@ -32,7 +32,7 @@
 
         }
         .width1 {
-            width: 200px;
+            width: 16%;
         }
 
         </style>
@@ -78,38 +78,38 @@
           else{ %>
             <table class="auto-style1">
                 <tr>
-                    <td class="width1">
+                    <td class="width1" style="font-weight: bold">
                         Draw ID
                     </td>
 
-                    <td class="width1">
+                    <td class="width1" style="font-weight: bold">
                         Image
                     </td>
 
-                    <td class="width1">
+                    <td class="width1" style="font-weight: bold">
                         Name
                     </td>
-                    <td class="width1">
+                    <td class="width1" style="font-weight: bold">
                         Price
                     </td>
-                    <td class="width1">
+                    <td class="width1" style="font-weight: bold">
                         Customer ID
                     </td>
-                    <td class="width1">
+                    <td class="width1" style="font-weight: bold">
                         Buy
                     </td>
-                    <td class="width1">
+                    <td class="width1" style="font-weight: bold">
                         Delete
                     </td>
                 </tr>
             </table>
-        <div style=" text-align:center; ">
-            <asp:Label ID="Label3" runat="server" Text="" style="font-size:x-large;"></asp:Label></div>
-         <div >
-    
-        
+        <div style=" text-align:center">
+            <asp:Label ID="Label3" runat="server" Text="" style="font-size:x-large;"></asp:Label>
+        </div>
+          
         <asp:DataList ID="DataList1" runat="server" DataKeyField="CustomerID" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand" Height="16px" Width="100%">
             <ItemTemplate>
+                <br/>
                 <table class="auto-style1">
                     <tr>
                         <td class="width1">
@@ -135,8 +135,7 @@
                         </td>
                     </tr>
                 </table>
-                <br />
-                <br />
+                
             </ItemTemplate>
         </asp:DataList>
 
@@ -147,9 +146,6 @@
         </asp:SqlDataSource>
     
         <br />
-    
-    </div>
-    
 
     <%} %>
     </div>
