@@ -74,6 +74,7 @@
     </Content>
     <Content Include="Cart.aspx" />
     <Content Include="confirmOrder.aspx" />
+    <Content Include="CustomerArtManagement.aspx" />
     <Content Include="EditDrawingArtist.aspx" />
     <Content Include="EditProfile.aspx" />
     <Content Include="ForgetPassword.aspx" />
@@ -105,6 +106,13 @@
     </Compile>
     <Compile Include="confirmOrder.aspx.designer.cs">
       <DependentUpon>confirmOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerArtManagement.aspx.cs">
+      <DependentUpon>CustomerArtManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerArtManagement.aspx.designer.cs">
+      <DependentUpon>CustomerArtManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditDrawingArtist.aspx.cs">
       <DependentUpon>EditDrawingArtist.aspx</DependentUpon>

@@ -1,9 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="GalleryArtist.aspx.cs" Inherits="Practical_Assignment.GalleryArtist" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-        .auto-style1 {
-            width: 100%;
-        }
         .width1 {
             width: 100px;
         }
@@ -60,7 +57,8 @@
                         <asp:Label CssClass="width1" ID="Label3" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
                     </td>
                     <td>
-                        <asp:Image CssClass="width1" ID="Image1" runat="server" ImageUrl='<%# Eval("Image") %>' Height="75px" Width="100px"/>
+                        <%--<asp:Image CssClass="width1" ID="Image1" runat="server" ImageUrl='<%# Eval("Image") %>' Height="75px" Width="100px"/>--%>
+                        <asp:ImageButton ID="Image1" runat="server" ImageUrl='<%# Eval("Image") %>' Height="75px" Width="100px" CommandName="ClickImage" CommandArgument='<%# Eval("DrawID") %>'/>
                     </td>
                     <td>
                         <asp:Label CssClass="width1" ID="Label4" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
