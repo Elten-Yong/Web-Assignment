@@ -105,17 +105,28 @@ namespace Practical_Assignment
                     }
 
                     con.Close();
+                    
 
                     //insert value
                     if (!duplicate)
                     {
                         con.Open();
+                        string strSelect1 = "Select Price from Gallery Where DrawID=@DrawID";
+                        SqlCommand cmdSelect1 = new SqlCommand(strSelect1, con);
 
-                        string strInsert = "Insert into CartGallery (CustomerID, DrawID) Values (@CustomerID, @DrawID)";
+                        cmdSelect1.Parameters.AddWithValue("@DrawID", addedDraw);
+                        System.Decimal totalPrice = (System.Decimal) cmdSelect1.ExecuteScalar();
+
+                        con.Close();
+
+                        con.Open();
+
+                        string strInsert = "Insert into CartGallery (CustomerID, DrawID,TotalPrice) Values (@CustomerID, @DrawID,@TotalPrice)";
 
                         SqlCommand cmdInsert = new SqlCommand(strInsert, con);
                         cmdInsert.Parameters.AddWithValue("@CustomerID", Session["Value"]);
                         cmdInsert.Parameters.AddWithValue("@DrawID", addedDraw);
+                        cmdInsert.Parameters.AddWithValue("@TotalPrice", totalPrice);
                         //cmdInsert.Parameters.AddWithValue("@Name", "Name");
                         //cmdInsert.Parameters.AddWithValue("@Price", "Price");
                         //cmdInsert.Parameters.AddWithValue("@Image", "Image");

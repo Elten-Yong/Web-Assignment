@@ -17,7 +17,6 @@
             margin-top:100px;
             background-color: rgb(224, 226, 224);
 
-            
         }
 
         .auto-style {
@@ -101,17 +100,21 @@
                     <td class="width1" style="font-weight: bold">
                         Delete
                     </td>
-                </tr>
-            </table>
-        <div style=" text-align:center">
-            <asp:Label ID="Label3" runat="server" Text="" style="font-size:x-large;"></asp:Label>
-        </div>
+                 </tr>
+               </table>
+            <div style=" text-align:center">
+                <asp:Label ID="Label3" runat="server" Text="" style="font-size:x-large;"></asp:Label>
+            </div>
           
-        <asp:DataList ID="DataList1" runat="server" DataKeyField="CustomerID" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand" Height="16px" Width="100%">
-            <ItemTemplate>
+            <asp:DataList ID="DataList1" runat="server" DataKeyField="CustomerID" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand" Height="16px" Width="100%">
+                <ItemTemplate>
+                    <asp:HiddenField ID="HiddenField1" runat="server" Value='<%# Eval("DrawID") %>' />
                 <br/>
                 <table class="auto-style1">
                     <tr>
+                        <td class="width1">
+                            <asp:CheckBox ID="chkEmpty" runat="server" AutoPostBack="true" OnCheckedChanged="Chk_Empty_CheckedChanged" />
+                        </td>
                         <td class="width1">
                             <asp:Label ID="Label1" runat="server" Text='<%# Eval("DrawID") %>'></asp:Label>
                         </td>
@@ -122,13 +125,17 @@
                             <asp:Label ID="Label2" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
                         </td>
                         <td class="width1">
-                            <asp:Label ID="Label3" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
+                            <asp:Label ID="Label3" runat="server" Text='<%# Eval("TotalPrice") %>'></asp:Label>                          
+
                         </td>
                         <td class="width1">
                             <asp:Label ID="Label4" runat="server" Text='<%# Eval("CustomerID") %>'></asp:Label>
                         </td>
                         <td class="width1">
-                            <asp:Button ID="Button2" runat="server" Text="Buy Now" CommandName="BuyDrawing" CommandArgument='<%# Eval("DrawID") %>'/>
+                            <%--<asp:Button ID="Button2" runat="server" Text="Buy Now" CommandName="BuyDrawing" CommandArgument='<%# Eval("DrawID") %>'/>--%>
+                            <asp:Button ID="Add" runat="server" Text="+" CommandName="Adding" CommandArgument='<%# Eval("DrawID") %>'  />
+                            <asp:Label ID="quantity" runat="server" Text='<%# Eval("Quantity") %>'></asp:Label>
+                            <asp:Button ID="Subtract" runat="server" Text="-" CommandName="Subtract" CommandArgument='<%# Eval("DrawID") %>'  />
                         </td>
                         <td class="width1">
                             <asp:Button ID="Button1" runat="server" Text="Delete" CommandName="Delete" CommandArgument='<%# Eval("DrawID") %>'/>
@@ -137,16 +144,18 @@
                 </table>
                 
             </ItemTemplate>
-        </asp:DataList>
+            </asp:DataList>
 
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Gallery.Name, Gallery.Price, CartGallery.CustomerID, CartGallery.DrawID, Gallery.Image FROM CartGallery INNER JOIN Gallery ON CartGallery.DrawID = Gallery.DrawID WHERE (CartGallery.CustomerID = @CustomerID)">
-            <SelectParameters>
-                <asp:SessionParameter Name="CustomerID" SessionField="Value" />
-            </SelectParameters>
-        </asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Gallery.Name, Gallery.Price, CartGallery.CustomerID, CartGallery.DrawID, Gallery.Image, CartGallery.Quantity, CartGallery.TotalPrice FROM CartGallery INNER JOIN Gallery ON CartGallery.DrawID = Gallery.DrawID WHERE (CartGallery.CustomerID = @CustomerID)">
+                <SelectParameters>
+                    <asp:SessionParameter Name="CustomerID" SessionField="Value" />
+                </SelectParameters>
+            </asp:SqlDataSource>
     
-        <br />
-
+            <br />
+            <asp:Label ID="totalPrice1" runat="server" Text=""></asp:Label>
+            <br />
+            <asp:Button ID="check_Out" runat="server" Text="Check Out" OnClick="check_Out_Click" />
     <%} %>
     </div>
 </asp:Content>
