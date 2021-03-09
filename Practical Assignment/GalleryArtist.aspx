@@ -30,6 +30,9 @@
                     <th Class="width1"> 
                         Name
                     </th>
+                    <th Class="width1"> 
+                        Category
+                    </th>
                     <th Class="width1">
                         Image
                     </th>
@@ -57,6 +60,9 @@
                         <asp:Label CssClass="width1" ID="Label3" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
                     </td>
                     <td>
+                        <asp:Label ID="Label7" runat="server" Text='<%# Eval("Category") %>'></asp:Label>
+                    </td>
+                    <td>
                         <%--<asp:Image CssClass="width1" ID="Image1" runat="server" ImageUrl='<%# Eval("Image") %>' Height="75px" Width="100px"/>--%>
                         <asp:ImageButton ID="Image1" runat="server" ImageUrl='<%# Eval("Image") %>' Height="75px" Width="100px" CommandName="ClickImage" CommandArgument='<%# Eval("DrawID") %>'/>
                     </td>
@@ -80,8 +86,7 @@
         </ItemTemplate>
     </asp:DataList>
     </div>
-
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Gallery.DrawID, Gallery.Name, Gallery.Description, Gallery.Total, Gallery.Price, Gallery.Image, Gallery.ArtistID FROM Artist INNER JOIN Gallery ON Artist.ArtistID = Gallery.ArtistID WHERE (Gallery.ArtistID = @ArtistID) ">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Gallery.DrawID, Gallery.Name, Gallery.Description, Gallery.Total, Gallery.Price, Gallery.Image, Gallery.ArtistID, Gallery.Category FROM Artist INNER JOIN Gallery ON Artist.ArtistID = Gallery.ArtistID WHERE (Gallery.ArtistID = @ArtistID)">
         <SelectParameters>
             <asp:SessionParameter Name="ArtistID" SessionField="Value" />            
         </SelectParameters>

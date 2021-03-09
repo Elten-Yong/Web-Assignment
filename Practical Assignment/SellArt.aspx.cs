@@ -23,7 +23,7 @@ namespace Practical_Assignment
             con = new SqlConnection(strcon);
             con.Open();
 
-            string strSelect = "Select MAX(DrawID) from Gallery Order By DrawID";
+            string strSelect = "Select MAX(DrawID) from Gallery";
             SqlCommand cmdSelect = new SqlCommand(strSelect, con);
 
             string total = (string)cmdSelect.ExecuteScalar();
@@ -38,7 +38,8 @@ namespace Practical_Assignment
             int length = Drawing.PostedFile.ContentLength;
             byte[] pic = new byte[length];
             Drawing.PostedFile.InputStream.Read(pic, 0, length);
-            string strInsert = "Insert into Gallery (DrawID, ArtistID, Name, Description, Price, Total, Image) Values (@DrawID, @ArtistID, @Name, @Description, @Price, @Total, @Image)";
+
+            string strInsert = "Insert into Gallery (DrawID, ArtistID, Name, Description, Price, Total, Image,Category) Values (@DrawID, @ArtistID, @Name, @Description, @Price, @Total, @Image,@Category)";
 
             SqlCommand cmdInsert = new SqlCommand(strInsert, con);
             cmdInsert.Parameters.AddWithValue("@DrawID", drawID);
@@ -48,6 +49,7 @@ namespace Practical_Assignment
             cmdInsert.Parameters.AddWithValue("@Price", Price.Text);
             cmdInsert.Parameters.AddWithValue("@Total", TotalArt.SelectedValue);
             cmdInsert.Parameters.AddWithValue("@Image", pic);
+            cmdInsert.Parameters.AddWithValue("@Category", CategoryList.SelectedValue);
             int numRowAffected = cmdInsert.ExecuteNonQuery();
 
             if(numRowAffected > 0)

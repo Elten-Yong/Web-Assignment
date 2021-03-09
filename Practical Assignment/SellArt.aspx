@@ -42,7 +42,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
-    <h2 style="text-align:center">Order History</h2><hr />
+    <h2 style="text-align:center">Art Selling</h2><hr />
     <div style="width:75%; margin:0 auto; min-height:410px">
      <% if (Session["Value"] == "0" || Session["Value"] == null || Session["Bar"] == "C")
           { %>
@@ -88,6 +88,15 @@
             <td class="auto-style3">
                 <asp:TextBox ID="Price" runat="server" Width="265px"></asp:TextBox>
             </td>
+        </tr>
+        <tr>
+            <td>Category :</td>
+            <td>
+                <asp:DropDownList ID="CategoryList" runat="server">
+                    <asp:ListItem>Painting</asp:ListItem>
+                    <asp:ListItem>Drawing</asp:ListItem>
+                    <asp:ListItem>Sculpture</asp:ListItem>
+                </asp:DropDownList></td>
         </tr>
         <tr>
             <td class="auto-style2">
