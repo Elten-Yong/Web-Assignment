@@ -63,7 +63,8 @@
                     <asp:MenuItem NavigateUrl="~/AboutUs.aspx" Text="About Us" Value="About Us"/>
                     <asp:MenuItem NavigateUrl="~/SellArt.aspx" Text="Sell Art" Value="Sell Art"/>
                     <asp:MenuItem NavigateUrl="~/GalleryArtist.aspx" Text="Manage Art" Value="Manage Art" />
-                    <asp:MenuItem NavigateUrl="~/Profile.aspx" Text="Profile" Value="Profile"/>
+                    <asp:MenuItem NavigateUrl="~/CustomerArtManagement.aspx" Text="Sell History" Value="Profile"/>
+                    <asp:MenuItem NavigateUrl="~/Profile.aspx" Text="Profile" Value="Profile"/>                    
                 </Items>
             </asp:Menu>           
 
