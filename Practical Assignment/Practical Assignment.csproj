@@ -83,6 +83,7 @@
     <Content Include="HomePage.aspx" />
     <Content Include="MasterPage.css" />
     <Content Include="OrderHistory.aspx" />
+    <Content Include="OrderHistoryDetails.aspx" />
     <Content Include="Payment.aspx" />
     <Content Include="Wishlist.aspx" />
   </ItemGroup>
@@ -170,6 +171,13 @@
     </Compile>
     <Compile Include="OrderHistory.aspx.designer.cs">
       <DependentUpon>OrderHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrderHistoryDetails.aspx.cs">
+      <DependentUpon>OrderHistoryDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderHistoryDetails.aspx.designer.cs">
+      <DependentUpon>OrderHistoryDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Payment.aspx.cs">
       <DependentUpon>Payment.aspx</DependentUpon>
