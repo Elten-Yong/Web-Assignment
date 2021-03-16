@@ -516,16 +516,15 @@ namespace Practical_Assignment
 
         protected void check_Out_Click(object sender, EventArgs e)
         {
-          
             SqlConnection con;
             string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             con = new SqlConnection(strcon);
-
             con.Open();
             string strSelect1 = "Select Count(*) from CheckOut";
             SqlCommand cmdSelect1 = new SqlCommand(strSelect1, con);
 
             int totalRow = (int)cmdSelect1.ExecuteScalar();
+            con.Close();
             if (totalRow > 0)
             {
                 Response.Redirect("Payment.aspx");
@@ -534,7 +533,6 @@ namespace Practical_Assignment
             {
                 //javescript 
             }
-            con.Close();
             
         }
     }

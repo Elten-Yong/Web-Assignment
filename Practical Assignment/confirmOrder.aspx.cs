@@ -37,48 +37,66 @@ namespace Practical_Assignment
                 con = new SqlConnection(strcon);
                 con.Open();
 
-                string strSelect = "SELECT count(*) FROM [Order]";
+                //extract the total row of order 
+                string strSelect = "SELECT MAX(OrderID) FROM [Order]";
                 SqlCommand cmdSelect = new SqlCommand(strSelect, con);
 
-                int total = (int)cmdSelect.ExecuteScalar() + 1;
+                //int total = (int)cmdSelect.ExecuteScalar() + 1;
+                string total = cmdSelect.ExecuteScalar().ToString();
                 con.Close();
-                //Label7.Text = e.CommandArgument.ToString();
 
-                string orderID = "OR" + total.ToString();
-                //Response.Redirect("confirmOrder.aspx?id=" + e.CommandArgument.ToString());
+                //the new data order id
+                int newIndex = int.Parse(total.Remove(0, 2)) + 1;
+                string orderID = "OR" + newIndex.ToString();
 
                 con.Open();
-                string strInsert = "Insert into [Order] (OrderID,CustomerID,DrawID,Date) Values (@OrderID,@CustomerID,@DrawID,@Date)";
-                SqlCommand cmdInsert = new SqlCommand(strInsert, con);
+                string strSelect1 = "SELECT Price From Gallery Where DrawID = @DrawID";
+                SqlCommand cmdSelect1 = new SqlCommand(strSelect1, con);
+                cmdSelect1.Parameters.AddWithValue("@DrawID", e.CommandArgument.ToString());
 
+                System.Decimal totalPrice = (System.Decimal) cmdSelect1.ExecuteScalar();
+                con.Close();
+
+                con.Open();
+                string strInsert = "Insert into [Order] (OrderID,CustomerID,Date,TotalPrice) Values (@OrderID,@CustomerID,@Date,@TotalPrice)";
+                SqlCommand cmdInsert = new SqlCommand(strInsert, con);
                 cmdInsert.Parameters.AddWithValue("@OrderID", orderID);
                 cmdInsert.Parameters.AddWithValue("@CustomerID", Session["Value"]);
-                cmdInsert.Parameters.AddWithValue("@DrawID", e.CommandArgument.ToString());
                 cmdInsert.Parameters.AddWithValue("@Date", DateTime.Now);
-
+                cmdInsert.Parameters.AddWithValue("@TotalPrice", totalPrice);
                 int numRowAffected = cmdInsert.ExecuteNonQuery();
+                con.Close();
+
+                con.Open();
+                string strInsert1 = "Insert into [OrderDetails] (OrderID,DrawID,Quantity,Price) Values (@OrderID,@DrawID,@Quantity,@Price)";
+                SqlCommand cmdInsert1 = new SqlCommand(strInsert1, con);
+
+                cmdInsert1.Parameters.AddWithValue("@OrderID", orderID);
+                cmdInsert1.Parameters.AddWithValue("@DrawID", e.CommandArgument.ToString());
+                cmdInsert1.Parameters.AddWithValue("@Quantity", 1);
+                cmdInsert1.Parameters.AddWithValue("@Price", totalPrice);
+                numRowAffected = cmdInsert1.ExecuteNonQuery();
+                con.Close();
 
                 if (numRowAffected > 0)
                 {
                     //extract item quantity 
-                    SqlConnection conn;
-                    string strconn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-                    conn = new SqlConnection(strconn);
-                    conn.Open();
+                    
+                    con.Open();
                     string strSelectTotal = "SELECT Total FROM [Gallery] Where DrawID = @DrawID1";
-                    SqlCommand cmdSelectTotal = new SqlCommand(strSelectTotal, conn);
+                    SqlCommand cmdSelectTotal = new SqlCommand(strSelectTotal, con);
                     cmdSelectTotal.Parameters.AddWithValue("@DrawID1", e.CommandArgument.ToString());
                     int totalQuantity = (int)cmdSelectTotal.ExecuteScalar() - 1;
-                    conn.Close();
+                    con.Close();
 
                     //delete and update the item quantity
-                    conn.Open();
+                    con.Open();
                     string strSelectUpdate = "UPDATE [Gallery] SET Total = @Total WHERE DrawID = @DrawID2";
-                    SqlCommand cmdSelectUpdate = new SqlCommand(strSelectUpdate, conn);
+                    SqlCommand cmdSelectUpdate = new SqlCommand(strSelectUpdate, con);
                     cmdSelectUpdate.Parameters.AddWithValue("@DrawID2", e.CommandArgument.ToString());
                     cmdSelectUpdate.Parameters.AddWithValue("@Total", totalQuantity);
                     int n = cmdSelectUpdate.ExecuteNonQuery();
-                    conn.Close();
+                    con.Close();
 
                     // return insert success
                     //ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Successfully bought! " + "');", true);
@@ -89,7 +107,7 @@ namespace Practical_Assignment
                     // return insert failed
                     ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Bought Failed! " + "');", true);
                 }
-                con.Close();
+               
 
             }
             else
