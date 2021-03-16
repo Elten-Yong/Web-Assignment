@@ -13,10 +13,16 @@ namespace Practical_Assignment
 {
     public partial class Gallery : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
+            if (!IsPostBack)
+            {
+                SqlDataSource1.SelectCommand = "SELECT * FROM [Gallery] Where [Total] > 0";
+                
+            }
+            //SqlDataSource1.SelectParameters.Add("@Category", "Drawing");
+            //DataList1.DataBind();
             //SqlConnection con;
             //string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             //con = new SqlConnection(strcon);
@@ -217,6 +223,33 @@ namespace Practical_Assignment
                 }
             }
 
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+    
+            SqlDataSource1.SelectCommand = "SELECT * FROM [Gallery] Where [Total] > 0 and Category='Drawing'";
+            
+        }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            SqlDataSource1.SelectCommand = "SELECT * FROM [Gallery] Where [Total] > 0 and Category='Drawing'";
+        }
+
+        protected void ShowAll_Click(object sender, EventArgs e)
+        {
+            SqlDataSource1.SelectCommand = "SELECT * FROM [Gallery] Where [Total] > 0";
+        }
+
+        protected void SculptureFilter_Click(object sender, EventArgs e)
+        {
+            SqlDataSource1.SelectCommand = "SELECT * FROM [Gallery] Where [Total] > 0 and Category='Sculpture'";
+        }
+
+        protected void Painting_Click(object sender, EventArgs e)
+        {
+            SqlDataSource1.SelectCommand = "SELECT * FROM [Gallery] Where [Total] > 0 and Category='Painting'";
         }
     }
 }
