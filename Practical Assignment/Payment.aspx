@@ -15,8 +15,13 @@
 
     <p>
         Delivery Address</p>
+    <table style="width:100%">
+        <tr>
+            <td style="width:90%"><asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></td>
+            <td><asp:LinkButton ID="EditAddress" runat="server" OnClick="EditAddress_Click">Edit</asp:LinkButton></td>
+        </tr>
+    </table>
     
-    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
 
     <table class="auto-style1">
                 <tr>
@@ -76,7 +81,15 @@
         </ItemTemplate>
     </asp:DataList>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT CheckOut.DrawID, CheckOut.Quantity, CheckOut.TotalPrice, Gallery.Image, Gallery.Name, Gallery.Price FROM CheckOut INNER JOIN Gallery ON CheckOut.DrawID = Gallery.DrawID"></asp:SqlDataSource>
-
+    <br />
+    <p>Select Payment method</p>
+    <asp:RadioButtonList ID="RadioButtonList1" runat="server" OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged" AutoPostBack="true">
+        <asp:ListItem>Master/Visa Card</asp:ListItem>
+        <asp:ListItem>Online Banking</asp:ListItem>
+    </asp:RadioButtonList>
+    <asp:TextBox ID="TextBox1" runat="server" Visible="false"></asp:TextBox>
+    
+    <br />
     <asp:Button ID="btnConfirm" runat="server" Text="Confirm Purchase" OnClick="btnConfirm_Click" />
 
 </asp:Content>
