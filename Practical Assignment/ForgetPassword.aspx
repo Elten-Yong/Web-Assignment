@@ -6,7 +6,7 @@
             border: 1px solid grey;
             height: auto;
             width :700px;
-            margin:4% 25% 4% 25%;
+            margin:100px auto 180px auto;
             background-color: rgb(224, 226, 224);
         }
         .txtType{
@@ -27,10 +27,18 @@
         .auto-style6 {
             height: 24px;
         }
+
+        .form{
+            position :relative;
+            border: none;
+            border-bottom : 1px solid black;
+            Width: 230px ;
+            background-color: rgb(224, 226, 224);
+        }
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
-    <h1 style="text-align:center;margin-right:5%">Reset Password</h1><hr />
+    <h1 style="text-align:center">Reset Password</h1><hr />
     <asp:MultiView ID="ForgetPasswordMultiView" runat="server">
                     <asp:View ID="View1" runat="server">
 
@@ -91,7 +99,7 @@
                 <tr>
                     <td class="auto-style4">
                         
-                        <asp:TextBox ID="txtUsername" runat="server" placeholder="Username" Width="230px" BorderColor="#E6E6E6"></asp:TextBox><br />
+                        <asp:TextBox ID="txtUsername" runat="server" Cssclass="form" ></asp:TextBox><br />
                         <asp:RequiredFieldValidator ID="txtUserRequired" runat="server" ErrorMessage="Username can not be empty." ControlToValidate="txtUsername" ForeColor="red" Font-Size ="Small"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
@@ -144,7 +152,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style4">
-                        <asp:TextBox ID="txtAnswerQuestion" runat="server" placeholder="Security Answer" Width="230px" BorderColor="#E6E6E6"></asp:TextBox><br />
+                        <asp:TextBox ID="txtAnswerQuestion" runat="server" Cssclass="form"></asp:TextBox><br />
                         <asp:RequiredFieldValidator ID="txtAnswerRequired" runat="server" ErrorMessage="Answer can not be empty." ControlToValidate ="txtAnswerQuestion" ForeColor="red" Font-Size ="Small" ></asp:RequiredFieldValidator>
                     </td>
                 </tr>

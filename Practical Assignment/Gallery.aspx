@@ -9,7 +9,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
     <table>
         <tr>
-            <td>    
+            <td style="padding-right: 200px">    
                 <h1>Category</h1>
                 <asp:LinkButton ID="ShowAll" runat="server" OnClick="ShowAll_Click">Show All</asp:LinkButton><br />
                 <asp:LinkButton ID="DrawingFilter" runat="server" OnClick="LinkButton1_Click">Drawing</asp:LinkButton><br />

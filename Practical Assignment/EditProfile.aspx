@@ -3,11 +3,15 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
     <style type="text/css">
-        .auto-style1 {
-            height: 26px;
-            text-align: center;
-
+                
+         .form{
+            position :relative;
+            border: none;
+            border-bottom : 1px solid black;
+            Width: 230px ;
+            background-color: rgb(224, 226, 224);
         }
+
         .auto-style2 {
             height: 50px;
             padding-left: 5px;
@@ -19,7 +23,7 @@
             border: 1px solid grey;
             height: auto;
             width :700px;
-            margin:4% 25% 4% 25%;
+            margin:4% auto 4% auto;
             background-color: rgb(224, 226, 224);
         }
         .btnType{
@@ -34,9 +38,16 @@
         }
 
 
+        .auto-style4 {
+            height: 50px;
+            padding-left: 5px;
+            width: 173px;
+        }
+
+
         </style>
     <div>
-        <h1 style="text-align:center;margin-right:5%">Edit Profile</h1><hr />
+        <h1 style="text-align:center">Edit Profile</h1><hr />
         <asp:MultiView ID="EditPageMultiview" runat="server">
             <asp:View ID="View1" runat="server">
               <table class="tableFormat">
@@ -57,7 +68,7 @@
                         <tr>
                             <td class="auto-style2">Password:</td>
                             <td class="auto-style2">
-                                <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password"></asp:TextBox>
+                                <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" CssClass="form"></asp:TextBox>
 
                                 <asp:RequiredFieldValidator ID="confirmValidator" runat="server" ErrorMessage="Confirm Your Password to proceed." ControlToValidate="txtConfirmPassword" ForeColor="red" Font-Size="Small"></asp:RequiredFieldValidator>
                                 <asp:Label ID="lblError" runat="server" Text="" ForeColor="Red" Font-Size="small"></asp:Label>
@@ -89,7 +100,7 @@
                                       <td class="auto-style2" colspan="2"></td>
                                   </tr>
                     <tr>
-                            <td class="auto-style3">
+                            <td class="auto-style4">
                                 Username:</td>
                             <td class="auto-style2">
                                 <asp:Label ID="lblUsername0" runat="server" Text=""></asp:Label>
@@ -97,39 +108,39 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="auto-style3">Email:</td>
+                            <td class="auto-style4">Email:</td>
                             <td class="auto-style2">
-                                <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtEmail" runat="server" CssClass="form"></asp:TextBox>
                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmail" ErrorMessage="Please enter a valid email address" Font-Size="Small" ForeColor="Red" ValidationExpression="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"></asp:RegularExpressionValidator>
                             </td>
                         </tr>
                         <tr>
-                            <td class="auto-style3">
+                            <td class="auto-style4">
                                 
                                 Password:</td>
                             <td class="auto-style2">
                                 
-                                <asp:TextBox ID="txtPassword" runat="server" BorderColor="#E6E6E6" placeholder="Password" Width="230px"></asp:TextBox>
+                                <asp:TextBox ID="txtPassword" runat="server" CssClass="form" Width="230px"></asp:TextBox>
                                 
                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtPassword" ErrorMessage="Please enter a strong password include characters and number with a min length 8" Font-Size="Small" ForeColor="Red" ValidationExpression="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"></asp:RegularExpressionValidator>
                                 
                             </td>
                         </tr>
                         <tr>
-                            <td class="auto-style3">
+                            <td class="auto-style4">
                     
                                 Phone No: 
                                                     
                             </td>
                             <td class="auto-style2">
                     
-                                <asp:TextBox ID="txtPhone" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtPhone" runat="server" CssClass="form"></asp:TextBox>
                     
                             </td>
                         </tr>
             
                         <tr>
-                            <td class="auto-style3">
+                            <td class="auto-style4">
                         
                          <% if (Session["Bar"] == "C")
                              { %>
@@ -143,7 +154,7 @@
                                 
                          <% if (Session["Bar"] == "C")
                              { %>
-                                <asp:TextBox ID="txtAddress" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtAddress" runat="server" CssClass="form"></asp:TextBox>
             
                               <%} 
                             %> 
