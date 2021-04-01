@@ -21,4 +21,22 @@
         height: 375px;
     }
 
+.container {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 2%;
+    margin-left: 21.5%;
+    margin-bottom: 2%;
+    
+}
+
+.linkBtn {
+    margin-right: 15.7%;
+    font-size: large;
+    text-decoration: none;
+    color:black;
+    border : 1px solid black;
+    padding : 1%;
+}
+
 

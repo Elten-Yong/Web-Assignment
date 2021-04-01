@@ -123,13 +123,13 @@
                     <tr>
                         <td class="auto-style2">
                             <asp:TextBox ID="txtUsername" runat="server" Cssclass="form" Width="230px"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="usernameRequired" runat="server" ControlToValidate="txtUsername" ErrorMessage="Username can not be empty." Font-Size="Small" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="usernameRequired" runat="server" ControlToValidate="txtUsername" ErrorMessage="Username can not be empty." Font-Size="Small" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
                         </td>
                         <td class="auto-style2">
                             <asp:TextBox ID="txtEmail" runat="server" Cssclass="form"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="emailRequired" runat="server" ControlToValidate="txtEmail" ErrorMessage="Email address can not be empty." Font-Size="Small" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="emailRequired" runat="server" ControlToValidate="txtEmail" ErrorMessage="Email address can not be empty." Font-Size="Small" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
                             <br />
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmail" ErrorMessage="Please enter a valid email address" Font-Size="Small" ForeColor="Red" ValidationExpression="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"></asp:RegularExpressionValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmail" ErrorMessage="Please enter a valid email address" Font-Size="Small" ForeColor="Red" ValidationExpression="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" SetFocusOnError="True"></asp:RegularExpressionValidator>
                         </td>
                     </tr>
                     <tr>
@@ -143,15 +143,15 @@
                     <tr>
                         <td class="auto-style2">
                             <asp:TextBox ID="txtPassword" runat="server" Cssclass="form" TextMode="Password"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="passwordRequired" runat="server" ControlToValidate="txtPassword" ErrorMessage="Password is required" Font-Size="Small" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="passwordRequired" runat="server" ControlToValidate="txtPassword" ErrorMessage="Password is required" Font-Size="Small" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
                             <br />
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtPassword" ErrorMessage="Please enter a strong password include characters and number with a min length 8" Font-Size="Small" ForeColor="Red" ValidationExpression="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"></asp:RegularExpressionValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtPassword" ErrorMessage="Please enter a strong password include characters and number with a min length 8" Font-Size="Small" ForeColor="Red" ValidationExpression="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" SetFocusOnError="True"></asp:RegularExpressionValidator>
                         </td>
                         <td class="auto-style2">
                             <asp:TextBox ID="txtConfirmPassword" runat="server" Cssclass="form" TextMode="Password"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="confirmPasswordRequired" runat="server" ControlToValidate="txtConfirmPassword" ErrorMessage="Confirm password cannot be empty" Font-Size="Small" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="confirmPasswordRequired" runat="server" ControlToValidate="txtConfirmPassword" ErrorMessage="Confirm password cannot be empty" Font-Size="Small" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
                             <br />
-                            <asp:CompareValidator ID="comparePass" runat="server" ControlToCompare="txtPassword" ControlToValidate="txtConfirmPassword" ErrorMessage="Password miss-match, please re-enter the password" Font-Size="Small" ForeColor="Red" Operator="Equal"></asp:CompareValidator>
+                            <asp:CompareValidator ID="comparePass" runat="server" ControlToCompare="txtPassword" ControlToValidate="txtConfirmPassword" ErrorMessage="Password miss-match, please re-enter the password" Font-Size="Small" ForeColor="Red" Operator="Equal" SetFocusOnError="True"></asp:CompareValidator>
                         </td>
                     </tr>
                     <tr>
@@ -166,7 +166,7 @@
                                 <asp:ListItem>First vehicle&#39;s brand.</asp:ListItem>
                                 <asp:ListItem>Current pet&#39;s name.</asp:ListItem>
                             </asp:DropDownList>
-                            <asp:RequiredFieldValidator ID="ddlQuestionRequired" runat="server" ControlToValidate="ddlQuestion" Display="Dynamic" ErrorMessage="Please choose a question" Font-Size="Small" ForeColor="Red" InitialValue="None"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="ddlQuestionRequired" runat="server" ControlToValidate="ddlQuestion" ErrorMessage="Please choose a question" Font-Size="Small" ForeColor="Red" InitialValue="None" SetFocusOnError="True"></asp:RequiredFieldValidator>
                         </td>
                         <td class="auto-style2">&nbsp;</td>
                     </tr>
@@ -177,7 +177,7 @@
                     <tr>
                         <td class="auto-style2">
                             <asp:TextBox ID="txtQuestion" runat="server" Cssclass="form"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="txtQuestionRequired" runat="server" ControlToValidate="txtQuestion" ErrorMessage="Answer cannot be empty" Font-Size="Small" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="txtQuestionRequired" runat="server" ControlToValidate="txtQuestion" ErrorMessage="Answer cannot be empty" Font-Size="Small" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
                         </td>
                         <td class="auto-style2">&nbsp;</td>
                     </tr>

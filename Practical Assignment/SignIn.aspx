@@ -124,7 +124,7 @@
                 <asp:Label runat="server" ID="lblUsername" text="Username :"></asp:Label>
                 <asp:TextBox ID="txtUsername" runat="server"  Cssclass="form"></asp:TextBox><br />
                 
-                <asp:RequiredFieldValidator ID="usernameRequired" runat="server" ErrorMessage="Username cannot be empty." ControlToValidate="txtUsername" ForeColor="red" Font-Size="Small"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="usernameRequired" runat="server" ErrorMessage="Username cannot be empty." ControlToValidate="txtUsername" ForeColor="red" Font-Size="Small" SetFocusOnError="True"></asp:RequiredFieldValidator>
                 
             </td>
         </tr>
@@ -137,7 +137,7 @@
             <td class="auto-style2" colspan="4">
                 <asp:Label runat="server" ID="lblPassword" text="Password :"></asp:Label>
                 <asp:TextBox ID="txtPassword" runat="server"  TextMode="Password" Cssclass="form"></asp:TextBox><br />
-                <asp:RequiredFieldValidator ID="passwordRequired" runat="server" ErrorMessage="Password can not be empty." ControlToValidate="txtPassword" Font-Size="Small" ForeColor="red"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="passwordRequired" runat="server" ErrorMessage="Password can not be empty." ControlToValidate="txtPassword" Font-Size="Small" ForeColor="red" SetFocusOnError="True"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>

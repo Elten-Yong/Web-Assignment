@@ -7,22 +7,27 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
+
+    <h1 style="text-align:center;">Photo Gallery</h1><br />
+    
+    <hr />
+              <div class="container">
+                
+                <asp:LinkButton ID="ShowAll" runat="server" OnClick="ShowAll_Click" CssClass="linkBtn">Show All</asp:LinkButton><br />
+                <asp:LinkButton ID="DrawingFilter" runat="server" OnClick="LinkButton1_Click" CssClass="linkBtn">Drawing</asp:LinkButton><br />
+                <asp:LinkButton ID="SculptureFilter" runat="server" OnClick="SculptureFilter_Click" CssClass="linkBtn">Sculpture</asp:LinkButton><br />
+                <asp:LinkButton ID="Painting" runat="server" OnClick="Painting_Click" CssClass="linkBtn">Painting</asp:LinkButton>
+             </div>
+
+ 
     <table>
         <tr>
-            <td style="padding-right: 200px">    
-                <h1>Category</h1>
-                <asp:LinkButton ID="ShowAll" runat="server" OnClick="ShowAll_Click">Show All</asp:LinkButton><br />
-                <asp:LinkButton ID="DrawingFilter" runat="server" OnClick="LinkButton1_Click">Drawing</asp:LinkButton><br />
-                <asp:LinkButton ID="SculptureFilter" runat="server" OnClick="SculptureFilter_Click">Sculpture</asp:LinkButton><br />
-                <asp:LinkButton ID="Painting" runat="server" OnClick="Painting_Click">Pinting</asp:LinkButton>
 
-            </td>
             <td>
                 <link href="Gallery.css" rel="stylesheet" type="text/css" />
-    
-                <h1 style="text-align:center;">Photo Gallery</h1><br />
+   
 
-                <div style="width:1200px; margin:0 auto; margin-bottom:4%; border: 5px dotted grey; font-size:20px">
+                <div style="width:1200px ; font-size:20px ;margin-left: 33% ; margin-right :auto; margin-bottom:5% ; background-color:lightgray">
                     <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" CellPadding="50" RepeatColumns="2" RepeatDirection="Horizontal" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand"  AllowPaging="true" PageSize ="2">
                         <ItemTemplate>
                   
@@ -42,6 +47,7 @@
                             <br />
                         </ItemTemplate>
                     </asp:DataList>
+                    
 
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="">
                         <%--<SelectParameters>
