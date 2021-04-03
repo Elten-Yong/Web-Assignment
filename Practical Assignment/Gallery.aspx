@@ -14,16 +14,16 @@
 
 
  
-    <table>
+    <table >
  
            
-        <tr>
+        <tr >
 
             <td>
                 <link href="Gallery.css" rel="stylesheet" type="text/css" />
    
 
-                <div style="width:1200px ; font-size:16px ; margin-left :13.5% ;margin-right :auto; margin-bottom:5% ; background-color:none" class="background">
+                <div class="background">
                 <div class="container">
                 <asp:LinkButton ID="ShowAll" runat="server" OnClick="ShowAll_Click" CssClass="linkBtn">Show All</asp:LinkButton><br />
                 <asp:LinkButton ID="DrawingFilter" runat="server" OnClick="LinkButton1_Click" CssClass="linkBtn">Drawing</asp:LinkButton><br />
