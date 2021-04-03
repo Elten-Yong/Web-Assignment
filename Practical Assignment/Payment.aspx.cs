@@ -25,17 +25,24 @@ namespace Practical_Assignment
             string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             con = new SqlConnection(strcon);
 
-            con.Open();
-            string strSelect = "SELECT Address from Customer Where CustomerID = @CustomerID";
-            SqlCommand cmdSelect = new SqlCommand(strSelect, con);
+            try
+            {
+                con.Open();
+                string strSelect = "SELECT Address from Customer Where CustomerID = @CustomerID";
+                SqlCommand cmdSelect = new SqlCommand(strSelect, con);
 
-            //cmdSelect.Parameters.AddWithValue("@CustomerID", Session["Value"]);
+                //cmdSelect.Parameters.AddWithValue("@CustomerID", Session["Value"]);
 
-            cmdSelect.Parameters.AddWithValue("@CustomerID", Session["Value"]);
-            string address = cmdSelect.ExecuteScalar().ToString();
-            con.Close();
+                cmdSelect.Parameters.AddWithValue("@CustomerID", Session["Value"]);
+                string address = cmdSelect.ExecuteScalar().ToString();
+                con.Close();
 
-            Label1.Text = address.ToString();
+                Label1.Text = address.ToString();
+            }catch(Exception ex)
+            {
+                Label1.Text = "";
+            }
+            
            
         }
 
@@ -48,7 +55,8 @@ namespace Practical_Assignment
 
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
-            
+            string drawIDMessage = "";
+            string messageContent = "";
             SqlConnection con;
             string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             con = new SqlConnection(strcon);
@@ -59,7 +67,7 @@ namespace Practical_Assignment
             string address = cmdSelectAddress.ExecuteScalar().ToString();
             con.Close();
 
-            if (address!=null) {
+            if (address!=null && address != "") {
                 if (RadioButtonList1.SelectedValue.Equals("Master/Visa Card") || RadioButtonList1.SelectedValue.Equals("Online Banking")) {
                     DateTime now = DateTime.Now;
                     int numRowAffected = 0, numRowAffected1 = 0, numRowAffected2 = 0, numRowAffected3 = 0;
@@ -119,7 +127,15 @@ namespace Practical_Assignment
                         SqlCommand cmdSelect2 = new SqlCommand(strSelect2, con);
                         draw = (string)cmdSelect2.ExecuteScalar();
                         con.Close();
-
+                        if (!(i == totalRow-1))
+                        {
+                            drawIDMessage = drawIDMessage + draw + ", ";
+                        }
+                        else
+                        {
+                            drawIDMessage = drawIDMessage + draw;
+                        }
+                        
                         //get all the data of the id 
                         con.Open();
                         string strSelect3 = "Select * from CheckOut Where DrawID = @DrawID";
@@ -192,7 +208,7 @@ namespace Practical_Assignment
 
                     if (numRowAffected > 0 && numRowAffected1 > 0 && numRowAffected2 > 0 && numRowAffected3 > 0)
                     {
-                        string messageContent = "You have bought " + totalRow + " piece of art with total of RM" + totalPriceCheckOut;
+                        messageContent = messageContent + " <br /> You have bought " + totalRow + " piece of art which are " + drawIDMessage + "with total of RM" + totalPriceCheckOut;
                         //Extract gamil
                         con.Open();
                         string strSelect6 = "Select Email From Customer Where CustomerID = @CustomerID6";
