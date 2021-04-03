@@ -8,6 +8,7 @@
 
         .width1{
             width: 16%;
+            padding : 5%;
         }
         .tableFormat {
             border-collapse: collapse;
@@ -72,13 +73,13 @@
                     </th>
 
                     <th class="width1">
-                        Image
+                        Price
                     </th>
                     <th class="width1">
                         Name
                     </th>
                     <th class="width1">
-                        Price
+                        Image
                     </th>
                     <th class="width1">
                         Date
