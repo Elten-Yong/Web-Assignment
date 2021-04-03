@@ -6,11 +6,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Data;
 
 namespace Practical_Assignment
 {
     public partial class Profile : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -22,6 +24,11 @@ namespace Practical_Assignment
                 con = new SqlConnection(strcon);
                 if (Global.accountType == "a")
                 {
+                    //profile pic command
+                    SqlDataSource1.SelectCommand = "SELECT [ProfilePicture] FROM [Artist] WHERE ArtistID = @ArtistID";
+                    
+                    
+
                     con.Open();
                     string strSelect = "SELECT * FROM [Artist] WHERE ArtistID = @ArtistID";
 
@@ -44,6 +51,9 @@ namespace Practical_Assignment
                 }
                 else 
                 {
+                    //profile pic command
+                    SqlDataSource1.SelectCommand = "SELECT [ProfilePicture] FROM [Customer]";
+
                     con.Open();
                     string strSelect = "SELECT * FROM [Customer] WHERE CustomerID = @CustomerID";
 
@@ -64,6 +74,15 @@ namespace Practical_Assignment
                     con.Close();
                 }
             }
+        
+        }
+
+        protected void DataList1_ItemDataBound(object sender, DataListItemEventArgs e)
+        {
+            
+                DataRowView datarow = (DataRowView)e.Item.DataItem;
+                string imageUrl = (datarow["ProfilePicture"]).ToString() ;
+                (e.Item.FindControl("Image1") as Image).ImageUrl = imageUrl;
         
         }
 
@@ -89,6 +108,16 @@ namespace Practical_Assignment
         protected void btnSignIn_Click(object sender, EventArgs e)
         {
             Response.Redirect("SignIn.aspx");
+        }
+
+        protected void EditProfilePic_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("EditProfilePicture.aspx");
+        }
+
+        protected void btnProfile_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Profile.aspx");
         }
     }
 }

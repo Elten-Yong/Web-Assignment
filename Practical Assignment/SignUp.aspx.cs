@@ -11,7 +11,7 @@ namespace Practical_Assignment
 {
     public partial class SignUp : System.Web.UI.Page
     {
-        class Global // Global variable
+        public class Global // Global variable
         {
             public static string accountType;
         }

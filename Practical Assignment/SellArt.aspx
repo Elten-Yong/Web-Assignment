@@ -121,7 +121,7 @@
         <tr>
             <td class="auto-style7">Art Drawing :</td>
             <td class="auto-style3">
-                <asp:FileUpload ID="Drawing" runat="server" /></td>
+                <asp:FileUpload ID="Drawing" runat="server" accept="image/*" /></td>
         </tr>
 
         <tr>

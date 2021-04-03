@@ -73,8 +73,7 @@
             <table class="tableFormat1">
                 <tr>
                     <td>
-                          
-                        &nbsp;</td>
+                  </td>
                 </tr>
                 <tr>
                     <td></td>
@@ -114,7 +113,8 @@
             <td colspan="4">&nbsp;</td>
         </tr>
         <tr>
-            <td colspan="4">&nbsp;</td>
+            <td colspan="4"><img src="Sample Images/baseline_person_black_48dp.png" alt="profile" width="150" height="150" style="margin-left:290px ; margin-bottom:10px" /> 
+</td>
         </tr>
         <tr>
             <td colspan="4">&nbsp;</td>
