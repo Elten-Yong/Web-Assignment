@@ -3,7 +3,7 @@
     <style type="text/css">
         .auto-style1 {
             width: 100%;
-            border:2px solid black;
+            background-color : darkgray;
         }
 
         .width1{
@@ -21,6 +21,17 @@
             margin-top:100px;
             background-color: rgb(224, 226, 224);
         }
+
+        .btnView{
+            border-color: #4D94FF; background-color: white; color: #284E98;
+        }
+
+        .content{
+            border :none;
+            width :100%;
+            background-color :lightgray;
+        }
+
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
@@ -76,12 +87,6 @@
                         Price
                     </th>
                     <th class="width1">
-                        Name
-                    </th>
-                    <th class="width1">
-                        Image
-                    </th>
-                    <th class="width1">
                         Date
                     </th>
                 </tr>
@@ -93,7 +98,7 @@
     <asp:DataList runat="server" DataKeyField="OrderID" DataSourceID="SqlDataSource1" Height="16px" Width="100%" OnItemCommand="Unnamed_ItemCommand">
         <ItemTemplate>     
             <br/>
-            <table class="auto-style1">
+            <table class="content">
                 <tr>
                     <td class="width1">
                         <asp:Label ID="Label1" runat="server" Text='<%# Eval("OrderID") %>'></asp:Label>
@@ -104,12 +109,9 @@
                     <td class="width1">
                         <asp:Label ID="Label4" runat="server" Text='<%# Eval("TotalPrice") %>'></asp:Label>
                     </td>
+
                     <td class="width1">
-                        &nbsp;</td>
-                    <td class="width1">
-                        &nbsp;</td>
-                    <td class="width1">
-                        <asp:Button ID="btnDetails" runat="server" Text="View Details" CommandName="ViewDetails" CommandArgument='<%# Eval("OrderID") %>'/>
+                        <asp:Button ID="btnDetails" CssClass="btnView" runat="server" Text="View Details" CommandName="ViewDetails" CommandArgument='<%# Eval("OrderID") %>'/>
                     </td>
                 </tr>
             </table>    

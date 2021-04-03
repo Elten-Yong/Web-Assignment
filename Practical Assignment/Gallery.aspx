@@ -23,14 +23,14 @@
                 <link href="Gallery.css" rel="stylesheet" type="text/css" />
    
 
-                <div style="width:1200px ; font-size:20px ;margin-left: 33% ; margin-right :auto; margin-bottom:5% ; background-color:lightgray">
+                <div style="width:1800px ; font-size:20px ; margin-left :6% ;margin-right :auto; margin-bottom:5% ; background-color:lightgray">
                 <div class="container">
                 <asp:LinkButton ID="ShowAll" runat="server" OnClick="ShowAll_Click" CssClass="linkBtn">Show All</asp:LinkButton><br />
                 <asp:LinkButton ID="DrawingFilter" runat="server" OnClick="LinkButton1_Click" CssClass="linkBtn">Drawing</asp:LinkButton><br />
                 <asp:LinkButton ID="SculptureFilter" runat="server" OnClick="SculptureFilter_Click" CssClass="linkBtn">Sculpture</asp:LinkButton><br />
                 <asp:LinkButton ID="Painting" runat="server" OnClick="Painting_Click" CssClass="linkBtn">Painting</asp:LinkButton>
                 </div>
-                    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" CellPadding="50" RepeatColumns="2" RepeatDirection="Horizontal" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand"  AllowPaging="true" PageSize ="2">
+                    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" CellPadding="50" RepeatColumns="3" RepeatDirection="Horizontal" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand"  AllowPaging="true" PageSize ="2">
                         <ItemTemplate>
                   
                             <asp:Image ID="Image1" CssClass="Img" runat="server" ImageUrl='<%# Eval("Image") %>' />

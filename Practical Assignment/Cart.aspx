@@ -19,6 +19,12 @@
 
         }
 
+        .title{
+            width:14%;
+            background-color:darkgrey;
+            padding:5%;
+        }
+
         .auto-style {
             padding-top:20px;
             height: 25px;
@@ -27,11 +33,17 @@
 
         .auto-style1 {
             width: 100%;
-            border: 2px solid black;
+            
 
         }
         .width1 {
-            width: 16%;
+            width: 14%;
+            padding: 5%;
+            background-color : lightgray;
+        }
+
+        .btnAll{
+            border-color: #4D94FF; background-color: white; color: #284E98;
         }
 
         </style>
@@ -77,33 +89,34 @@
           else{ %>
             <table class="auto-style1">
                 <tr>
-                    <td class="width1" style="font-weight: bold">
+                    <td class="title" style="font-weight: bold">
                         Draw ID
                     </td>
 
-                    <td class="width1" style="font-weight: bold">
+                    <td class="title" style="font-weight: bold">
                         Image
                     </td>
 
-                    <td class="width1" style="font-weight: bold">
+                    <td class="title" style="font-weight: bold">
                         Name
                     </td>
-                    <td class="width1" style="font-weight: bold">
+                    <td class="title" style="font-weight: bold">
                         Price
                     </td>
-                    <td class="width1" style="font-weight: bold">
+                    <td class="title" style="font-weight: bold">
                         Customer ID
                     </td>
-                    <td class="width1" style="font-weight: bold">
+                    <td class="title" style="font-weight: bold">
                         Buy
                     </td>
-                    <td class="width1" style="font-weight: bold">
+                    <td class="title" style="font-weight: bold">
                         Delete
                     </td>
                  </tr>
                </table>
-            <div style=" text-align:center">
-                <asp:Label ID="Label3" runat="server" Text="" style="font-size:x-large;"></asp:Label>
+            <div style="font-size:x-large; margin-top : 1% ; font-weight:bold">
+                Number of items in cart :
+                <asp:Label ID="Label3" runat="server" Text="" ></asp:Label>
             </div>
           
             <asp:DataList ID="DataList1" runat="server" DataKeyField="CustomerID" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand" Height="16px" Width="100%">
@@ -113,10 +126,8 @@
                 <table class="auto-style1">
                     <tr>
                         <td class="width1">
+                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("DrawID") %>'></asp:Label><br />
                             <asp:CheckBox ID="chkEmpty" runat="server" AutoPostBack="true" OnCheckedChanged="Chk_Empty_CheckedChanged" />
-                        </td>
-                        <td class="width1">
-                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("DrawID") %>'></asp:Label>
                         </td>
                         <td class="width1">
                             <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("Image") %>' Height="100px" Width="100px"/> 
@@ -133,12 +144,12 @@
                         </td>
                         <td class="width1">
                             <%--<asp:Button ID="Button2" runat="server" Text="Buy Now" CommandName="BuyDrawing" CommandArgument='<%# Eval("DrawID") %>'/>--%>
-                            <asp:Button ID="Add" runat="server" Text="+" CommandName="Adding" CommandArgument='<%# Eval("DrawID") %>'  />
-                            <asp:Label ID="quantity" runat="server" Text='<%# Eval("Quantity") %>'></asp:Label>
-                            <asp:Button ID="Subtract" runat="server" Text="-" CommandName="Subtract" CommandArgument='<%# Eval("DrawID") %>'  />
+                            <asp:Button ID="Add" runat="server" Text="+" CommandName="Adding" CommandArgument='<%# Eval("DrawID") %>'  /><br />
+                            <asp:Label ID="quantity" width="30px" runat="server" Text='<%# Eval("Quantity") %>'></asp:Label><br />
+                            <asp:Button ID="Subtract" width="26px" runat="server" Text="-" CommandName="Subtract" CommandArgument='<%# Eval("DrawID") %>'  />
                         </td>
                         <td class="width1">
-                            <asp:Button ID="Button1" runat="server" Text="Delete" CommandName="Delete" CommandArgument='<%# Eval("DrawID") %>'/>
+                            <asp:Button ID="Button1" runat="server" CssClass="btnAll" Text="Delete" CommandName="Delete" CommandArgument='<%# Eval("DrawID") %>'/>
                         </td>
                     </tr>
                 </table>
@@ -155,7 +166,9 @@
             <br />
             <asp:Label ID="totalPrice1" runat="server" Text=""></asp:Label>
             <br />
-            <asp:Button ID="check_Out" runat="server" Text="Check Out" OnClick="check_Out_Click" />
+            <div style="text-align : right  ; margin-bottom : 3%">
+            <asp:Button ID="check_Out" runat="server" CssClass="btnAll" Height="80px" Width="160px" Text="Check Out" OnClick="check_Out_Click" />
+            </div>
     <%} %>
     </div>
 </asp:Content>

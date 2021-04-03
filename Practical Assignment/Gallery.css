@@ -1,13 +1,7 @@
 ﻿.Button {
-    background-color: cornflowerblue;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    display: inline-block;
-    font-size: 16px;
-    font-weight: 600;
-    font-family: Tahoma;
+    border-color: #4D94FF;
+    background-color: white;
+    color: #284E98;
 }
     .Button:hover {
         background-color: rgb(54,118,232);
@@ -18,30 +12,33 @@
 .Img {
     width: 500px;
     height: 375px;
-    border: 1px solid grey;
-    padding: 5px;
+    border: 5px solid black;
+    background-color: #C4A484;
+    padding: 5%;
 }
 .frame {
-    border: 1px solid grey;
-    border-top:none;
-    padding: 5px;
+    border: 5px solid black;
+    border-top: none;
+    padding: 5%;
+    background-color: #C4A484;
 }
 
 .container {
     display: flex;
     align-items: flex-start;
-    margin-left:7%;
+    margin-left:22%;
     padding-top :5%;
     
 }
 
 .linkBtn {
-    margin-right: 15.7%;
+    margin-right: 16%;
     font-size: large;
     text-decoration: none;
-    color:black;
-    border : 1px solid black;
-    padding : 1%;
+    border: 1px solid #4D94FF  ;
+    background-color: white;
+    color: #284E98;
+    padding: 1%;
 }
 
 
