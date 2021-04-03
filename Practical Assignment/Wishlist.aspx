@@ -3,10 +3,12 @@
     <style type="text/css">
         .auto-style1 {
             width: 100%;
-            border:2px solid black;
+            background-color : lightgray;
         }
         .width1 {
-            width: 16%;
+            width: 15.8%;
+            padding : 5%;
+            
         }
         .tableFormat {
             border-collapse: collapse;
@@ -22,6 +24,11 @@
         .auto-style2 {
             width: 16%;
             height: 38px;
+            background-color : darkgray;
+            padding:5%;
+        }
+        .btnDelete{
+            border-color: #4D94FF; background-color: white; color: #284E98;
         }
     </style>
 </asp:Content>
@@ -107,7 +114,7 @@
                         </td>
                         <td class="width1">
                             
-                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("Image") %>' Height="100px" Width="100px" />
+                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("Image") %>' Height="150px" Width="150px" />
                         </td>
                         <td class="width1">
                             
@@ -118,7 +125,7 @@
                             <asp:Label ID="Label4" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
                         </td>
                         <td class="width1">
-                            <asp:Button ID="Button1" runat="server" Text="Delete" CommandName="Delete" CommandArgument='<%# Eval("DrawID") %>'/>
+                            <asp:Button ID="Button1" runat="server" CssClass="btnDelete" Text="Delete" CommandName="Delete" CommandArgument='<%# Eval("DrawID") %>'/>
                         </td>
                     </tr>
                 </table>

@@ -63,7 +63,7 @@ namespace Practical_Assignment
                         if (txtUsername.Text.Equals(dtr["Username"]))
                         {
                             duplicate = true;
-                            lblDuplicate.Text = "Username existed, please use another username.";
+                            lblDuplicate.Text = "Username existed.";
                             SignUpMultiView.ActiveViewIndex = 1; //stay in current page
                         }
                     }
@@ -85,7 +85,7 @@ namespace Practical_Assignment
                         if (txtUsername.Text.Equals(dtr["Username"]))
                         {
                             duplicate = true;
-                            lblDuplicate.Text = "Username existed, please use another username.";
+                            lblDuplicate.Text = "Username existed.";
                             SignUpMultiView.ActiveViewIndex = 1; //stay in current page
                         }
                     }

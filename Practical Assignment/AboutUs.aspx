@@ -33,6 +33,7 @@
     <table class="auto-style4">
         <tr>
             <td class="auto-style3">  
+             
 
             <asp:HyperLink NavigateUrl="~/HomePage.aspx" ID="Logo" runat="server" ImageUrl="~/Sample Images/Alzenda_Logo.png" Style="margin-left: 3%;"  />
 
@@ -62,6 +63,7 @@
             <td class="auto-style8">Lee Xian Xian : 012-556 4070</td>
             <td class="auto-style8"><span style="color: rgb(95, 99, 104); font-family: Roboto, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: 0.2px; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(241, 243, 244); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">leejx-wp18@student.tarc.edu.my</span></td>
             <td class="auto-style8">Ali Bank : 8473637491</td>
+            
         </tr>
         <tr>
             <td class="auto-style6">Yong Wei Yan : 019-558 9809</td>

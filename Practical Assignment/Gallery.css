@@ -1,24 +1,57 @@
 ﻿.Button {
-    background-color: cornflowerblue;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    display: inline-block;
-    font-size: 16px;
-    font-weight: 600;
-    font-family: Tahoma;
+    border-color: #4D94FF;
+    background-color: white;
+    color: #284E98;
 }
     .Button:hover {
         background-color: rgb(54,118,232);
         color: white;
         border: thick;
     }
+
+.Img {
+    width: 360px;
+    height: 280px;
+    border: 2px solid black;
+    background-color: #C4A484;
+    padding: 5%;
+}
+.frame {
+    width: 360px;
+    height: 280px;
+    border: 2px solid black;
+    border-top: none;
+    padding: 5%;
+    background-color: #C4A484;
+}
+
+.container {
+    display: flex;
+    align-items: flex-start;
+    margin-left:9.5%;
+    padding-top :5%;
     
-    .Img
-    {
-        width: 500px;
-        height: 375px;
-    }
+}
+
+.linkBtn {
+    margin-right: 16%;
+    font-size: large;
+    text-decoration: none;
+    border: 1px solid #4D94FF  ;
+    background-color: white;
+    color: #284E98;
+    padding: 1%;
+    margin-bottom:2%
+}
+
+.background {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeex9YEi5jgdafJ-LGHjoCJ0rcN9icpvDYcQ&usqp=CAU");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    background-color: lightgray;
+    width:1200px ; font-size:16px ; margin-left :13.5% ;margin-right :auto; margin-bottom:5% ; background-color:none;
+}
 
 
