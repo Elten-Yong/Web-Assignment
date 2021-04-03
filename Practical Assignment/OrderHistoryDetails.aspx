@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
-    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound">
+    <asp:DataList ID="DataList1" runat="server" CssStyle="Display : flex" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound">
         <ItemTemplate>
             DrawID:
             <asp:Label ID="DrawIDLabel" runat="server" Text='<%# Eval("DrawID") %>' />
