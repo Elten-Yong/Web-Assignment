@@ -32,19 +32,20 @@
                         <ItemTemplate>
                   
                             <asp:Image ID="Image1" CssClass="Img" runat="server" ImageUrl='<%# Eval("Image") %>' />
-                            <br />
-                            <br/>
+                            
+                            <div class="frame" >
                             <a style="margin-left: 10px">Artist:</a><asp:Label ID="Label3" runat="server" Text='<%# Eval("Name") %>' ></asp:Label>
                             <br />
                             <a style="margin-left: 10px">Description:</a><asp:Label ID="Label1" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
                             <br/>
-                            <a style="margin-left: 10px">Price:</a><asp:Label ID="Label2" runat="server" Text='<%#Eval("Price") %>'></asp:Label>
+                            <a style="margin-left: 10px">Price: RM</a><asp:Label ID="Label2" runat="server"  Text='<%#Eval("Price") %>'></asp:Label>
                             <br />
                             <br/>
                             <asp:Button CssClass="Button" ID="Button7" runat="server" Text="Buy" CommandName="BuyDrawing" CommandArgument='<%# Eval("DrawID") %>'/>&nbsp
                             <asp:Button CssClass="Button" ID="Button1" runat="server" Text="Add to cart" CommandName="AddToCart" CommandArgument='<%# Eval("DrawID") %>'/>&nbsp
                             <asp:Button CssClass="Button" ID="Button15" runat="server" Text="Add to Wishlist" CommandName="Wishlist" CommandArgument='<%# Eval("DrawID") %>'/>
                             <br />
+                            </div>
                         </ItemTemplate>
                     </asp:DataList>
                     

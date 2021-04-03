@@ -14,12 +14,18 @@
         color: white;
         border: thick;
     }
-    
-    .Img
-    {
-        width: 500px;
-        height: 375px;
-    }
+
+.Img {
+    width: 500px;
+    height: 375px;
+    border: 1px solid grey;
+    padding: 5px;
+}
+.frame {
+    border: 1px solid grey;
+    border-top:none;
+    padding: 5px;
+}
 
 .container {
     display: flex;
