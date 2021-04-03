@@ -10,14 +10,16 @@
     }
 
 .Img {
-    width: 500px;
-    height: 375px;
-    border: 5px solid black;
+    width: 360px;
+    height: 280px;
+    border: 2px solid black;
     background-color: #C4A484;
     padding: 5%;
 }
 .frame {
-    border: 5px solid black;
+    width: 360px;
+    height: 280px;
+    border: 2px solid black;
     border-top: none;
     padding: 5%;
     background-color: #C4A484;
@@ -26,7 +28,7 @@
 .container {
     display: flex;
     align-items: flex-start;
-    margin-left:22%;
+    margin-left:9.5%;
     padding-top :5%;
     
 }
@@ -39,6 +41,16 @@
     background-color: white;
     color: #284E98;
     padding: 1%;
+    margin-bottom:2%
+}
+
+.background {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeex9YEi5jgdafJ-LGHjoCJ0rcN9icpvDYcQ&usqp=CAU");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    background-color :lightgray;
 }
 
 
