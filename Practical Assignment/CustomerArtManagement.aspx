@@ -14,9 +14,7 @@
                     <td>
                         Order ID
                     </td>
-                    <td>
-                        Customer ID
-                    </td>
+                   
                     <td>
                         Name
                     </td>
@@ -45,9 +43,6 @@
                 <tr>
                     <td>
                         <asp:Label ID="Label1" runat="server" Text='<%# Eval("OrderID") %>'></asp:Label>
-                    </td>
-                    <td>
-                        <asp:Label ID="Label2" runat="server" Text='<%# Eval("CustomerID") %>'></asp:Label>
                     </td>
                     <td>
                         <asp:Label ID="Label3" runat="server" Text='<%# Eval("Username") %>'></asp:Label>

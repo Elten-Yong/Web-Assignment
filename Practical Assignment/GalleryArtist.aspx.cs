@@ -14,7 +14,7 @@ namespace Practical_Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Session["Value"] = "AR1";
+            Session["Value"] = "AR1";
             SqlConnection con;
             string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             con = new SqlConnection(strcon);
