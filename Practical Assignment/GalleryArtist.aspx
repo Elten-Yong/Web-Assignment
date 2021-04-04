@@ -76,6 +76,7 @@
                         <asp:Label CssClass="width1" ID="Label5" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
                     </td>
                     <td>
+                        
                         <asp:Button CssClass="width1" ID="Button1" runat="server" Text="Edit" CommandName="Edit" CommandArgument='<%# Eval("DrawID") %>'/>
                     </td>
                     <td>
