@@ -14,7 +14,7 @@ namespace Practical_Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["Value"] = "CS1"; //test data
+            //Session["Value"] = "CS1"; //test data
             if (Session["Value"] != "0" && Session["Value"] != null)
             {
                 
