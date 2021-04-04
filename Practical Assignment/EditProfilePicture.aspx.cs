@@ -32,7 +32,7 @@ namespace Practical_Assignment
                 else
                 {
                     //profile pic command
-                    SqlDataSource1.SelectCommand = "SELECT [ProfilePicture] FROM [Customer]";
+                    SqlDataSource1.SelectCommand = "SELECT [ProfilePicture] FROM [Customer] WHERE CustomerID = @CustomerID";
                 }
 
             }
@@ -78,7 +78,7 @@ namespace Practical_Assignment
 
             if(Global.accountType == "a")
             {
-                con.Open();
+                con.Open(); 
 
                 string strUpdate = "UPDATE [Artist] SET ProfilePicture = @ProfilePicture WHERE ArtistID = @ArtistID";
 

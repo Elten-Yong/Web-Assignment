@@ -52,7 +52,7 @@ namespace Practical_Assignment
                 else 
                 {
                     //profile pic command
-                    SqlDataSource1.SelectCommand = "SELECT [ProfilePicture] FROM [Customer]";
+                    SqlDataSource1.SelectCommand = "SELECT [ProfilePicture] FROM [Customer] WHERE CustomerID = @CustomerID";
 
                     con.Open();
                     string strSelect = "SELECT * FROM [Customer] WHERE CustomerID = @CustomerID";
