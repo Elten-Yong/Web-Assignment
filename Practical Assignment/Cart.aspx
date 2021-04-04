@@ -48,7 +48,7 @@
 
         </style>
         
-
+    
             <h1 style="text-align:center">Cart</h1><hr />
         
         <div style="width:75%; margin:0 auto; min-height:400px">

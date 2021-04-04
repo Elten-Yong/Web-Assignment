@@ -31,13 +31,6 @@
         }
 
 
-        .auto-style3 {
-            height: 50px;
-            padding-left: 5px;
-            width: 236px;
-        }
-
-
         .auto-style4 {
             height: 50px;
             padding-left: 5px;
@@ -97,7 +90,8 @@
                             <td class="auto-style2" colspan="2">&nbsp;</td>
                     </tr>
                                   <tr>
-                                      <td class="auto-style2" colspan="2"></td>
+                                      <td class="auto-style2" colspan="2">
+                                          &nbsp;</td>
                                   </tr>
                     <tr>
                             <td class="auto-style4">
