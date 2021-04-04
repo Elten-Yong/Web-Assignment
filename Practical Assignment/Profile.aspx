@@ -13,7 +13,9 @@
         }
 
         .profilePic{
-            margin:10%;
+            margin : 10% 10% 10% 50%;
+            border:3px solid black;
+
         }
 
         .tableFormat {
@@ -41,6 +43,11 @@
              height: 50px;
              padding-left: 5px;
              width: 236px;
+         }
+
+
+         .auto-style7 {
+             padding-left: 5px;
          }
 
 
@@ -97,7 +104,7 @@
             <div>
               <table class="tableFormat">
                     <tr>
-                        <td class="auto-style2" >
+                        <td class="auto-style2" rowspan="2" >
                             
 
                                
@@ -112,18 +119,9 @@
 
 
                             </td>
-                        <td class="auto-style6" colspan="2" rowspan="5">
-                            
-
-                               
-
-                            
-                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>">
-                         <SelectParameters>
-                             <asp:SessionParameter Name="ArtistID" SessionField="Value" />
-                             <asp:SessionParameter Name="CustomerID" SessionField="Value" />
-                        </SelectParameters>
-                            </asp:SqlDataSource>
+                        <td class="auto-style6" colspan="2">
+          
+                        
 
                             <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound">
                                 <ItemTemplate>
@@ -142,112 +140,109 @@
                             </td>
                     </tr>
                     <tr>
-                        <td class="auto-style2">
-                            
+                        <td class="auto-style6">
+          
+                        
 
-                               
-
-                            
-                            &nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">
-                            
-
-                               
-
-                            
-                            &nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">
-                            
-
-                               
-
-                            
-                            &nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">
-                            
-
-                               
-
-                            
-                            &nbsp;</td>
-                    </tr>
-                    <tr>
-                            <td class="auto-style2">
-                                &nbsp;</td>
-                            <td class="auto-style6">
                                 Username:</td>
-                            <td class="auto-style6">
+                        <td class="auto-style6">
+          
+                        
+
                                 <asp:Label ID="lblUsername" runat="server" Text="[username]"></asp:Label>
+
+
                             </td>
-                        </tr>
-                        <tr>
-                            <td class="auto-style2">&nbsp;</td>
-                            <td class="auto-style6">Email:</td>
-                            <td class="auto-style6"><asp:Label ID="lblEmail" runat="server" Text="[email]"></asp:Label></td>
-                        </tr>
-       
-                        <tr>
-                            <td class="auto-style2">
-                    
-                                &nbsp;</td>
-                            <td class="auto-style6">
-                    
+                    </tr>
+                    <tr>
+                        <td class="auto-style2" rowspan="2" >
+                            
+
+                               
+                            &nbsp;</td>
+                        <td class="auto-style6">
+          
+                        
+
+                            Email:</td>
+                        <td class="auto-style6">
+          
+                        
+
+                            <asp:Label ID="lblEmail" runat="server" Text="[email]"></asp:Label>
+
+
+                            </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style6">
+          
+                        
+
                                 Phone No:
                                                     
+                            
                             </td>
-                            <td class="auto-style6">
-                    
+                        <td class="auto-style6">
+          
+                        
+
                                 <asp:Label ID="lblPhoneNo" runat="server" Text="Label"></asp:Label>
                     
+
                             </td>
-                        </tr>
+                    </tr>
+                    <tr>
+                        <td class="auto-style2" rowspan="2" >
+                            
+
+                               
+                            &nbsp;</td>
+                        <td class="auto-style6">
+                       <% if (Session["Bar"] == "C")
+                                         { %>
+                                            Delivery Address: 
             
-                        <tr>
-                            <td class="auto-style2">
-              
-                                &nbsp;</td>
-                            <td class="auto-style6">
-              
-                        <% if (Session["Bar"] == "C")
-                             { %>
-                                Delivery Address: 
-            
-                              <%} 
-                         %></td>
-                            <td class="auto-style6">
-              
+                                          <%} 
+                                     %>
+                        
+
+                            &nbsp;</td>
+                        <td class="auto-style6">
+          
+                        
+
                                 <asp:Label ID="lblAddress" runat="server" Text="Label"></asp:Label>
                             </td>
-                        </tr>
+                    </tr>
+                    <tr>
+                        <td class="auto-style7" colspan="2" rowspan="2">
+          
+                        
+
+                                <asp:Button ID="btnSignOut" runat="server" Text="Sign Out" style="margin-left:85px; border-color: #4D94FF; 
+                                background-color: white; color: #284E98;" OnClick="btnSignOut_Click" width="240px" Height="30px" />  
+
+                                </td>
+                    </tr>
             
-                        <tr>
-                            <td class="auto-style2">&nbsp;</td>
-                            <td class="auto-style6" colspan="2"></td>
-                        </tr>
                         <tr>
                             <td class="auto-style2" style="text-align: center">
                                 
 
                                 &nbsp;</td>
                           
-                            <td class="auto-style6" style="text-align: center" colspan="2">
-                                
-
-                                <asp:Button ID="btnSignOut" runat="server" Text="Sign Out" style="margin-right:50px; border-color: #4D94FF; 
-                                background-color: white; color: #284E98;" OnClick="btnSignOut_Click" width="240px" Height="30px" />  
-
-                                </td>
-                          
                         </tr>
                          
                     </table>
                 </div>
+
+                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>">
+                         <SelectParameters>
+                             <asp:SessionParameter Name="ArtistID" SessionField="Value" />
+                             <asp:SessionParameter Name="CustomerID" SessionField="Value" />
+                        </SelectParameters>
+                            </asp:SqlDataSource>
                  
           <%} %>
 </asp:Content>

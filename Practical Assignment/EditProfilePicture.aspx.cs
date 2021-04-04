@@ -58,13 +58,6 @@ namespace Practical_Assignment
             Response.Redirect("EditProfile.aspx");
         }
 
-        protected void btnSignOut_Click(object sender, EventArgs e)
-        {
-            Session["Value"] = "0";
-            Response.Redirect("HomePage.aspx");
-            Global.i = 0;  // homepage checking
-
-        }
 
         protected void btnProfile_Click(object sender, EventArgs e)
         {
