@@ -77,6 +77,10 @@ namespace Practical_Assignment
                                     Response.Cookies["Username"].Value = txtUsername.Text;
                                     Response.Cookies["Username"].Expires = DateTime.Now.AddDays(7);
                                 }
+                                else
+                                {
+                                    Response.Cookies["Username"].Expires = DateTime.Now.AddMinutes(-1);
+                                }
 
                                 Response.Redirect("HomePage.aspx");
                                 
@@ -127,6 +131,10 @@ namespace Practical_Assignment
                                 {
                                     Response.Cookies["Username"].Value = txtUsername.Text;
                                     Response.Cookies["Username"].Expires = DateTime.Now.AddDays(7);
+                                }
+                                else
+                                {
+                                    Response.Cookies["Username"].Expires = DateTime.Now.AddMinutes(-1);
                                 }
 
                                 Response.Redirect("HomePage.aspx");
