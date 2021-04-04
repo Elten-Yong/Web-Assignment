@@ -8,7 +8,37 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server" >
-
+    <h1>Order management</h1>
+    <table class="auto-style1">
+                <tr>
+                    <td>
+                        Order ID
+                    </td>
+                    <td>
+                        Customer ID
+                    </td>
+                    <td>
+                        Name
+                    </td>
+                    <td>
+                        Email
+                    </td>
+                    <td>
+                        Buying Date
+                    <td>
+                        Delivery Address
+                    </td>
+                    <td>                       
+                        Contact No                    
+                    </td>
+                    <td>                                                  
+                        Quantity
+                    </td>
+                    <td>                                                  
+                        Price
+                    </td>
+                </tr>
+            </table>
     <asp:DataList ID="DataList1" runat="server" DataKeyField="OrderID" DataSourceID="SqlDataSource1" CssClass="auto-style1">
         <ItemTemplate>
             <table class="auto-style1">
@@ -36,11 +66,14 @@
                     <td>                                                  
                         <asp:Label ID="Label7" runat="server" Text='<%# Eval("Quantity") %>'></asp:Label>
                     </td>
+                    <td>                                                  
+                        <asp:Label ID="Label9" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
+                    </td>
                 </tr>
             </table>
         </ItemTemplate>
     </asp:DataList>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Customer.Username, Customer.Address, Customer.PhoneNumber, Customer.Email, [Order].OrderID, [Order].CustomerID, [Order].DrawID, [Order].Date, [Order].[Quantity] FROM [Order] INNER JOIN Customer ON [Order].CustomerID = Customer.CustomerID WHERE ([Order].DrawID = @DrawID)">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Customer.Username, Customer.Address, Customer.PhoneNumber, Customer.Email, [Order].CustomerID, [Order].Date, OrderDetails.DrawID, OrderDetails.OrderID, OrderDetails.Quantity, OrderDetails.Price FROM [Order] INNER JOIN Customer ON [Order].CustomerID = Customer.CustomerID INNER JOIN OrderDetails ON [Order].OrderID = OrderDetails.OrderID WHERE (OrderDetails.DrawID = @DrawID)">
         <SelectParameters>
             <asp:QueryStringParameter Name="DrawID" QueryStringField="id" />
         </SelectParameters>

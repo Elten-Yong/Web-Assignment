@@ -58,29 +58,37 @@ namespace Practical_Assignment
                 SqlConnection con;
                 string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 con = new SqlConnection(strcon);
-                string selectedDraw = e.CommandArgument.ToString();
-                con.Open();
-                string strSelect = "DELETE from Gallery Where DrawID=@DrawID and ArtistID = @ArtistID";
-                SqlCommand cmdSelect = new SqlCommand(strSelect, con);
 
-                cmdSelect.Parameters.AddWithValue("@ArtistID", Session["Value"]);
-                cmdSelect.Parameters.AddWithValue("@DrawID", selectedDraw);
-
-                int numRowAffected = cmdSelect.ExecuteNonQuery();
-
-
-                if (numRowAffected > 0)
+                try
                 {
-                    // return insert success
-                    // ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Delete successfully! " + "');", true);
-                    Response.Redirect("GalleryArtist.aspx");
-                }
-                else
+                    string selectedDraw = e.CommandArgument.ToString();
+                    con.Open();
+                    string strSelect = "DELETE from Gallery Where DrawID=@DrawID and ArtistID = @ArtistID";
+                    SqlCommand cmdSelect = new SqlCommand(strSelect, con);
+
+                    cmdSelect.Parameters.AddWithValue("@ArtistID", Session["Value"]);
+                    cmdSelect.Parameters.AddWithValue("@DrawID", selectedDraw);
+
+                    int numRowAffected = cmdSelect.ExecuteNonQuery();
+
+
+                    if (numRowAffected > 0)
+                    {
+                        // return insert success
+                        // ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Delete successfully! " + "');", true);
+                        Response.Redirect("GalleryArtist.aspx");
+                    }
+                    else
+                    {
+                        // return insert failed
+                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Delete failed! " + "');", true);
+                    }
+                    con.Close();
+                }catch(Exception ex)
                 {
-                    // return insert failed
-                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Delete failed! " + "');", true);
+                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Cannot be deleted! " + "');", true);
                 }
-                con.Close();
+                
             }
             else if (e.CommandName == "Edit")
             {
