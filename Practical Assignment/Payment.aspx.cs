@@ -74,15 +74,15 @@ namespace Practical_Assignment
 
                     con.Open();
                     //extract the total row of order 
-                    string strSelect = "SELECT MAX(OrderID) FROM [Order]";
+                    string strSelect = "SELECT count(OrderID) FROM [Order]";
                     SqlCommand cmdSelect = new SqlCommand(strSelect, con);
 
                     //int total = (int)cmdSelect.ExecuteScalar() + 1;
-                    string total = cmdSelect.ExecuteScalar().ToString();
+                    int total = (int)cmdSelect.ExecuteScalar();
                     con.Close();
 
                     //the new data order id
-                    int newIndex = int.Parse(total.Remove(0, 2)) + 1;
+                    int newIndex = total + 1;
                     string orderID = "OR" + newIndex.ToString();
 
                     //Extarct totalPrice
