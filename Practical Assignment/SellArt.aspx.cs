@@ -34,6 +34,7 @@ namespace Practical_Assignment
 
             bool exit = true;
 
+
             while (exit)
             {
                 try
@@ -69,11 +70,13 @@ namespace Practical_Assignment
                         ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Added failed! " + "');", true);
                     }
 
+
                 }
                 catch (Exception ex)
                 {
                     newIndex += 1;
                     drawID = drawID.Remove(2, drawID.Length - 2) + newIndex;
+
                 }
             }
         }
