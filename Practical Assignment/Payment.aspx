@@ -13,15 +13,29 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
 
-    <p>Delivery Address</p>
+    <div style="margin:0% 10% 0% 10%;">
+        <h2 style="text-align: center">
+            Checkout Payment Page
+        </h2>
 
-    <table style="width:100%">
-        <tr>
-            <td style="width:90%"><asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></td>
-            <td><asp:LinkButton ID="EditAddress" runat="server" OnClick="EditAddress_Click">Edit</asp:LinkButton></td>
-        </tr>
-    </table>
-    
+        <div style="text-align: center">
+            Please ensure that all of the details are correct before click the confirm checkout.
+        </div>
+        <br />
+        <br />
+        <h4>
+            Delivery Address
+        </h4>
+        <br />
+        <div>
+            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        </div>
+        <br />
+        <div>
+            Address not correct? Click <asp:LinkButton ID="EditAddress" runat="server" OnClick="EditAddress_Click">Edit</asp:LinkButton> to modify your address.
+        </div>
+        <br />
+    </div>
     <div style="width:75%; margin:0% 10% 0% 10%; min-height:400px">
     <table class="table table-bordered" style="width: 100%; background-color: darkgray">
                 <tr>
