@@ -40,7 +40,7 @@
                             <br />
                             <a style="margin-left: 10px">Description:</a><asp:Label ID="Label1" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
                             <br/>
-                            <a style="margin-left: 10px">Price: RM</a><asp:Label ID="Label2" runat="server"  Text='<%#Eval("Price") %>'></asp:Label>
+                            <a style="margin-left: 10px">Price: RM</a><asp:Label ID="Label2" runat="server"  Text='<%# String.Format("{0:0.00}",Eval("Price")) %>'></asp:Label>
                             <br />
                             <a style="margin-left: 10px">Quantity: </a><asp:Label ID="Label4" runat="server"  Text='<%#Eval("Total") %>'></asp:Label>
                             <br/>

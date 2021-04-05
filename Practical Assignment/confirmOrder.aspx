@@ -97,7 +97,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <a style="margin-left: 10px">Price:</a><asp:Label ID="Label5" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
+                        <a style="margin-left: 10px">Price:</a><asp:Label ID="Label5" runat="server" Text='<%# String.Format("RM {0:0.00}",Eval("Price")) %>'></asp:Label>
                     </td>
                 </tr>
             <!--    <tr>

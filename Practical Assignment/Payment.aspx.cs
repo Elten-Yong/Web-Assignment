@@ -218,7 +218,7 @@ namespace Practical_Assignment
                         string email = cmdSelect6.ExecuteScalar().ToString();
                         con.Close();
 
-                        MailMessage message = new MailMessage("teejoohong0823@gmail.com", "teejoohong0823@gmail.com", "Thank You for making purchased", messageContent); // to , from, subject, text
+                        MailMessage message = new MailMessage("testingg726@gmail.com", "testingg726@gmail.com", "Thank You for making purchased", messageContent); // to , from, subject, text
                         message.IsBodyHtml = true;
 
                         SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
