@@ -15,7 +15,7 @@
             margin-right: auto;
             margin-bottom:200px;
             margin-top:100px;
-            background-color: rgb(224, 226, 224);
+            background-color:lightgray;
 
         }
 

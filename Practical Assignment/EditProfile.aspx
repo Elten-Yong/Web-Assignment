@@ -9,7 +9,7 @@
             border: none;
             border-bottom : 1px solid black;
             Width: 230px ;
-            background-color: rgb(224, 226, 224);
+            background-color: lightgray;
         }
 
         .auto-style2 {
@@ -24,7 +24,7 @@
             height: auto;
             width :700px;
             margin:4% auto 4% auto;
-            background-color: rgb(224, 226, 224);
+            background-color: lightgray;
         }
         .btnType{
             text-align:center;
