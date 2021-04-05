@@ -9,6 +9,7 @@
 
       .tableFormat {
             border-collapse: collapse;
+            border-color: white;
             margin-left: auto;
             margin-right: auto;
             background-color:darkgray;
@@ -19,6 +20,7 @@
 
        .tableFormat2 {
             border-collapse: collapse;
+            border-color: white;
             background-color:lightgray;
             width:1200px;
             height: auto;

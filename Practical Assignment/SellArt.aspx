@@ -88,6 +88,7 @@
             </td>
             <td class="auto-style3">
                 <asp:TextBox runat="server" ID="ArtDescription" TextMode="Multiline" Columns="20" Name="S1" Rows="2" Height="95px" Width="591px" style="resize:none;"></asp:TextBox>
+                <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*This field is required." SetFocusOnError="True" ControlToValidate="ArtDescription" ForeColor="Red"></asp:RequiredFieldValidator>
             </td>
         </tr>
@@ -135,7 +136,9 @@
         <tr>
             <td class="auto-style7">Art Drawing :</td>
             <td class="auto-style3">
-                <asp:FileUpload ID="Drawing" runat="server" accept="image/*" /></td>
+                <asp:FileUpload ID="Drawing" runat="server" accept="image/*" />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*This field id required." ControlToValidate="Drawing" SetFocusOnError="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                </td>
         </tr>
 
         <tr>

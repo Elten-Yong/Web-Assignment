@@ -9,20 +9,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
 
     <h1 style="text-align:center;">Photo Gallery</h1><br />
-    
     <hr />
-
-
  
-    <table >
- 
-           
+    <table >   
         <tr >
-
             <td>
                 <link href="Gallery.css" rel="stylesheet" type="text/css" />
    
-
                 <div class="background">
                 <div class="container">
                 <asp:LinkButton ID="ShowAll" runat="server" OnClick="ShowAll_Click" CssClass="linkBtn">Show All</asp:LinkButton><br />

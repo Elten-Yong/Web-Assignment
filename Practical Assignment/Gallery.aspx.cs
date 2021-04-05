@@ -231,7 +231,7 @@ namespace Practical_Assignment
             }
             else
             {
-                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Please log in as a cusromer first before doing any purchasement! " + "');", true);
+                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Please log in as a customer first before doing any purchasement! " + "');", true);
             }
 
         }
