@@ -65,7 +65,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
     
-    <h1 style="text-align:center">Log In</h1><hr />
+    <h1 style="text-align:center">Sign In</h1><hr />
 
     <asp:MultiView ID="SignInMultiView" runat="server">
             <asp:View ID="View1" runat="server">
@@ -170,7 +170,7 @@
         <tr>
             <td class="txtType" colspan="4">
                 <asp:Button ID="btnCancelLogIn" runat="server" Height="30px" OnClick="btnCancelLogIn_Click" style="margin-right:50px; border-color: #4D94FF; background-color: white; color: #284E98;" Text="Cancel" ValidationGroup="none" Width="240px" />
-                <asp:Button ID="btnLogIn" runat="server" Height="30px" OnClick="btnLogIn_Click" style="border-color: #4D94FF; background-color: white; color: #284E98;" Text="Log In" Width="240px" /><br />
+                <asp:Button ID="btnLogIn" runat="server" Height="30px" OnClick="btnLogIn_Click" style="border-color: #4D94FF; background-color: white; color: #284E98;" Text="Sign In" Width="240px" /><br />
                 <asp:Label ID="lblError" runat="server" Font-Size="Small" ForeColor="red" Text="" ></asp:Label>
             </td>
         </tr>

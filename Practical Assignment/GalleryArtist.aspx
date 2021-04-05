@@ -18,6 +18,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
     <h1 style="text-align:center;">Manage Art</h1>
     <hr />
+    <div style="margin:0 auto; width:75%;">
+        *Press the image for view the order history of each art
+    </div>
+    <br />
     <div style="text-align: center">
         <asp:Label ID="Label1" runat="server" Text="" style="font-size: x-large;"></asp:Label>   
     </div>
