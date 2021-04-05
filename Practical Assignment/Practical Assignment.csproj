@@ -74,14 +74,20 @@
     </Content>
     <Content Include="Cart.aspx" />
     <Content Include="confirmOrder.aspx" />
+    <Content Include="CustomerArtManagement.aspx" />
     <Content Include="EditDrawingArtist.aspx" />
     <Content Include="EditProfile.aspx" />
+    <Content Include="EditProfilePicture.aspx" />
     <Content Include="ForgetPassword.aspx" />
     <Content Include="Gallery.aspx" />
     <Content Include="GalleryArtist.aspx" />
     <Content Include="HomePage.aspx" />
     <Content Include="MasterPage.css" />
     <Content Include="OrderHistory.aspx" />
+    <Content Include="OrderHistoryDetails.aspx" />
+    <Content Include="Payment.aspx" />
+    <Content Include="Sample Images\baseline_person_black_48dp.png" />
+    <Content Include="Testing.aspx" />
     <Content Include="Wishlist.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +112,13 @@
     <Compile Include="confirmOrder.aspx.designer.cs">
       <DependentUpon>confirmOrder.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CustomerArtManagement.aspx.cs">
+      <DependentUpon>CustomerArtManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerArtManagement.aspx.designer.cs">
+      <DependentUpon>CustomerArtManagement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EditDrawingArtist.aspx.cs">
       <DependentUpon>EditDrawingArtist.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -119,6 +132,13 @@
     </Compile>
     <Compile Include="EditProfile.aspx.designer.cs">
       <DependentUpon>EditProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditProfilePicture.aspx.cs">
+      <DependentUpon>EditProfilePicture.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditProfilePicture.aspx.designer.cs">
+      <DependentUpon>EditProfilePicture.aspx</DependentUpon>
     </Compile>
     <Compile Include="ForgetPassword.aspx.cs">
       <DependentUpon>ForgetPassword.aspx</DependentUpon>
@@ -162,6 +182,20 @@
     <Compile Include="OrderHistory.aspx.designer.cs">
       <DependentUpon>OrderHistory.aspx</DependentUpon>
     </Compile>
+    <Compile Include="OrderHistoryDetails.aspx.cs">
+      <DependentUpon>OrderHistoryDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderHistoryDetails.aspx.designer.cs">
+      <DependentUpon>OrderHistoryDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Payment.aspx.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment.aspx.designer.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Profile.aspx.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -190,6 +224,13 @@
     </Compile>
     <Compile Include="SignUp.aspx.designer.cs">
       <DependentUpon>SignUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Testing.aspx.cs">
+      <DependentUpon>Testing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Testing.aspx.designer.cs">
+      <DependentUpon>Testing.aspx</DependentUpon>
     </Compile>
     <Compile Include="Wishlist.aspx.cs">
       <DependentUpon>Wishlist.aspx</DependentUpon>
@@ -225,7 +266,9 @@
     </None>
     <Content Include="Web.sitemap" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ProfilePic\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -59,6 +59,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
     <div style="margin:0 10%">
+        <table style="width:100%">
+            <tr>
+                <td style="width:90%"><asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></td>
+                <td>
+                    <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Edit</asp:LinkButton></td>
+            </tr>
+        </table>
         
     <asp:DataList ID="DataList1" runat="server" DataKeyField="DrawID" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand">
         <ItemTemplate>
@@ -90,19 +97,13 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <a style="margin-left: 10px">Price:</a><asp:Label ID="Label5" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
+                        <a style="margin-left: 10px">Price:</a><asp:Label ID="Label5" runat="server" Text='<%# String.Format("RM {0:0.00}",Eval("Price")) %>'></asp:Label>
                     </td>
                 </tr>
             <!--    <tr>
                     <td colspan="2"><asp:Label ID="Label6" runat="server" Text='<%# Eval("Total") %>'></asp:Label></td>
                 </tr> -->
-                <tr>
-                    <td>
-                        <asp:Button CssClass="myButton" ID="Button1" runat="server" Text="Buy Now" CommandName="BuyDrawing" CommandArgument='<%# Eval("DrawID") %>'/>
-                        <asp:Button Cssclass="myButton1" runat="server" Text="Cancel" CommandName="CancelBuy"/>
-                    </td>
-                    <td>&nbsp;</td>
-                </tr>
+                
             </table>
             
             <br />
@@ -113,5 +114,29 @@
             <asp:QueryStringParameter Name="DrawID" QueryStringField="id" Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>
+        <p>Select Payment method</p>
+    <asp:RadioButtonList ID="RadioButtonList1" runat="server" OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged" AutoPostBack="true">
+        <asp:ListItem>Master/Visa Card</asp:ListItem>
+        <asp:ListItem>Online Banking</asp:ListItem>
+    </asp:RadioButtonList>
+    <div runat="server" id="CreditDetail" Visible="False" >
+        <p> Card No : </p><asp:TextBox ID="TextBox1" runat="server" ></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*This field is required." SetFocusOnError="True" ForeColor="Red" ControlToValidate="Textbox1"></asp:RequiredFieldValidator>
+        <br />
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Please enter a valid card no." SetFocusOnError="True" ForeColor="Red" ControlToValidate="Textbox1" ValidationExpression="\d{4}(\-\d{4}(\-\d{4}(\-\d{4})))"></asp:RegularExpressionValidator>
+       
+        <p> CVV : </p> <asp:TextBox ID="TextBox2" runat="server" ></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*This field is required." SetFocusOnError="True" ForeColor="Red" ControlToValidate="Textbox2"></asp:RequiredFieldValidator>
+        <br />
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Please enter a cvv no." SetFocusOnError="True" ForeColor="Red" ControlToValidate="Textbox2" ValidationExpression="^\d{3}"></asp:RegularExpressionValidator>
+        
+        <p> Expired Date : </p> <asp:TextBox ID="TextBox3" runat="server"  ></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*This field is required." SetFocusOnError="True" ForeColor="Red" ControlToValidate="Textbox3"></asp:RequiredFieldValidator>
+        <br />
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Please enter a valid expired date." SetFocusOnError="True" ForeColor="Red" ControlToValidate="Textbox3" ValidationExpression="^\d{0,2}(\/\d{1,2})"></asp:RegularExpressionValidator>
+        <br />
+     </div>
+        <asp:Button ID="Button2" runat="server" Text="Confirm payment" OnClick="Button2_Click" />
+        <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Cancel" />
     </div>
 </asp:Content>

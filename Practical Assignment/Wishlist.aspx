@@ -3,10 +3,12 @@
     <style type="text/css">
         .auto-style1 {
             width: 100%;
-            border:2px solid black;
+            background-color : lightgray;
         }
         .width1 {
-            width: 16%;
+            width: 15.8%;
+            padding : 5%;
+            
         }
         .tableFormat {
             border-collapse: collapse;
@@ -19,10 +21,19 @@
             margin-top:100px;
             background-color: rgb(224, 226, 224);
         }
+        .auto-style2 {
+            width: 16%;
+            height: 38px;
+            background-color : darkgray;
+            padding:5%;
+        }
+        .btnDelete{
+            border-color: #4D94FF; background-color: white; color: #284E98;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
-    <h2 style="text-align:center">Wishlist</h2><hr />
+    <h1 style="text-align:center">Wishlist</h1><hr />
      <% if (Session["Value"] == "0" || Session["Value"] == null)
           { %>
         <div style="height:400px">
@@ -60,37 +71,38 @@
      <%}
           else{ %>
     <div style="width:75%; margin:0 auto; min-height:400px">
-    <table class="auto-style1">
+    <table class="table table-bordered" style="width: 100%; background-color: darkgray">
                 <tr>
-                    <th class="width1">
+                    <th class="auto-style2">
                         Draw ID
                     </th>
 
-                    <th class="width1">
+                    <th class="auto-style2">
                         Name
                     </th>
 
-                    <th class="width1">
+                    <th class="auto-style2">
                         Image
                     </th>
-                    <th class="width1">
+                    <th class="auto-style2">
                         Description
                     </th>
-                    <th class="width1">
+                    <th class="auto-style2">
                         Price
                     </th>
-                    <th class="width1">
+                    <th class="auto-style2">
                         Delete
                     </th>
                 </tr>
             </table>
     <div style=" text-align:center">
-        <asp:Label ID="Label3" runat="server" Text="" style="font-size:x-large;"></asp:Label></div>
-    <div >
+        <asp:Label ID="Label3" runat="server" Text="" style="font-size:x-large;"></asp:Label>
+    </div>
     
         <asp:DataList ID="DataList1" runat="server" DataKeyField="CustomerID" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand" Height="16px" Width="100%">
             <ItemTemplate>
-                <table class="auto-style1">
+                <br />
+                <table class="table table-bordered" style="width: 100%; background-color: lightgray">
                     <tr>
                         <td class="width1">
                             
@@ -110,15 +122,14 @@
                         </td>
                         <td class="width1">
                             
-                            <asp:Label ID="Label4" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
+                            <asp:Label ID="Label4" runat="server" Text='<%# String.Format("RM {0:0.00}",Eval("Price")) %>'></asp:Label>
                         </td>
                         <td class="width1">
-                            <asp:Button ID="Button1" runat="server" Text="Delete" CommandName="Delete" CommandArgument='<%# Eval("DrawID") %>'/>
+                            <asp:Button ID="Button1" runat="server" CssClass="btnDelete" Text="Delete" CommandName="Delete" CommandArgument='<%# Eval("DrawID") %>'/>
                         </td>
                     </tr>
                 </table>
-                <br />
-                <br />
+
             </ItemTemplate>
         </asp:DataList>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Gallery.Name, Gallery.Price, Gallery.Description, WishlistGallery.CustomerID, WishlistGallery.DrawID, Gallery.Image FROM WishlistGallery INNER JOIN Gallery ON WishlistGallery.DrawID = Gallery.DrawID WHERE (WishlistGallery.CustomerID = @CustomerID)">
@@ -126,7 +137,7 @@
                 <asp:SessionParameter Name="CustomerID" SessionField="Value" />
             </SelectParameters>
         </asp:SqlDataSource>
-    </div>
+    <br />
     </div>
     <%} %>
 </asp:Content>

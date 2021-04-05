@@ -37,12 +37,20 @@
             margin-left:10px;
 
         }
+        .auto-style8 {
+            border-collapse: collapse;
+            height: auto;
+            width: 873px;
+            background-color: white;
+            margin-bottom : 1%;
+            height: 300px;
+        }
     </style>
 
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
-    <h2 style="text-align:center">Order History</h2><hr />
+    <h2 style="text-align:center">Art Selling</h2><hr />
     <div style="width:75%; margin:0 auto; min-height:410px">
      <% if (Session["Value"] == "0" || Session["Value"] == null || Session["Bar"] == "C")
           { %>
@@ -58,7 +66,7 @@
             </p>
             <br />
                 
-    <table class ="tableFormat">
+    <table class ="auto-style8">
 
         <tr>
             <td class="auto-style5">Art Details</td>
@@ -69,7 +77,9 @@
         <tr>
             <td class="auto-style7">Art name : </td>
             <td class="auto-style3">
-                <asp:TextBox ID="ArtName" runat="server" Width="267px"></asp:TextBox></td>
+                <asp:TextBox ID="ArtName" runat="server" Width="267px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*This field is required." SetFocusOnError="True" ControlToValidate="ArtName" ForeColor="Red"></asp:RequiredFieldValidator>
+            </td>
         </tr>   
 
         <tr>
@@ -77,7 +87,9 @@
                 Art Description :
             </td>
             <td class="auto-style3">
-                <asp:TextBox runat="server" ID="ArtDescription" TextMode="Multiline" Columns="20" Name="S1" Rows="2" Height="98px" Width="271px" style="resize:none;"></asp:TextBox>
+                <asp:TextBox runat="server" ID="ArtDescription" TextMode="Multiline" Columns="20" Name="S1" Rows="2" Height="95px" Width="591px" style="resize:none;"></asp:TextBox>
+                <br />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*This field is required." SetFocusOnError="True" ControlToValidate="ArtDescription" ForeColor="Red"></asp:RequiredFieldValidator>
             </td>
         </tr>
 
@@ -87,7 +99,19 @@
             </td>
             <td class="auto-style3">
                 <asp:TextBox ID="Price" runat="server" Width="265px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*This field id required." ControlToValidate="Price" SetFocusOnError="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                <br />
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Please Enter Your Correct Product Price" ControlToValidate="Price" ValidationExpression="^\d{0,8}(\.\d{1,2})?$" SetFocusOnError="True" ForeColor="Red"></asp:RegularExpressionValidator>
             </td>
+        </tr>
+        <tr>
+            <td>Category :</td>
+            <td>
+                <asp:DropDownList ID="CategoryList" runat="server">
+                    <asp:ListItem>Painting</asp:ListItem>
+                    <asp:ListItem>Drawing</asp:ListItem>
+                    <asp:ListItem>Sculpture</asp:ListItem>
+                </asp:DropDownList></td>
         </tr>
         <tr>
             <td class="auto-style2">
@@ -112,7 +136,9 @@
         <tr>
             <td class="auto-style7">Art Drawing :</td>
             <td class="auto-style3">
-                <asp:FileUpload ID="Drawing" runat="server" /></td>
+                <asp:FileUpload ID="Drawing" runat="server" accept="image/*" />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*This field id required." ControlToValidate="Drawing" SetFocusOnError="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                </td>
         </tr>
 
         <tr>

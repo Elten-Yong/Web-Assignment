@@ -1,10 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="SignIn.aspx.cs" Inherits="Practical_Assignment.SignIn" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-        .auto-style1 {
-            height: 25px;
-            text-align:center;
-        }
         .tableFormat {
             border-collapse: collapse;
             border: 1px solid grey;
@@ -12,9 +8,20 @@
             width :700px;
             margin-left: auto;
             margin-right: auto;
-            margin-bottom: 270px;
+            margin-bottom: 100px;
+            margin-top: 50px;
             background-color: rgb(224, 226, 224);
-
+        }
+        .tableFormat1 {
+            border-collapse: collapse;
+            border: 1px solid grey;
+            height: auto;
+            width :700px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 180px;
+            margin-top: 100px;
+            background-color: rgb(224, 226, 224);
         }
         .txtType{
             text-align:center;
@@ -38,6 +45,21 @@
         .auto-style9 {
             width: 370px;
         }
+
+        .form{
+            position :relative;
+            border: none;
+            border-bottom : 1px solid black;
+            Width: 230px ;
+            background-color: rgb(224, 226, 224);
+        }
+
+ 
+        .auto-style10 {
+            height: 39px;
+            width: 233px;
+        }
+
  
     </style>
 </asp:Content>
@@ -48,11 +70,10 @@
     <asp:MultiView ID="SignInMultiView" runat="server">
             <asp:View ID="View1" runat="server">
 
-            <table class="tableFormat">
+            <table class="tableFormat1">
                 <tr>
                     <td>
-                          
-                        &nbsp;</td>
+                  </td>
                 </tr>
                 <tr>
                     <td></td>
@@ -92,26 +113,31 @@
             <td colspan="4">&nbsp;</td>
         </tr>
         <tr>
-            <td colspan="4">&nbsp;</td>
+            <td colspan="4"><img src="Sample Images/baseline_person_black_48dp.png" alt="profile" width="150" height="150" style="margin-left:290px ; margin-bottom:10px" /> 
+</td>
         </tr>
         <tr>
             <td colspan="4">&nbsp;</td>
         </tr>
         <tr>
             <td class="txtType" colspan="4">
-                <asp:TextBox ID="txtUsername" runat="server" placeholder="Username" Width="230px" BorderColor="#E6E6E6"></asp:TextBox><br />
-                <asp:RequiredFieldValidator ID="usernameRequired" runat="server" ErrorMessage="Username cannot be empty." ControlToValidate="txtUsername" ForeColor="red" Font-Size="Small"></asp:RequiredFieldValidator>
+                <asp:Label runat="server" ID="lblUsername" text="Username :"></asp:Label>
+                <asp:TextBox ID="txtUsername" runat="server"  Cssclass="form"></asp:TextBox><br />
+                
+                <asp:RequiredFieldValidator ID="usernameRequired" runat="server" ErrorMessage="Username cannot be empty." ControlToValidate="txtUsername" ForeColor="red" Font-Size="Small" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                
             </td>
         </tr>
         <tr>
-            <td class="auto-style7"></td>
-            <td class="auto-style7" colspan="2"></td>
+            <td class="auto-style10"></td>
+            <td class="auto-style10" colspan="2"></td>
             <td class="auto-style3"></td>
         </tr>
         <tr>
             <td class="auto-style2" colspan="4">
-                <asp:TextBox ID="txtPassword" runat="server" placeholder="password" Width="230px" TextMode="Password" BorderColor="#E6E6E6"></asp:TextBox><br />
-                <asp:RequiredFieldValidator ID="passwordRequired" runat="server" ErrorMessage="Password can not be empty." ControlToValidate="txtPassword" Font-Size="Small" ForeColor="red"></asp:RequiredFieldValidator>
+                <asp:Label runat="server" ID="lblPassword" text="Password :"></asp:Label>
+                <asp:TextBox ID="txtPassword" runat="server"  TextMode="Password" Cssclass="form"></asp:TextBox><br />
+                <asp:RequiredFieldValidator ID="passwordRequired" runat="server" ErrorMessage="Password can not be empty." ControlToValidate="txtPassword" Font-Size="Small" ForeColor="red" SetFocusOnError="True"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>

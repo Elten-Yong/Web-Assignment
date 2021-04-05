@@ -3,11 +3,12 @@
     <style type="text/css">
         .auto-style1 {
             width: 100%;
-            border:2px solid black;
+            background-color : darkgray;
         }
 
         .width1{
             width: 16%;
+            padding : 5%;
         }
         .tableFormat {
             border-collapse: collapse;
@@ -20,10 +21,21 @@
             margin-top:100px;
             background-color: rgb(224, 226, 224);
         }
+
+        .btnView{
+            border-color: #4D94FF; background-color: white; color: #284E98;
+        }
+
+        .content{
+            border : none;
+            width :100%;
+            background-color :lightgray;
+        }
+
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
-    <h2 style="text-align:center">Order History</h2><hr />
+    <h1 style="text-align:center">Order History</h1><hr />
     <% if (Session["Value"] == "0" || Session["Value"] == null)
           { %>
         <div style="height:400px">
@@ -61,54 +73,45 @@
      <%}
          else{ %>
     <div style="width:75%; margin:0 auto; min-height:400px">
-    <table class="auto-style1">
+    <table class="table table-bordered" style="width: 100%; background-color: darkgray">
                 <tr>
                     <th class="width1">
                         Order ID
                     </th>
 
                     <th class="width1">
-                        Draw ID
+                        Date
                     </th>
 
-                    <th class="width1">
-                        Image
-                    </th>
-                    <th class="width1">
-                        Name
-                    </th>
                     <th class="width1">
                         Price
                     </th>
                     <th class="width1">
-                        Date
+                        Detail
                     </th>
                 </tr>
             </table>
     <div style=" text-align:center">
-        <asp:Label ID="Label3" runat="server" Text="" style="font-size:x-large;"></asp:Label></div>
-    <asp:DataList runat="server" DataKeyField="OrderID" DataSourceID="SqlDataSource1"  OnItemDataBound="DataList1_ItemDataBound"  Height="16px" Width="100%">
+        <asp:Label ID="Label3" runat="server" Text="" style="font-size:x-large;"></asp:Label>
+
+    </div>
+    <asp:DataList runat="server" DataKeyField="OrderID" DataSourceID="SqlDataSource1" Height="16px" Width="100%" OnItemCommand="Unnamed_ItemCommand">
         <ItemTemplate>     
             <br/>
-            <table class="auto-style1">
+            <table class="table table-bordered" style="width: 100%; background-color: lightgray">
                 <tr>
                     <td class="width1">
                         <asp:Label ID="Label1" runat="server" Text='<%# Eval("OrderID") %>'></asp:Label>
                     </td>
                     <td class="width1">
-                        <asp:Label ID="Label2" runat="server" Text='<%# Eval("DrawID") %>'></asp:Label>
+                        <asp:Label ID="Label2" runat="server" Text='<%# Eval("Date") %>'></asp:Label>
                     </td>
                     <td class="width1">
-                        <asp:Image ID="Image1" runat="server" Height="100px" ImageUrl='<%# Eval("Image") %>' Width="100px" />
+                        <asp:Label ID="Label4" runat="server" Text='<%# String.Format("RM {0:0.00}",Eval("TotalPrice")) %>'></asp:Label>
                     </td>
+
                     <td class="width1">
-                        <asp:Label ID="Label4" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
-                    </td>
-                    <td class="width1">
-                        <asp:Label ID="Label5" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
-                    </td>
-                    <td class="width1">
-                        <asp:Label ID="Label6" runat="server" Text='<%# Eval("Date") %>'></asp:Label>
+                        <asp:Button ID="btnDetails" CssClass="btnView" runat="server" Text="View Details" CommandName="ViewDetails" CommandArgument='<%# Eval("OrderID") %>'/>
                     </td>
                 </tr>
             </table>    
@@ -116,12 +119,12 @@
         </ItemTemplate>
 
     </asp:DataList>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Order].OrderID, [Order].CustomerID, Gallery.DrawID, Gallery.Price, Gallery.Name, Gallery.Image, [Order].Date FROM [Order] INNER JOIN Gallery ON [Order].DrawID = Gallery.DrawID WHERE ([Order].CustomerID = @CustomerID)">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Order] WHERE ([CustomerID] = @CustomerID)">
         <SelectParameters>
-            <asp:SessionParameter Name="CustomerID" SessionField="Value" />
+            <asp:SessionParameter Name="CustomerID" SessionField="Value" Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>
         <br/>
-        </div>
+     </div>
      <%} %>
 </asp:Content>

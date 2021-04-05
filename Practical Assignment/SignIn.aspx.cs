@@ -14,6 +14,14 @@ namespace Practical_Assignment
         protected void Page_Load(object sender, EventArgs e)
         {
             SignInMultiView.ActiveViewIndex = 0;
+            if (!IsPostBack)
+            {
+                if(Request.Cookies["Username"] != null)
+                {
+                    txtUsername.Text = Request.Cookies["Username"].Value;
+                }
+            }
+            
         }
         protected void btnArtist_Click(object sender, EventArgs e)
         {
@@ -59,8 +67,21 @@ namespace Practical_Assignment
                         {
                             if (dtr["Password"].ToString().Equals(txtPassword.Text))
                             {
+                                
                                 Session["Bar"] = "A";
                                 Session["Value"] = dtr["ArtistID"].ToString();
+
+                                //---cookie
+                                if (chkBoxRememberMe.Checked)
+                                {
+                                    Response.Cookies["Username"].Value = txtUsername.Text;
+                                    Response.Cookies["Username"].Expires = DateTime.Now.AddDays(7);
+                                }
+                                else
+                                {
+                                    Response.Cookies["Username"].Expires = DateTime.Now.AddMinutes(-1);
+                                }
+
                                 Response.Redirect("HomePage.aspx");
                                 
                             }
@@ -104,6 +125,18 @@ namespace Practical_Assignment
                             {
                                 Session["Bar"] = "C";
                                 Session["Value"] = dtr["CustomerID"].ToString();
+
+                                //---cookie
+                                if (chkBoxRememberMe.Checked)
+                                {
+                                    Response.Cookies["Username"].Value = txtUsername.Text;
+                                    Response.Cookies["Username"].Expires = DateTime.Now.AddDays(7);
+                                }
+                                else
+                                {
+                                    Response.Cookies["Username"].Expires = DateTime.Now.AddMinutes(-1);
+                                }
+
                                 Response.Redirect("HomePage.aspx");
                             }
                             else

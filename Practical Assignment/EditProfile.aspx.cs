@@ -186,9 +186,12 @@ namespace Practical_Assignment
 
                 SqlCommand cmdUpdate = new SqlCommand(strUpdate, con);
 
+                
+
                 cmdUpdate.Parameters.AddWithValue("@password", txtPassword.Text);
                 cmdUpdate.Parameters.AddWithValue("@Email", txtEmail.Text);
                 cmdUpdate.Parameters.AddWithValue("@PhoneNumber", txtPhone.Text);
+                
                 cmdUpdate.Parameters.AddWithValue("@ArtistID", Session["Value"]);
 
                 int n = cmdUpdate.ExecuteNonQuery();
@@ -210,6 +213,8 @@ namespace Practical_Assignment
                     string strUpdate = "UPDATE [Customer] SET Password = @password, Email = @Email, PhoneNumber = @PhoneNumber, Address = @Address WHERE CustomerID = @CustomerID";
 
                     SqlCommand cmdUpdate = new SqlCommand(strUpdate, con);
+
+                    
 
                     cmdUpdate.Parameters.AddWithValue("@password", txtPassword.Text);
                     cmdUpdate.Parameters.AddWithValue("@Email", txtEmail.Text);
@@ -247,6 +252,9 @@ namespace Practical_Assignment
         {
             Response.Redirect("Profile.aspx");
         }
+
+        
+        
     }
 }
 

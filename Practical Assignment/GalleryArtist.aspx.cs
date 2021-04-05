@@ -14,7 +14,7 @@ namespace Practical_Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Session["Value"] = "AR1";
+            Session["Value"] = "AR1";
             SqlConnection con;
             string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             con = new SqlConnection(strcon);
@@ -38,14 +38,16 @@ namespace Practical_Assignment
             {
                 Label1.Text = "No record found";
             }
+            con.Close();
         }
 
         protected void DataList1_ItemDataBound(object sender, DataListItemEventArgs e)
         {
-
+             
             DataRowView datarow = (DataRowView)e.Item.DataItem;
             string imageUrl = "data:image/jpg;base64," + Convert.ToBase64String((byte[])datarow["Image"]);
             (e.Item.FindControl("Image1") as Image).ImageUrl = imageUrl;
+
         }
 
         protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
@@ -56,34 +58,47 @@ namespace Practical_Assignment
                 SqlConnection con;
                 string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 con = new SqlConnection(strcon);
-                string selectedDraw = e.CommandArgument.ToString();
-                con.Open();
-                string strSelect = "DELETE from Gallery Where DrawID=@DrawID and ArtistID = @ArtistID";
-                SqlCommand cmdSelect = new SqlCommand(strSelect, con);
 
-                cmdSelect.Parameters.AddWithValue("@ArtistID", Session["Value"]);
-                cmdSelect.Parameters.AddWithValue("@DrawID", selectedDraw);
-
-                int numRowAffected = cmdSelect.ExecuteNonQuery();
-
-
-                if (numRowAffected > 0)
+                try
                 {
-                    // return insert success
-                    // ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Delete successfully! " + "');", true);
-                    Response.Redirect("GalleryArtist.aspx");
-                }
-                else
+                    string selectedDraw = e.CommandArgument.ToString();
+                    con.Open();
+                    string strSelect = "DELETE from Gallery Where DrawID=@DrawID and ArtistID = @ArtistID";
+                    SqlCommand cmdSelect = new SqlCommand(strSelect, con);
+
+                    cmdSelect.Parameters.AddWithValue("@ArtistID", Session["Value"]);
+                    cmdSelect.Parameters.AddWithValue("@DrawID", selectedDraw);
+
+                    int numRowAffected = cmdSelect.ExecuteNonQuery();
+
+
+                    if (numRowAffected > 0)
+                    {
+                        // return insert success
+                        // ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Delete successfully! " + "');", true);
+                        Response.Redirect("GalleryArtist.aspx");
+                    }
+                    else
+                    {
+                        // return insert failed
+                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Delete failed! " + "');", true);
+                    }
+                    con.Close();
+                }catch(Exception ex)
                 {
-                    // return insert failed
-                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Delete failed! " + "');", true);
+                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Cannot be deleted! " + "');", true);
                 }
-                con.Close();
+                
             }
-
-            if (e.CommandName == "Edit")
+            else if (e.CommandName == "Edit")
             {
+                
                 Response.Redirect("EditDrawingArtist.aspx?id=" + e.CommandArgument.ToString());
+
+            }
+            else
+            {
+                Response.Redirect("CustomerArtManagement.aspx?id=" + e.CommandArgument.ToString());
             }
         }
     }

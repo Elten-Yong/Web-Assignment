@@ -17,7 +17,12 @@
             margin-top:100px;
             background-color: rgb(224, 226, 224);
 
-            
+        }
+
+        .title{
+            width:14%;
+            background-color:darkgrey;
+            padding:5%;
         }
 
         .auto-style {
@@ -28,16 +33,22 @@
 
         .auto-style1 {
             width: 100%;
-            border: 2px solid black;
+            
 
         }
         .width1 {
-            width: 200px;
+            width: 14%;
+            padding: 5%;
+            background-color : lightgray;
+        }
+
+        .btnAll{
+            border-color: #4D94FF; background-color: white; color: #284E98;
         }
 
         </style>
         
-
+    
             <h1 style="text-align:center">Cart</h1><hr />
         
         <div style="width:75%; margin:0 auto; min-height:400px">
@@ -76,45 +87,47 @@
             </div>
         <%}
           else{ %>
-            <table class="auto-style1">
+            <table class="table table-bordered" style="width: 100%;">
                 <tr>
-                    <td class="width1">
+                    <td class="title" style="font-weight: bold">
                         Draw ID
                     </td>
 
-                    <td class="width1">
+                    <td class="title" style="font-weight: bold">
                         Image
                     </td>
 
-                    <td class="width1">
+                    <td class="title" style="font-weight: bold">
                         Name
                     </td>
-                    <td class="width1">
+                    <td class="title" style="font-weight: bold">
                         Price
                     </td>
-                    <td class="width1">
+                    <td class="title" style="font-weight: bold">
                         Customer ID
                     </td>
-                    <td class="width1">
+                    <td class="title" style="font-weight: bold">
                         Buy
                     </td>
-                    <td class="width1">
+                    <td class="title" style="font-weight: bold">
                         Delete
                     </td>
-                </tr>
-            </table>
-            <br/>
-        <div style=" text-align:center; ">
-            <asp:Label ID="Label3" runat="server" Text="" style="font-size:x-large;"></asp:Label></div>
-         <div >
-    
-        
-        <asp:DataList ID="DataList1" runat="server" DataKeyField="CustomerID" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand" Height="16px" Width="100%">
-            <ItemTemplate>
-                <table class="auto-style1">
+                 </tr>
+               </table>
+            <div style="font-size:x-large; margin-top : 1% ; font-weight:bold">
+                Number of items in cart :
+                <asp:Label ID="Label3" runat="server" Text="" ></asp:Label>
+            </div>
+          
+            <asp:DataList ID="DataList1" runat="server" DataKeyField="CustomerID" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand" Height="16px" Width="100%">
+                <ItemTemplate>
+                    <asp:HiddenField ID="HiddenField1" runat="server" Value='<%# Eval("DrawID") %>' />
+                <br/>
+                <table class="table table-bordered" style="width: 100%;">
                     <tr>
                         <td class="width1">
-                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("DrawID") %>'></asp:Label>
+                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("DrawID") %>'></asp:Label><br />
+                            <asp:CheckBox ID="chkEmpty" runat="server" AutoPostBack="true" OnCheckedChanged="Chk_Empty_CheckedChanged" />
                         </td>
                         <td class="width1">
                             <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("Image") %>' Height="100px" Width="100px"/> 
@@ -123,35 +136,39 @@
                             <asp:Label ID="Label2" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
                         </td>
                         <td class="width1">
-                            <asp:Label ID="Label3" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
+                            <asp:Label ID="Label3" runat="server" Text='<%# String.Format("RM {0:0.00}",Eval("TotalPrice")) %>'></asp:Label>                          
+
                         </td>
                         <td class="width1">
                             <asp:Label ID="Label4" runat="server" Text='<%# Eval("CustomerID") %>'></asp:Label>
                         </td>
-                        <td class="width1">
-                            <asp:Button ID="Button2" runat="server" Text="Buy Now" CommandName="BuyDrawing" CommandArgument='<%# Eval("DrawID") %>'/>
+                        <td class="width1" style="text-align:center">
+                            <%--<asp:Button ID="Button2" runat="server" Text="Buy Now" CommandName="BuyDrawing" CommandArgument='<%# Eval("DrawID") %>'/>--%>
+                            <asp:Button ID="Add" runat="server" Text="+" CommandName="Adding" CommandArgument='<%# Eval("DrawID") %>'  /><br />
+                            <asp:Label ID="quantity" width="30px" runat="server" Text='<%# Eval("Quantity") %>'></asp:Label><br />
+                            <asp:Button ID="Subtract" width="26px" runat="server" Text="-" CommandName="Subtract" CommandArgument='<%# Eval("DrawID") %>'  />
                         </td>
                         <td class="width1">
-                            <asp:Button ID="Button1" runat="server" Text="Delete" CommandName="Delete" CommandArgument='<%# Eval("DrawID") %>'/>
+                            <asp:Button ID="Button1" runat="server" CssClass="btnAll" Text="Delete" CommandName="Delete" CommandArgument='<%# Eval("DrawID") %>'/>
                         </td>
                     </tr>
                 </table>
-                <br />
-                <br />
+                
             </ItemTemplate>
-        </asp:DataList>
+            </asp:DataList>
 
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Gallery.Name, Gallery.Price, CartGallery.CustomerID, CartGallery.DrawID, Gallery.Image FROM CartGallery INNER JOIN Gallery ON CartGallery.DrawID = Gallery.DrawID WHERE (CartGallery.CustomerID = @CustomerID)">
-            <SelectParameters>
-                <asp:SessionParameter Name="CustomerID" SessionField="Value" />
-            </SelectParameters>
-        </asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Gallery.Name, Gallery.Price, CartGallery.CustomerID, CartGallery.DrawID, Gallery.Image, CartGallery.Quantity, CartGallery.TotalPrice FROM CartGallery INNER JOIN Gallery ON CartGallery.DrawID = Gallery.DrawID WHERE (CartGallery.CustomerID = @CustomerID)">
+                <SelectParameters>
+                    <asp:SessionParameter Name="CustomerID" SessionField="Value" />
+                </SelectParameters>
+            </asp:SqlDataSource>
     
-        <br />
-    
-    </div>
-    
-
+            <br />
+            <asp:Label ID="totalPrice1" runat="server" Text=""></asp:Label>
+            <br />
+            <div style="text-align : right  ; margin-bottom : 3%">
+            <asp:Button ID="check_Out" runat="server" CssClass="btnAll" Height="80px" Width="160px" Text="Check Out" OnClick="check_Out_Click" />
+            </div>
     <%} %>
     </div>
 </asp:Content>

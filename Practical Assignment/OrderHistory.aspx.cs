@@ -14,15 +14,17 @@ namespace Practical_Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Session["Value"] = "CS1"; //test data
             if (Session["Value"] != "0" && Session["Value"] != null)
             {
-                //Session["Value"] = "CS2"; //test data
+                
                 SqlConnection con;
                 string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 con = new SqlConnection(strcon);
 
                 con.Open();
-                string strSelect = "SELECT count([Order].CustomerID) FROM [Order] INNER JOIN Gallery ON [Order].DrawID = Gallery.DrawID WHERE ([Order].CustomerID = @CustomerID)";
+                // string strSelect = "SELECT count([Order].CustomerID) FROM [Order] INNER JOIN Gallery ON [Order].DrawID = Gallery.DrawID WHERE ([Order].CustomerID = @CustomerID)";
+                string strSelect = "Select count(*) From [Order] Where CustomerID= @CustomerID";
                 SqlCommand cmdSelect = new SqlCommand(strSelect, con);
 
                 cmdSelect.Parameters.AddWithValue("@CustomerID", Session["Value"]);
@@ -33,7 +35,6 @@ namespace Practical_Assignment
                 {
                     // return insert success
                     // ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Delete successfully! " + "');", true);
-
 
                 }
                 else
@@ -48,12 +49,14 @@ namespace Practical_Assignment
             Response.Redirect("SignIn.aspx");
         }
 
-        protected void DataList1_ItemDataBound(object sender, DataListItemEventArgs e)
-        {
+        
 
-            DataRowView datarow = (DataRowView)e.Item.DataItem;
-            string imageUrl = "data:image/jpg;base64," + Convert.ToBase64String((byte[])datarow["Image"]);
-            (e.Item.FindControl("Image1") as Image).ImageUrl = imageUrl;
+        protected void Unnamed_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            if (e.CommandName == "ViewDetails")
+            {
+                Response.Redirect("OrderHistoryDetails.aspx?id=" + e.CommandArgument.ToString());
+            }
         }
     }
 }
