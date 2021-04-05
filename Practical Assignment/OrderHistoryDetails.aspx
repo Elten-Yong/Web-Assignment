@@ -10,8 +10,8 @@
       .tableFormat {
             border-collapse: collapse;
             border-color: white;
-            margin-left: auto;
-            margin-right: auto;
+            margin-left: 10%;
+            margin-right: 10%;
             background-color:darkgray;
             width:1200px;
             height: auto;
@@ -24,8 +24,8 @@
             background-color:lightgray;
             width:1200px;
             height: auto;
-            margin-left: auto;
-            margin-right: auto;
+            margin-left: 10%;
+            margin-right: 10%;
         }
         
        .width1 {
@@ -40,7 +40,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
     <h1 style="text-align:center">Details</h1><hr />
-     <table class="tableFormat">
+    <div style="margin-left: 8%; margin-right: 8%;">
+     <table class="table table-bordered" style="width: 100%; background-color: darkgray">
                 <tr>
                     <th class="title">
                         DrawID
@@ -67,7 +68,7 @@
 
     <asp:DataList ID="DataList1" runat="server" CssStyle="Display : flex"  DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" Width="100%">
         <ItemTemplate>
-            <table class="tableFormat2">
+            <table class="table table-bordered" style="width: 100%; background-color: lightgray">
             <tr>
             <td class="width1">
             <asp:Label ID="DrawIDLabel" CssClass="title" runat="server" Text='<%# Eval("DrawID") %>' />
@@ -79,7 +80,7 @@
             <asp:Label ID="QuantityLabel" runat="server" Text='<%# Eval("Quantity") %>' />
             </td>
             <td class="width1">
-            <asp:Label ID="PriceLabel" runat="server" Text='<%# Eval("Price") %>' />
+            <asp:Label ID="PriceLabel" runat="server" Text='<%# String.Format("RM {0:0.00}",Eval("Price")) %>' />
             </td>
             <td class="width1">
             <asp:Label ID="NameLabel" runat="server" Text='<%# Eval("Name") %>' />
@@ -89,9 +90,11 @@
             </tr>
             </table>
             <br />
-<br />
+            <br />
         </ItemTemplate>
     </asp:DataList>
+    </div>
+
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Gallery.DrawID, OrderDetails.OrderID, OrderDetails.[Quantity], OrderDetails.Price, Gallery.Name, Gallery.Image FROM Gallery INNER JOIN OrderDetails ON Gallery.DrawID = OrderDetails.DrawID WHERE (OrderDetails.OrderID = @OrderID)">
         <SelectParameters>
             <asp:QueryStringParameter Name="OrderID" QueryStringField="id" />
