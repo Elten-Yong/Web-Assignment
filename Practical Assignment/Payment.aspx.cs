@@ -262,11 +262,13 @@ namespace Practical_Assignment
         {
             if (RadioButtonList1.SelectedValue.Equals("Master/Visa Card"))
             {
-                TextBox1.Visible = true;
+                CreditDetail.Visible = true;
+                
             }
             else
             {
-                TextBox1.Visible = false;
+                CreditDetail.Visible = false;
+                
             }
         }
     }
