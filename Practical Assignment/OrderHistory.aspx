@@ -80,14 +80,14 @@
                     </th>
 
                     <th class="width1">
-                        Draw ID
+                        Date
                     </th>
 
                     <th class="width1">
                         Price
                     </th>
                     <th class="width1">
-                        Date
+                        Detail
                     </th>
                 </tr>
             </table>
