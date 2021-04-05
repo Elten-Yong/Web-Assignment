@@ -15,6 +15,7 @@ namespace Practical_Assignment
         protected void Page_Load(object sender, EventArgs e)
         {
             //Session["Value"] = "AR1"; //test data
+
             if (Session["Value"] != "0" && Session["Value"] != null)
             {
 
@@ -23,12 +24,10 @@ namespace Practical_Assignment
                 con = new SqlConnection(strcon);
 
                 con.Open();
-                // string strSelect = "SELECT count([Order].CustomerID) FROM [Order] INNER JOIN Gallery ON [Order].DrawID = Gallery.DrawID WHERE ([Order].CustomerID = @CustomerID)";
-                string strSelect = "Select count(*) From [Order] Where CustomerID= @CustomerID";
+                string strSelect = "Select count(*) From [OrderDetails] Where  DrawID = @DrawID";
                 SqlCommand cmdSelect = new SqlCommand(strSelect, con);
 
-                cmdSelect.Parameters.AddWithValue("@CustomerID", Session["Value"]);
-
+                cmdSelect.Parameters.AddWithValue("@DrawID", HttpContext.Current.Request.QueryString["id"].ToString());
                 int numRowAffected = (int)cmdSelect.ExecuteScalar();
 
                 if (numRowAffected > 0)
@@ -39,7 +38,7 @@ namespace Practical_Assignment
                 }
                 else
                 {
-                    Label3.Text = "No record found";
+                   Label3.Text = "No record found";
                 }
             }
         }

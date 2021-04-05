@@ -119,7 +119,7 @@
         </ItemTemplate>
 
     </asp:DataList>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Order] WHERE ([CustomerID] = @CustomerID)">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Order] WHERE ([CustomerID] = @CustomerID) ORDER BY Date DESC">
         <SelectParameters>
             <asp:SessionParameter Name="CustomerID" SessionField="Value" Type="String" />
         </SelectParameters>
