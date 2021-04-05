@@ -83,20 +83,20 @@
     </asp:RadioButtonList>
 
     <div runat="server" id="CreditDetail" Visible="False" >
-        <p> Card No : </p><asp:TextBox ID="TextBox1" runat="server" ></asp:TextBox>
+        <p> Card No : </p><asp:TextBox ID="TextBox1" runat="server" placeholder="1111-2222-3333-4444"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*This field is required." SetFocusOnError="True" ForeColor="Red" ControlToValidate="Textbox1"></asp:RequiredFieldValidator>
         <br />
         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Please enter a valid card no." SetFocusOnError="True" ForeColor="Red" ControlToValidate="Textbox1" ValidationExpression="\d{4}(\-\d{4}(\-\d{4}(\-\d{4})))"></asp:RegularExpressionValidator>
        
-        <p> CVV : </p> <asp:TextBox ID="TextBox2" runat="server" ></asp:TextBox>
+        <p> CVV : </p> <asp:TextBox ID="TextBox2" runat="server" placeholder="123"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*This field is required." SetFocusOnError="True" ForeColor="Red" ControlToValidate="Textbox2"></asp:RequiredFieldValidator>
         <br />
         <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Please enter a cvv no." SetFocusOnError="True" ForeColor="Red" ControlToValidate="Textbox2" ValidationExpression="^\d{3}"></asp:RegularExpressionValidator>
         
-        <p> Expired Date : </p> <asp:TextBox ID="TextBox3" runat="server"  ></asp:TextBox>
+        <p> Expired Date : </p> <asp:TextBox ID="TextBox3" runat="server" placeholder="12/25"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*This field is required." SetFocusOnError="True" ForeColor="Red" ControlToValidate="Textbox3"></asp:RequiredFieldValidator>
         <br />
-        <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Please enter a valid expired date." SetFocusOnError="True" ForeColor="Red" ControlToValidate="Textbox3" ValidationExpression="^\d{0,2}(\/\d{1,2})?$"></asp:RegularExpressionValidator>
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Please enter a valid expired date." SetFocusOnError="True" ForeColor="Red" ControlToValidate="Textbox3" ValidationExpression="^\d{0,2}(\/\d{1,2})?$" ></asp:RegularExpressionValidator>
         <br />
      </div>
 
