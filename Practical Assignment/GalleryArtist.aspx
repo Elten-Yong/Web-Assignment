@@ -2,10 +2,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .width1 {
-            width: 14%;
-            padding: 5%;
+            width: 2000px;
+            
         }
-        
+        .tablestyle1{
+            margin-left: auto; 
+            margin-right: auto;
+            width: 50%;
+            border: 2px black;
+
+        }
         
     </style>
 </asp:Content>
@@ -15,7 +21,7 @@
     <div style="text-align: center">
         <asp:Label ID="Label1" runat="server" Text="" style="font-size: x-large;"></asp:Label>   
     </div>
-    <div style="margin-left: 8%; margin-right: 8%;">
+    <div style="margin:0 auto; width:75%; min-height:400px">
          
          <table class="table table-bordered" style="width: 100%; background-color: darkgray">
                 <tr>
@@ -55,13 +61,13 @@
                 
                 <tr>
                     <td Class="width1">
-                        <asp:Label ID="Label2" runat="server" Text='<%# Eval("DrawID") %>' CssClass="width1"></asp:Label>
+                        <asp:Label ID="Label2" runat="server" Text='<%# Eval("DrawID") %>'></asp:Label>
                     </td>
                     <td Class="width1">
-                        <asp:Label ID="Label3" runat="server" Text='<%# Eval("Name") %>' CssClass="width1"></asp:Label>
+                        <asp:Label ID="Label3" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
                     </td>
                     <td Class="width1">
-                        <asp:Label ID="Label7" runat="server" Text='<%# Eval("Category") %>' CssClass="width1"></asp:Label>
+                        <asp:Label ID="Label7" runat="server" Text='<%# Eval("Category") %>'></asp:Label>
                     </td>
                     <td Class="width1">
                         <%--<asp:Image CssClass="width1" ID="Image1" runat="server" ImageUrl='<%# Eval("Image") %>' Height="75px" Width="100px"/>--%>
