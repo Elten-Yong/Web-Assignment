@@ -9,7 +9,7 @@
             border: none;
             border-bottom : 1px solid black;
             Width: 230px ;
-            background-color: rgb(224, 226, 224);
+            background-color: lightgray;
         }
 
         .auto-style2 {
@@ -24,7 +24,7 @@
             height: auto;
             width :700px;
             margin:4% auto 4% auto;
-            background-color: rgb(224, 226, 224);
+            background-color: lightgray;
         }
         .btnType{
             text-align:center;
@@ -105,9 +105,17 @@
                             <td class="auto-style4">Email:</td>
                             <td class="auto-style2">
                                 <asp:TextBox ID="txtEmail" runat="server" CssClass="form"></asp:TextBox>
-                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmail" ErrorMessage="Please enter a valid email address" Font-Size="Small" ForeColor="Red" ValidationExpression="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"></asp:RegularExpressionValidator>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmail" ErrorMessage="Please enter a valid email address" Font-Size="Small" ForeColor="Red" ValidationExpression="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" SetFocusOnError="True"></asp:RegularExpressionValidator>
+                                
+                                <br />
                             </td>
                         </tr>
+                                  <tr>
+                                      <td class="auto-style4">&nbsp;</td>
+                                      <td class="auto-style2">
+                                          <asp:RequiredFieldValidator ID="emailRequired" runat="server" ControlToValidate="txtEmail" ErrorMessage="Email address can not be empty." Font-Size="Small" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                      </td>
+                                  </tr>
                         <tr>
                             <td class="auto-style4">
                                 
@@ -116,10 +124,16 @@
                                 
                                 <asp:TextBox ID="txtPassword" runat="server" CssClass="form" Width="230px"></asp:TextBox>
                                 
-                                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtPassword" ErrorMessage="Please enter a strong password include characters and number with a min length 8" Font-Size="Small" ForeColor="Red" ValidationExpression="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"></asp:RegularExpressionValidator>
+                                <asp:RequiredFieldValidator ID="passwordRequired" runat="server" ControlToValidate="txtPassword" ErrorMessage="Password is required" Font-Size="Small" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                 
                             </td>
                         </tr>
+                                  <tr>
+                                      <td class="auto-style4">&nbsp;</td>
+                                      <td class="auto-style2">
+                                          <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtPassword" ErrorMessage="Please enter a strong password include characters and number with a min length 8" Font-Size="Small" ForeColor="Red" SetFocusOnError="True" ValidationExpression="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"></asp:RegularExpressionValidator>
+                                      </td>
+                                  </tr>
                         <tr>
                             <td class="auto-style4">
                     
@@ -129,7 +143,7 @@
                             <td class="auto-style2">
                     
                                 <asp:TextBox ID="txtPhone" runat="server" CssClass="form"></asp:TextBox>
-                    
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Required proper phone format." ControlToValidate="txtPhone" ValidationExpression="^(\+?6?01)[0-46-9]-*[0-9]{7,8}$"  Font-Size="Small" ForeColor="Red" SetFocusOnError="True"></asp:RegularExpressionValidator>
                             </td>
                         </tr>
             

@@ -10,7 +10,7 @@
             margin-right: auto;
             margin-bottom: 100px;
             margin-top: 50px;
-            background-color: rgb(224, 226, 224);
+            background-color: lightgray;
         }
         .tableFormat1 {
             border-collapse: collapse;
@@ -21,7 +21,7 @@
             margin-right: auto;
             margin-bottom: 180px;
             margin-top: 100px;
-            background-color: rgb(224, 226, 224);
+            background-color: lightgray;
         }
         .txtType{
             text-align:center;
@@ -51,7 +51,7 @@
             border: none;
             border-bottom : 1px solid black;
             Width: 230px ;
-            background-color: rgb(224, 226, 224);
+            background-color: lightgray;
         }
 
  
