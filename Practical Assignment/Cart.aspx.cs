@@ -504,7 +504,7 @@ namespace Practical_Assignment
                     System.Decimal totalPriceCheckOut = (System.Decimal)cmdSelect5.ExecuteScalar();
                     conn.Close();
 
-                    totalPrice1.Text = totalPriceCheckOut.ToString();
+                    totalPrice1.Text = String.Format("{0:0.00}", totalPriceCheckOut).ToString();
                 }
                 else
                 {
