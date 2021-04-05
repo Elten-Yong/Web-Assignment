@@ -78,7 +78,7 @@ namespace Practical_Assignment
 
             if(Global.accountType == "a")
             {
-                con.Open(); 
+                con.Open();
 
                 string strUpdate = "UPDATE [Artist] SET ProfilePicture = @ProfilePicture WHERE ArtistID = @ArtistID";
 
@@ -87,18 +87,22 @@ namespace Practical_Assignment
                 string fileName = Path.GetFileName(FileUpload1.PostedFile.FileName);
                 string filePath = "ProfilePic/" + fileName;
                 FileUpload1.PostedFile.SaveAs(Server.MapPath(filePath));
-                cmdUpdate.Parameters.AddWithValue("@ProfilePicture", filePath);
-                cmdUpdate.Parameters.AddWithValue("@ArtistID", Session["Value"]);
+
+                try
+                {
+                    cmdUpdate.Parameters.AddWithValue("@ProfilePicture", filePath);
+                    cmdUpdate.Parameters.AddWithValue("@ArtistID", Session["Value"]);
+                }
+                catch(Exception ex)
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Please insert other picture." + "');", true);
+                }
+
+                
+               
 
                 int n = cmdUpdate.ExecuteNonQuery();
-                if (n > 0) // Use to check whether the value have been insert into the database
-                {
-                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Edit Account Successfully Created!" + "');", true);
-                }
-                else
-                {
-                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Failed!" + "');", true);
-                }
+
                 con.Close();
 
                 
@@ -114,18 +118,19 @@ namespace Practical_Assignment
                 string fileName = Path.GetFileName(FileUpload1.PostedFile.FileName);
                 string filePath = "ProfilePic/" + fileName;
                 FileUpload1.PostedFile.SaveAs(Server.MapPath(filePath));
-                cmdUpdate.Parameters.AddWithValue("@ProfilePicture", filePath);
-                cmdUpdate.Parameters.AddWithValue("@CUstomerID", Session["Value"]);
+
+                try
+                {
+                    cmdUpdate.Parameters.AddWithValue("@ProfilePicture", filePath);
+                    cmdUpdate.Parameters.AddWithValue("@CUstomerID", Session["Value"]);
+                }
+                catch(Exception ex)
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Please insert other picture." + "');", true);
+                }
 
                 int n = cmdUpdate.ExecuteNonQuery();
-                if (n > 0) // Use to check whether the value have been insert into the database
-                {
-                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Edit Account Successfully Created!" + "');", true);
-                }
-                else
-                {
-                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Failed!" + "');", true);
-                }
+
                 con.Close();
             }
 
