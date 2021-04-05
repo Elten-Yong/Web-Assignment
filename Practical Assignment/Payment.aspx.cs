@@ -227,13 +227,13 @@ namespace Practical_Assignment
                         client.Credentials = new System.Net.NetworkCredential("testingg726@gmail.com", "abcd.1234"); 
                         client.Send(message);
 
-                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Payment Successfulyly! " + "');", true);
+                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Payment Successfully! " + "');", true);
                         Response.Redirect("HomePage.aspx");
 
                     }
                     else
                     {
-                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "update failed! " + "');", true);
+                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "payment failed! " + "');", true);
                     }
                     
 
@@ -263,6 +263,9 @@ namespace Practical_Assignment
             if (RadioButtonList1.SelectedValue.Equals("Master/Visa Card"))
             {
                 CreditDetail.Visible = true;
+                TextBox1.Text = "XXXX-XXXX-XXXX-XXXX";
+                TextBox2.Text = "XXX";
+                TextBox3.Text = "X/XX";
                 
             }
             else
