@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .auto-style1 {
-            width: 100%;
+            width: 80%;
         }
 
         .width1 {
@@ -13,12 +13,44 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
 
+    <div style="margin-left: auto; margin-right: auto">
+        <h2 style="text-align: center">
+            Checkout Payment Page
+        </h2>
+
+        <div style="text-align: center">
+            Please ensure that all of the details are correct before click the confirm checkout.
+        </div>
+        <br />
+        <br />
+        <h4 style="margin-left: 20px">
+            Delivery Address
+        </h4>
+        <div>
+            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        </div>
+        <div>
+            
+        </div>
+        <div>
+            Address not correct? Click <asp:LinkButton ID="EditAddress" runat="server" OnClick="EditAddress_Click">Edit</asp:LinkButton> to modify your address.
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
     <p>
         Delivery Address</p>
     <table style="width:100%">
         <tr>
-            <td style="width:90%"><asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></td>
-            <td><asp:LinkButton ID="EditAddress" runat="server" OnClick="EditAddress_Click">Edit</asp:LinkButton></td>
+            <td style="width:90%"></td>
+            <td></td>
         </tr>
     </table>
     
@@ -91,5 +123,4 @@
     
     <br />
     <asp:Button ID="btnConfirm" runat="server" Text="Confirm Purchase" OnClick="btnConfirm_Click" />
-
 </asp:Content>
