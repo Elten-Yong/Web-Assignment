@@ -37,6 +37,14 @@
             margin-left:10px;
 
         }
+        .auto-style8 {
+            border-collapse: collapse;
+            height: auto;
+            width: 873px;
+            background-color: white;
+            margin-bottom : 1%;
+            height: 300px;
+        }
     </style>
 
 </asp:Content>
@@ -58,7 +66,7 @@
             </p>
             <br />
                 
-    <table class ="tableFormat">
+    <table class ="auto-style8">
 
         <tr>
             <td class="auto-style5">Art Details</td>
@@ -69,7 +77,9 @@
         <tr>
             <td class="auto-style7">Art name : </td>
             <td class="auto-style3">
-                <asp:TextBox ID="ArtName" runat="server" Width="267px"></asp:TextBox></td>
+                <asp:TextBox ID="ArtName" runat="server" Width="267px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*This field is required." SetFocusOnError="True" ControlToValidate="ArtName" ForeColor="Red"></asp:RequiredFieldValidator>
+            </td>
         </tr>   
 
         <tr>
@@ -77,7 +87,8 @@
                 Art Description :
             </td>
             <td class="auto-style3">
-                <asp:TextBox runat="server" ID="ArtDescription" TextMode="Multiline" Columns="20" Name="S1" Rows="2" Height="98px" Width="271px" style="resize:none;"></asp:TextBox>
+                <asp:TextBox runat="server" ID="ArtDescription" TextMode="Multiline" Columns="20" Name="S1" Rows="2" Height="95px" Width="591px" style="resize:none;"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*This field is required." SetFocusOnError="True" ControlToValidate="ArtDesciption" ForeColor="Red"></asp:RequiredFieldValidator>
             </td>
         </tr>
 
@@ -87,6 +98,9 @@
             </td>
             <td class="auto-style3">
                 <asp:TextBox ID="Price" runat="server" Width="265px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*This field id required." ControlToValidate="Price" SetFocusOnError="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                <br />
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Please Enter Your Correct Product Price" ControlToValidate="Price" ValidationExpression="^\d{0,8}(\.\d{1,2})?$" SetFocusOnError="True" ForeColor="Red"></asp:RegularExpressionValidator>
             </td>
         </tr>
         <tr>

@@ -127,7 +127,7 @@ namespace Practical_Assignment
                     if (numRowAffected > 0)
                     {
                         //extract item quantity 
-                        messageContent = "You have bought 1 piece of art which the ID is" + Drawid + " with a total of RM" + totalPrice;
+                        messageContent = "You have bought 1 piece of art which the ID is " + Drawid + " with a total of RM" + totalPrice;
                         con.Open();
                         string strSelectTotal = "SELECT Total FROM [Gallery] Where DrawID = @DrawID1";
                         SqlCommand cmdSelectTotal = new SqlCommand(strSelectTotal, con);
@@ -183,11 +183,14 @@ namespace Practical_Assignment
         {
             if (RadioButtonList1.SelectedValue.Equals("Master/Visa Card"))
             {
-                TextBox1.Visible = true;
+                CreditDetail.Visible = true;
+                TextBox1.Text = "XXXX-XXXX-XXXX-XXXX";
+                TextBox2.Text = "XXX";
+                TextBox3.Text = "X/XX";
             }
             else
             {
-                TextBox1.Visible = false;
+                CreditDetail.Visible = false;
             }
         }
 
