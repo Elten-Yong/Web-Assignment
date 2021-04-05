@@ -92,16 +92,17 @@ namespace Practical_Assignment
                 {
                     cmdUpdate.Parameters.AddWithValue("@ProfilePicture", filePath);
                     cmdUpdate.Parameters.AddWithValue("@ArtistID", Session["Value"]);
+                    int n = cmdUpdate.ExecuteNonQuery();
                 }
                 catch(Exception ex)
                 {
-                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Please insert other picture." + "');", true);
+                    Console.WriteLine("Something went wrong.");
                 }
 
                 
                
 
-                int n = cmdUpdate.ExecuteNonQuery();
+                
 
                 con.Close();
 
@@ -123,14 +124,15 @@ namespace Practical_Assignment
                 {
                     cmdUpdate.Parameters.AddWithValue("@ProfilePicture", filePath);
                     cmdUpdate.Parameters.AddWithValue("@CUstomerID", Session["Value"]);
+                    int n = cmdUpdate.ExecuteNonQuery();
+
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Please insert other picture." + "');", true);
+                    Console.WriteLine("Something went wrong.");
                 }
 
-                int n = cmdUpdate.ExecuteNonQuery();
-
+                
                 con.Close();
             }
 
