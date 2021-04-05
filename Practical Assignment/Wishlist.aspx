@@ -71,7 +71,7 @@
      <%}
           else{ %>
     <div style="width:75%; margin:0 auto; min-height:400px">
-    <table class="auto-style1">
+    <table class="table table-bordered" style="width: 100%; background-color: darkgray">
                 <tr>
                     <th class="auto-style2">
                         Draw ID
@@ -102,7 +102,7 @@
         <asp:DataList ID="DataList1" runat="server" DataKeyField="CustomerID" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand" Height="16px" Width="100%">
             <ItemTemplate>
                 <br />
-                <table class="auto-style1">
+                <table class="table table-bordered" style="width: 100%; background-color: lightgray">
                     <tr>
                         <td class="width1">
                             
@@ -114,7 +114,7 @@
                         </td>
                         <td class="width1">
                             
-                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("Image") %>' Height="150px" Width="150px" />
+                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("Image") %>' Height="100px" Width="100px" />
                         </td>
                         <td class="width1">
                             

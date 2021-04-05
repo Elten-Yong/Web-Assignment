@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .width1 {
-            width: 100px;
+            width: 120px;
         }
         .tablestyle1{
             margin-left: auto; 
@@ -14,15 +14,14 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
-    <h2 style="text-align:center;">Manage Art</h2>
+    <h1 style="text-align:center;">Manage Art</h1>
     <hr />
     <div style="text-align: center">
         <asp:Label ID="Label1" runat="server" Text="" style="font-size: x-large;"></asp:Label>   
     </div>
-    <div style="margin-left: 25%; margin-right: 25%;">
-    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand">
-        <ItemTemplate>
-            <table class="table table-bordered" style="width: 100%;">
+    <div style="margin-left: 8%; margin-right: 8%;">
+         
+         <table class="table table-bordered" style="width: 100%;">
                 <tr>
                     <th Class="width1">
                         Draw ID
@@ -52,35 +51,41 @@
                         Delete
                     </th>
                 </tr>
+             </table>
+
+    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand">
+        <ItemTemplate>
+            <table class="table table-bordered" style="width: 100%;" >
+                
                 <tr>
-                    <td>
-                        <asp:Label CssClass="width1" ID="Label2" runat="server" Text='<%# Eval("DrawID") %>'></asp:Label>
+                    <td Class="width1">
+                        <asp:Label ID="Label2" runat="server" Text='<%# Eval("DrawID") %>'></asp:Label>
                     </td>
-                    <td>
-                        <asp:Label CssClass="width1" ID="Label3" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
+                    <td Class="width1">
+                        <asp:Label ID="Label3" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
                     </td>
-                    <td>
+                    <td Class="width1">
                         <asp:Label ID="Label7" runat="server" Text='<%# Eval("Category") %>'></asp:Label>
                     </td>
-                    <td>
+                    <td Class="width1">
                         <%--<asp:Image CssClass="width1" ID="Image1" runat="server" ImageUrl='<%# Eval("Image") %>' Height="75px" Width="100px"/>--%>
                         <asp:ImageButton ID="Image1" runat="server" ImageUrl='<%# Eval("Image") %>' Height="75px" Width="100px" CommandName="ClickImage" CommandArgument='<%# Eval("DrawID") %>'/>
                     </td>
-                    <td>
-                        <asp:Label CssClass="width1" ID="Label4" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
+                    <td Class="width1">
+                        <asp:Label ID="Label4" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
                     </td>
-                    <td>
+                    <td Class="width1">
                         <asp:Label ID="Label6" runat="server" Text='<%# Eval("Total") %>'></asp:Label>
                     </td>
-                    <td>
-                        <asp:Label CssClass="width1" ID="Label5" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
+                    <td Class="width1">
+                        <asp:Label ID="Label5" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
                     </td>
-                    <td>
+                    <td Class="width1">
                         
-                        <asp:Button CssClass="width1" ID="Button1" runat="server" Text="Edit" CommandName="Edit" CommandArgument='<%# Eval("DrawID") %>'/>
+                        <asp:Button ID="Button1" runat="server" Text="Edit" CommandName="Edit" CommandArgument='<%# Eval("DrawID") %>'/>
                     </td>
-                    <td>
-                        <asp:Button CssClass="width1" ID="Button2" runat="server" Text="Delete" CommandName="Delete" CommandArgument='<%# Eval("DrawID") %>' />
+                    <td Class="width1">
+                        <asp:Button ID="Button2" runat="server" Text="Delete" CommandName="Delete" CommandArgument='<%# Eval("DrawID") %>' />
                     </td>
                 </tr>
             </table>
