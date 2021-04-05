@@ -21,7 +21,7 @@
     </div>
     <div style="margin-left: 8%; margin-right: 8%;">
          
-         <table class="table table-bordered" style="width: 100%;">
+         <table class="table table-bordered" style="width: 100%; background-color: darkgray">
                 <tr>
                     <th Class="width1">
                         Draw ID
@@ -55,7 +55,7 @@
 
     <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand">
         <ItemTemplate>
-            <table class="table table-bordered" style="width: 100%;" >
+            <table class="table table-bordered" style="width: 100%; background-color: lightgray" >
                 
                 <tr>
                     <td Class="width1">
