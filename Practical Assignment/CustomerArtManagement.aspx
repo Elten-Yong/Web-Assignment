@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .width1 {
-            width: 150px;
+            width: 10%;
         }
     </style>
 </asp:Content>
