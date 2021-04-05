@@ -2,14 +2,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .width1 {
-            width: 120px;
+            width: 14%;
+            padding: 5%;
         }
-        .tablestyle1{
-            margin-left: auto; 
-            margin-right: auto;
-            width: 50%;
-            border: 2px black;
-        }
+        
         
     </style>
 </asp:Content>
@@ -59,13 +55,13 @@
                 
                 <tr>
                     <td Class="width1">
-                        <asp:Label ID="Label2" runat="server" Text='<%# Eval("DrawID") %>'></asp:Label>
+                        <asp:Label ID="Label2" runat="server" Text='<%# Eval("DrawID") %>' CssClass="width1"></asp:Label>
                     </td>
                     <td Class="width1">
-                        <asp:Label ID="Label3" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
+                        <asp:Label ID="Label3" runat="server" Text='<%# Eval("Name") %>' CssClass="width1"></asp:Label>
                     </td>
                     <td Class="width1">
-                        <asp:Label ID="Label7" runat="server" Text='<%# Eval("Category") %>'></asp:Label>
+                        <asp:Label ID="Label7" runat="server" Text='<%# Eval("Category") %>' CssClass="width1"></asp:Label>
                     </td>
                     <td Class="width1">
                         <%--<asp:Image CssClass="width1" ID="Image1" runat="server" ImageUrl='<%# Eval("Image") %>' Height="75px" Width="100px"/>--%>
