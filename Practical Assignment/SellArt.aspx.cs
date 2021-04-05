@@ -13,7 +13,7 @@ namespace Practical_Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["Value"] = "AR1";
+            //Session["Value"] = "AR1";
         }
 
         protected void Submit_Click(object sender, EventArgs e)

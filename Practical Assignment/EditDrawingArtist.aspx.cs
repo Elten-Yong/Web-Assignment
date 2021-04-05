@@ -12,10 +12,38 @@ namespace Practical_Assignment
 {
 	public partial class EditDrawingArtist : System.Web.UI.Page
 	{
-		protected void Page_Load(object sender, EventArgs e)
+        string Drawid;
+        protected void Page_Load(object sender, EventArgs e)
 		{
+            Drawid = HttpContext.Current.Request.QueryString["id"].ToString();
+            if (!IsPostBack)
+            {
 
-		}
+                SqlConnection con;
+                string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+                con = new SqlConnection(strcon);
+
+                con.Open();
+                string strSelect = "SELECT * FROM Gallery WHERE DrawID=@DrawID";
+
+                SqlCommand cmdSelect = new SqlCommand(strSelect, con);
+                cmdSelect.Parameters.AddWithValue("@DrawID", Drawid);
+                SqlDataReader dtr = cmdSelect.ExecuteReader();
+
+                if (dtr.HasRows)
+                {
+                    while (dtr.Read())
+                    {
+                        NameTxt.Text = dtr["Name"].ToString();
+                        DescriptionTxt.Text = dtr["Description"].ToString();
+                        QuantityTxt.Text = dtr["Total"].ToString();
+                        PriceTxt.Text = String.Format("{0:0.00}", dtr["Price"]).ToString();
+
+                    }
+                }
+                con.Close();
+            }
+        }
 
         protected void DataList1_ItemDataBound(object sender, DataListItemEventArgs e)
         {
@@ -32,20 +60,21 @@ namespace Practical_Assignment
                 string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 con = new SqlConnection(strcon);
 
-                string selectedDraw = e.CommandArgument.ToString();
                 con.Open();
 
-                string strUpdate = "Update Gallery SET Name=@Name, Description=@Description, Total=@Total, Price=@Price WHERE DrawID=@DrawID";
+                string strUpdate = "UPDATE [Gallery] SET Name = @Name, Description = @Description, Total = @Total, Price = @Price WHERE DrawID = @DrawID";
                 SqlCommand cmdUpdate = new SqlCommand(strUpdate, con);
 
-                cmdUpdate.Parameters.AddWithValue("@DrawID", selectedDraw);
+                cmdUpdate.Parameters.AddWithValue("@DrawID", Drawid);
                 cmdUpdate.Parameters.AddWithValue("@Name", NameTxt.Text);
                 cmdUpdate.Parameters.AddWithValue("@Description", DescriptionTxt.Text);
-                cmdUpdate.Parameters.AddWithValue("@Total", QuantityTxt.Text);
-                cmdUpdate.Parameters.AddWithValue("@Price", PriceTxt.Text);
+                cmdUpdate.Parameters.AddWithValue("@Total", Int32.Parse(QuantityTxt.Text));
+                double priceTxtDb = Convert.ToDouble(PriceTxt.Text);
+                cmdUpdate.Parameters.AddWithValue("@Price", (System.Decimal)priceTxtDb);
 
                 int numRowAffected = cmdUpdate.ExecuteNonQuery();
 
+               
                 if (numRowAffected > 0)
                 {
                     // return insert success
@@ -60,6 +89,11 @@ namespace Practical_Assignment
                 con.Close();
 
 
+            }
+
+            if (e.CommandName == "CancelEdit")
+            {
+                Response.Redirect("GalleryArtist.aspx");
             }
         }
 
