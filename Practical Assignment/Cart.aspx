@@ -87,7 +87,7 @@
             </div>
         <%}
           else{ %>
-            <table class="table table-bordered" style="width: 100%;">
+            <table class="table table-bordered" style="width: 100%; background-color: darkgray">
                 <tr>
                     <td class="title" style="font-weight: bold">
                         Draw ID
@@ -123,7 +123,7 @@
                 <ItemTemplate>
                     <asp:HiddenField ID="HiddenField1" runat="server" Value='<%# Eval("DrawID") %>' />
                 <br/>
-                <table class="table table-bordered" style="width: 100%;">
+                <table class="table table-bordered" style="width: 100%; background-color: lightgray">
                     <tr>
                         <td class="width1">
                             <asp:Label ID="Label1" runat="server" Text='<%# Eval("DrawID") %>'></asp:Label><br />

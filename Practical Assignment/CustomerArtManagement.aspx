@@ -9,7 +9,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server" >
     <h1 style="text-align: center">Order management</h1><hr/>
     
-    <div style="width:85%; margin: 0% 10% 0% 10%; min-height:400px">
+    <div style="margin-left: 6%; margin-right: 6%; min-height:400px">
     <table class="table table-bordered" style="width: 100%; background-color: darkgray">
                 <tr>
                     <td class ="width1">
