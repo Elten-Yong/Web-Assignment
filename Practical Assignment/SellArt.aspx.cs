@@ -23,14 +23,14 @@ namespace Practical_Assignment
             con = new SqlConnection(strcon);
             con.Open();
 
-            string strSelect = "Select MAX(DrawID) from Gallery";
+            string strSelect = "Select count(DrawID) from Gallery";
             SqlCommand cmdSelect = new SqlCommand(strSelect, con);
 
-            string total = (string)cmdSelect.ExecuteScalar();
+            int total = (int)cmdSelect.ExecuteScalar();
            
             con.Close();
 
-            int newIndex = int.Parse(total.Remove(0, 2)) + 1;
+            int newIndex = total + 1;
              
             string drawID = "DR" + newIndex.ToString();
 
