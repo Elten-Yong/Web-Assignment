@@ -14,8 +14,10 @@ namespace Practical_Assignment
 {
     public partial class Payment : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["Value"] = "CS1";
             loadAddress();
         }
 
@@ -30,9 +32,6 @@ namespace Practical_Assignment
                 con.Open();
                 string strSelect = "SELECT Address from Customer Where CustomerID = @CustomerID";
                 SqlCommand cmdSelect = new SqlCommand(strSelect, con);
-
-                //cmdSelect.Parameters.AddWithValue("@CustomerID", Session["Value"]);
-
                 cmdSelect.Parameters.AddWithValue("@CustomerID", Session["Value"]);
                 string address = cmdSelect.ExecuteScalar().ToString();
                 con.Close();
@@ -42,7 +41,6 @@ namespace Practical_Assignment
             {
                 Label1.Text = "";
             }
-            
            
         }
 
@@ -202,8 +200,6 @@ namespace Practical_Assignment
                         cmdUpdate.Parameters.AddWithValue("@Total", quantity);
                         numRowAffected3 = cmdUpdate.ExecuteNonQuery();
                         con.Close();
-
-
                     }
 
                     if (numRowAffected > 0 && numRowAffected1 > 0 && numRowAffected2 > 0 && numRowAffected3 > 0)
@@ -262,16 +258,11 @@ namespace Practical_Assignment
         {
             if (RadioButtonList1.SelectedValue.Equals("Master/Visa Card"))
             {
-                CreditDetail.Visible = true;
-                //TextBox1.Text = "XXXX-XXXX-XXXX-XXXX";
-                //TextBox2.Text = "XXX";
-                //TextBox3.Text = "X/XX";
-                
+                CreditDetail.Visible = true;                
             }
             else
             {
-                CreditDetail.Visible = false;
-                
+                CreditDetail.Visible = false;             
             }
         }
     }
