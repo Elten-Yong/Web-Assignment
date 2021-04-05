@@ -208,7 +208,7 @@ namespace Practical_Assignment
 
                     if (numRowAffected > 0 && numRowAffected1 > 0 && numRowAffected2 > 0 && numRowAffected3 > 0)
                     {
-                        messageContent = messageContent + " <br /> You have bought " + totalRow + " piece of art which are " + drawIDMessage + "with total of RM" + totalPriceCheckOut;
+                        messageContent = messageContent + " You have bought " + totalRow + " piece of art which are " + drawIDMessage + " with total of RM" + totalPriceCheckOut;
                         //Extract gamil
                         con.Open();
                         string strSelect6 = "Select Email From Customer Where CustomerID = @CustomerID6";
@@ -227,13 +227,13 @@ namespace Practical_Assignment
                         client.Credentials = new System.Net.NetworkCredential("testingg726@gmail.com", "abcd.1234"); 
                         client.Send(message);
 
-                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Payment Successfulyly! " + "');", true);
+                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Payment Successfully! " + "');", true);
                         Response.Redirect("HomePage.aspx");
 
                     }
                     else
                     {
-                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "update failed! " + "');", true);
+                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "payment failed! " + "');", true);
                     }
                     
 
@@ -262,11 +262,16 @@ namespace Practical_Assignment
         {
             if (RadioButtonList1.SelectedValue.Equals("Master/Visa Card"))
             {
-                TextBox1.Visible = true;
+                CreditDetail.Visible = true;
+                TextBox1.Text = "XXXX-XXXX-XXXX-XXXX";
+                TextBox2.Text = "XXX";
+                TextBox3.Text = "X/XX";
+                
             }
             else
             {
-                TextBox1.Visible = false;
+                CreditDetail.Visible = false;
+                
             }
         }
     }

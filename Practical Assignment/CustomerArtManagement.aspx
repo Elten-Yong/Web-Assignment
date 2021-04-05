@@ -8,13 +8,14 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server" >
-    <h1>Order management</h1>
-    <table class="auto-style1">
+    <h1 style="text-align: center">Order management</h1><hr/>
+    
+    <div style="width:75%; margin:0 auto; min-height:400px">
+    <table class="table table-bordered" style="width: 100%;">
                 <tr>
                     <td>
                         Order ID
                     </td>
-                   
                     <td>
                         Name
                     </td>
@@ -23,6 +24,7 @@
                     </td>
                     <td>
                         Buying Date
+                    </td>
                     <td>
                         Delivery Address
                     </td>
@@ -37,9 +39,13 @@
                     </td>
                 </tr>
             </table>
+
+        <div style=" text-align:center">
+            <asp:Label ID="Label3" runat="server" Text="" style="font-size:x-large;"></asp:Label>
+        </div>
     <asp:DataList ID="DataList1" runat="server" DataKeyField="OrderID" DataSourceID="SqlDataSource1" CssClass="auto-style1">
         <ItemTemplate>
-            <table class="auto-style1">
+            <table class="table table-bordered" style="width: 100%;">
                 <tr>
                     <td>
                         <asp:Label ID="Label1" runat="server" Text='<%# Eval("OrderID") %>'></asp:Label>
@@ -73,5 +79,5 @@
             <asp:QueryStringParameter Name="DrawID" QueryStringField="id" />
         </SelectParameters>
     </asp:SqlDataSource>
-
+    </div>
 </asp:Content>

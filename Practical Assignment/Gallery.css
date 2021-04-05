@@ -19,7 +19,7 @@
 }
 .frame {
     width: 260px;
-    height: 200px;
+    height: 300px;
     border: 2px solid black;
     border-top: none;
     padding: 5%;
@@ -31,9 +31,8 @@
 .container {
     display: flex;
     align-items: flex-start;
-    margin-left:5%;
-    margin-bottom:3%;
-    padding-top :5%;
+    margin: 0 0 1% 5%;
+    padding-top: 2%;
     
 }
 
@@ -55,7 +54,7 @@
     background-size: cover;
     height: 100%;
 
-    width:1800px ; font-size:16px  ;margin-right :auto; margin-bottom:5% ; background-color:none;
+    width:1800px ; font-size:16px  ;margin-right :auto;margin-bottom: 3%; background-color:none;
 }
 
 

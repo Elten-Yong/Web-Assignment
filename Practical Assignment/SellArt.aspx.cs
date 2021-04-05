@@ -21,50 +21,64 @@ namespace Practical_Assignment
             SqlConnection con;
             string strcon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             con = new SqlConnection(strcon);
+
             con.Open();
-
-            string strSelect = "Select MAX(DrawID) from Gallery";
+            string strSelect = "Select count(DrawID) from Gallery";
             SqlCommand cmdSelect = new SqlCommand(strSelect, con);
-
-            string total = (string)cmdSelect.ExecuteScalar();
-           
+            int total = (int)cmdSelect.ExecuteScalar();
             con.Close();
 
-            int newIndex = int.Parse(total.Remove(0, 2)) + 1;
+            int newIndex = total + 1;
              
             string drawID = "DR" + newIndex.ToString();
 
-            con.Open();
-            int length = Drawing.PostedFile.ContentLength;
-            byte[] pic = new byte[length];
-            Drawing.PostedFile.InputStream.Read(pic, 0, length);
+            bool exit = true;
 
-            string strInsert = "Insert into Gallery (DrawID, ArtistID, Name, Description, Price, Total, Image,Category) Values (@DrawID, @ArtistID, @Name, @Description, @Price, @Total, @Image,@Category)";
 
-            SqlCommand cmdInsert = new SqlCommand(strInsert, con);
-            cmdInsert.Parameters.AddWithValue("@DrawID", drawID);
-            cmdInsert.Parameters.AddWithValue("@ArtistID", Session["Value"]);
-            cmdInsert.Parameters.AddWithValue("@Name", ArtName.Text);
-            cmdInsert.Parameters.AddWithValue("@Description", ArtDescription.Text);
-            cmdInsert.Parameters.AddWithValue("@Price", Price.Text);
-            cmdInsert.Parameters.AddWithValue("@Total", TotalArt.SelectedValue);
-            cmdInsert.Parameters.AddWithValue("@Image", pic);
-            cmdInsert.Parameters.AddWithValue("@Category", CategoryList.SelectedValue);
-            int numRowAffected = cmdInsert.ExecuteNonQuery();
-
-            if(numRowAffected > 0)
+            while (exit)
             {
-                // return insert success
-                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Added! " + "');", true);
+                try
+                {
+                    con.Open();
+                    int length = Drawing.PostedFile.ContentLength;
+                    byte[] pic = new byte[length];
+                    Drawing.PostedFile.InputStream.Read(pic, 0, length);
+
+                    string strInsert = "Insert into Gallery (DrawID, ArtistID, Name, Description, Price, Total, Image,Category) Values (@DrawID, @ArtistID, @Name, @Description, @Price, @Total, @Image,@Category)";
+
+                    SqlCommand cmdInsert = new SqlCommand(strInsert, con);
+                    cmdInsert.Parameters.AddWithValue("@DrawID", drawID);
+                    cmdInsert.Parameters.AddWithValue("@ArtistID", Session["Value"]);
+                    cmdInsert.Parameters.AddWithValue("@Name", ArtName.Text);
+                    cmdInsert.Parameters.AddWithValue("@Description", ArtDescription.Text);
+                    cmdInsert.Parameters.AddWithValue("@Price", Price.Text);
+                    cmdInsert.Parameters.AddWithValue("@Total", TotalArt.SelectedValue);
+                    cmdInsert.Parameters.AddWithValue("@Image", pic);
+                    cmdInsert.Parameters.AddWithValue("@Category", CategoryList.SelectedValue);
+                    int numRowAffected = cmdInsert.ExecuteNonQuery();
+                    con.Close();
+
+                    if (numRowAffected > 0)
+                    {
+                        // return insert success
+                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Added! " + "');", true);
+                        exit = false;
+                    }
+                    else
+                    {
+                        // return insert failed
+                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Added failed! " + "');", true);
+                    }
+
+
+                }
+                catch (Exception ex)
+                {
+                    newIndex += 1;
+                    drawID = drawID.Remove(2, drawID.Length - 2) + newIndex;
+
+                }
             }
-            else
-            {
-                // return insert failed
-                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Added failed! " + "');", true);
-            }
-            con.Close();
         }
-
- 
     }
 }

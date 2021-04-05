@@ -27,7 +27,7 @@
         }
 
         .content{
-            border :none;
+            border : none;
             width :100%;
             background-color :lightgray;
         }
@@ -73,7 +73,7 @@
      <%}
          else{ %>
     <div style="width:75%; margin:0 auto; min-height:400px">
-    <table class="auto-style1">
+    <table class="table table-bordered" style="width: 100%; background-color: darkgray">
                 <tr>
                     <th class="width1">
                         Order ID
@@ -98,7 +98,7 @@
     <asp:DataList runat="server" DataKeyField="OrderID" DataSourceID="SqlDataSource1" Height="16px" Width="100%" OnItemCommand="Unnamed_ItemCommand">
         <ItemTemplate>     
             <br/>
-            <table class="content">
+            <table class="table table-bordered" style="width: 100%; background-color: lightgray">
                 <tr>
                     <td class="width1">
                         <asp:Label ID="Label1" runat="server" Text='<%# Eval("OrderID") %>'></asp:Label>
