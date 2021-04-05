@@ -117,7 +117,7 @@
                                
                             <asp:FileUpload ID="FileUpload1" runat="server" accept="image/*" style="border-color: #4D94FF; 
                                 background-color: white; color: #284E98; margin:5% 5% 5% 10%"/>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="FileUpload1" ValidationGroup="va1" ForeColor="red" Font-Size="small" CssClass ="validator"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Required To Upload a photo." ControlToValidate="FileUpload1" ValidationGroup="va1" ForeColor="red" Font-Size="small" CssClass ="validator"></asp:RequiredFieldValidator>
                             </td>
                     </tr>
                     <tr>
