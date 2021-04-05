@@ -92,7 +92,7 @@
           </table>
     <asp:DataList ID="DataList1" runat="server" DataKeyField="DrawID" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand" style="width:100%">
         <ItemTemplate>
-            <table class="auto-style1" >
+            <table class="table table-bordered" style="width: 100%; background-color: lightgray" >
                 <tr>
                 <td class="width1">
                     
