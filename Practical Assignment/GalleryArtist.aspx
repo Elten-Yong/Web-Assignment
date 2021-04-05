@@ -2,13 +2,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .width1 {
-            width: 120px;
+            width: 2000px;
+            
         }
         .tablestyle1{
             margin-left: auto; 
             margin-right: auto;
             width: 50%;
             border: 2px black;
+
         }
         
     </style>
@@ -19,7 +21,7 @@
     <div style="text-align: center">
         <asp:Label ID="Label1" runat="server" Text="" style="font-size: x-large;"></asp:Label>   
     </div>
-    <div style="margin-left: 8%; margin-right: 8%;">
+    <div style="margin:0 auto; width:75%; min-height:400px">
          
          <table class="table table-bordered" style="width: 100%; background-color: darkgray">
                 <tr>
