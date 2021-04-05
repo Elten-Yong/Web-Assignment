@@ -135,7 +135,9 @@
         <tr>
             <td class="auto-style7">Art Drawing :</td>
             <td class="auto-style3">
-                <asp:FileUpload ID="Drawing" runat="server" accept="image/*" /></td>
+                <asp:FileUpload ID="Drawing" runat="server" accept="image/*" />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*This field id required." ControlToValidate="Drawing" SetFocusOnError="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                </td>
         </tr>
 
         <tr>
