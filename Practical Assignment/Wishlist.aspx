@@ -122,7 +122,7 @@
                         </td>
                         <td class="width1">
                             
-                            <asp:Label ID="Label4" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
+                            <asp:Label ID="Label4" runat="server" Text='<%# String.Format("RM {0:0.00}",Eval("Price")) %>'></asp:Label>
                         </td>
                         <td class="width1">
                             <asp:Button ID="Button1" runat="server" CssClass="btnDelete" Text="Delete" CommandName="Delete" CommandArgument='<%# Eval("DrawID") %>'/>

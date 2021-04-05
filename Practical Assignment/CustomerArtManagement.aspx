@@ -62,7 +62,7 @@
                         <asp:Label ID="Label7" runat="server" Text='<%# Eval("Quantity") %>'></asp:Label>
                     </td>
                     <td>                                                  
-                        <asp:Label ID="Label9" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
+                        <asp:Label ID="Label9" runat="server" Text='<%# String.Format("RM {0:0.00}",Eval("Price")) %>'></asp:Label>
                     </td>
                 </tr>
             </table>
