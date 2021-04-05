@@ -151,7 +151,7 @@
                             <asp:TextBox ID="txtConfirmPassword" runat="server" Cssclass="form" TextMode="Password"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="confirmPasswordRequired" runat="server" ControlToValidate="txtConfirmPassword" ErrorMessage="Confirm password cannot be empty" Font-Size="Small" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
                             <br />
-                            <asp:CompareValidat or ID="comparePass" runat="server" ControlToCompare="txtPassword" ControlToValidate="txtConfirmPassword" ErrorMessage="Password miss-match, please re-enter the password" Font-Size="Small" ForeColor="Red" Operator="Equal" SetFocusOnError="True"></asp:CompareValidat>
+                            <asp:CompareValidator ID="comparePass" runat="server" ControlToCompare="txtPassword" ControlToValidate="txtConfirmPassword" ErrorMessage="Password miss-match, please re-enter the password" Font-Size="Small" ForeColor="Red" Operator="Equal" SetFocusOnError="True"></asp:CompareValidator>
                         </td>
                     </tr>
                     <tr>
