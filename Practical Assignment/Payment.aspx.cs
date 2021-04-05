@@ -263,6 +263,9 @@ namespace Practical_Assignment
             if (RadioButtonList1.SelectedValue.Equals("Master/Visa Card"))
             {
                 CreditDetail.Visible = true;
+                TextBox1.Text = "XXXX-XXXX-XXXX-XXXX";
+                TextBox2.Text = "XXX";
+                TextBox3.Text = "X/XX";
                 
             }
             else
