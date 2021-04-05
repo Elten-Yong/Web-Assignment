@@ -3,9 +3,7 @@
     <style type="text/css">
         .auto-style1 {
             width: 100%;
-        }
-        .auto-style2 {
-            height: 125px;
+            
         }
         .myButton {
 	        box-shadow:inset 0px 1px 0px 0px #9acc85;
@@ -55,6 +53,10 @@
 	        position:relative;
 	        top:1px;
         }
+        .width1 {
+            width: 120px;
+            text-align:center;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server">
@@ -67,43 +69,55 @@
             </tr>
         </table>
         
-    <asp:DataList ID="DataList1" runat="server" DataKeyField="DrawID" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand">
+        <table class="table table-bordered" style="width: 100%; background-color: darkgray">
+                <tr>
+                    <td class="width1" style="font-weight: bold">
+                        Draw ID
+                    </td>
+
+                    <td class="width1" style="font-weight: bold">
+                        Name
+                    </td>
+
+                    <td class="width1" style="font-weight: bold">
+                        Image
+                    </td>
+                    <td class="width1" style="font-weight: bold">
+                        Quantity
+                    </td>
+                    <td class="width1" style="font-weight: bold">
+                        Price
+                    </td>
+                 </tr>
+          </table>
+    <asp:DataList ID="DataList1" runat="server" DataKeyField="DrawID" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand" style="width:100%">
         <ItemTemplate>
-            <table class="auto-style1">
-         <!--       <tr>
-                    <td colspan="2">
-                        <asp:Label ID="Label1" runat="server" Font-Size="X-Large" Text='<%# Eval("DrawID") %>'></asp:Label>
-                    </td>
-                </tr>
+            <table class="table table-bordered" style="width: 100%; background-color: lightgray" >
                 <tr>
-                    <td colspan="2">
-                        <a style="margin-left: 10px">Artist:</a><asp:Label ID="Label2" runat="server" Font-Size="Large" Text='<%# Eval("Name") %>'></asp:Label>
-                    </td>
-                </tr>
-                <tr>-->
-                    <td class="auto-style2" colspan="2">
-                        <asp:Image ID="Image1" runat="server" Height="213px" ImageUrl='<%# Eval("Image") %>' Width="199px" />
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <a style="margin-left: 10px">Name:</a><asp:Label ID="Label3" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <a style="margin-left: 10px">Description:</a><asp:Label ID="Label4" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <a style="margin-left: 10px">Price:</a><asp:Label ID="Label5" runat="server" Text='<%# String.Format("RM {0:0.00}",Eval("Price")) %>'></asp:Label>
-                    </td>
-                </tr>
-            <!--    <tr>
-                    <td colspan="2"><asp:Label ID="Label6" runat="server" Text='<%# Eval("Total") %>'></asp:Label></td>
-                </tr> -->
+                <td class="width1">
+                    
+                    <asp:Label ID="Label6" runat="server" Text='<%# Eval("DrawID") %>' ></asp:Label>
+                    
+                </td>
+                    
+                <td class="width1">
+                    <asp:Label ID="Label3" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
+                    
+                </td>
                 
+                    <td class="width1">
+                        <asp:Image ID="Image1" runat="server" Height="100px" ImageUrl='<%# Eval("Image") %>' Width="100px" />
+                    </td>
+               
+                    <td class="width1">
+
+                        1</td>
+              
+                    <td class="width1">
+                        <asp:Label ID="Label5" runat="server" Text='<%# String.Format("RM {0:0.00}",Eval("Price")) %>'></asp:Label>
+                    </td>
+                </tr>
+      
             </table>
             
             <br />
@@ -120,17 +134,17 @@
         <asp:ListItem>Online Banking</asp:ListItem>
     </asp:RadioButtonList>
     <div runat="server" id="CreditDetail" Visible="False" >
-        <p> Card No : </p><asp:TextBox ID="TextBox1" runat="server" ></asp:TextBox>
+        <p> Card No : </p><asp:TextBox ID="TextBox1" runat="server" placeholder="1111-2222-3333-4444"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*This field is required." SetFocusOnError="True" ForeColor="Red" ControlToValidate="Textbox1"></asp:RequiredFieldValidator>
         <br />
         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Please enter a valid card no." SetFocusOnError="True" ForeColor="Red" ControlToValidate="Textbox1" ValidationExpression="\d{4}(\-\d{4}(\-\d{4}(\-\d{4})))"></asp:RegularExpressionValidator>
        
-        <p> CVV : </p> <asp:TextBox ID="TextBox2" runat="server" ></asp:TextBox>
+        <p> CVV : </p> <asp:TextBox ID="TextBox2" runat="server" placeholder="123"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*This field is required." SetFocusOnError="True" ForeColor="Red" ControlToValidate="Textbox2"></asp:RequiredFieldValidator>
         <br />
         <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Please enter a cvv no." SetFocusOnError="True" ForeColor="Red" ControlToValidate="Textbox2" ValidationExpression="^\d{3}"></asp:RegularExpressionValidator>
         
-        <p> Expired Date : </p> <asp:TextBox ID="TextBox3" runat="server"  ></asp:TextBox>
+        <p> Expired Date : </p> <asp:TextBox ID="TextBox3" runat="server" placeholder="12/25"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*This field is required." SetFocusOnError="True" ForeColor="Red" ControlToValidate="Textbox3"></asp:RequiredFieldValidator>
         <br />
         <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Please enter a valid expired date." SetFocusOnError="True" ForeColor="Red" ControlToValidate="Textbox3" ValidationExpression="^\d{0,2}(\/\d{1,2})"></asp:RegularExpressionValidator>
