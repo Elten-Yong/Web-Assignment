@@ -26,13 +26,14 @@ namespace Practical_Assignment
         protected void btnArtist_Click(object sender, EventArgs e)
         {
             Global.accountType = "a";
-            changeView();
-           
+            lblSignIn.Text = "Sign In as Artist";
+            changeView();           
         }
 
         protected void btnCustomer_Click(object sender, EventArgs e)
         {
             Global.accountType = "c";
+            lblSignIn.Text = "Sign In as Customer";
             changeView();
         }
 

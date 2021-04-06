@@ -25,12 +25,14 @@ namespace Practical_Assignment
         protected void btnArtist_Click(object sender, EventArgs e)
         {
             Global.accountType = "a";
+            lblSignUp.Text = "Register as Artist";
             changeView();
         }
 
         protected void btnCustomer_Click(object sender, EventArgs e)
         {
             Global.accountType = "c";
+            lblSignUp.Text = "Register as Customer";
             changeView();
         }
         protected void changeView()

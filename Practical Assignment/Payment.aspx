@@ -116,5 +116,5 @@
 
     <asp:Button ID="btnConfirm" runat="server" Text="Confirm Purchase" OnClick="btnConfirm_Click" />
     </div>
-
+    <br />
 </asp:Content>

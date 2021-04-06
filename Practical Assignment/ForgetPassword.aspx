@@ -7,7 +7,7 @@
             height: auto;
             width :700px;
             margin:100px auto 180px auto;
-            background-color: rgb(224, 226, 224);
+            background-color: lightgray;
         }
         .txtType{
             text-align:center;
@@ -33,7 +33,7 @@
             border: none;
             border-bottom : 1px solid black;
             Width: 230px ;
-            background-color: rgb(224, 226, 224);
+            background-color: lightgray;
         }
         </style>
 </asp:Content>
@@ -86,8 +86,8 @@
         <asp:View ID="View2" runat="server">
                 <table class="tableFormat">
                 <tr>
-                    <td class="auto-style5" >
-                          
+                    <td>
+                        <asp:Label ID="lblForgetPw" runat="server" Text=""></asp:Label>
                         &nbsp;</td>
                 </tr>
                     <tr>
@@ -129,8 +129,8 @@
             <asp:View ID="View3" runat="server">
                 <table class="tableFormat">
                 <tr>
-                    <td class="auto-style5" >
-                          
+                    <td>
+                        <asp:Label ID="lbl2ForgetPw" runat="server" Text=""></asp:Label>  
                         &nbsp;</td>
                 </tr>
                     <tr>
@@ -179,6 +179,11 @@
                 <table class="tableFormat">
                 <tr>
                     <td><h1 style="text-align:center">Forget Password</h1><hr/></td>
+                </tr>
+                <tr>
+                    <td>
+                    <asp:Label ID="lbl3ForgetPw" runat="server" Text=""></asp:Label>
+                    </td>
                 </tr>
                 <tr>
                     <td class="auto-style5" >

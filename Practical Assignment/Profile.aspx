@@ -114,7 +114,7 @@
                                 <asp:Button ID="EditProfilePic" runat="server" Text="Change Profile Picture" Width="240px"  Height="30px" style="border-color: #4D94FF; 
                                 background-color: white; color: #284E98;" OnClick="EditProfilePic_Click"  />
                             <br /><br />
-                                <asp:Button ID="EditProfile" runat="server" Text="Account Privacy setting" Width="240px"  Height="30px" style="border-color: #4D94FF; 
+                                <asp:Button ID="EditProfile" runat="server" Text="Account Privacy settings" Width="240px"  Height="30px" style="border-color: #4D94FF; 
                                 background-color: white; color: #284E98;" OnClick="EditProfile_Click" />
 
 
