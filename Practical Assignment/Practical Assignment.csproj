@@ -88,7 +88,6 @@
     <Content Include="Payment.aspx" />
     <Content Include="Sample Images\Alzenda_Logo.png" />
     <Content Include="Sample Images\baseline_person_black_48dp.png" />
-    <Content Include="Testing.aspx" />
     <Content Include="Wishlist.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -225,13 +224,6 @@
     </Compile>
     <Compile Include="SignUp.aspx.designer.cs">
       <DependentUpon>SignUp.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Testing.aspx.cs">
-      <DependentUpon>Testing.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Testing.aspx.designer.cs">
-      <DependentUpon>Testing.aspx</DependentUpon>
     </Compile>
     <Compile Include="Wishlist.aspx.cs">
       <DependentUpon>Wishlist.aspx</DependentUpon>
