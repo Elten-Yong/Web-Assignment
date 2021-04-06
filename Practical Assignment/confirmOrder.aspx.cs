@@ -128,7 +128,8 @@ namespace Practical_Assignment
                     if (numRowAffected > 0)
                     {
                         //extract item quantity 
-                        messageContent = "You have bought 1 piece of art which the ID is " + Drawid + " with a total of RM" + totalPrice;
+                        messageContent = "You have bought 1 piece of art which the ID is " + Drawid + " with a total of " + String.Format("RM {0:0.00}", totalPrice) + "<br />"
+                            + "We hope you are satisfied with the experience on the site<br />and were able to find what you were looking for with ease.<br />" + "Kind regards,<br />The Alzenda Artwork Team<br />";
                         con.Open();
                         string strSelectTotal = "SELECT Total FROM [Gallery] Where DrawID = @DrawID1";
                         SqlCommand cmdSelectTotal = new SqlCommand(strSelectTotal, con);

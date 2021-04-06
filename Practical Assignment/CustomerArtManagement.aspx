@@ -1,9 +1,31 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="CustomerArtManagement.aspx.cs" Inherits="Practical_Assignment.CustomerArtManagement" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-        .width1 {
-            width: 150px;
+        .OrderID {
+            width: 10%;
         }
+        .Name {
+            width: 10%;
+        }
+        .Email {
+            width: 20%;
+        }
+        .Date {
+            width: 10%;
+        }
+        .Address {
+            width: 1000px;
+        }
+        .ContactNo {
+            width: 13%;
+        }
+        .Quantity{
+            width:7%;
+        }
+        .Price {
+            width: 7%;
+        }
+        
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Display" runat="server" >
@@ -12,28 +34,28 @@
     <div style="margin-left: 3%; margin-right: 3%; min-height:400px">
     <table class="table table-bordered" style="width: 100%; background-color: darkgray">
                 <tr>
-                    <td class ="width1">
+                    <td class ="OrderID">
                         Order ID
                     </td>
-                    <td class ="width1">
+                    <td class ="Name">
                         Name
                     </td>
-                    <td class ="width1">
+                    <td class ="Email">
                         Email
                     </td>
-                    <td class ="width1">
+                    <td class ="Date">
                         Buying Date
                     </td>
-                    <td class ="width1">
+                    <td class ="Address">
                         Delivery Address
                     </td>
-                    <td class ="width1">                       
+                    <td class ="ContactNo">                       
                         Contact No                    
                     </td>
-                    <td class ="width1">                                                  
+                    <td class ="Quantity">                                                  
                         Quantity
                     </td>
-                    <td class ="width1">                                                  
+                    <td class ="Price">                                                  
                         Price
                     </td>
                 </tr>
@@ -47,28 +69,28 @@
         <ItemTemplate>
             <table class="table table-bordered" style="width: 100%; background-color: lightgray">
                 <tr>
-                    <th class ="width1">
+                    <th class ="OrderID">
                         <asp:Label ID="Label1" runat="server" Text='<%# Eval("OrderID") %>'></asp:Label>
                     </th>
-                    <th class ="width1">
+                    <th class ="Name">
                         <asp:Label ID="Label3" runat="server" Text='<%# Eval("Username") %>'></asp:Label>
                     </th>
-                    <th class ="width1">
+                    <th class ="Email">
                         <asp:Label ID="Label4" runat="server" Text='<%# Eval("Email") %>'></asp:Label>
                     </th>
-                    <th class ="width1">
+                    <th class ="Date">
                         <asp:Label ID="Label8" runat="server" Text='<%# Eval("Date", "{0:G}") %>'></asp:Label>
                     </th>
-                    <th class ="width1">
+                    <th class ="Address">
                         <asp:Label ID="Label5" runat="server" Text='<%# Eval("Address") %>'></asp:Label>
                     </th>
-                    <th class ="width1">                       
+                    <th class ="ContactNo">                       
                         <asp:Label ID="Label6" runat="server" Text='<%# Eval("PhoneNumber") %>'></asp:Label>                       
                     </th>
-                    <th class ="width1">                                                  
+                    <th class ="Quantity">                                                  
                         <asp:Label ID="Label7" runat="server" Text='<%# Eval("Quantity") %>'></asp:Label>
                     </th>
-                    <th class ="width1">                                                  
+                    <th class ="Price">                                                  
                         <asp:Label ID="Label9" runat="server" Text='<%# String.Format("RM {0:0.00}",Eval("Price")) %>'></asp:Label>
                     </th>
                 </tr>
