@@ -105,12 +105,13 @@ namespace Practical_Assignment
                     con.Close();
 
                     con.Open();
-                    string strInsert = "Insert into [Order] (OrderID,CustomerID,Date,TotalPrice) Values (@OrderID,@CustomerID,@Date,@TotalPrice)";
+                    string strInsert = "Insert into [Order] (OrderID,CustomerID,Date,TotalPrice,DeliveryAddress) Values (@OrderID,@CustomerID,@Date,@TotalPrice,@DeliveryAddress)";
                     SqlCommand cmdInsert = new SqlCommand(strInsert, con);
                     cmdInsert.Parameters.AddWithValue("@OrderID", orderID);
                     cmdInsert.Parameters.AddWithValue("@CustomerID", Session["Value"]);
                     cmdInsert.Parameters.AddWithValue("@Date", DateTime.Now);
                     cmdInsert.Parameters.AddWithValue("@TotalPrice", totalPrice);
+                    cmdInsert.Parameters.AddWithValue("@DeliveryAddress", address.ToString());
                     int numRowAffected = cmdInsert.ExecuteNonQuery();
                     con.Close();
 
@@ -128,8 +129,9 @@ namespace Practical_Assignment
                     if (numRowAffected > 0)
                     {
                         //extract item quantity 
-                        messageContent = "You have bought 1 piece of art which the ID is " + Drawid + " with a total of " + String.Format("RM {0:0.00}", totalPrice) + "<br />"
-                            + "We hope you are satisfied with the experience on the site<br />and were able to find what you were looking for with ease.<br />" + "Kind regards,<br />The Alzenda Artwork Team<br />";
+
+                        messageContent = "<img src='https://i.ibb.co/H25fgMF/Alzenda-Logo.png' height='100px' width='75px'><br /><br />" + "You have bought 1 piece of art which the ID is " + Drawid + " with a total of " + String.Format("RM {0:0.00}", totalPrice) + ".<br />"
+                        + "<br />We hope you are satisfied with the experience on the site<br />and were able to find what you were looking for with ease.<br />" + "<br />Kind regards,<br />The Alzenda Artwork Team<br />";
                         con.Open();
                         string strSelectTotal = "SELECT Total FROM [Gallery] Where DrawID = @DrawID1";
                         SqlCommand cmdSelectTotal = new SqlCommand(strSelectTotal, con);
