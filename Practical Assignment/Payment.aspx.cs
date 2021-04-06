@@ -14,8 +14,10 @@ namespace Practical_Assignment
 {
     public partial class Payment : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Session["Value"] = "CS1";
             loadAddress();
         }
 
@@ -30,9 +32,6 @@ namespace Practical_Assignment
                 con.Open();
                 string strSelect = "SELECT Address from Customer Where CustomerID = @CustomerID";
                 SqlCommand cmdSelect = new SqlCommand(strSelect, con);
-
-                //cmdSelect.Parameters.AddWithValue("@CustomerID", Session["Value"]);
-
                 cmdSelect.Parameters.AddWithValue("@CustomerID", Session["Value"]);
                 string address = cmdSelect.ExecuteScalar().ToString();
                 con.Close();
@@ -42,7 +41,6 @@ namespace Practical_Assignment
             {
                 Label1.Text = "";
             }
-            
            
         }
 
@@ -96,7 +94,7 @@ namespace Practical_Assignment
 
                     //Insert into order
                     con.Open();
-                    string strInsert1 = "Insert into [Order] (OrderID,CustomerID,PaymentType,Date,TotalPrice) Values (@OrderID,@CustomerID,@PaymentType,@Date,@TotalPrice)";
+                    string strInsert1 = "Insert into [Order] (OrderID,CustomerID,PaymentType,Date,TotalPrice, DeliveryAddress) Values (@OrderID,@CustomerID,@PaymentType,@Date,@TotalPrice,@DeliveryAddress)";
                     SqlCommand cmdInsert1 = new SqlCommand(strInsert1, con);
 
                     cmdInsert1.Parameters.AddWithValue("@OrderID", orderID);
@@ -104,6 +102,7 @@ namespace Practical_Assignment
                     cmdInsert1.Parameters.AddWithValue("@PaymentType", RadioButtonList1.SelectedValue.ToString());
                     cmdInsert1.Parameters.AddWithValue("@Date", now);
                     cmdInsert1.Parameters.AddWithValue("@TotalPrice", totalPriceCheckOut);
+                    cmdInsert1.Parameters.AddWithValue("@DeliveryAddress", address);
                     int numRowAffected5 = cmdInsert1.ExecuteNonQuery();
                     con.Close();
 
@@ -202,13 +201,12 @@ namespace Practical_Assignment
                         cmdUpdate.Parameters.AddWithValue("@Total", quantity);
                         numRowAffected3 = cmdUpdate.ExecuteNonQuery();
                         con.Close();
-
-
                     }
 
                     if (numRowAffected > 0 && numRowAffected1 > 0 && numRowAffected2 > 0 && numRowAffected3 > 0)
                     {
-                        messageContent = messageContent + " You have bought " + totalRow + " piece of art which are " + drawIDMessage + " with total of RM" + totalPriceCheckOut;
+                        messageContent = messageContent + " You have bought " + totalRow + " piece of art which are " + drawIDMessage + " with total of " + String.Format("RM {0:0.00}", totalPriceCheckOut) + "\n" 
+                            + "We hope you are satisfied with the experience on the site\nand were able to find what you were looking for with ease.\n" + "Kind regards,\nThe Alzenda Artwork Team\n";
                         //Extract gamil
                         con.Open();
                         string strSelect6 = "Select Email From Customer Where CustomerID = @CustomerID6";
@@ -262,16 +260,11 @@ namespace Practical_Assignment
         {
             if (RadioButtonList1.SelectedValue.Equals("Master/Visa Card"))
             {
-                CreditDetail.Visible = true;
-                //TextBox1.Text = "XXXX-XXXX-XXXX-XXXX";
-                //TextBox2.Text = "XXX";
-                //TextBox3.Text = "X/XX";
-                
+                CreditDetail.Visible = true;                
             }
             else
             {
-                CreditDetail.Visible = false;
-                
+                CreditDetail.Visible = false;             
             }
         }
     }

@@ -86,6 +86,7 @@
     <Content Include="OrderHistory.aspx" />
     <Content Include="OrderHistoryDetails.aspx" />
     <Content Include="Payment.aspx" />
+    <Content Include="Sample Images\Alzenda_Logo.png" />
     <Content Include="Sample Images\baseline_person_black_48dp.png" />
     <Content Include="Testing.aspx" />
     <Content Include="Wishlist.aspx" />
