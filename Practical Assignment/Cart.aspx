@@ -46,6 +46,10 @@
             border-color: #4D94FF; background-color: white; color: #284E98;
         }
 
+        .totalprice{
+            font-size: medium;
+        }
+
         </style>
         
     
@@ -164,7 +168,9 @@
             </asp:SqlDataSource>
     
             <br />
-            <asp:Label ID="totalPrice1" runat="server" Text=""></asp:Label>
+            <div style="float: right; font-size: medium">
+            Total : <asp:Label ID="totalPrice1" runat="server" Text="" CssClass="totalprice"></asp:Label>
+            </div>
             <br />
             <div style="text-align : right  ; margin-bottom : 3%">
             <asp:Button ID="check_Out" runat="server" CssClass="btnAll" Height="80px" Width="160px" Text="Check Out" OnClick="check_Out_Click" />

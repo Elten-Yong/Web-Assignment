@@ -204,7 +204,8 @@ namespace Practical_Assignment
 
                     if (numRowAffected > 0 && numRowAffected1 > 0 && numRowAffected2 > 0 && numRowAffected3 > 0)
                     {
-                        messageContent = messageContent + " You have bought " + totalRow + " piece of art which are " + drawIDMessage + " with total of RM" + totalPriceCheckOut;
+                        messageContent = messageContent + " You have bought " + totalRow + " piece of art which are " + drawIDMessage + " with total of " + String.Format("RM {0:0.00}", totalPriceCheckOut) + "\n" 
+                            + "We hope you are satisfied with the experience on the site\nand were able to find what you were looking for with ease.\n" + "Kind regards,\nThe Alzenda Artwork Team\n";
                         //Extract gamil
                         con.Open();
                         string strSelect6 = "Select Email From Customer Where CustomerID = @CustomerID6";
