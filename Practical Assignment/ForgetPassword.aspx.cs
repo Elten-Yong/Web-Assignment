@@ -228,6 +228,9 @@ namespace Practical_Assignment
         protected void btnArtist_Click(object sender, EventArgs e)
         {
             Global.accountType = "a";
+            lblForgetPw.Text = "Selected as Artist";
+            lbl2ForgetPw.Text = "Selected as Artist";
+            lbl3ForgetPw.Text = "Selected as Artist";
             changeView1();
 
         }
@@ -235,6 +238,9 @@ namespace Practical_Assignment
         protected void btnCustomer_Click(object sender, EventArgs e)
         {
             Global.accountType = "c";
+            lblForgetPw.Text = "Selected as Customer";
+            lbl2ForgetPw.Text = "Selected as Customer";
+            lbl3ForgetPw.Text = "Selected as Customer";
             changeView1();
         }
 

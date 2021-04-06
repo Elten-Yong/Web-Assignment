@@ -148,7 +148,16 @@ namespace Practical_Assignment
                         int n = cmdSelectUpdate.ExecuteNonQuery();
                         con.Close();
 
-                        MailMessage message = new MailMessage("testingg726@gmail.com", "testingg726@gmail.com", "Thank You for making purchased", messageContent); // to , from, subject, text
+                        //Extract gamil
+                        con.Open();
+                        string strSelect6 = "Select Email From Customer Where CustomerID = @CustomerID6";
+                        SqlCommand cmdSelect6 = new SqlCommand(strSelect6, con);
+
+                        cmdSelect6.Parameters.AddWithValue("@CustomerID6", Session["Value"]);
+                        string email = cmdSelect6.ExecuteScalar().ToString();
+                        con.Close();
+
+                        MailMessage message = new MailMessage(email, "testingg726@gmail.com", "Thank You for making purchased", messageContent); // to , from, subject, text
                         message.IsBodyHtml = true;
 
                         SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
@@ -169,7 +178,7 @@ namespace Practical_Assignment
                 }
                 else
                 {
-                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Please select a payment methos first! " + "');", true);
+                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Please select a payment method first! " + "');", true);
                 }
             }
             else
