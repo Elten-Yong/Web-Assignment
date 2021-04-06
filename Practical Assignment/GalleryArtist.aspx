@@ -2,25 +2,25 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .DrawID {
-            width: 5%;            
+            width: 10%;            
         }
         .Name{
-            width: 2000px;
+            width: 15%;
         }
         .Category{
-            width: 2000px;
+            width: 10%;
         }
         .Image{
-            width: 2000px;
+            width: 20%;
         }
         .Description{
-            width: 2000px;
+            width: 1000px;
         }
         .Quantity{
-            width: 5%;
+            width: 8%;
         }
         .Price {
-            width: 5%;
+            width: 7%;
         }
         .Edit{
             width: 7%;
@@ -28,13 +28,7 @@
         .Delete{
             width: 8%;
         }
-        .tablestyle1{
-            margin-left: auto; 
-            margin-right: auto;
-            width: 50%;
-            border: 2px black;
-
-        }
+      
         
     </style>
 </asp:Content>
@@ -50,7 +44,7 @@
     </div>
     <div style="margin:0 auto; width:75%; min-height:400px">
          
-         <table class="table table-bordered" style="width: 100%; background-color: darkgray">
+         <table class="table table-bordered" style="background-color: darkgray">
                 <tr>
                     <th Class="DrawID">
                         Draw ID
@@ -84,7 +78,7 @@
 
     <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand">
         <ItemTemplate>
-            <table class="table table-bordered" style="width: 100%; background-color: lightgray" >
+            <table class="table table-bordered" style="width:100%; background-color: lightgray" >
                 
                 <tr>
                     <td Class="DrawID">
@@ -103,10 +97,10 @@
                     <td Class="Description">
                         <asp:Label ID="Label4" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
                     </td>
-                    <td Class="Quanntity">
+                    <td Class="Quantity">
                         <asp:Label ID="Label6" runat="server" Text='<%# Eval("Total") %>'></asp:Label>
                     </td>
-                    <td Class="width1">
+                    <td Class="Price">
                         <asp:Label ID="Label5" runat="server" Text='<%# String.Format("{0:0.00}", Eval("Price")) %>'></asp:Label>
                     </td>
                     <td Class="Edit">                        
