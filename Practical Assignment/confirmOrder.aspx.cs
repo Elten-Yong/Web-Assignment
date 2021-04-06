@@ -105,12 +105,13 @@ namespace Practical_Assignment
                     con.Close();
 
                     con.Open();
-                    string strInsert = "Insert into [Order] (OrderID,CustomerID,Date,TotalPrice) Values (@OrderID,@CustomerID,@Date,@TotalPrice)";
+                    string strInsert = "Insert into [Order] (OrderID,CustomerID,Date,TotalPrice,DeliveryAddress) Values (@OrderID,@CustomerID,@Date,@TotalPrice,@DeliveryAddress)";
                     SqlCommand cmdInsert = new SqlCommand(strInsert, con);
                     cmdInsert.Parameters.AddWithValue("@OrderID", orderID);
                     cmdInsert.Parameters.AddWithValue("@CustomerID", Session["Value"]);
                     cmdInsert.Parameters.AddWithValue("@Date", DateTime.Now);
                     cmdInsert.Parameters.AddWithValue("@TotalPrice", totalPrice);
+                    cmdInsert.Parameters.AddWithValue("@DeliveryAddress", address.ToString());
                     int numRowAffected = cmdInsert.ExecuteNonQuery();
                     con.Close();
 

@@ -78,11 +78,13 @@
                     <th class="width1">
                         Order ID
                     </th>
-
+                    <th class="width1">
+                        Delivery Address
+                    </th>
                     <th class="width1">
                         Date
                     </th>
-
+                    
                     <th class="width1">
                         Price
                     </th>
@@ -102,6 +104,9 @@
                 <tr>
                     <td class="width1">
                         <asp:Label ID="Label1" runat="server" Text='<%# Eval("OrderID") %>'></asp:Label>
+                    </td>
+                    <td class="width1">
+                        <asp:Label ID="Label5" runat="server" Text='<%# Eval("DeliveryAddress") %>'></asp:Label>
                     </td>
                     <td class="width1">
                         <asp:Label ID="Label2" runat="server" Text='<%# Eval("Date") %>'></asp:Label>
