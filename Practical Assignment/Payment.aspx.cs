@@ -17,7 +17,7 @@ namespace Practical_Assignment
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["Value"] = "CS1";
+            //Session["Value"] = "CS1";
             loadAddress();
         }
 
@@ -94,7 +94,7 @@ namespace Practical_Assignment
 
                     //Insert into order
                     con.Open();
-                    string strInsert1 = "Insert into [Order] (OrderID,CustomerID,PaymentType,Date,TotalPrice) Values (@OrderID,@CustomerID,@PaymentType,@Date,@TotalPrice)";
+                    string strInsert1 = "Insert into [Order] (OrderID,CustomerID,PaymentType,Date,TotalPrice, DeliveryAddress) Values (@OrderID,@CustomerID,@PaymentType,@Date,@TotalPrice,@DeliveryAddress)";
                     SqlCommand cmdInsert1 = new SqlCommand(strInsert1, con);
 
                     cmdInsert1.Parameters.AddWithValue("@OrderID", orderID);
@@ -102,6 +102,7 @@ namespace Practical_Assignment
                     cmdInsert1.Parameters.AddWithValue("@PaymentType", RadioButtonList1.SelectedValue.ToString());
                     cmdInsert1.Parameters.AddWithValue("@Date", now);
                     cmdInsert1.Parameters.AddWithValue("@TotalPrice", totalPriceCheckOut);
+                    cmdInsert1.Parameters.AddWithValue("@DeliveryAddress", address);
                     int numRowAffected5 = cmdInsert1.ExecuteNonQuery();
                     con.Close();
 
