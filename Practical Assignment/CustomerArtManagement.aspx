@@ -81,7 +81,7 @@
                     <th class ="Date">
                         <asp:Label ID="Label8" runat="server" Text='<%# Eval("Date", "{0:G}") %>'></asp:Label>
                     </th>
-                    <th class ="width1">
+                    <th class ="Address">
                         <asp:Label ID="Label5" runat="server" Text='<%# Eval("DeliveryAddress") %>'></asp:Label>
                     </th>
                     <th class ="ContactNo">                       
