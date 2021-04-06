@@ -20,7 +20,7 @@
             margin-right: auto;
             margin-top: 100px;
             margin-bottom: 180px;
-            background-color: rgb(224, 226, 224);
+            background-color: lightgray;
             
         }
         .tableFormat2 {
@@ -32,7 +32,7 @@
             margin-right: auto;
             margin-top: 180px;
             margin-bottom: 50px;
-            background-color: rgb(224, 226, 224);
+            background-color: lightgray;
             
         }
         .btnType{
@@ -44,7 +44,7 @@
             border: none;
             border-bottom : 1px solid black;
             Width: 230px ;
-            background-color: rgb(224, 226, 224);
+            background-color: lightgray;
         }
 
         .auto-style4 {
@@ -105,7 +105,8 @@
         <table class="tableFormat2" style="margin-top:1%">
             <tr>
                 
-                <td class="auto-style2">&nbsp;</td>
+                <td class="auto-style2">
+                    <asp:Label ID="lblSignUp" runat="server" Text=""></asp:Label>&nbsp;</td>
                 <td class="auto-style2">&nbsp;</td>
                 <tr>
                     <td class="auto-style2" colspan="2">Please fill in the registration form.

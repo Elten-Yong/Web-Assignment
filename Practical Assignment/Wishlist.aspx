@@ -36,7 +36,7 @@
     <h1 style="text-align:center">Wishlist</h1><hr />
      <% if (Session["Value"] == "0" || Session["Value"] == null)
           { %>
-        <div style="height:400px">
+        <div style="height:400px; margin: 0 10%;">
             <table class="tableFormat">
                 <tr>
                     <td class="auto-style">
