@@ -74,6 +74,9 @@ namespace Practical_Assignment
 
             if (numRowAffected > 0)
             {
+                ArtName.Text = "";
+                ArtDescription.Text = "";
+                Price.Text = "";
                 // return insert success
                 ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Added! " + "');", true);
                         
