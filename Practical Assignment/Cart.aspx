@@ -148,7 +148,7 @@
                         </td>
                         <td class="width1" style="text-align:center">
                             <%--<asp:Button ID="Button2" runat="server" Text="Buy Now" CommandName="BuyDrawing" CommandArgument='<%# Eval("DrawID") %>'/>--%>
-                            <asp:Button ID="Add" runat="server" Text="+" CommandName="Adding" CommandArgument='<%# Eval("DrawID") %>'  /><br />
+                            <asp:Button ID="Add" runat="server" Text="+" CommandName="Adding" CommandArgument='<%# Eval("DrawID") %>' /><br />
                             <asp:Label ID="quantity" width="30px" runat="server" Text='<%# Eval("Quantity") %>'></asp:Label><br />
                             <asp:Button ID="Subtract" width="26px" runat="server" Text="-" CommandName="Subtract" CommandArgument='<%# Eval("DrawID") %>'  />
                         </td>
