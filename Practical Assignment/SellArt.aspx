@@ -1,17 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="SellArt.aspx.cs" Inherits="Practical_Assignment.SellArt" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-        .tableFormat {
-            border-collapse: collapse;
-            border: 2px solid grey;
-            height: auto;
-            width: 700px;
-            background-color: white;
-            margin-bottom :1%;
-            height:300px;
-           
-            
-        }
+
         .auto-style2 {
             height: 29px;
             width: 118px;
@@ -38,10 +28,10 @@
 
         }
         .auto-style8 {
-            border-collapse: collapse;
+            border-collapse: collapse;            
             height: auto;
             width: 873px;
-            background-color: white;
+            background-color: lightgray;
             margin-bottom : 1%;
             height: 300px;
         }

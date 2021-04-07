@@ -106,12 +106,13 @@
             <tr>
                 
                 <td class="auto-style2">
-                    <asp:Label ID="lblSignUp" runat="server" Text=""></asp:Label>&nbsp;</td>
+                    <asp:Label ID="lblSignUp" runat="server" ForeColor="#666666"></asp:Label>&nbsp;</td>
                 <td class="auto-style2">&nbsp;</td>
                 <tr>
-                    <td class="auto-style2" colspan="2">Please fill in the registration form.
+                    <td class="auto-style2" colspan="2" style="border-bottom:1px solid">Please fill in the registration form.
                         <br />
-                        <hr />
+                        <br/>
+                        
                     </td>
                     <tr>
                         <td class="auto-style2">&nbsp;</td>

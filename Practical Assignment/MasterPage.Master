@@ -37,7 +37,7 @@
                <a href="SignUp.aspx" style="float:right; color:aliceblue; font-size: 16px;"> | Register</a> <a href="SignIn.aspx" style="float:right; color:aliceblue; font-size: 16px">Sign in </a>
             <%} else{%>
                    <asp:LinkButton ID="ltnButton1" runat="server" style="float:right; color:aliceblue; font-size: 16px" OnClick="ltnButton1_Click">Sign out</asp:LinkButton>
-                     <a href="Profile.aspx"><asp:Label ID="CustomerUsername" runat="server" Text="Label" style="float:right; color:aliceblue;font-size:16px"></asp:Label></a> 
+                     <a href="Profile.aspx"><asp:Label ID="CustomerUsername" runat="server" Text="Label" style="float:right; color:aliceblue;font-size:16px; margin-right:10px"></asp:Label></a> 
                      
                <%} %>
 
@@ -61,7 +61,7 @@
            <div class="header">
            
             <asp:LinkButton ID="LinkButton2" runat="server" style="float:right; color:aliceblue; font-size: 16px" OnClick="ltnButton1_Click">Sign out</asp:LinkButton>
-            <a href="Profile.aspx"><asp:Label ID="ArtistUsername" runat="server" Text="Label" style="float:right; color:aliceblue; font-size: 16px"></asp:Label></a>
+            <a href="Profile.aspx"><asp:Label ID="ArtistUsername" runat="server" Text="Label" style="float:right; color:aliceblue; font-size: 16px; margin-right:10px"></asp:Label></a>
          
             <asp:HyperLink NavigateUrl="~/HomePage.aspx" ID="HyperLink1" runat="server" ImageUrl="~/Sample Images/Alzenda_Logo.png" Style="margin-left: 150px" ImageHeight="100px" ImageWidth="75px" />
             <asp:Menu CssClass="TopMenuBar" ID="Menu2" runat="server" RenderingMode="Table" Orientation="Horizontal" >
