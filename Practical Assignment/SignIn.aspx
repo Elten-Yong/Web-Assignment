@@ -111,7 +111,7 @@
     <table class="tableFormat">
         <tr>
             <td colspan="4">
-                <asp:Label ID="lblSignIn" runat="server" Text=""></asp:Label>&nbsp;</td>
+                <asp:Label ID="lblSignIn" runat="server" ForeColor="#666666"></asp:Label>&nbsp;</td>
         </tr>
         <tr>
             <td colspan="4"><img src="Sample Images/baseline_person_black_48dp.png" alt="profile" width="150" height="150" style="margin-left:290px ; margin-bottom:10px" /> 
@@ -150,15 +150,15 @@
             <td class="txtType" colspan="4">&nbsp;</td>
         </tr>
         <tr>
-            <td  colspan="2" class="auto-style9" >
-                <div style="text-align:left ; padding-left:5px">
+            <td  colspan="2" class="auto-style9" style="width:60%" >
+                <div style="text-align:left ; padding-left:90px">
                     <asp:CheckBox ID="chkBoxRememberMe" runat="server" text="Remember me next time."/>
                 </div>
  
             </td>
 
 
-            <td style="text-align:right; padding-right:5px"colspan="2" >
+            <td style="text-align:right; padding-right:95px"colspan="2" >
                 <a href="ForgetPassword.aspx">Forget Password?</a></td>
 
 
