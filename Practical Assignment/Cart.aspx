@@ -47,7 +47,7 @@
         }
 
         .totalprice{
-            font-size: medium;
+            font-size: 20px;
         }
 
         </style>
@@ -168,10 +168,15 @@
             </asp:SqlDataSource>
     
             <br />
-            <div style="float: right; font-size: medium">
-            Total : RM <asp:Label ID="totalPrice1" runat="server" Text="" CssClass="totalprice"></asp:Label>
-            </div>
+            <table>
+                <tr style="font-size:20px;text-align:right">
+                    <td style="width:1000px;" >Total:</td>
+                    <td style="width:14.28%;"><asp:Label ID="totalPrice1" runat="server" Text="" CssClass="totalprice"></asp:Label></td>
+                </tr>
+            </table>
+           
             <br />
+            <br/>
             <div style="text-align : right  ; margin-bottom : 3%">
             <asp:Button ID="check_Out" runat="server" CssClass="btnAll" Height="80px" Width="160px" Text="Check Out" OnClick="check_Out_Click" />
             </div>
