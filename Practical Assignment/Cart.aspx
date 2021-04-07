@@ -169,7 +169,7 @@
     
             <br />
             <div style="float: right; font-size: medium">
-            Total : <asp:Label ID="totalPrice1" runat="server" Text="" CssClass="totalprice"></asp:Label>
+            Total : RM <asp:Label ID="totalPrice1" runat="server" Text="" CssClass="totalprice"></asp:Label>
             </div>
             <br />
             <div style="text-align : right  ; margin-bottom : 3%">
