@@ -130,7 +130,7 @@
                             
 
                                
-                            <asp:Button ID="Change" runat="server" Text="Upload" ValidationGroup="va1" OnClick="Change_Click" CssClass ="btnEdit"/>
+                            <asp:Button ID="Change" runat="server" Text="Upload" ValidationGroup="va1" OnClick="Change_Click" CssClass ="btnEdit" PostBackUrl="~/EditProfilePicture.aspx"/>
 
 
                             </td>
