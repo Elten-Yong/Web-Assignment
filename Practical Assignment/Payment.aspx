@@ -114,7 +114,7 @@
         <br />
      </div>
 
-    <asp:Button ID="btnConfirm" runat="server" Text="Confirm Purchase" OnClick="btnConfirm_Click" />
+    <asp:Button ID="btnConfirm" style="border-color: #4D94FF; background-color: white; color: #284E98;" runat="server" Text="Confirm Purchase" OnClick="btnConfirm_Click" />
     </div>
     <br />
 </asp:Content>

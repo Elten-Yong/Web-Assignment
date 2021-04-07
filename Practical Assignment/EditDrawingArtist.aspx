@@ -26,10 +26,10 @@
                             <asp:Image ID="Image1" runat="server" Width="100px" Height="75px" ImageUrl='<%# Eval("Image") %>' />
                         </td>
                         <td >
-                            <asp:Button ID="Button1" runat="server" Text="Confirm" CommandName="ConfirmEdit" CommandArgument='<%# Eval("DrawID") %>' ValidationGroup="valid1"/>
+                            <asp:Button ID="Button1" style="border-color: #4D94FF; background-color: white; color: #284E98;" runat="server" Text="Confirm" CommandName="ConfirmEdit" CommandArgument='<%# Eval("DrawID") %>' ValidationGroup="valid1"/>
                         </td>
                         <td>
-                            <asp:Button ID="Button2" runat="server" Text="Cancel" CommandName="CancelEdit" />
+                            <asp:Button ID="Button2" style="border-color: #4D94FF; background-color: white; color: #284E98;" runat="server" Text="Cancel" CommandName="CancelEdit" />
                         </td>
                     </tr>
                 </table>

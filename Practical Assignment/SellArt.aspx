@@ -1,17 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="SellArt.aspx.cs" Inherits="Practical_Assignment.SellArt" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-        .tableFormat {
-            border-collapse: collapse;
-            border: 2px solid grey;
-            height: auto;
-            width: 700px;
-            background-color: white;
-            margin-bottom :1%;
-            height:300px;
-           
-            
-        }
+
         .auto-style2 {
             height: 29px;
             width: 118px;
@@ -38,12 +28,17 @@
 
         }
         .auto-style8 {
-            border-collapse: collapse;
+            border-collapse: collapse;            
             height: auto;
             width: 873px;
-            background-color: white;
+            background-color: lightgray;
             margin-bottom : 1%;
             height: 300px;
+        }
+        .button{
+            border-color: #4D94FF; 
+            background-color: white; 
+            color: #284E98;"
         }
     </style>
 
@@ -149,10 +144,10 @@
 
         <tr>
             <td class="auto-style7" style="text-align:center">
-         <asp:Button ID="Cancel" runat="server" Text="Cancel" Width="140px" OnClick="Cancel_Click"  />
+         <asp:Button ID="Cancel" class="button" runat="server" Text="Cancel" Width="140px" OnClick="Cancel_Click"  />
             </td>
             <td class="auto-style3">
-        <asp:Button ID="Submit" runat="server" Text="Submit" OnClick="Submit_Click" Width="139px" ValidationGroup="postArt"/>
+        <asp:Button ID="Submit" class="button" runat="server" Text="Submit" OnClick="Submit_Click" Width="139px" ValidationGroup="postArt"/>
                 
             </td>        
         </tr>       

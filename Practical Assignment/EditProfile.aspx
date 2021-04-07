@@ -44,9 +44,7 @@
         <asp:MultiView ID="EditPageMultiview" runat="server">
             <asp:View ID="View1" runat="server">
               <table class="tableFormat">
-                    <tr>
-                            <td class="auto-style2" colspan="2">&nbsp;</td>
-                    </tr>
+                   
                     <tr>
                         <td class="auto-style2" colspan="2"></td>
                    </tr>
@@ -86,13 +84,11 @@
                 </asp:View>
             <asp:View ID="View2" runat="server">
                               <table class="tableFormat">
+                   
                     <tr>
-                            <td class="auto-style2" colspan="2">&nbsp;</td>
+                        <td class="auto-style2" colspan="2">
+                         &nbsp;</td>
                     </tr>
-                                  <tr>
-                                      <td class="auto-style2" colspan="2">
-                                          &nbsp;</td>
-                                  </tr>
                     <tr>
                             <td class="auto-style4">
                                 Username:</td>
