@@ -28,6 +28,11 @@
         .Delete{
             width: 8%;
         }
+        .button{
+            border-color: #4D94FF; 
+            background-color: white; 
+            color: #284E98;"
+        }
       
         
     </style>
@@ -104,10 +109,10 @@
                         <asp:Label ID="Label5" runat="server" Text='<%# String.Format("{0:0.00}", Eval("Price")) %>'></asp:Label>
                     </td>
                     <td Class="Edit">                        
-                        <asp:Button ID="Button1" runat="server" Text="Edit" CommandName="Edit" CommandArgument='<%# Eval("DrawID") %>'/>
+                        <asp:Button ID="Button1" class="button" runat="server" Text="Edit" CommandName="Edit" CommandArgument='<%# Eval("DrawID") %>'/>
                     </td>
                     <td Class="Delete">
-                        <asp:Button ID="Button2" runat="server" Text="Delete" CommandName="Delete" CommandArgument='<%# Eval("DrawID") %>' />
+                        <asp:Button ID="Button2" class="button" runat="server" Text="Delete" CommandName="Delete" CommandArgument='<%# Eval("DrawID") %>' />
                     </td>
                 </tr>
             </table>
