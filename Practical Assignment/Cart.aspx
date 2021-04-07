@@ -170,7 +170,7 @@
             <br />
             <table>
                 <tr style="font-size:20px;text-align:right">
-                    <td style="width:1000px;" >Total:</td>
+                    <td style="width:1000px;" >Total: RM </td>
                     <td style="width:14.28%;"><asp:Label ID="totalPrice1" runat="server" Text="" CssClass="totalprice"></asp:Label></td>
                 </tr>
             </table>
