@@ -35,6 +35,11 @@
             margin-bottom : 1%;
             height: 300px;
         }
+        .button{
+            border-color: #4D94FF; 
+            background-color: white; 
+            color: #284E98;"
+        }
     </style>
 
 </asp:Content>
@@ -139,10 +144,10 @@
 
         <tr>
             <td class="auto-style7" style="text-align:center">
-         <asp:Button ID="Cancel" runat="server" Text="Cancel" Width="140px" OnClick="Cancel_Click"  />
+         <asp:Button ID="Cancel" class="button" runat="server" Text="Cancel" Width="140px" OnClick="Cancel_Click"  />
             </td>
             <td class="auto-style3">
-        <asp:Button ID="Submit" runat="server" Text="Submit" OnClick="Submit_Click" Width="139px" ValidationGroup="postArt"/>
+        <asp:Button ID="Submit" class="button" runat="server" Text="Submit" OnClick="Submit_Click" Width="139px" ValidationGroup="postArt"/>
                 
             </td>        
         </tr>       
