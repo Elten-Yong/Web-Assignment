@@ -86,7 +86,7 @@ namespace Practical_Assignment
                     con.Close();
                 }catch(Exception ex)
                 {
-                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Cannot be deleted! " + "');", true);
+                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "This art has been purchased by a customer. Cannot be deleted" + "');", true);
                 }
                 
             }
